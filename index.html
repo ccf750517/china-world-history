@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>中國歷史世界歷史互動知識系統｜唐朝完整試用版 v8.2.6 618 Fullscreen Practical Controls Gate Candidate | HG1 retained</title>
+<title>中國歷史世界歷史互動知識系統｜唐朝完整試用版 v8.2.6.1 618 Focus North Correction Candidate | HG1 retained</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -984,7 +984,7 @@ body.ux-focus618 .uxHome{background:#ead8b8;color:#33291f;border-color:#b89563}
 #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapStage{height:clamp(300px,82vw,430px)!important;overflow:hidden!important;position:relative!important;border-top:1px solid #c7aa77;border-bottom:1px solid rgba(194,169,122,.45)}
 #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapStage .mapCanvas{
   width:100%!important;min-width:100%!important;margin:0!important;transform-origin:0 0!important;will-change:transform;
-  transform:translate3d(var(--v72-x,-91.2%),var(--v72-y,-29%),0) scale(var(--v72-scale,2.10))!important;
+  transform:translate3d(var(--v72-x,-91.2%),var(--v72-y,-20%),0) scale(var(--v72-scale,2.10))!important;
   transition:transform .24s ease!important;
 }
 #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .inlineNeighborContext{display:block!important}
@@ -1121,7 +1121,7 @@ body.ux-focus618 .uxHome{background:#ead8b8;color:#33291f;border-color:#b89563}
 
 /* Pure-CSS fallback for local iPhone file preview when JavaScript is unavailable. */
 body:not(.ux-js-map) #map-only:checked ~ .screens .map #fs-region-global:checked ~ .mapViewport .mapCanvas{transform:none!important}
-body:not(.ux-js-map) #map-only:checked ~ .screens .map #fs-region-focus:checked ~ .mapViewport .mapCanvas{transform:translate3d(calc(50vw - 242.11vw),calc(35vh - 117.54vw),0) scale(3.60)!important}
+body:not(.ux-js-map) #map-only:checked ~ .screens .map #fs-region-focus:checked ~ .mapViewport .mapCanvas{transform:translate3d(calc(50vw - 242.11vw),calc(35vh - 108.77vw),0) scale(3.60)!important}
 body:not(.ux-js-map) #map-only:checked ~ .screens .map #fs-region-guanzhong:checked ~ .mapViewport .mapCanvas{transform:translate3d(calc(50vw - 339.57vw),calc(35vh - 167.25vw),0) scale(5.2)!important}
 body:not(.ux-js-map) #map-only:checked ~ .screens .map #fs-region-hexi:checked ~ .mapViewport .mapCanvas{transform:translate3d(calc(50vw - 246.59vw),calc(35vh - 122.65vw),0) scale(4.4)!important}
 body:not(.ux-js-map) #map-only:checked ~ .screens .map #fs-region-hebei:checked ~ .mapViewport .mapCanvas{transform:translate3d(calc(50vw - 339.18vw),calc(35vh - 136.61vw),0) scale(4.8)!important}
@@ -1547,7 +1547,7 @@ aside.overlay[id^="d618-"] .placeFact{min-height:62px;display:flex;flex-directio
 </style>
 
 <style id="v826-practical-controls">
-/* v8.2.6 — Fullscreen Practical Controls Gate. High-frequency controls stay visible; advanced layers are on demand. */
+/* v8.2.6.1 — Focus North Correction. Practical controls retained; 618 focus center shifted north only. */
 :root{--v826-utility-top:7px;--v826-year-top:56px;--v826-region-top:106px;--v826-panel-top:154px;--v826-map-top:156px;--v826-map-bottom:68px}
 
 /* Utility row: four meaningful actions only. */
@@ -1622,7 +1622,7 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.2.6｜618 Fullscreen Practical Controls Gate｜HG1 史地校正保留</div>
+<div class="meta">v8.2.6.1｜618 Focus North Correction｜HG1 史地校正保留</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -5494,7 +5494,7 @@ var homeBtn=document.querySelector('[data-ux-reset]');
 var regionRail=document.querySelector('.uxRegionRail');
 var state={scale:1,x:0,y:0,pointers:new Map(),lastTap:0,mode:'global'};
 var MIN=1,MAX=6.2,BASE_W=1026,BASE_H=730;
-var FOCUS618={x:690,y:335,z:3.60,label:'618 主域'};
+var FOCUS618={x:690,y:310,z:3.60,label:'618 主域'};
 var places={
  '長安':{x:674.94,y:331.69,href:'#d618-changan',z:4.8},'西安':{x:674.94,y:331.69,href:'#d618-changan',z:4.8},
  '洛陽':{x:704.98,y:328.81,href:'#d618-luoyang',z:4.8},'太原':{x:705.79,y:294.39,href:'#d618-taiyuan',z:5.0},
@@ -5574,7 +5574,7 @@ var yr618=document.getElementById('yr-618');
 var zoom100=document.getElementById('zoom100'),zoom150=document.getElementById('zoom150');
 if(!viewport||!stage||!canvas||!navMap||!mapOnly||!yr618)return;
 var BASE_W=1026,BASE_H=730;
-var INLINE_FOCUS={x:690,y:338,z:2.32};
+var INLINE_FOCUS={x:690,y:310,z:2.32};
 var inlineMode='focus';
 function is618(){return !!yr618.checked;}
 function inlineActive(){return !!(navMap.checked&&!mapOnly.checked&&is618());}
