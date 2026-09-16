@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>中國歷史世界歷史互動知識系統｜唐朝完整試用版 v8.2.6.2 618 Inline Focus Screen Position Correction Candidate | HG1 retained</title>
+<title>中國歷史世界歷史互動知識系統｜唐朝完整試用版 v8.2.6.4 618 Inline Focus Screen Position Correction +100 Candidate | HG1 retained</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -1622,7 +1622,7 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.2.6.2｜618 Inline Focus Screen Position Correction｜HG1 史地校正保留</div>
+<div class="meta">v8.2.6.4｜618 Inline Focus Screen Position Correction +100｜HG1 史地校正保留</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -5574,7 +5574,7 @@ var yr618=document.getElementById('yr-618');
 var zoom100=document.getElementById('zoom100'),zoom150=document.getElementById('zoom150');
 if(!viewport||!stage||!canvas||!navMap||!mapOnly||!yr618)return;
 var BASE_W=1026,BASE_H=730;
-var INLINE_FOCUS={x:690,y:338,z:2.32,screenY:-56};
+var INLINE_FOCUS={x:690,y:338,z:2.32,screenY:-212};
 var inlineMode='focus';
 function is618(){return !!yr618.checked;}
 function inlineActive(){return !!(navMap.checked&&!mapOnly.checked&&is618());}
@@ -5903,8 +5903,8 @@ keepEssentials();syncSearchState();
 
 
 <script>
-/* v8.2.6.2 — Inline Focus Screen Position Correction
-   Keep historical focus coordinate unchanged; only move the inline viewport upward by 56 CSS px. */
+/* v8.2.6.4 — Inline Focus Screen Position Correction +100
+   Keep historical focus coordinate unchanged; cumulative inline viewport shift is now 212 CSS px upward. */
 </script>
 </body>
 </html>
