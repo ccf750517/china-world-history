@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>中國歷史世界歷史互動知識系統｜唐朝完整試用版 v8.2.6.11 618 Fullscreen Label Collision Fix Candidate | HG1 retained</title>
+<title>中國歷史世界歷史互動知識系統｜唐朝完整試用版 v8.2.6.13 618 Mapping Audit Candidate | HG1 retained</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -1613,7 +1613,7 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 #map-only:checked ~ #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .v827compact.layer-cities,
 #map-only:checked ~ #layer-modern:not(:checked) ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .v827compact.layer-modern{display:none!important}
 </style>
- v8.2.6.11: fullscreen research-level local label collision fix: move 楚・林士弘 northwest; 廣州 anchor unchanged 
+
 <style id="v828-fullscreen-all-tier-label-priority">
 /* v8.2.6.11 — Fullscreen all-tier label priority / semantic dedupe.
    Embedded map is untouched. Fullscreen uses shorter political labels and local collision-safe city placement. */
@@ -1629,7 +1629,28 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .yearLayer.y618canon.v67z200.v828compact{display:block!important}
 #map-only:checked ~ #layer-labels:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v828compact.layer-labels,
 #map-only:checked ~ #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v828compact.layer-cities{display:none!important}
-</style><!-- v8.2.6.11: fullscreen compact political labels remove duplicated regional prefixes; 江淮・杜伏威→杜伏威; 楚・林士弘→林士弘; 江陵 locally offset. --></head>
+</style><!-- v8.2.6.11: fullscreen compact political labels remove duplicated regional prefixes; 江淮・杜伏威→杜伏威; 楚・林士弘→林士弘; 江陵 locally offset. -->
+<style id="v829-fullscreen-label-info-mapping">
+/* v8.2.6.12 — Exact fullscreen visible-label → hotspot → info mapping.
+   Old HG1/faction political tap zones are disabled in fullscreen because their
+   coordinates predate compact label deconfliction. Embedded map remains unchanged. */
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .hg618Spot,
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .v74PoliticalSpot,
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .factionSpot{display:none!important}
+
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .v829FsSpot{
+  display:none!important;position:absolute;z-index:150!important;background:rgba(0,0,0,.001);
+  border-radius:10px;pointer-events:auto;touch-action:manipulation;
+  -webkit-tap-highlight-color:rgba(175,126,66,.15)
+}
+#map-only:checked ~ .screens .map #yr-618:checked ~ #zoom100:checked ~ .mapViewport .v829FsSpot.fs100,
+#map-only:checked ~ .screens .map #yr-618:checked ~ #zoom150:checked ~ .mapViewport .v829FsSpot.fs150,
+#map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .v829FsSpot.fs200{display:block!important}
+#map-only:checked ~ #layer-labels:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v829PolSpot{display:none!important}
+#map-only:checked ~ #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v829CitySpot{display:none!important}
+.v829FsSpot:focus-visible{outline:2px solid rgba(89,62,37,.82);outline-offset:2px}
+</style>
+</head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
 <input checked="" class="ctrl" id="layer-main" type="checkbox"/>
@@ -1648,7 +1669,7 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.2.6.11｜618 Fullscreen Min-Zoom Label Priority Fix｜全倍率去重＋華南避讓｜HG1 保留</div>
+<div class="meta">v8.2.6.12｜618 Label-to-Info Mapping Fix｜施工註記移除＋三倍率熱區校準｜HG1 保留</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -1956,6 +1977,92 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 <!-- v7.4 generated visible-text hotspots -->
 <a aria-label="618 東突厥：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="東突厥" data-v74-tier="100" href="#d618-pol-east-turkic" style="left:60.3255%;top:20.2345%;width:8.5887%;height:6.9041%" title="東突厥｜點擊查看說明"></a><a aria-label="618 西突厥：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="西突厥" data-v74-tier="100" href="#d618-pol-west-turkic" style="left:31.9810%;top:23.0219%;width:7.7729%;height:6.2671%" title="西突厥｜點擊查看說明"></a><a aria-label="618 唐：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="唐" data-v74-tier="100" href="#d618-pol-tang" style="left:61.5058%;top:44.9973%;width:3.6940%;height:7.3288%" title="唐｜點擊查看說明"></a><a aria-label="618 涼：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="涼" data-v74-tier="100" href="#d618-pol-li-gui" style="left:54.6491%;top:30.7726%;width:2.7875%;height:5.2055%" title="涼｜點擊查看說明"></a><a aria-label="618 西秦：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="西秦" data-v74-tier="100" href="#d618-pol-xiqin" style="left:57.0497%;top:39.2816%;width:4.4191%;height:4.9932%" title="西秦｜點擊查看說明"></a><a aria-label="618 夏：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="夏" data-v74-tier="100" href="#d618-pol-xia-dou" style="left:73.5643%;top:36.3573%;width:2.9688%;height:5.6301%" title="夏｜點擊查看說明"></a><a aria-label="618 高句麗：開啟文字說明" class="spot spot618canon label100 v74TextSpot v74PoliticalSpot" data-v74-text="高句麗" data-v74-tier="100" href="#d618-pol-goguryeo" style="left:77.3977%;top:29.5397%;width:6.4133%;height:5.2055%" title="高句麗｜點擊查看說明"></a><a aria-label="618 東突厥：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="東突厥" data-v74-tier="150" href="#d618-pol-east-turkic" style="left:61.2773%;top:21.1677%;width:6.6852%;height:5.4178%" title="東突厥｜點擊查看說明"></a><a aria-label="618 西突厥：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="西突厥" data-v74-tier="150" href="#d618-pol-west-turkic" style="left:32.6993%;top:23.8022%;width:6.1413%;height:4.9932%" title="西突厥｜點擊查看說明"></a><a aria-label="618 唐：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="唐" data-v74-tier="150" href="#d618-pol-tang" style="left:62.2651%;top:48.7912%;width:3.1501%;height:6.0548%" title="唐｜點擊查看說明"></a><a aria-label="618 西秦・薛舉：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="西秦・薛舉" data-v74-tier="150" href="#d618-pol-xiqin" style="left:52.6438%;top:39.6192%;width:7.7729%;height:4.1438%" title="西秦・薛舉｜點擊查看說明"></a><a aria-label="618 涼・李軌：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="涼・李軌" data-v74-tier="150" href="#d618-pol-li-gui" style="left:52.1540%;top:31.2630%;width:6.4133%;height:4.1438%" title="涼・李軌｜點擊查看說明"></a><a aria-label="618 定楊：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="定楊" data-v74-tier="150" href="#d618-pol-dingyang" style="left:67.4444%;top:30.5940%;width:3.5127%;height:3.9315%" title="定楊｜點擊查看說明"></a><a aria-label="618 梁師都：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="梁師都" data-v74-tier="150" href="#d618-pol-liang-shidao" style="left:60.9620%;top:26.8953%;width:4.7817%;height:3.9315%" title="梁師都｜點擊查看說明"></a><a aria-label="618 夏・竇建德：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="夏・竇建德" data-v74-tier="150" href="#d618-pol-xia-dou" style="left:73.3065%;top:37.0164%;width:7.7729%;height:4.1438%" title="夏・竇建德｜點擊查看說明"></a><a aria-label="618 江淮・杜伏威：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="江淮・杜伏威" data-v74-tier="150" href="#d618-pol-dufuwei" style="left:73.8938%;top:51.2630%;width:9.1326%;height:4.1438%" title="江淮・杜伏威｜點擊查看說明"></a><a aria-label="618 吐谷渾：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="吐谷渾" data-v74-tier="150" href="#d618-pol-tuyuhun" style="left:51.2154%;top:45.1145%;width:4.7817%;height:3.9315%" title="吐谷渾｜點擊查看說明"></a><a aria-label="618 高句麗：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="高句麗" data-v74-tier="150" href="#d618-pol-goguryeo" style="left:78.5263%;top:29.7403%;width:5.3255%;height:4.3562%" title="高句麗｜點擊查看說明"></a><a aria-label="618 百濟：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="百濟" data-v74-tier="150" href="#d618-pol-baekje" style="left:79.3216%;top:47.4751%;width:3.1501%;height:3.5068%" title="百濟｜點擊查看說明"></a><a aria-label="618 新羅：開啟文字說明" class="spot spot618canon label150 v74TextSpot v74PoliticalSpot" data-v74-text="新羅" data-v74-tier="150" href="#d618-pol-silla" style="left:83.7076%;top:44.5984%;width:3.1501%;height:3.5068%" title="新羅｜點擊查看說明"></a><a aria-label="618 東突厥：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="東突厥" data-v74-tier="200" href="#d618-pol-east-turkic" style="left:61.8212%;top:21.0942%;width:5.5975%;height:4.5685%" title="東突厥｜點擊查看說明"></a><a aria-label="618 西突厥：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="西突厥" data-v74-tier="200" href="#d618-pol-west-turkic" style="left:33.1072%;top:23.7129%;width:5.3255%;height:4.3562%" title="西突厥｜點擊查看說明"></a><a aria-label="618 唐：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="唐" data-v74-tier="200" href="#d618-pol-tang" style="left:62.4464%;top:49.9507%;width:2.7875%;height:5.2055%" title="唐｜點擊查看說明"></a><a aria-label="618 西秦薛氏：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="西秦薛氏" data-v74-tier="200" href="#d618-pol-xiqin" style="left:54.0760%;top:41.0208%;width:5.6881%;height:3.7192%" title="西秦薛氏｜點擊查看說明"></a><a aria-label="618 涼・李軌：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="涼・李軌" data-v74-tier="200" href="#d618-pol-li-gui" style="left:52.3216%;top:31.0208%;width:5.6881%;height:3.7192%" title="涼・李軌｜點擊查看說明"></a><a aria-label="618 定楊・劉武周：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="定楊・劉武周" data-v74-tier="200" href="#d618-pol-dingyang" style="left:67.2047%;top:29.2559%;width:7.5010%;height:3.5068%" title="定楊・劉武周｜點擊查看說明"></a><a aria-label="618 梁・梁師都：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="梁・梁師都" data-v74-tier="200" href="#d618-pol-liang-shidao" style="left:60.2437%;top:25.5573%;width:6.4133%;height:3.5068%" title="梁・梁師都｜點擊查看說明"></a><a aria-label="618 夏・竇建德：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="夏・竇建德" data-v74-tier="200" href="#d618-pol-xia-dou" style="left:73.5648%;top:37.0482%;width:6.8665%;height:3.7192%" title="夏・竇建德｜點擊查看說明"></a><a aria-label="618 江淮・杜伏威：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="江淮・杜伏威" data-v74-tier="200" href="#d618-pol-dufuwei" style="left:74.7300%;top:51.7058%;width:8.0448%;height:3.7192%" title="江淮・杜伏威｜點擊查看說明"></a><a aria-label="618 吐谷渾：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="吐谷渾" data-v74-tier="200" href="#d618-pol-tuyuhun" style="left:51.1564%;top:45.2674%;width:4.5097%;height:3.7192%" title="吐谷渾｜點擊查看說明"></a><a aria-label="618 雅隆／吐蕃形成中：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="雅隆／吐蕃形成中" data-v74-tier="200" href="#d618-pol-yarlung" style="left:47.7934%;top:58.9819%;width:9.6764%;height:3.5068%" title="雅隆／吐蕃形成中｜點擊查看說明"></a><a aria-label="618 高句麗：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="高句麗" data-v74-tier="200" href="#d618-pol-goguryeo" style="left:78.7982%;top:29.7721%;width:4.7817%;height:3.9315%" title="高句麗｜點擊查看說明"></a><a aria-label="618 百濟：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="百濟" data-v74-tier="200" href="#d618-pol-baekje" style="left:80.0945%;top:48.3129%;width:2.9688%;height:3.2945%" title="百濟｜點擊查看說明"></a><a aria-label="618 新羅：開啟文字說明" class="spot spot618canon label200 v74TextSpot v74PoliticalSpot" data-v74-text="新羅" data-v74-tier="200" href="#d618-pol-silla" style="left:84.0906%;top:45.5732%;width:2.9688%;height:3.2945%" title="新羅｜點擊查看說明"></a><a aria-label="618 現代地名對照：開啟現代地名對照說明" class="spot spot618canon label200 v74TextSpot v74ModernSpot" data-v74-text="現代地名對照" data-v74-tier="200" href="#d618-modern-guide" style="left:13.2086%;top:68.9819%;width:7.5010%;height:3.5068%" title="現代地名對照｜點擊查看說明"></a><a aria-label="618 長安 → 西安：開啟現代地名對照說明" class="spot spot618canon label200 v74TextSpot v74ModernSpot" data-v74-text="長安 → 西安" data-v74-tier="200" href="#d618-changan" style="left:7.6023%;top:72.3014%;width:6.5583%;height:3.0822%" title="長安 → 西安｜點擊查看說明"></a><a aria-label="618 姑臧 → 武威：開啟現代地名對照說明" class="spot spot618canon label200 v74TextSpot v74ModernSpot" data-v74-text="姑臧 → 武威" data-v74-tier="200" href="#d618-guzang" style="left:7.6023%;top:74.6301%;width:6.5583%;height:3.0822%" title="姑臧 → 武威｜點擊查看說明"></a><a aria-label="618 幽州 → 北京：開啟現代地名對照說明" class="spot spot618canon label200 v74TextSpot v74ModernSpot" data-v74-text="幽州 → 北京" data-v74-tier="200" href="#d618-youzhou" style="left:7.6023%;top:76.9589%;width:6.5583%;height:3.0822%" title="幽州 → 北京｜點擊查看說明"></a><a aria-label="618 江陵 → 荊州　江都 → 揚州：開啟現代地名對照說明" class="spot spot618canon label200 v74TextSpot v74ModernSpot" data-v74-text="江陵 → 荊州　江都 → 揚州" data-v74-tier="200" href="#d618-modern-jiangling-jiangdu" style="left:7.6023%;top:79.2877%;width:13.0483%;height:3.0822%" title="江陵 → 荊州　江都 → 揚州｜點擊查看說明"></a><a aria-label="618 618 Position Canon v0.1｜地理投影已重建：開啟圖面確定度說明" class="spot spot618canon dot100 dot150 dot200 v74TextSpot v74CertaintySpot" data-v74-text="618 Position Canon v0.1｜地理投影已重建" data-v74-tier="all" href="#d618-certainty-note" style="left:4.2885%;top:85.0986%;width:29.9896%;height:4.1438%" title="點擊查看圖面確定度說明"></a><a aria-label="618 城市／地點：以經緯度投影；海岸／地形：真實地理底圖。：開啟圖面確定度說明" class="spot spot618canon dot100 dot150 dot200 v74TextSpot v74CertaintySpot" data-v74-text="城市／地點：以經緯度投影；海岸／地形：真實地理底圖。" data-v74-tier="all" href="#d618-certainty-note" style="left:4.2885%;top:88.7079%;width:29.2554%;height:3.5068%" title="點擊查看圖面確定度說明"></a><a aria-label="618 政治勢力區：Candidate，表示主要控制／活動核心，不是逐縣 GIS 邊界。：開啟圖面確定度說明" class="spot spot618canon dot100 dot150 dot200 v74TextSpot v74CertaintySpot" data-v74-text="政治勢力區：Candidate，表示主要控制／活動核心，不是逐縣 GIS 邊界。" data-v74-tier="all" href="#d618-certainty-note" style="left:4.2885%;top:91.5847%;width:38.0876%;height:3.5068%" title="點擊查看圖面確定度說明"></a>
 <a aria-label="長安" class="spot" href="#d-changan" style="left:53.0599%;top:47.9470%;width:3.5156%;height:7.1523%"></a><a aria-label="洛陽" class="spot" href="#d-luoyang" style="left:61.0677%;top:46.3576%;width:3.5156%;height:7.1523%"></a><a aria-label="成都" class="spot" href="#d-chengdu" style="left:46.5495%;top:59.2053%;width:3.5156%;height:7.1523%"></a><a aria-label="揚州" class="spot" href="#d-yangzhou" style="left:69.4661%;top:55.6291%;width:3.5156%;height:7.1523%"></a><a aria-label="廣州" class="spot" href="#d-guangzhou" style="left:63.9974%;top:77.4834%;width:3.5156%;height:7.1523%"></a><a aria-label="敦煌" class="spot" href="#d-dunhuang" style="left:41.0156%;top:25.4305%;width:3.5156%;height:7.1523%"></a><a aria-label="龜茲" class="spot" href="#d-kucha" style="left:23.9583%;top:27.4172%;width:3.5156%;height:7.1523%"></a><a aria-label="焉耆" class="spot" href="#d-karasahr" style="left:28.5156%;top:22.6490%;width:3.5156%;height:7.1523%"></a><a aria-label="疏勒" class="spot" href="#d-kashgar" style="left:15.6901%;top:27.4172%;width:3.5156%;height:7.1523%"></a><a aria-label="于闐" class="spot" href="#d-khotan" style="left:23.9583%;top:36.5563%;width:3.5156%;height:7.1523%"></a><a aria-label="北庭" class="spot" href="#d-beiting" style="left:31.1849%;top:14.8344%;width:3.5156%;height:7.1523%"></a><a aria-label="吐蕃" class="spot" href="#d-tibet" style="left:19.5312%;top:38.4106%;width:29.9479%;height:47.6821%"></a><a aria-label="後突厥汗國" class="spot" href="#d-turk" style="left:42.3177%;top:0.0000%;width:29.9479%;height:23.1788%"></a><a aria-label="南詔" class="spot" href="#d-nanzhao" style="left:44.2708%;top:74.1722%;width:9.7656%;height:19.2053%"></a><a aria-label="渤海國" class="spot" href="#d-balhae" style="left:76.8229%;top:10.5960%;width:12.3698%;height:31.1258%"></a><a aria-label="新羅" class="spot" href="#d-silla" style="left:82.6823%;top:33.1126%;width:7.4870%;height:31.7881%"></a><a aria-label="日本" class="spot" href="#d-japan" style="left:89.1927%;top:43.7086%;width:10.7422%;height:29.1391%"></a><a aria-label="河西走廊" class="spot" href="#d-hexi_corridor" style="left:36.4583%;top:23.1788%;width:12.0443%;height:19.2053%"></a><a aria-label="長安—河西—敦煌主幹" class="spot" href="#d-east_trunk" style="left:40.3646%;top:29.1391%;width:15.2995%;height:33.1126%"></a><a aria-label="敦煌—安西綠洲路網" class="spot" href="#d-western_oasis" style="left:13.0208%;top:22.5166%;width:30.5990%;height:25.8278%"></a><a aria-label="天山北路／北庭方向" class="spot" href="#d-northern_route" style="left:19.5312%;top:11.2583%;width:16.9271%;height:19.2053%"></a><a aria-label="西南聯絡方向" class="spot" href="#d-southwest_link" style="left:44.9219%;top:52.3179%;width:10.4167%;height:29.1391%"></a><a aria-label="中國東南沿海—南海主線" class="spot" href="#d-south_china_sea" style="left:60.5469%;top:70.1987%;width:22.1354%;height:27.1523%"></a><a aria-label="南海—東南亞方向" class="spot" href="#d-se_asia_link" style="left:72.9167%;top:86.0927%;width:15.6250%;height:13.9073%"></a><a aria-label="東南亞—印度洋方向" class="spot" href="#d-indian_ocean_direction" style="left:63.1510%;top:92.7152%;width:23.4375%;height:7.2848%"></a><a aria-label="中國東部沿海—朝鮮／日本方向" class="spot" href="#d-east_asia_sea_link" style="left:67.0573%;top:51.6556%;width:25.3906%;height:16.5563%"></a>
+<!-- v8.2.6.12 exact fullscreen compact-label hotspots -->
+<a id="v829-100-pol-d618-pol-east-turkic" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-east-turkic" aria-label="東突厥：開啟史地說明" title="東突厥｜點擊查看說明" style="left:60.9649%;top:21.2329%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-west-turkic" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-west-turkic" aria-label="西突厥：開啟史地說明" title="西突厥｜點擊查看說明" style="left:31.9201%;top:24.5205%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-tang" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-tang" aria-label="唐：開啟史地說明" title="唐｜點擊查看說明" style="left:61.0136%;top:46.5753%;width:4.6784%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-li-gui" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-li-gui" aria-label="河西・李軌：開啟史地說明" title="河西・李軌｜點擊查看說明" style="left:51.3645%;top:31.9178%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-xiqin" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-xiqin" aria-label="西秦・薛舉：開啟史地說明" title="西秦・薛舉｜點擊查看說明" style="left:54.9708%;top:40.0000%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-xia-dou" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-xia-dou" aria-label="長樂・竇建德：開啟史地說明" title="長樂・竇建德｜點擊查看說明" style="left:71.3938%;top:35.2055%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-wangshichong" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-wangshichong" aria-label="皇泰隋廷：開啟史地說明" title="皇泰隋廷｜點擊查看說明" style="left:62.6706%;top:44.5205%;width:9.1618%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-limi" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-limi" aria-label="李密：開啟史地說明" title="李密｜點擊查看說明" style="left:71.3450%;top:39.8630%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-xiaoxian" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-xiaoxian" aria-label="梁・蕭銑：開啟史地說明" title="梁・蕭銑｜點擊查看說明" style="left:63.5478%;top:52.7397%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-pol-d618-pol-goguryeo" class="spot spot618canon v829FsSpot fs100 v829PolSpot" href="#d618-pol-goguryeo" aria-label="高句麗：開啟史地說明" title="高句麗｜點擊查看說明" style="left:75.4873%;top:33.0137%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-east-turkic" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-east-turkic" aria-label="東突厥：開啟史地說明" title="東突厥｜點擊查看說明" style="left:60.9649%;top:21.2329%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-west-turkic" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-west-turkic" aria-label="西突厥：開啟史地說明" title="西突厥｜點擊查看說明" style="left:31.9201%;top:24.5205%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-tang" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-tang" aria-label="唐：開啟史地說明" title="唐｜點擊查看說明" style="left:61.0136%;top:46.5753%;width:4.6784%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-li-gui" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-li-gui" aria-label="河西・李軌：開啟史地說明" title="河西・李軌｜點擊查看說明" style="left:51.3645%;top:31.9178%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-xiqin" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-xiqin" aria-label="西秦・薛舉：開啟史地說明" title="西秦・薛舉｜點擊查看說明" style="left:54.9708%;top:40.0000%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-xia-dou" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-xia-dou" aria-label="長樂・竇建德：開啟史地說明" title="長樂・竇建德｜點擊查看說明" style="left:71.3938%;top:35.2055%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-wangshichong" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-wangshichong" aria-label="皇泰隋廷：開啟史地說明" title="皇泰隋廷｜點擊查看說明" style="left:62.6706%;top:44.5205%;width:9.1618%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-limi" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-limi" aria-label="李密：開啟史地說明" title="李密｜點擊查看說明" style="left:71.3450%;top:39.8630%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-xiaoxian" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-xiaoxian" aria-label="梁・蕭銑：開啟史地說明" title="梁・蕭銑｜點擊查看說明" style="left:63.5478%;top:52.7397%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-goguryeo" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-goguryeo" aria-label="高句麗：開啟史地說明" title="高句麗｜點擊查看說明" style="left:75.4873%;top:33.0137%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-dingyang" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-dingyang" aria-label="定楊・劉武周：開啟史地說明" title="定楊・劉武周｜點擊查看說明" style="left:64.5712%;top:29.1781%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-liang-shidao" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-liang-shidao" aria-label="梁師都：開啟史地說明" title="梁師都｜點擊查看說明" style="left:59.6979%;top:27.8082%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-dufuwei" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-dufuwei" aria-label="江淮・杜伏威：開啟史地說明" title="江淮・杜伏威｜點擊查看說明" style="left:70.9064%;top:50.2740%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-shenfaxing" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-shenfaxing" aria-label="江南・沈法興：開啟史地說明" title="江南・沈法興｜點擊查看說明" style="left:75.4873%;top:53.2877%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-luoyi" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-luoyi" aria-label="羅藝：開啟史地說明" title="羅藝｜點擊查看說明" style="left:72.5146%;top:30.4110%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-linshihong" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-linshihong" aria-label="楚・林士弘：開啟史地說明" title="楚・林士弘｜點擊查看說明" style="left:61.1598%;top:55.4795%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-yuwen" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-yuwen" aria-label="宇文化及軍：開啟史地說明" title="宇文化及軍｜點擊查看說明" style="left:72.9532%;top:42.3288%;width:11.0136%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-tuyuhun" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-tuyuhun" aria-label="吐谷渾：開啟史地說明" title="吐谷渾｜點擊查看說明" style="left:49.1715%;top:43.8356%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-baekje" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-baekje" aria-label="百濟：開啟史地說明" title="百濟｜點擊查看說明" style="left:78.9474%;top:44.2466%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-pol-d618-pol-silla" class="spot spot618canon v829FsSpot fs150 v829PolSpot" href="#d618-pol-silla" aria-label="新羅：開啟史地說明" title="新羅｜點擊查看說明" style="left:80.7992%;top:48.6301%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-east-turkic" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-east-turkic" aria-label="東突厥：開啟史地說明" title="東突厥｜點擊查看說明" style="left:60.9649%;top:21.2329%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-west-turkic" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-west-turkic" aria-label="西突厥：開啟史地說明" title="西突厥｜點擊查看說明" style="left:31.9201%;top:24.5205%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-tang" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-tang" aria-label="唐：開啟史地說明" title="唐｜點擊查看說明" style="left:61.0136%;top:46.5753%;width:4.6784%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-li-gui" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-li-gui" aria-label="河西・李軌：開啟史地說明" title="河西・李軌｜點擊查看說明" style="left:51.3645%;top:31.9178%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-xiqin" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-xiqin" aria-label="西秦・薛舉：開啟史地說明" title="西秦・薛舉｜點擊查看說明" style="left:54.9708%;top:40.0000%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-xia-dou" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-xia-dou" aria-label="長樂・竇建德：開啟史地說明" title="長樂・竇建德｜點擊查看說明" style="left:71.3938%;top:35.2055%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-wangshichong" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-wangshichong" aria-label="皇泰隋廷：開啟史地說明" title="皇泰隋廷｜點擊查看說明" style="left:62.6706%;top:44.5205%;width:9.1618%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-limi" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-limi" aria-label="李密：開啟史地說明" title="李密｜點擊查看說明" style="left:71.3450%;top:39.8630%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-xiaoxian" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-xiaoxian" aria-label="梁・蕭銑：開啟史地說明" title="梁・蕭銑｜點擊查看說明" style="left:63.5478%;top:52.7397%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-goguryeo" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-goguryeo" aria-label="高句麗：開啟史地說明" title="高句麗｜點擊查看說明" style="left:75.4873%;top:33.0137%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-dingyang" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-dingyang" aria-label="定楊・劉武周：開啟史地說明" title="定楊・劉武周｜點擊查看說明" style="left:64.5712%;top:29.1781%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-liang-shidao" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-liang-shidao" aria-label="梁師都：開啟史地說明" title="梁師都｜點擊查看說明" style="left:59.6979%;top:27.8082%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-dufuwei" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-dufuwei" aria-label="江淮・杜伏威：開啟史地說明" title="江淮・杜伏威｜點擊查看說明" style="left:70.9064%;top:50.2740%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-shenfaxing" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-shenfaxing" aria-label="江南・沈法興：開啟史地說明" title="江南・沈法興｜點擊查看說明" style="left:75.4873%;top:53.2877%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-luoyi" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-luoyi" aria-label="羅藝：開啟史地說明" title="羅藝｜點擊查看說明" style="left:72.5146%;top:30.4110%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-linshihong" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-linshihong" aria-label="楚・林士弘：開啟史地說明" title="楚・林士弘｜點擊查看說明" style="left:61.1598%;top:55.4795%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-yuwen" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-yuwen" aria-label="宇文化及軍：開啟史地說明" title="宇文化及軍｜點擊查看說明" style="left:72.9532%;top:42.3288%;width:11.0136%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-tuyuhun" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-tuyuhun" aria-label="吐谷渾：開啟史地說明" title="吐谷渾｜點擊查看說明" style="left:49.1715%;top:43.8356%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-baekje" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-baekje" aria-label="百濟：開啟史地說明" title="百濟｜點擊查看說明" style="left:78.9474%;top:44.2466%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-silla" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-silla" aria-label="新羅：開啟史地說明" title="新羅｜點擊查看說明" style="left:80.7992%;top:48.6301%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-lizitong" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-lizitong" aria-label="李子通：開啟史地說明" title="李子通｜點擊查看說明" style="left:75.2924%;top:46.7123%;width:7.3099%;height:4.6575%"></a>
+<a id="v829-200-pol-d618-pol-yarlung" class="spot spot618canon v829FsSpot fs200 v829PolSpot" href="#d618-pol-yarlung" aria-label="雅隆／吐蕃形成中：開啟史地說明" title="雅隆／吐蕃形成中｜點擊查看說明" style="left:38.4990%;top:49.4521%;width:14.6199%;height:4.6575%"></a>
+<a id="v829-100-city-d618-changan" class="spot spot618canon v829FsSpot fs100 v829CitySpot" href="#d618-changan" aria-label="長安：開啟618 年資訊" title="長安｜點擊查看說明" style="left:63.2554%;top:39.7260%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-city-d618-dunhuang" class="spot spot618canon v829FsSpot fs100 v829CitySpot" href="#d618-dunhuang" aria-label="敦煌：開啟618 年資訊" title="敦煌｜點擊查看說明" style="left:50.6823%;top:35.0685%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-city-d618-chengdu" class="spot spot618canon v829FsSpot fs100 v829CitySpot" href="#d618-chengdu" aria-label="成都：開啟618 年資訊" title="成都｜點擊查看說明" style="left:57.6998%;top:50.6849%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-city-d618-jiangdu" class="spot spot618canon v829FsSpot fs100 v829CitySpot" href="#d618-jiangdu" aria-label="江都：開啟618 年資訊" title="江都｜點擊查看說明" style="left:74.2690%;top:45.2055%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-city-d618-guangzhou" class="spot spot618canon v829FsSpot fs100 v829CitySpot" href="#d618-guangzhou" aria-label="廣州：開啟618 年資訊" title="廣州｜點擊查看說明" style="left:67.8363%;top:59.3151%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-100-city-d618-luoyang" class="spot spot618canon v829FsSpot fs100 v829CitySpot" href="#d618-luoyang" aria-label="洛陽：開啟618 年資訊" title="洛陽｜點擊查看說明" style="left:67.2515%;top:41.7808%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-changan" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-changan" aria-label="長安：開啟618 年資訊" title="長安｜點擊查看說明" style="left:61.5984%;top:39.7260%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-luoyang" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-luoyang" aria-label="洛陽：開啟618 年資訊" title="洛陽｜點擊查看說明" style="left:67.2515%;top:41.7808%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-taiyuan" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-taiyuan" aria-label="太原：開啟618 年資訊" title="太原｜點擊查看說明" style="left:65.4971%;top:36.5753%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-tianshui" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-tianshui" aria-label="天水：開啟618 年資訊" title="天水｜點擊查看說明" style="left:59.2593%;top:43.9726%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-guzang" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-guzang" aria-label="姑臧：開啟618 年資訊" title="姑臧｜點擊查看說明" style="left:58.1871%;top:34.2466%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-dunhuang" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-dunhuang" aria-label="敦煌：開啟618 年資訊" title="敦煌｜點擊查看說明" style="left:50.6823%;top:35.0685%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-youzhou" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-youzhou" aria-label="幽州：開啟618 年資訊" title="幽州｜點擊查看說明" style="left:71.2476%;top:32.0548%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-chengdu" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-chengdu" aria-label="成都：開啟618 年資訊" title="成都｜點擊查看說明" style="left:57.2125%;top:50.9589%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-jiangling" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-jiangling" aria-label="江陵：開啟618 年資訊" title="江陵｜點擊查看說明" style="left:66.4717%;top:50.6849%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-jiangdu" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-jiangdu" aria-label="江都：開啟618 年資訊" title="江都｜點擊查看說明" style="left:74.2690%;top:44.7945%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-guangzhou" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-guangzhou" aria-label="廣州：開啟618 年資訊" title="廣州｜點擊查看說明" style="left:67.8363%;top:59.3151%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-150-city-d618-pyongyang" class="spot spot618canon v829FsSpot fs150 v829CitySpot" href="#d618-pyongyang" aria-label="平壤：開啟618 年資訊" title="平壤｜點擊查看說明" style="left:81.4815%;top:35.2055%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-changan" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-changan" aria-label="長安：開啟618 年資訊" title="長安｜點擊查看說明" style="left:61.4035%;top:39.8630%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-luoyang" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-luoyang" aria-label="洛陽：開啟618 年資訊" title="洛陽｜點擊查看說明" style="left:67.1540%;top:41.7808%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-taiyuan" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-taiyuan" aria-label="太原：開啟618 年資訊" title="太原｜點擊查看說明" style="left:66.9591%;top:37.9452%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-tianshui" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-tianshui" aria-label="天水：開啟618 年資訊" title="天水｜點擊查看說明" style="left:59.6491%;top:43.5616%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-guzang" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-guzang" aria-label="姑臧：開啟618 年資訊" title="姑臧｜點擊查看說明" style="left:58.4795%;top:35.4795%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-dunhuang" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-dunhuang" aria-label="敦煌：開啟618 年資訊" title="敦煌｜點擊查看說明" style="left:50.6823%;top:35.2055%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-mayi" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-mayi" aria-label="馬邑：開啟618 年資訊" title="馬邑｜點擊查看說明" style="left:64.3275%;top:33.2877%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-youzhou" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-youzhou" aria-label="幽州：開啟618 年資訊" title="幽州｜點擊查看說明" style="left:71.5400%;top:31.5068%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-jiangling" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-jiangling" aria-label="江陵：開啟618 年資訊" title="江陵｜點擊查看說明" style="left:66.4717%;top:50.6849%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-chengdu" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-chengdu" aria-label="成都：開啟618 年資訊" title="成都｜點擊查看說明" style="left:57.2125%;top:50.9589%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-jiangdu" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-jiangdu" aria-label="江都：開啟618 年資訊" title="江都｜點擊查看說明" style="left:74.4639%;top:44.1096%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-guangzhou" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-guangzhou" aria-label="廣州：開啟618 年資訊" title="廣州｜點擊查看說明" style="left:67.8363%;top:59.3151%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-pyongyang" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-pyongyang" aria-label="平壤：開啟618 年資訊" title="平壤｜點擊查看說明" style="left:81.0916%;top:35.3425%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-sabi" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-sabi" aria-label="泗沘：開啟618 年資訊" title="泗沘｜點擊查看說明" style="left:77.1930%;top:40.5479%;width:5.4581%;height:4.6575%"></a>
+<a id="v829-200-city-d618-geumseong" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-geumseong" aria-label="金城：開啟618 年資訊" title="金城｜點擊查看說明" style="left:83.4308%;top:40.9589%;width:5.4581%;height:4.6575%"></a>
 </div>
 </div>
 </div>
@@ -5929,6 +6036,55 @@ keepEssentials();syncSearchState();
 <script>
 /* v8.2.6.11 — Inline Focus Actual Transform Tune
    Keep historical focus coordinate unchanged; embedded focus default is now 60 CSS px upward relative to v8.2.6 baseline (20 CSS px lower than v8.2.6.7). */
+</script>
+<script id="v82613-label-info-audit">
+(function(){
+'use strict';
+/*
+  v8.2.6.13 — Current HG1 visible-label → information-card audit.
+  The older v7.4 manifest is retained only for backward-compatible embedded
+  layers.  This audit targets the active v8.2.9 full-screen hit zones and does
+  not treat historical compatibility labels as current HG1 display text.
+*/
+var aliases={
+  '皇泰隋廷':'皇泰隋廷｜洛陽',
+  '李密':'魏・李密',
+  '梁・蕭銑':'梁・蕭銑｜江陵',
+  '羅藝':'幽州・羅藝',
+  '李子通':'李子通｜海陵'
+};
+function clean(s){return (s||'').replace(/\s+/g,' ').trim();}
+window.v82613LabelInfoAudit=function(){
+  var spots=[].slice.call(document.querySelectorAll('#map a.v829FsSpot'));
+  var missingTarget=[], semanticMismatch=[], tiers={100:{political:0,city:0},150:{political:0,city:0},200:{political:0,city:0}};
+  spots.forEach(function(a){
+    var href=a.getAttribute('href')||'';
+    var target=(href.charAt(0)==='#')?document.getElementById(href.slice(1)):null;
+    if(!target){missingTarget.push({id:a.id||'',href:href});return;}
+    var aria=clean(a.getAttribute('aria-label'));
+    var visible=clean(aria.split('：')[0]);
+    var titleNode=target.querySelector('h4');
+    var cardTitle=clean(titleNode&&titleNode.textContent);
+    var expected=aliases[visible]||visible;
+    if(expected!==cardTitle)semanticMismatch.push({id:a.id||'',visible:visible,cardTitle:cardTitle});
+    ['100','150','200'].forEach(function(t){
+      if(a.classList.contains('fs'+t)){
+        if(a.classList.contains('v829PolSpot'))tiers[t].political++;
+        if(a.classList.contains('v829CitySpot'))tiers[t].city++;
+      }
+    });
+  });
+  return {
+    version:'v8.2.6.13',
+    scope:'current HG1 full-screen label-to-info mapping',
+    totalSpots:spots.length,
+    tiers:tiers,
+    missingTarget:missingTarget,
+    semanticMismatch:semanticMismatch,
+    pass:missingTarget.length===0&&semanticMismatch.length===0
+  };
+};
+})();
 </script>
 </body>
 </html>
