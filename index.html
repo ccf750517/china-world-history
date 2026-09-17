@@ -1650,6 +1650,46 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 #map-only:checked ~ #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v829CitySpot{display:none!important}
 .v829FsSpot:focus-visible{outline:2px solid rgba(89,62,37,.82);outline-offset:2px}
 </style>
+
+<style id="v82614-inline-mobile-compact-fix">
+/* v8.2.6.14 — Inline 618 mobile compact fix.
+   Reuse the verified compact text layers and exact hotspots in the embedded map
+   on narrow screens, so the 618 overview card no longer suffers from severe
+   central-China label collisions. */
+@media (max-width: 460px){
+  #yr-618:checked ~ #zoom100:checked ~ .mapViewport .yearLayer.y618canon.v67z100.v76texttop.layer-labels:not(.v828compact),
+  #yr-618:checked ~ #zoom100:checked ~ .mapViewport .yearLayer.y618canon.v67z100.v76texttop.layer-cities:not(.v828compact),
+  #yr-618:checked ~ #zoom150:checked ~ .mapViewport .yearLayer.y618canon.v67z150.v76texttop.layer-labels:not(.v828compact),
+  #yr-618:checked ~ #zoom150:checked ~ .mapViewport .yearLayer.y618canon.v67z150.v76texttop.layer-cities:not(.v828compact),
+  #yr-618:checked ~ #zoom200:checked ~ .mapViewport .yearLayer.y618canon.v67z200.v76texttop.layer-labels:not(.v828compact),
+  #yr-618:checked ~ #zoom200:checked ~ .mapViewport .yearLayer.y618canon.v67z200.v76texttop.layer-cities:not(.v828compact){display:none!important}
+
+  #yr-618:checked ~ #zoom100:checked ~ .mapViewport .yearLayer.y618canon.v67z100.v828compact,
+  #yr-618:checked ~ #zoom150:checked ~ .mapViewport .yearLayer.y618canon.v67z150.v828compact,
+  #yr-618:checked ~ #zoom200:checked ~ .mapViewport .yearLayer.y618canon.v67z200.v828compact{display:block!important}
+
+  #layer-labels:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v828compact.layer-labels,
+  #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v828compact.layer-cities{display:none!important}
+
+  #yr-618:checked ~ .mapViewport .hg618Spot,
+  #yr-618:checked ~ .mapViewport .v74PoliticalSpot,
+  #yr-618:checked ~ .mapViewport .factionSpot,
+  #yr-618:checked ~ .mapViewport .spot618canon{display:none!important}
+
+  #yr-618:checked ~ .mapViewport .v829FsSpot{
+    display:none!important;position:absolute;z-index:150!important;
+    background:rgba(0,0,0,.001);border-radius:10px;pointer-events:auto;
+    touch-action:manipulation;-webkit-tap-highlight-color:rgba(175,126,66,.15)
+  }
+  #yr-618:checked ~ #zoom100:checked ~ .mapViewport .v829FsSpot.fs100,
+  #yr-618:checked ~ #zoom150:checked ~ .mapViewport .v829FsSpot.fs150,
+  #yr-618:checked ~ #zoom200:checked ~ .mapViewport .v829FsSpot.fs200{display:block!important}
+
+  #layer-labels:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v829PolSpot{display:none!important}
+  #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v829CitySpot{display:none!important}
+}
+</style>
+
 </head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -1669,7 +1709,7 @@ body.v826-search-open #map-only:checked ~ .screens .map .uxScaleBadge{top:calc(2
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.2.6.12｜618 Label-to-Info Mapping Fix｜施工註記移除＋三倍率熱區校準｜HG1 保留</div>
+<div class="meta">v8.2.6.14｜618 Mobile Inline Compact Fix｜內嵌疊字修正＋精準熱區沿用｜HG1 保留</div>
 </header>
 <div class="screens">
 <section class="page home">
