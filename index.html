@@ -1945,6 +1945,39 @@ body:not(.ux-js-map) #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom20
 body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanvas{
   transform:translate3d(var(--ux-x,0px),var(--ux-y,0px),0) scale(var(--ux-scale,1))!important
 }
+</style><style id="v82625-fullscreen-final-text-layer-guard">
+/* v8.2.6.25 — Definitive fullscreen text-layer guard.
+   Root cause verified in a real browser: zoom-tier rules with higher selector
+   specificity re-enabled six legacy 618 text images. In fullscreen each zoom
+   tier must render exactly TWO text images: one political + one city layer. */
+@media (max-width:460px){
+  /* At each active tier, hard-disable every legacy text image except v82623fs. */
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom100:checked ~ .mapViewport .yearLayer.v67z100.layer-labels:not(.v82623fs),
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom100:checked ~ .mapViewport .yearLayer.v67z100.layer-cities:not(.v82623fs),
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom150:checked ~ .mapViewport .yearLayer.v67z150.layer-labels:not(.v82623fs),
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom150:checked ~ .mapViewport .yearLayer.v67z150.layer-cities:not(.v82623fs),
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .yearLayer.v67z200.layer-labels:not(.v82623fs),
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .yearLayer.v67z200.layer-cities:not(.v82623fs){
+    display:none!important;
+  }
+
+  /* Explicitly expose only the final white-shadow layer pair for the active tier. */
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom100:checked ~ .mapViewport .v82623fs.v67z100,
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom150:checked ~ .mapViewport .v82623fs.v67z150,
+  #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport .v82623fs.v67z200{
+    display:block!important;
+    z-index:90!important;
+  }
+
+  #layer-labels:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v82623fs.layer-labels,
+  #layer-cities:not(:checked) ~ .screens .map #yr-618:checked ~ .mapViewport .v82623fs.layer-cities{display:none!important}
+  /* zoom200 had an older v827 rule with unusually high specificity; kill it explicitly. */
+  html body #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport img.yearLayer.y618canon.v67tier.v67z200.v76texttop.v827compact.layer-labels:not(.v82623fs),
+  html body #map-only:checked ~ .screens .map #yr-618:checked ~ #zoom200:checked ~ .mapViewport img.yearLayer.y618canon.v67tier.v67z200.v76texttop.v827compact.layer-cities:not(.v82623fs){
+    display:none!important;
+  }
+
+}
 </style></head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -1964,7 +1997,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.2.6.24｜618 Fullscreen Zoom Recovery｜全螢幕縮放恢復＋本機預覽備援｜HG1 保留</div>
+<div class="meta">v8.2.6.25｜618 Fullscreen Final Text Guard｜多餘小字層清除＋縮放保留｜HG1 保留</div>
 </header>
 <div class="screens">
 <section class="page home">
