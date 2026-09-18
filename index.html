@@ -1916,6 +1916,10 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 #inline-search-open,.v72InlineSearch,.v826SearchBtn,.uxSearchBox,[data-ux-search],[data-ux-search-go]{display:none!important}
 </style><style id="v839-region-toggle-off-style">/* v8.3.9 — region chips: first tap selects/opens; second tap cancels back to main. */
 .uxRegionLabel[data-ux-region]{touch-action:manipulation}
+</style><style id="v8310-embedded-year-info-stabilization">/* v8.3.10 — year info panels must stay in mapStage UI space, never inside transformed mapCanvas. */
+.mapStage > .yearPanel{position:absolute!important;z-index:115!important}
+#map-only:not(:checked) ~ .screens .map .mapStage > .yearPanel{left:3%!important;right:3%!important;top:12px!important;max-height:calc(100% - 24px);overflow:auto;-webkit-overflow-scrolling:touch}
+#map-only:checked ~ .screens .map .mapStage > .yearPanel{left:12px!important;right:12px!important;top:12px!important;max-height:calc(100% - 24px);overflow:auto;-webkit-overflow-scrolling:touch}
 </style></head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -1935,7 +1939,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.3.9｜Region Toggle｜區域選項點一下開／再點一下關｜HG1 Candidate</div>
+<div class="meta">v8.3.10｜Embedded Year Info Stabilization｜一般地圖年份資訊縮放隔離｜HG1 Candidate</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -2111,61 +2115,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <img alt="907 routes reference layer" class="yearLayer y907 layer-routes" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI2IiBoZWlnaHQ9IjczMCIgdmlld0JveD0iMzAgMTI2IDEwMjYgNzMwIj4KICA8bWV0YWRhdGE+CiAgICBMMDkg5rW35LiK5Lqk6YCaIHYwLjIg4oCUIHJvdXRlcyBhbmQgcG9ydCBzeW1ib2xzIG9ubHkuCiAgICBWaXNpYmxlIHBvcnQgbGFiZWxzIG1vdmVkIGV4Y2x1c2l2ZWx5IHRvIEwxMC4KICAgIFN0YXR1czogZW5naW5lZXJpbmcgcmV2aXNpb24gLyBOT1QgRlJFRVpFLgogIDwvbWV0YWRhdGE+CiAgPGRlZnM+PGNsaXBQYXRoIGlkPSJjbGlwLW1hcCI+PHJlY3QgeD0iMCIgeT0iMTAyIiB3aWR0aD0iMTA4NiIgaGVpZ2h0PSI3MTgiLz48L2NsaXBQYXRoPjwvZGVmcz4KICA8ZyBpZD0iTDA5X21hcml0aW1lX3JvdXRlcyIgY2xpcC1wYXRoPSJ1cmwoI2NsaXAtbWFwKSI+CiAgICA8cGF0aCBpZD0ic291dGhfY2hpbmFfc2VhIiBkPSJNIDc0NSA1NzUgTCA3OTAgNjAwIEwgODM1IDYyNSBMIDg4NSA2NTAgTCA5MzUgNjc1IgogICAgICAgIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzNEN0Y5OSIgc3Ryb2tlLXdpZHRoPSI0LjgiCiAgICAgICAgc3Ryb2tlLWRhc2hhcnJheT0iMTAgOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIvPjxwYXRoIGlkPSJzZV9hc2lhX2xpbmsiIGQ9Ik0gOTM1IDY3NSBMIDk2NSA3MDAgTCA5OTUgNzI1IEwgMTAyMCA3NTIgTCAxMDM4IDc4MCIKICAgICAgICBmaWxsPSJub25lIiBzdHJva2U9IiM0RDhFQTUiIHN0cm9rZS13aWR0aD0iNC4wIgogICAgICAgIHN0cm9rZS1kYXNoYXJyYXk9IjggOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIvPjxwYXRoIGlkPSJpbmRpYW5fb2NlYW5fZGlyZWN0aW9uIiBkPSJNIDEwMzggNzgwIEwgMTAxMCA4MTIgTCA5NzAgODM1IEwgOTMwIDg1MCBMIDg5MCA4NTgiCiAgICAgICAgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNUM5M0E4IiBzdHJva2Utd2lkdGg9IjMuNiIKICAgICAgICBzdHJva2UtZGFzaGFycmF5PSI2IDkiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIKICAgICAgICBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiLz48cGF0aCBpZD0iZWFzdF9hc2lhX3NlYV9saW5rIiBkPSJNIDc5MCA1MjAgTCA4NDUgNTA1IEwgOTAwIDQ5NSBMIDk1NSA1MDAgTCAxMDEwIDUyMCIKICAgICAgICBmaWxsPSJub25lIiBzdHJva2U9IiM0QTgzOTgiIHN0cm9rZS13aWR0aD0iMy44IgogICAgICAgIHN0cm9rZS1kYXNoYXJyYXk9IjcgNyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIgogICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIvPgogICAgPGcgaWQ9InBvcnRzIj48ZyBpZD0iZ3Vhbmd6aG91IiBjbGFzcz0icG9ydC1ub2RlIj4KICAgICAgICAgIDxjaXJjbGUgY3g9Ijc0NSIgY3k9IjU3NSIgcj0iNiIgZmlsbD0iIzMxNUQ2RCIKICAgICAgICAgICAgICAgICAgc3Ryb2tlPSIjRkZGN0U4IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgICA8L2c+PGcgaWQ9Inlhbmd6aG91IiBjbGFzcz0icG9ydC1ub2RlIj4KICAgICAgICAgIDxjaXJjbGUgY3g9Ijc3MCIgY3k9IjUwMCIgcj0iNiIgZmlsbD0iIzMxNUQ2RCIKICAgICAgICAgICAgICAgICAgc3Ryb2tlPSIjRkZGN0U4IiBzdHJva2Utd2lkdGg9IjIiLz4KICAgICAgICA8L2c+PC9nPgogIDwvZz4KPC9zdmc+"/>
 <img alt="907 modern reference layer" class="yearLayer y907 layer-modern" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI2IiBoZWlnaHQ9IjczMCIgdmlld0JveD0iMzAgMTI2IDEwMjYgNzMwIj4KPG1ldGFkYXRhPkwxMSDnj77ku6PlnLDlkI3lsI3nhaflsaQgdjAuMu+9nOiqnue+qeagoeato++9nOmgkOiorSBPRkbvvZxOT1QgRlJFRVpFPC9tZXRhZGF0YT4KPGRlZnM+PGNsaXBQYXRoIGlkPSJjbGlwIj48cmVjdCB4PSIwIiB5PSIxMDIiIHdpZHRoPSIxMDg2IiBoZWlnaHQ9IjcxOCIvPjwvY2xpcFBhdGg+PC9kZWZzPgo8ZyBpZD0iTDExX21vZGVybl9yZWZlcmVuY2UiIGNsaXAtcGF0aD0idXJsKCNjbGlwKSI+PHRleHQgaWQ9Im1vZGVybl94aWFuIiB4PSI2MzIiIHk9IjQ0MiIgdGV4dC1hbmNob3I9InN0YXJ0IgogICAgICAgIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2RDZBNjYiCiAgICAgICAgc3Ryb2tlPSIjRkZGOUVGIiBzdHJva2Utd2lkdGg9IjMuMiIgcGFpbnQtb3JkZXI9InN0cm9rZSIKICAgICAgICBvcGFjaXR5PSIwLjg2Ij7ku4ropb/lronkuIDluLY8L3RleHQ+PHRleHQgaWQ9Im1vZGVybl9sdW95YW5nIiB4PSI3MTIiIHk9IjQ2NSIgdGV4dC1hbmNob3I9InN0YXJ0IgogICAgICAgIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2RDZBNjYiCiAgICAgICAgc3Ryb2tlPSIjRkZGOUVGIiBzdHJva2Utd2lkdGg9IjMuMiIgcGFpbnQtb3JkZXI9InN0cm9rZSIKICAgICAgICBvcGFjaXR5PSIwLjg2Ij7ku4rmtJvpmb3kuIDluLY8L3RleHQ+PHRleHQgaWQ9Im1vZGVybl9jaGVuZ2R1IiB4PSI1NjAiIHk9IjUwOCIgdGV4dC1hbmNob3I9InN0YXJ0IgogICAgICAgIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2RDZBNjYiCiAgICAgICAgc3Ryb2tlPSIjRkZGOUVGIiBzdHJva2Utd2lkdGg9IjMuMiIgcGFpbnQtb3JkZXI9InN0cm9rZSIKICAgICAgICBvcGFjaXR5PSIwLjg2Ij7ku4rmiJDpg73kuIDluLY8L3RleHQ+PHRleHQgaWQ9Im1vZGVybl95YW5nemhvdSIgeD0iNzkyIiB5PSI1MTkiIHRleHQtYW5jaG9yPSJzdGFydCIKICAgICAgICBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNkQ2QTY2IgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjIiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+5LuK5o+a5bee5LiA5bi2PC90ZXh0Pjx0ZXh0IGlkPSJtb2Rlcm5fZ3Vhbmd6aG91IiB4PSI3NjciIHk9IjU5NCIgdGV4dC1hbmNob3I9InN0YXJ0IgogICAgICAgIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2RDZBNjYiCiAgICAgICAgc3Ryb2tlPSIjRkZGOUVGIiBzdHJva2Utd2lkdGg9IjMuMiIgcGFpbnQtb3JkZXI9InN0cm9rZSIKICAgICAgICBvcGFjaXR5PSIwLjg2Ij7ku4rlu6Plt57kuIDluLY8L3RleHQ+PHRleHQgaWQ9Im1vZGVybl9kdW5odWFuZyIgeD0iNDg1IiB5PSIzMTgiIHRleHQtYW5jaG9yPSJzdGFydCIKICAgICAgICBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNkQ2QTY2IgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjIiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+5LuK5pWm54WM5LiA5bi2PC90ZXh0Pjx0ZXh0IGlkPSJtb2Rlcm5fa3VxYSIgeD0iMzA2IiB5PSIzMDgiIHRleHQtYW5jaG9yPSJzdGFydCIKICAgICAgICBmb250LXNpemU9IjEyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNkQ2QTY2IgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjIiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+5LuK5bqr6LuK5LiA5bi2PC90ZXh0Pjx0ZXh0IGlkPSJtb2Rlcm5feWFucWkiIHg9IjM0OCIgeT0iMjc2IiB0ZXh0LWFuY2hvcj0ic3RhcnQiCiAgICAgICAgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzZENkE2NiIKICAgICAgICBzdHJva2U9IiNGRkY5RUYiIHN0cm9rZS13aWR0aD0iMy4yIiBwYWludC1vcmRlcj0ic3Ryb2tlIgogICAgICAgIG9wYWNpdHk9IjAuODYiPuS7iueEieiAhuS4gOW4tjwvdGV4dD48dGV4dCBpZD0ibW9kZXJuX2thc2hnYXIiIHg9IjIyNiIgeT0iMzA0IiB0ZXh0LWFuY2hvcj0ic3RhcnQiCiAgICAgICAgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzZENkE2NiIKICAgICAgICBzdHJva2U9IiNGRkY5RUYiIHN0cm9rZS13aWR0aD0iMy4yIiBwYWludC1vcmRlcj0ic3Ryb2tlIgogICAgICAgIG9wYWNpdHk9IjAuODYiPuS7iuWWgOS7gOS4gOW4tjwvdGV4dD48dGV4dCBpZD0ibW9kZXJuX2hvdGFuIiB4PSIyNzMiIHk9IjM1NiIgdGV4dC1hbmNob3I9InN0YXJ0IgogICAgICAgIGZvbnQtc2l6ZT0iMTIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM2RDZBNjYiCiAgICAgICAgc3Ryb2tlPSIjRkZGOUVGIiBzdHJva2Utd2lkdGg9IjMuMiIgcGFpbnQtb3JkZXI9InN0cm9rZSIKICAgICAgICBvcGFjaXR5PSIwLjg2Ij7ku4rlkoznlLDkuIDluLY8L3RleHQ+PHRleHQgaWQ9Im1vZGVybl9qaW1zYXIiIHg9IjM2NCIgeT0iMjU0IiB0ZXh0LWFuY2hvcj0ic3RhcnQiCiAgICAgICAgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzZENkE2NiIKICAgICAgICBzdHJva2U9IiNGRkY5RUYiIHN0cm9rZS13aWR0aD0iMy4yIiBwYWludC1vcmRlcj0ic3Ryb2tlIgogICAgICAgIG9wYWNpdHk9IjAuODYiPuS7iuWQieacqOiWqeeIvuS4gOW4tjwvdGV4dD48dGV4dCBpZD0ibW9kZXJuX2dhbnN1X2NvcnJpZG9yIiB4PSI0NjgiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNzc3MzZFIgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjQiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+5LuK55SY6IKF5rKz6KW/6LWw5buK5LiA5bi2PC90ZXh0Pjx0ZXh0IGlkPSJtb2Rlcm5fcWluZ2hhaSIgeD0iNDY4IiB5PSIzOTciIHRleHQtYW5jaG9yPSJtaWRkbGUiCiAgICAgICAgZm9udC1zaXplPSIxMyIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzc3NzM2RSIKICAgICAgICBzdHJva2U9IiNGRkY5RUYiIHN0cm9rZS13aWR0aD0iMy40IiBwYWludC1vcmRlcj0ic3Ryb2tlIgogICAgICAgIG9wYWNpdHk9IjAuODYiPuS7iumdkua1t+S4gOW4tjwvdGV4dD48dGV4dCBpZD0ibW9kZXJuX3NvdXRoX3hpbmppYW5nIiB4PSIyNzQiIHk9IjM4MiIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNzc3MzZFIgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjQiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+5LuK5paw55aG5Y2X6YOo5LiA5bi2PC90ZXh0Pjx0ZXh0IGlkPSJtb2Rlcm5fbm9ydGhfeGluamlhbmciIHg9IjM1MiIgeT0iMTg4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIgogICAgICAgIGZvbnQtc2l6ZT0iMTMiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM3NzczNkUiCiAgICAgICAgc3Ryb2tlPSIjRkZGOUVGIiBzdHJva2Utd2lkdGg9IjMuNCIgcGFpbnQtb3JkZXI9InN0cm9rZSIKICAgICAgICBvcGFjaXR5PSIwLjg2Ij7ku4rlpKnlsbHljJfpupPkuIDluLY8L3RleHQ+PHRleHQgaWQ9Im1vZGVybl90aWJldF9wbGF0ZWF1IiB4PSIzNTYiIHk9IjQzMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNzc3MzZFIgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjQiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+5LuK6Z2S6JeP6auY5Y6f5LiA5bi2PC90ZXh0Pjx0ZXh0IGlkPSJtb2Rlcm5fdGFpd2FuIiB4PSI5NzUiIHk9IjU2NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIKICAgICAgICBmb250LXNpemU9IjEzIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjNkE3MjdBIgogICAgICAgIHN0cm9rZT0iI0ZGRjlFRiIgc3Ryb2tlLXdpZHRoPSIzLjQiIHBhaW50LW9yZGVyPSJzdHJva2UiCiAgICAgICAgb3BhY2l0eT0iMC44NiI+6Ie654GjPC90ZXh0PjwvZz4KPC9zdmc+"/>
 <img alt="907 certainty layer" class="yearLayer y907 layer-certainty" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI2IiBoZWlnaHQ9IjczMCIgdmlld0JveD0iMCAwIDEwMjYgNzMwIj48ZyBmb250LWZhbWlseT0iUGluZ0ZhbmcgVEMsTWljcm9zb2Z0IEpoZW5nSGVpLHNhbnMtc2VyaWYiPjxyZWN0IHg9IjM0IiB5PSI2NTAiIHdpZHRoPSI0MTAiIGhlaWdodD0iNDQiIHJ4PSIxMiIgZmlsbD0iI2ZmZjhlOSIgZmlsbC1vcGFjaXR5PSIuOTUiIHN0cm9rZT0iIzlmN2E0NiIgc3Ryb2tlLXdpZHRoPSIxLjUiLz48dGV4dCB4PSI1MiIgeT0iNjc4IiBmb250LXNpemU9IjE4IiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjN2E1MzMwIj45MDfvvZzoqabnlKjlj7LlnLDni4DmhYvvvIzlsJrmnKrpgJDlubQgRnJlZXplPC90ZXh0PjwvZz48L3N2Zz4="/>
-<div class="yearPanel yp-618">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>618｜武德元年｜唐高祖李淵</h4>
-<p>李淵在長安稱帝時，唐仍只是隋末多個武裝政權之一。618 年應讀成「統一戰爭中的多中心政治地圖」，不能直接套用後來盛唐疆域。</p>
-<small>長安唐政權之外，同時可見隴西西秦薛氏、河西李軌、北方劉武周與梁師都、河北竇建德、洛陽王世充勢力、江淮杜伏威及長江中游蕭銑等。v6.6 優先鎖定城市與地理位置；勢力邊界仍以工程候選方式表示。</small>
-</div><div class="yearPanel yp-630">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>630｜貞觀四年｜唐太宗李世民</h4>
-<p>唐軍擊破東突厥汗國，太宗的北方聲望與草原政治影響顯著上升。</p>
-<small>拜占庭與薩珊戰爭結束不久；歐亞西部正處於新的權力重組前夕。</small>
-</div><div class="yearPanel yp-660">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>660｜顯慶五年｜唐高宗李治</h4>
-<p>唐與新羅聯軍滅百濟，朝鮮半島局勢劇變；唐在東北亞的軍事存在擴大。</p>
-<small>西亞伊斯蘭政權迅速擴張；東亞唐、新羅、高句麗、倭國關係高度緊張。</small>
-</div><div class="yearPanel yp-668">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>668｜總章元年｜唐高宗李治</h4>
-<p>唐、新羅聯軍攻滅高句麗。唐設置安東都護府，但此後唐羅矛盾迅速升高。</p>
-<small>東亞秩序重組，新羅逐步取得朝鮮半島大部；日本進入律令國家形成期。</small>
-</div><div class="yearPanel yp-742">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>742｜天寶元年｜唐玄宗李隆基</h4>
-<p>本系統目前史地校準最完整的切片。十五道、州郡行政、節度／都護軍政、羈縻與周邊政權必須分層閱讀。</p>
-<small>吐蕃、後突厥、南詔、渤海、新羅、日本並存；西方仍為倭馬亞哈里發時代末期。</small>
-</div><div class="yearPanel yp-763">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>763｜廣德元年｜唐代宗李豫</h4>
-<p>安史之亂進入尾聲，但帝國的財政、軍事與地方權力結構已根本改變。吐蕃曾一度攻入長安。</p>
-<small>阿拔斯哈里發已取代倭馬亞；吐蕃在內亞保持強勢。</small>
-</div><div class="yearPanel yp-820">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>820｜元和十五年／長慶元年｜憲宗末—穆宗初</h4>
-<p>唐廷一度加強對藩鎮的控制，但中央、藩鎮、宦官與財政問題並未根本解決。</p>
-<small>日本已進入平安時代；阿拔斯世界與內亞商路仍深刻影響歐亞交流。</small>
-</div><div class="yearPanel yp-880">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>880｜廣明元年｜唐僖宗李儇</h4>
-<p>黃巢軍席捲多地，唐朝的財政、地方控制與軍事秩序接近全面失靈。</p>
-<small>東亞海陸交流仍在延續，但唐朝已無力維持早中期的跨區域秩序。</small>
-</div><div class="yearPanel yp-907">
-<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
-<div class="eyebrow">年份資訊</div>
-<h4>907｜天祐四年｜唐哀帝李柷</h4>
-<p>朱溫逼唐哀帝禪位，唐朝結束。中國進入五代十國時期。</p>
-<small>契丹耶律阿保機在北方崛起；東亞政治秩序進入新的重組期。</small>
-</div>
+
 <a aria-label="618 長安城市點：開啟資訊" class="spot spot618canon dot100" href="#d618-changan" style="left:65.1014%;top:44.4781%;width:1.3645%;height:1.9178%" title="長安｜點擊查看 618 年資訊"></a>
 <a aria-label="618 洛陽城市點：開啟資訊" class="spot spot618canon dot150" href="#d618-luoyang" style="left:68.0292%;top:44.0836%;width:1.3645%;height:1.9178%" title="洛陽｜點擊查看 618 年資訊"></a>
 <a aria-label="618 太原城市點：開啟資訊" class="spot spot618canon dot150" href="#d618-taiyuan" style="left:68.1082%;top:39.3685%;width:1.3645%;height:1.9178%" title="太原｜點擊查看 618 年資訊"></a>
@@ -2313,6 +2263,60 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <a aria-label="平壤：開啟618 年資訊" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-pyongyang" id="v829-200-city-d618-pyongyang" style="left:81.0916%;top:35.3425%;width:5.4581%;height:4.6575%" title="平壤｜點擊查看說明"></a>
 <a aria-label="泗沘：開啟618 年資訊" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-sabi" id="v829-200-city-d618-sabi" style="left:77.1930%;top:40.5479%;width:5.4581%;height:4.6575%" title="泗沘｜點擊查看說明"></a>
 <a aria-label="金城：開啟618 年資訊" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-geumseong" id="v829-200-city-d618-geumseong" style="left:83.4308%;top:40.9589%;width:5.4581%;height:4.6575%" title="金城｜點擊查看說明"></a>
+</div><div class="yearPanel yp-618">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>618｜武德元年｜唐高祖李淵</h4>
+<p>李淵在長安稱帝時，唐仍只是隋末多個武裝政權之一。618 年應讀成「統一戰爭中的多中心政治地圖」，不能直接套用後來盛唐疆域。</p>
+<small>長安唐政權之外，同時可見隴西西秦薛氏、河西李軌、北方劉武周與梁師都、河北竇建德、洛陽王世充勢力、江淮杜伏威及長江中游蕭銑等。v6.6 優先鎖定城市與地理位置；勢力邊界仍以工程候選方式表示。</small>
+</div><div class="yearPanel yp-630">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>630｜貞觀四年｜唐太宗李世民</h4>
+<p>唐軍擊破東突厥汗國，太宗的北方聲望與草原政治影響顯著上升。</p>
+<small>拜占庭與薩珊戰爭結束不久；歐亞西部正處於新的權力重組前夕。</small>
+</div><div class="yearPanel yp-660">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>660｜顯慶五年｜唐高宗李治</h4>
+<p>唐與新羅聯軍滅百濟，朝鮮半島局勢劇變；唐在東北亞的軍事存在擴大。</p>
+<small>西亞伊斯蘭政權迅速擴張；東亞唐、新羅、高句麗、倭國關係高度緊張。</small>
+</div><div class="yearPanel yp-668">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>668｜總章元年｜唐高宗李治</h4>
+<p>唐、新羅聯軍攻滅高句麗。唐設置安東都護府，但此後唐羅矛盾迅速升高。</p>
+<small>東亞秩序重組，新羅逐步取得朝鮮半島大部；日本進入律令國家形成期。</small>
+</div><div class="yearPanel yp-742">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>742｜天寶元年｜唐玄宗李隆基</h4>
+<p>本系統目前史地校準最完整的切片。十五道、州郡行政、節度／都護軍政、羈縻與周邊政權必須分層閱讀。</p>
+<small>吐蕃、後突厥、南詔、渤海、新羅、日本並存；西方仍為倭馬亞哈里發時代末期。</small>
+</div><div class="yearPanel yp-763">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>763｜廣德元年｜唐代宗李豫</h4>
+<p>安史之亂進入尾聲，但帝國的財政、軍事與地方權力結構已根本改變。吐蕃曾一度攻入長安。</p>
+<small>阿拔斯哈里發已取代倭馬亞；吐蕃在內亞保持強勢。</small>
+</div><div class="yearPanel yp-820">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>820｜元和十五年／長慶元年｜憲宗末—穆宗初</h4>
+<p>唐廷一度加強對藩鎮的控制，但中央、藩鎮、宦官與財政問題並未根本解決。</p>
+<small>日本已進入平安時代；阿拔斯世界與內亞商路仍深刻影響歐亞交流。</small>
+</div><div class="yearPanel yp-880">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>880｜廣明元年｜唐僖宗李儇</h4>
+<p>黃巢軍席捲多地，唐朝的財政、地方控制與軍事秩序接近全面失靈。</p>
+<small>東亞海陸交流仍在延續，但唐朝已無力維持早中期的跨區域秩序。</small>
+</div><div class="yearPanel yp-907">
+<label aria-label="關閉" class="closeBtn" for="year-info">×</label>
+<div class="eyebrow">年份資訊</div>
+<h4>907｜天祐四年｜唐哀帝李柷</h4>
+<p>朱溫逼唐哀帝禪位，唐朝結束。中國進入五代十國時期。</p>
+<small>契丹耶律阿保機在北方崛起；東亞政治秩序進入新的重組期。</small>
 </div>
 </div>
 </div>
