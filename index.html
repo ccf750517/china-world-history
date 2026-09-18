@@ -1970,17 +1970,17 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
   }
 }
 </style>
-<style id="v8314-embedded-main-refocus">
-/* v8.3.14 — Embedded 618 Main: tighter Tang-core focus.
-   Zoom the existing single canonical text/map stack together; do not add a second text layer. */
+<style id="v8315-embedded-main-refocus-plus">
+/* v8.3.15 — Embedded 618 Main: stronger Tang-core focus.
+   Enlarge the single canonical text/map stack further and recenter on the Tang core. */
 #map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapStage .mapCanvas{
   transform-origin:0 0!important;
-  transform:translate3d(-107.1%,calc(-41.7% - 60px),0) scale(2.35)!important;
+  transform:translate3d(-116.2%,calc(-45.3% - 60px),0) scale(2.55)!important;
   transition:transform .24s ease!important;
 }
 @media(max-width:460px){
   #map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapStage .mapCanvas{
-    transform:translate3d(-113.4%,calc(-46.8% - 60px),0) scale(2.45)!important;
+    transform:translate3d(-122.7%,calc(-50.6% - 60px),0) scale(2.65)!important;
   }
 }
 </style>
@@ -2003,7 +2003,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.3.14｜Embedded Main Refocus｜主域聚焦唐朝核心＋地名放大｜HG1 Candidate</div>
+<div class="meta">v8.3.15｜Embedded Main Refocus Plus｜主域再聚焦唐朝核心＋地名再放大｜HG1 Candidate</div>
 </header>
 <div class="screens">
 <section class="page home">
