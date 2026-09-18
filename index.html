@@ -1911,6 +1911,9 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 .overlay.v835RegionSheet.v82-open{pointer-events:none!important}
 .overlay.v835RegionSheet.v82-open .detail{pointer-events:auto!important}
 @media(max-width:460px){.v835RegionTangNote{font-size:12.5px;line-height:1.58}}
+</style><style id="v837-map-search-removed">
+/* v8.3.7 — Map search/location feature removed by user decision. */
+#inline-search-open,.v72InlineSearch,.v826SearchBtn,.uxSearchBox,[data-ux-search],[data-ux-search-go]{display:none!important}
 </style></head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -1930,14 +1933,14 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.3.6｜618 Unified Block Color｜勢力／區域色塊統一高辨識色｜HG1 Candidate</div>
+<div class="meta">v8.3.7｜Map UI Simplification｜取消搜尋定位｜HG1 Candidate</div>
 </header>
 <div class="screens">
 <section class="page home">
 <div class="pageInner">
 <div class="hero">
 <h2>唐朝完整試用版</h2>
-<p class="lead">618 延續多區域固定色彩與 True Focus；v8.2 將地名資訊改為浮動 Bottom Sheet。點擊地名只開啟說明，不改變地圖中心、縮放、平移或頁面捲動；只有使用者拖曳、縮放、區域導航或搜尋定位才會移動地圖。</p>
+<p class="lead">618 延續多區域固定色彩與 True Focus；v8.2 將地名資訊改為浮動 Bottom Sheet。點擊地名只開啟說明，不改變地圖中心、縮放、平移或頁面捲動；只有使用者拖曳、縮放或區域導航才會移動地圖。</p>
 <div class="stats">
 <div class="stat"><b>742</b><span>主要地圖年代</span></div>
 <div class="stat"><b>9</b><span>可切換年代</span></div>
@@ -1968,7 +1971,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="zoom200" name="zoom" type="radio"/>
 <input checked="" class="ctrl" id="inline-focus-view" name="inline-view" type="radio"/>
 <input class="ctrl" id="inline-global-view" name="inline-view" type="radio"/>
-<input class="ctrl" id="inline-search-open" type="checkbox"/>
+
 <input checked="" class="ctrl v75RegionRadio" id="fs-region-focus" name="fs-region" type="radio"/>
 <input class="ctrl v75RegionRadio" id="fs-region-global" name="fs-region" type="radio"/>
 <input class="ctrl v75RegionRadio" id="fs-region-guanzhong" name="fs-region" type="radio"/>
@@ -1982,23 +1985,16 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <div class="actionBar v71ActionBar">
 <label class="inlineUxBtn inlinePrimary" for="inline-focus-view">主域</label>
 <label class="inlineUxBtn" for="inline-global-view">全域</label>
-<label class="inlineUxBtn" for="inline-search-open">搜尋定位</label>
+
 <label for="map-only" id="map-only-local">全螢幕地圖</label>
 <label for="year-info">年份資訊</label>
 </div>
-<div aria-label="618 地圖搜尋定位" class="v72InlineSearch">
-<div class="v72SearchRow">
-<input autocomplete="off" id="v72MapSearch" placeholder="搜尋：長安、洛陽、太原、敦煌…" type="search"/>
-<button id="v72MapSearchGo" type="button">定位</button>
-<label class="v72SearchClose" for="inline-search-open">關閉</label>
-</div>
-<div class="v72SearchStatus" id="v72SearchStatus">本機預覽可開啟搜尋列；實際地圖定位於 GitHub Pages／Safari 執行。</div>
-</div>
+
 <div class="soloBar v826UtilityBar">
 <label for="map-only">退出地圖</label>
 <label for="year-info">年份資訊</label>
 <label class="v826LayerBtn" for="fs-advanced-open">圖層</label>
-<button class="v826SearchBtn" data-ux-search="" type="button">搜尋</button>
+
 </div>
 <div class="mapViewport">
 <div class="yearOverlay"><span class="yearToggle yt-618"><label class="yearChip compact yearPick" for="yr-618" title="唐建立"><b>618</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 618"><b>618</b></label></span><span class="yearToggle yt-630"><label class="yearChip compact yearPick" for="yr-630" title="滅東突厥"><b>630</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 630"><b>630</b></label></span><span class="yearToggle yt-660"><label class="yearChip compact yearPick" for="yr-660" title="百濟滅亡"><b>660</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 660"><b>660</b></label></span><span class="yearToggle yt-668"><label class="yearChip compact yearPick" for="yr-668" title="高句麗滅亡"><b>668</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 668"><b>668</b></label></span><span class="yearToggle yt-742"><label class="yearChip compact yearPick" for="yr-742" title="天寶元年"><b>742</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 742"><b>742</b></label></span><span class="yearToggle yt-763"><label class="yearChip compact yearPick" for="yr-763" title="安史後"><b>763</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 763"><b>763</b></label></span><span class="yearToggle yt-820"><label class="yearChip compact yearPick" for="yr-820" title="元和後"><b>820</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 820"><b>820</b></label></span><span class="yearToggle yt-880"><label class="yearChip compact yearPick" for="yr-880" title="黃巢之亂"><b>880</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 880"><b>880</b></label></span><span class="yearToggle yt-907"><label class="yearChip compact yearPick" for="yr-907" title="唐亡"><b>907</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 907"><b>907</b></label></span></div><div aria-description="點一下勢力標籤顯示其範圍並開啟下方簡介；再點一次取消。可同時保留多個勢力色塊。" aria-label="618 非唐勢力按需顯示" class="v830FactionRail"><span class="v830FactionRailTitle">非唐勢力</span><label class="v830FactionChip" data-info-target="d618-pol-li-gui" for="f618-ligui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李軌</label><label class="v830FactionChip" data-info-target="d618-pol-xiqin" for="f618-xueju" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>薛舉</label><label class="v830FactionChip" data-info-target="d618-pol-liang-shidao" for="f618-liangshidu" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>梁師都</label><label class="v830FactionChip" data-info-target="d618-pol-dingyang" for="f618-liuwuzhou" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>劉武周</label><label class="v830FactionChip" data-info-target="d618-pol-xia-dou" for="f618-doujiande" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>竇建德</label><label class="v830FactionChip" data-info-target="d618-wangshichong" for="f618-huangtaisui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>皇泰隋廷</label><label class="v830FactionChip" data-info-target="d618-pol-limi" for="f618-limi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李密</label><label class="v830FactionChip" data-info-target="d618-pol-dufuwei" for="f618-dufuwei" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>杜伏威</label><label class="v830FactionChip" data-info-target="d618-pol-shenfaxing" for="f618-shenfaxing" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>沈法興</label><label class="v830FactionChip" data-info-target="d618-xiaoxian" for="f618-xiaoxian" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>蕭銑</label><label class="v830FactionChip" data-info-target="d618-pol-luoyi" for="f618-luoyi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>羅藝</label><label class="v830FactionChip" data-info-target="d618-pol-linshihong" for="f618-linshihong" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>林士弘</label><label class="v830FactionChip" data-info-target="d618-pol-yuwen" for="f618-yuwenhuaji" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>宇文化及</label></div>
@@ -2008,10 +2004,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <button aria-label="重置目前視角" class="uxBtn uxHome" data-ux-reset="" type="button">重置</button>
 <button aria-label="放大" class="uxBtn" data-ux-zoom="in" type="button">＋</button>
 </div>
-<div class="uxSearchBox" hidden="">
-<input autocomplete="off" id="uxMapSearch" placeholder="搜尋地名：長安、洛陽、太原、江都…" type="search"/>
-<button class="uxBtn" data-ux-search-go="" type="button">定位</button>
-</div>
+
 <div aria-label="本機預覽縮放備援" class="v82624NoJsZoom"><label class="uxBtn v82624Minus v82624At100" for="zoom100">－</label><label class="uxBtn v82624Minus v82624At150" for="zoom100">－</label><label class="uxBtn v82624Minus v82624At200" for="zoom150">－</label><label class="uxBtn v82624Reset" for="zoom150">重置</label><label class="uxBtn v82624Plus v82624At100" for="zoom150">＋</label><label class="uxBtn v82624Plus v82624At150" for="zoom200">＋</label><label class="uxBtn v82624Plus v82624At200" for="zoom200">＋</label></div></div>
 <div aria-label="快速定位區域" class="uxRegionRail">
 <label aria-controls="d618-region-global" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel uxGlobalChip" data-info-target="d618-region-global" data-ux-global="" for="fs-region-global">全域</label>
