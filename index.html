@@ -1984,6 +1984,28 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
   }
 }
 </style>
+
+<style id="v8316-main-visible-text-hotspots">
+/* v8.3.16 — Embedded 618 Main: Visible Text = Exact Target.
+   The sparse v830MainText layer is the only visible text in embedded Main, so legacy
+   HG1/v7.4/v8.2.9 map hotspots are disabled here and replaced by precise hotspots
+   aligned to the nine visible labels and four visible city dots. Fullscreen untouched. */
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas a.spot618canon,
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas a.hg618Spot,
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas a.v74TextSpot,
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas a.v829FsSpot,
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas a.factionSpot{
+  display:none!important;pointer-events:none!important;
+}
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas .v8316MainSpot{
+  display:block!important;position:absolute;z-index:98!important;pointer-events:auto!important;
+  background:rgba(0,0,0,.001);border-radius:8px;touch-action:manipulation;
+  -webkit-tap-highlight-color:rgba(175,126,66,.16);
+}
+#map-only:not(:checked) ~ .screens .map #yr-618:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas .v8316MainSpot:focus-visible{
+  outline:2px solid rgba(91,63,37,.78);outline-offset:2px;
+}
+</style>
 </head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -2003,7 +2025,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.3.15｜Embedded Main Refocus Plus｜主域再聚焦唐朝核心＋地名再放大｜HG1 Candidate</div>
+<div class="meta">v8.3.16｜Main Hotspot Remap｜主域地名點擊精準對應｜HG1 Candidate</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -2326,7 +2348,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <a aria-label="平壤：開啟618 年資訊" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-pyongyang" id="v829-200-city-d618-pyongyang" style="left:81.0916%;top:35.3425%;width:5.4581%;height:4.6575%" title="平壤｜點擊查看說明"></a>
 <a aria-label="泗沘：開啟618 年資訊" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-sabi" id="v829-200-city-d618-sabi" style="left:77.1930%;top:40.5479%;width:5.4581%;height:4.6575%" title="泗沘｜點擊查看說明"></a>
 <a aria-label="金城：開啟618 年資訊" class="spot spot618canon v829FsSpot fs200 v829CitySpot" href="#d618-geumseong" id="v829-200-city-d618-geumseong" style="left:83.4308%;top:40.9589%;width:5.4581%;height:4.6575%" title="金城｜點擊查看說明"></a>
-</div><div class="yearPanel yp-618">
+<a aria-label="618 主域｜唐：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="唐" href="#d618-pol-tang" style="left:61.5984%;top:46.8493%;width:3.5088%;height:5.2055%" title="唐｜點擊查看資訊"></a><a aria-label="618 主域｜長安：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="長安" href="#d618-changan" style="left:62.9630%;top:39.5890%;width:5.4581%;height:4.1096%" title="長安｜點擊查看資訊"></a><a aria-label="618 主域｜太原：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="太原" href="#d618-taiyuan" style="left:66.4717%;top:34.6575%;width:4.7758%;height:4.1096%" title="太原｜點擊查看資訊"></a><a aria-label="618 主域｜天水：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="天水" href="#d618-tianshui" style="left:58.0897%;top:41.3699%;width:5.4581%;height:4.2466%" title="天水｜點擊查看資訊"></a><a aria-label="618 主域｜成都：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="成都" href="#d618-chengdu" style="left:56.7251%;top:50.5479%;width:5.4581%;height:4.2466%" title="成都｜點擊查看資訊"></a><a aria-label="618 主域｜東突厥：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="東突厥" href="#d618-pol-east-turkic" style="left:60.8187%;top:24.1096%;width:7.2125%;height:3.9726%" title="東突厥｜點擊查看資訊"></a><a aria-label="618 主域｜西突厥：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="西突厥" href="#d618-pol-west-turkic" style="left:46.7836%;top:26.5753%;width:8.3821%;height:3.9726%" title="西突厥｜點擊查看資訊"></a><a aria-label="618 主域｜高句麗：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="高句麗" href="#d618-pol-goguryeo" style="left:73.2943%;top:33.1507%;width:8.3821%;height:3.9726%" title="高句麗｜點擊查看資訊"></a><a aria-label="618 主域｜吐谷渾：開啟資訊" class="v8316MainSpot v8316-text" data-main-text="吐谷渾" href="#d618-pol-tuyuhun" style="left:47.3684%;top:44.7945%;width:6.6277%;height:3.9726%" title="吐谷渾｜點擊查看資訊"></a><a aria-label="618 主域｜長安：開啟資訊" class="v8316MainSpot v8316-dot" data-main-text="長安" href="#d618-changan" style="left:65.0097%;top:44.3836%;width:1.5595%;height:2.1918%" title="長安｜點擊查看資訊"></a><a aria-label="618 主域｜太原：開啟資訊" class="v8316MainSpot v8316-dot" data-main-text="太原" href="#d618-taiyuan" style="left:68.0312%;top:39.1781%;width:1.5595%;height:2.1918%" title="太原｜點擊查看資訊"></a><a aria-label="618 主域｜天水：開啟資訊" class="v8316MainSpot v8316-dot" data-main-text="天水" href="#d618-tianshui" style="left:62.3782%;top:43.9726%;width:1.5595%;height:2.1918%" title="天水｜點擊查看資訊"></a><a aria-label="618 主域｜成都：開啟資訊" class="v8316MainSpot v8316-dot" data-main-text="成都" href="#d618-chengdu" style="left:61.0136%;top:49.5890%;width:1.5595%;height:2.1918%" title="成都｜點擊查看資訊"></a></div><div class="yearPanel yp-618">
 <label aria-label="關閉" class="closeBtn" for="year-info">×</label>
 <div class="eyebrow">年份資訊</div>
 <h4>618｜武德元年｜唐高祖李淵</h4>
