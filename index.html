@@ -1933,7 +1933,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.3.7｜Map UI Simplification｜取消搜尋定位｜HG1 Candidate</div>
+<div class="meta">v8.3.8｜Fullscreen Faction Rail Recovery｜全螢幕勢力列回歸修正｜HG1 Candidate</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -1971,7 +1971,6 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="zoom200" name="zoom" type="radio"/>
 <input checked="" class="ctrl" id="inline-focus-view" name="inline-view" type="radio"/>
 <input class="ctrl" id="inline-global-view" name="inline-view" type="radio"/>
-
 <input checked="" class="ctrl v75RegionRadio" id="fs-region-focus" name="fs-region" type="radio"/>
 <input class="ctrl v75RegionRadio" id="fs-region-global" name="fs-region" type="radio"/>
 <input class="ctrl v75RegionRadio" id="fs-region-guanzhong" name="fs-region" type="radio"/>
@@ -1985,18 +1984,15 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <div class="actionBar v71ActionBar">
 <label class="inlineUxBtn inlinePrimary" for="inline-focus-view">主域</label>
 <label class="inlineUxBtn" for="inline-global-view">全域</label>
-
 <label for="map-only" id="map-only-local">全螢幕地圖</label>
 <label for="year-info">年份資訊</label>
 </div>
-
 <div class="soloBar v826UtilityBar">
 <label for="map-only">退出地圖</label>
 <label for="year-info">年份資訊</label>
 <label class="v826LayerBtn" for="fs-advanced-open">圖層</label>
-
 </div>
-<div class="mapViewport">
+<div aria-description="點一下勢力標籤顯示其範圍並開啟下方簡介；再點一次取消。全域、主域與區域閱讀皆可使用。" aria-label="618 全螢幕非唐勢力按需顯示" class="v830FactionRail v838FullscreenFactionRail"><span class="v830FactionRailTitle">非唐勢力</span><label class="v830FactionChip" data-info-target="d618-pol-li-gui" for="f618-ligui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李軌</label><label class="v830FactionChip" data-info-target="d618-pol-xiqin" for="f618-xueju" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>薛舉</label><label class="v830FactionChip" data-info-target="d618-pol-liang-shidao" for="f618-liangshidu" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>梁師都</label><label class="v830FactionChip" data-info-target="d618-pol-dingyang" for="f618-liuwuzhou" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>劉武周</label><label class="v830FactionChip" data-info-target="d618-pol-xia-dou" for="f618-doujiande" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>竇建德</label><label class="v830FactionChip" data-info-target="d618-wangshichong" for="f618-huangtaisui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>皇泰隋廷</label><label class="v830FactionChip" data-info-target="d618-pol-limi" for="f618-limi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李密</label><label class="v830FactionChip" data-info-target="d618-pol-dufuwei" for="f618-dufuwei" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>杜伏威</label><label class="v830FactionChip" data-info-target="d618-pol-shenfaxing" for="f618-shenfaxing" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>沈法興</label><label class="v830FactionChip" data-info-target="d618-xiaoxian" for="f618-xiaoxian" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>蕭銑</label><label class="v830FactionChip" data-info-target="d618-pol-luoyi" for="f618-luoyi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>羅藝</label><label class="v830FactionChip" data-info-target="d618-pol-linshihong" for="f618-linshihong" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>林士弘</label><label class="v830FactionChip" data-info-target="d618-pol-yuwen" for="f618-yuwenhuaji" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>宇文化及</label></div><div class="mapViewport">
 <div class="yearOverlay"><span class="yearToggle yt-618"><label class="yearChip compact yearPick" for="yr-618" title="唐建立"><b>618</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 618"><b>618</b></label></span><span class="yearToggle yt-630"><label class="yearChip compact yearPick" for="yr-630" title="滅東突厥"><b>630</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 630"><b>630</b></label></span><span class="yearToggle yt-660"><label class="yearChip compact yearPick" for="yr-660" title="百濟滅亡"><b>660</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 660"><b>660</b></label></span><span class="yearToggle yt-668"><label class="yearChip compact yearPick" for="yr-668" title="高句麗滅亡"><b>668</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 668"><b>668</b></label></span><span class="yearToggle yt-742"><label class="yearChip compact yearPick" for="yr-742" title="天寶元年"><b>742</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 742"><b>742</b></label></span><span class="yearToggle yt-763"><label class="yearChip compact yearPick" for="yr-763" title="安史後"><b>763</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 763"><b>763</b></label></span><span class="yearToggle yt-820"><label class="yearChip compact yearPick" for="yr-820" title="元和後"><b>820</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 820"><b>820</b></label></span><span class="yearToggle yt-880"><label class="yearChip compact yearPick" for="yr-880" title="黃巢之亂"><b>880</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 880"><b>880</b></label></span><span class="yearToggle yt-907"><label class="yearChip compact yearPick" for="yr-907" title="唐亡"><b>907</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 907"><b>907</b></label></span></div><div aria-description="點一下勢力標籤顯示其範圍並開啟下方簡介；再點一次取消。可同時保留多個勢力色塊。" aria-label="618 非唐勢力按需顯示" class="v830FactionRail"><span class="v830FactionRailTitle">非唐勢力</span><label class="v830FactionChip" data-info-target="d618-pol-li-gui" for="f618-ligui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李軌</label><label class="v830FactionChip" data-info-target="d618-pol-xiqin" for="f618-xueju" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>薛舉</label><label class="v830FactionChip" data-info-target="d618-pol-liang-shidao" for="f618-liangshidu" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>梁師都</label><label class="v830FactionChip" data-info-target="d618-pol-dingyang" for="f618-liuwuzhou" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>劉武周</label><label class="v830FactionChip" data-info-target="d618-pol-xia-dou" for="f618-doujiande" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>竇建德</label><label class="v830FactionChip" data-info-target="d618-wangshichong" for="f618-huangtaisui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>皇泰隋廷</label><label class="v830FactionChip" data-info-target="d618-pol-limi" for="f618-limi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李密</label><label class="v830FactionChip" data-info-target="d618-pol-dufuwei" for="f618-dufuwei" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>杜伏威</label><label class="v830FactionChip" data-info-target="d618-pol-shenfaxing" for="f618-shenfaxing" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>沈法興</label><label class="v830FactionChip" data-info-target="d618-xiaoxian" for="f618-xiaoxian" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>蕭銑</label><label class="v830FactionChip" data-info-target="d618-pol-luoyi" for="f618-luoyi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>羅藝</label><label class="v830FactionChip" data-info-target="d618-pol-linshihong" for="f618-linshihong" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>林士弘</label><label class="v830FactionChip" data-info-target="d618-pol-yuwen" for="f618-yuwenhuaji" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>宇文化及</label></div>
 <div aria-label="手機地圖操作" class="uxMapHud">
 <div class="uxHudMain">
@@ -2004,7 +2000,6 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <button aria-label="重置目前視角" class="uxBtn uxHome" data-ux-reset="" type="button">重置</button>
 <button aria-label="放大" class="uxBtn" data-ux-zoom="in" type="button">＋</button>
 </div>
-
 <div aria-label="本機預覽縮放備援" class="v82624NoJsZoom"><label class="uxBtn v82624Minus v82624At100" for="zoom100">－</label><label class="uxBtn v82624Minus v82624At150" for="zoom100">－</label><label class="uxBtn v82624Minus v82624At200" for="zoom150">－</label><label class="uxBtn v82624Reset" for="zoom150">重置</label><label class="uxBtn v82624Plus v82624At100" for="zoom150">＋</label><label class="uxBtn v82624Plus v82624At150" for="zoom200">＋</label><label class="uxBtn v82624Plus v82624At200" for="zoom200">＋</label></div></div>
 <div aria-label="快速定位區域" class="uxRegionRail">
 <label aria-controls="d618-region-global" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel uxGlobalChip" data-info-target="d618-region-global" data-ux-global="" for="fs-region-global">全域</label>
@@ -6343,8 +6338,8 @@ window.v82613LabelInfoAudit=function(){
 <script id="v830-main-domain-v2-js">
 (function(){
 'use strict';
-var rail=document.querySelector('.v830FactionRail');
-if(rail){['pointerdown','pointermove','pointerup','pointercancel'].forEach(function(t){rail.addEventListener(t,function(e){e.stopPropagation();});});}
+var rails=[].slice.call(document.querySelectorAll('.v830FactionRail'));
+rails.forEach(function(rail){['pointerdown','pointermove','pointerup','pointercancel'].forEach(function(t){rail.addEventListener(t,function(e){e.stopPropagation();});});});
 var toggles=[].slice.call(document.querySelectorAll('.v830FactionToggle'));
 var yr618=document.getElementById('yr-618'), mapOnly=document.getElementById('map-only'), inlineFocus=document.getElementById('inline-focus-view'), fsFocus=document.getElementById('fs-region-focus');
 var legacyText=[].slice.call(document.querySelectorAll('.yearLayer.y618canon.layer-labels,.yearLayer.y618canon.layer-cities,.v82615inline,.v82617inline,.v82626fs,.v82628inline'));
@@ -6389,8 +6384,7 @@ function closeIfCurrent(input){
   current.classList.remove('v82-open');current.setAttribute('aria-hidden','true');
 }
 function syncExpanded(input){
-  var label=document.querySelector('.v830FactionChip[for="'+input.id+'"]');
-  if(label)label.setAttribute('aria-expanded',input.checked?'true':'false');
+  document.querySelectorAll('.v830FactionChip[for="'+input.id+'"]').forEach(function(label){label.setAttribute('aria-expanded',input.checked?'true':'false');});
 }
 toggles.forEach(function(input){
   syncExpanded(input);
@@ -6492,5 +6486,41 @@ window.v835RegionInfoAudit=function(){
   filter:saturate(1.10) contrast(1.06)!important;
 }
 </style>
-</body>
+<style id="v838-fullscreen-faction-rail-recovery">
+/* v8.3.8 — iPhone Safari fullscreen faction rail recovery.
+   Fullscreen rail is a mapCtrl sibling instead of a fixed descendant of mapViewport. */
+.v838FullscreenFactionRail{display:none!important}
+#map-only:checked ~ .screens .map #yr-618:checked ~ .v838FullscreenFactionRail{
+  display:flex!important;position:fixed!important;left:8px!important;right:8px!important;
+  top:calc(106px + env(safe-area-inset-top,0px))!important;height:43px!important;align-items:center!important;
+  gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;white-space:nowrap!important;
+  padding:6px 8px!important;background:rgba(248,241,228,.96)!important;
+  border:1px solid rgba(194,169,122,.72)!important;border-radius:16px!important;
+  box-shadow:0 6px 16px rgba(0,0,0,.10)!important;backdrop-filter:blur(9px);
+  -webkit-backdrop-filter:blur(9px);z-index:247!important;
+}
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .v830FactionRail{display:none!important}
+
+/* 618 fullscreen row order: utility → year → faction → region → map. */
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .uxRegionRail{
+  top:calc(156px + env(safe-area-inset-top,0px))!important;
+}
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport{
+  top:calc(206px + env(safe-area-inset-top,0px))!important;
+}
+#map-only:checked ~ .screens .map #yr-618:checked ~ .functionalLayerPanel{
+  top:calc(206px + env(safe-area-inset-top,0px))!important;
+}
+#map-only:checked ~ .screens .map #yr-618:checked ~ .mapViewport .uxScaleBadge{
+  top:calc(214px + env(safe-area-inset-top,0px))!important;
+}
+
+/* Selected faction chip state on the Safari-safe fullscreen rail. */
+#f618-ligui:checked ~ .v838FullscreenFactionRail label[for="f618-ligui"],#f618-xueju:checked ~ .v838FullscreenFactionRail label[for="f618-xueju"],#f618-liangshidu:checked ~ .v838FullscreenFactionRail label[for="f618-liangshidu"],#f618-liuwuzhou:checked ~ .v838FullscreenFactionRail label[for="f618-liuwuzhou"],#f618-doujiande:checked ~ .v838FullscreenFactionRail label[for="f618-doujiande"],#f618-huangtaisui:checked ~ .v838FullscreenFactionRail label[for="f618-huangtaisui"],#f618-limi:checked ~ .v838FullscreenFactionRail label[for="f618-limi"],#f618-dufuwei:checked ~ .v838FullscreenFactionRail label[for="f618-dufuwei"],#f618-shenfaxing:checked ~ .v838FullscreenFactionRail label[for="f618-shenfaxing"],#f618-xiaoxian:checked ~ .v838FullscreenFactionRail label[for="f618-xiaoxian"],#f618-luoyi:checked ~ .v838FullscreenFactionRail label[for="f618-luoyi"],#f618-linshihong:checked ~ .v838FullscreenFactionRail label[for="f618-linshihong"],#f618-yuwenhuaji:checked ~ .v838FullscreenFactionRail label[for="f618-yuwenhuaji"]{
+  background:#fff8e9!important;box-shadow:inset 0 0 0 2px var(--v836-overlay-fill),0 4px 10px rgba(0,0,0,.08)!important;color:#261f19!important;
+}
+
+/* A selected faction remains readable in fullscreen Global/Main/Region modes. */
+html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-ligui:checked ~ .mapViewport .v830FactionOverlay.v830-f-ligui,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-xueju:checked ~ .mapViewport .v830FactionOverlay.v830-f-xueju,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-liangshidu:checked ~ .mapViewport .v830FactionOverlay.v830-f-liangshidu,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-liuwuzhou:checked ~ .mapViewport .v830FactionOverlay.v830-f-liuwuzhou,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-doujiande:checked ~ .mapViewport .v830FactionOverlay.v830-f-doujiande,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-huangtaisui:checked ~ .mapViewport .v830FactionOverlay.v830-f-huangtaisui,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-limi:checked ~ .mapViewport .v830FactionOverlay.v830-f-limi,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-dufuwei:checked ~ .mapViewport .v830FactionOverlay.v830-f-dufuwei,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-shenfaxing:checked ~ .mapViewport .v830FactionOverlay.v830-f-shenfaxing,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-xiaoxian:checked ~ .mapViewport .v830FactionOverlay.v830-f-xiaoxian,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-luoyi:checked ~ .mapViewport .v830FactionOverlay.v830-f-luoyi,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-linshihong:checked ~ .mapViewport .v830FactionOverlay.v830-f-linshihong,html body #map-only#map-only:checked ~ .screens .map #yr-618:checked ~ #f618-yuwenhuaji:checked ~ .mapViewport .v830FactionOverlay.v830-f-yuwenhuaji{display:block!important}
+</style></body>
 </html>
