@@ -1914,6 +1914,8 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 </style><style id="v837-map-search-removed">
 /* v8.3.7 — Map search/location feature removed by user decision. */
 #inline-search-open,.v72InlineSearch,.v826SearchBtn,.uxSearchBox,[data-ux-search],[data-ux-search-go]{display:none!important}
+</style><style id="v839-region-toggle-off-style">/* v8.3.9 — region chips: first tap selects/opens; second tap cancels back to main. */
+.uxRegionLabel[data-ux-region]{touch-action:manipulation}
 </style></head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -1933,7 +1935,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">v8.3.8｜Fullscreen Faction Rail Recovery｜全螢幕勢力列回歸修正｜HG1 Candidate</div>
+<div class="meta">v8.3.9｜Region Toggle｜區域選項點一下開／再點一下關｜HG1 Candidate</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -2004,12 +2006,12 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <div aria-label="快速定位區域" class="uxRegionRail">
 <label aria-controls="d618-region-global" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel uxGlobalChip" data-info-target="d618-region-global" data-ux-global="" for="fs-region-global">全域</label>
 <label aria-controls="d618-region-focus" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-focus" data-ux-home="" for="fs-region-focus">主域</label>
-<label aria-controls="d618-region-guanzhong" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-guanzhong" data-ux-region="guanzhong" for="fs-region-guanzhong">關中</label>
-<label aria-controls="d618-region-hexi" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-hexi" data-ux-region="hexi" for="fs-region-hexi">河西</label>
-<label aria-controls="d618-region-hebei" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-hebei" data-ux-region="hebei" for="fs-region-hebei">河北</label>
-<label aria-controls="d618-region-jianghuai" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-jianghuai" data-ux-region="jianghuai" for="fs-region-jianghuai">江淮</label>
-<label aria-controls="d618-region-dongbei" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-dongbei" data-ux-region="dongbei" for="fs-region-dongbei">東北／朝鮮</label>
-<label aria-controls="d618-region-lingnan" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-lingnan" data-ux-region="lingnan" for="fs-region-lingnan">嶺南</label>
+<label aria-controls="d618-region-guanzhong" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-guanzhong" data-ux-region="guanzhong" for="fs-region-guanzhong" title="點一下選取區域並開啟簡介；再點一次取消並回到主域">關中</label>
+<label aria-controls="d618-region-hexi" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-hexi" data-ux-region="hexi" for="fs-region-hexi" title="點一下選取區域並開啟簡介；再點一次取消並回到主域">河西</label>
+<label aria-controls="d618-region-hebei" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-hebei" data-ux-region="hebei" for="fs-region-hebei" title="點一下選取區域並開啟簡介；再點一次取消並回到主域">河北</label>
+<label aria-controls="d618-region-jianghuai" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-jianghuai" data-ux-region="jianghuai" for="fs-region-jianghuai" title="點一下選取區域並開啟簡介；再點一次取消並回到主域">江淮</label>
+<label aria-controls="d618-region-dongbei" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-dongbei" data-ux-region="dongbei" for="fs-region-dongbei" title="點一下選取區域並開啟簡介；再點一次取消並回到主域">東北／朝鮮</label>
+<label aria-controls="d618-region-lingnan" aria-expanded="false" aria-haspopup="dialog" class="uxRegionLabel" data-info-target="d618-region-lingnan" data-ux-region="lingnan" for="fs-region-lingnan" title="點一下選取區域並開啟簡介；再點一次取消並回到主域">嶺南</label>
 </div>
 <div aria-label="主域鄰接勢力" class="uxNeighborContext">
 <a aria-label="西突厥：開啟說明" class="uxNeighborChip uxNeighborWest v74ContextLink" href="#d618-pol-west-turkic">← 西突厥</a>
@@ -5944,6 +5946,16 @@ window.addEventListener('resize',function(){if(active()&&state.mode==='focus'&&i
 if(mapOnly)mapOnly.addEventListener('change',function(){setTimeout(function(){if(active()&&is618())focusHome();else if(active())globalHome();else{setMode('global');render();}},70);});
 [yr618,yr742].forEach(function(el){if(el)el.addEventListener('change',function(){setTimeout(function(){if(active()&&is618())focusHome();else if(active())globalHome();else render();},70);});});
 Object.keys(zoomRadios).forEach(function(k){var el=zoomRadios[k];if(el)el.addEventListener('change',function(){if(!active())return;if(state.mode==='focus')return;state.scale=(k==='global'?1:k==='read'?3.0:5.8);state.x=0;state.y=0;setMode(k==='global'?'global':'free');render();});});
+/* v8.3.9 bridge: region toggle-off returns to 618 main without opening another info sheet. */
+window.v839ReturnToMain=function(){
+  maybeEnterMap();
+  ensure618();
+  var focusRadio=document.getElementById('fs-region-focus');
+  if(focusRadio)focusRadio.checked=true;
+  focusHome();
+  return true;
+};
+
 render();
 })();
 </script>
@@ -6410,11 +6422,11 @@ window.v833FactionInfoAudit=function(){
   return {version:'v8.3.3',toggles:toggles.length,checked:toggles.filter(function(t){return t.checked;}).map(function(t){return t.id;}),openSheet:open?open.id:null,allTargetsExist:toggles.every(function(t){return !!document.getElementById(t.getAttribute('data-info-target'));})};
 };
 })();
-</script><script id="v835-region-info-sheet-js">
-(function(){
+</script><script id="v835-region-info-sheet-js">(function(){
 'use strict';
 var labels=[].slice.call(document.querySelectorAll('.uxRegionLabel[data-info-target]'));
 if(!labels.length)return;
+var toggleRegionLabels=labels.filter(function(l){return !!l.getAttribute('data-ux-region');});
 function openRegion(label){
   var id=label.getAttribute('data-info-target');
   if(!id)return false;
@@ -6429,10 +6441,41 @@ function openRegion(label){
   labels.forEach(function(l){l.setAttribute('aria-expanded',l===label?'true':'false');});
   return ok;
 }
+function closeRegionIfCurrent(label){
+  var id=label.getAttribute('data-info-target');
+  var current=document.querySelector('.overlay.v82-open');
+  if(!current||current.id!==id)return false;
+  if(typeof window.v823CloseSheet==='function'){window.v823CloseSheet();}
+  else{current.classList.remove('v82-open');current.setAttribute('aria-hidden','true');}
+  return true;
+}
+function radioFor(label){
+  var id=label.getAttribute('for');
+  return id?document.getElementById(id):null;
+}
+/* Record the pre-click selection state before legacy capture handlers synchronize the radio. */
+toggleRegionLabels.forEach(function(label){
+  label.addEventListener('pointerdown',function(){var r=radioFor(label);label.dataset.v839WasActive=(r&&r.checked)?'1':'0';},{capture:true});
+  label.addEventListener('touchstart',function(){var r=radioFor(label);label.dataset.v839WasActive=(r&&r.checked)?'1':'0';},{capture:true,passive:true});
+});
 labels.forEach(function(label){
-  label.addEventListener('click',function(){
+  label.addEventListener('click',function(e){
     var yr=document.getElementById('yr-618');
     if(yr && !yr.checked)return;
+    var isToggle=!!label.getAttribute('data-ux-region');
+    var r=radioFor(label);
+    var wasActive=isToggle && (label.dataset.v839WasActive==='1' || (!('v839WasActive' in label.dataset) && r && r.checked));
+    delete label.dataset.v839WasActive;
+    if(wasActive){
+      /* Stop the label default action from re-selecting the region radio. */
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      closeRegionIfCurrent(label);
+      labels.forEach(function(l){l.setAttribute('aria-expanded','false');});
+      if(typeof window.v839ReturnToMain==='function')window.v839ReturnToMain();
+      else{var focus=document.getElementById('fs-region-focus');if(focus)focus.checked=true;}
+      return;
+    }
     requestAnimationFrame(function(){openRegion(label);});
   });
 });
@@ -6443,10 +6486,9 @@ document.addEventListener('click',function(e){
 });
 window.v835RegionInfoAudit=function(){
   var open=document.querySelector('.overlay.v835RegionSheet.v82-open');
-  return {version:'v8.3.5',labels:labels.length,targetsExist:labels.every(function(l){return !!document.getElementById(l.getAttribute('data-info-target'));}),openSheet:open?open.id:null};
+  return {version:'v8.3.9',labels:labels.length,toggleRegions:toggleRegionLabels.length,targetsExist:labels.every(function(l){return !!document.getElementById(l.getAttribute('data-info-target'));}),openSheet:open?open.id:null};
 };
-})();
-</script>
+})();</script>
 <style id="v836-unified-block-color">
 /* v8.3.6 — Unified prominent color for 618 faction/region blocks.
    Tang main-domain orange remains unchanged; only rival/region reading blocks unify. */
