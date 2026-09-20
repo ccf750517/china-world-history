@@ -222,6 +222,105 @@ Round 2 scope is Global visual ownership only:
 No historical semantics, political/military geometry, Main 205%, Global 170%,
 region True Focus values, Bottom Sheet text, faction ownership or year logic changes.
 -->
+<!-- 820-M8.1 Final Canon / Freeze
+Freeze date: 2026-09-21.
+Basis:
+- Historical Geography Final Gate PASS.
+- 393x852 Chromium regression PASS.
+- Real iPhone Safari Device QC PASS across Main, Global, Fullscreen, region, cancel and faction interactions.
+- Round 2 Global Safari fixes verified on-device: inherited 618 neighbor context removed; Global edge labels no longer clipped.
+No functional or historical content changes are introduced by this freeze packaging step.
+-->
+<!-- 880-M1 Political / Military Layers v0.1
+Status: WORKING / NOT FREEZE.
+Source branch: 820-M8.1 Final Canon / Freeze (read-only protected).
+Formal snapshot: late December 880 CE, after Huang Chao captured Luoyang (22 Dec 880),
+before Tong Pass and Chang'an fell and before Emperor Xizong fled toward Sichuan in early 881.
+Reading envelopes only; NOT county-level GIS borders or hard sovereignty frontiers.
+-->
+<!-- 880-M2 Main Canon Text + Primary Cities v0.1
+Status: WORKING / NOT FREEZE.
+Source: 880-M1 Political / Military Layers v0.1.
+Snapshot remains late Dec 880: Luoyang has fallen to Huang Chao; Tong Pass and Chang'an have not yet fallen.
+M2 adds one canonical Main text/city SVG only. M1 political geometry remains unchanged.
+820 Final Canon / Freeze remains read-only protected.
+-->
+<!-- 880-M3 9 Region Reading Layers v0.1
+Status: WORKING / NOT FREEZE.
+Source: 880-M2 Main Canon Text + Primary Cities v0.1.
+Adds 9 mutually exclusive fullscreen region-reading envelopes and a year-specific region rail.
+No Region Bottom Sheets yet (M5). No True Focus numeric centering yet (M7).
+M1/M2 authored blocks and 820 Final Canon remain protected.
+-->
+<!-- 880-M4 External Faction Toggle + Bottom Sheets v0.1
+Status: WORKING / NOT FREEZE.
+Source: 880-M3 Region Reading Layers v0.1.
+880 does NOT reuse the 820 unified Uyghur-Khaganate toggle: the Mongolian Uyghur Khaganate fell in 840.
+M4 formal opt-in external / fragmented polity controls:
+- Tibetan post-imperial fragments
+- Nanzhao
+- Balhae
+- Silla
+Qocho / western Uyghur context is deferred to M6 Global Canon / hotspot work.
+M1-M3 authored content and 820 Final Canon remain protected.
+-->
+<!-- 880-M5 9 Region Bottom Sheets + click-again toggle v0.1
+Status: WORKING / NOT FREEZE.
+Source: 880-M4 External Faction Toggle + Bottom Sheets v0.1.
+M5 adds Region information sheets and click-again cancel behavior.
+Same-region second click => m880-region-none + Main mode.
+A->B direct switching and manual sheet-close preserving Region selection are required.
+Numeric True Focus remains deferred to M7.
+-->
+<!-- 880-M6 Embedded Main / Global Hotspots + Global Canon v0.1
+Status: WORKING / NOT FREEZE.
+Source: 880-M5 Region Bottom Sheets + click-again toggle v0.1.
+Scope:
+- one canonical Embedded Global text layer for 880;
+- Embedded Main and Embedded Global hotspot sets;
+- city / military / rebellion-context information sheets.
+Fullscreen hotspots, numeric Main / Global focus and nine-region True Focus remain deferred to M7.
+Historical guard remains late Dec 880: Luoyang fallen; Chang'an not yet fallen.
+-->
+<!-- 880-M7 Fullscreen Hotspots + Main / Global / 9 Region True Focus v0.1
+Status: WORKING / NOT FREEZE.
+Source: 880-M6 Embedded Main / Global Hotspots + Global Canon v0.1.
+M7 takes 880 fullscreen ownership:
+- dedicated fullscreen Main / Global hotspots;
+- Main 210% / Global 170%;
+- nine region True Focus presets;
+- 880 fullscreen badge semantics.
+M1-M6 authored blocks are preserved.
+-->
+<!-- 880-M8 Historical Geography Final Gate v0.1
+Status: PASS / FINAL CANDIDATE / NOT FREEZE.
+No new visible interaction feature is introduced in M8.
+Formal snapshot: late December 880 CE / Guangming 1, after Huang Chao captured Luoyang and before Tong Pass / Chang'an fell and before Emperor Xizong fled west in early 881.
+Historical reading model only: political / military envelopes are not county-level GIS borders or hard sovereignty frontiers.
+Historical protections locked for this candidate:
+- Chang'an remains the Tang court capital in the snapshot; its fall and Xizong's flight belong to early 881.
+- Luoyang has already fallen to Huang Chao; the Huang Chao layer remains a campaign / order-collapse corridor, not a mature territorial-state polygon.
+- Hebei/Heshuo military circuits retain nominal Tang ties and high local autonomy; they are neither ordinary direct prefectures nor a single independent state.
+- Huainan / Gao Pian remains a powerful Tang-framework regional military command, not an independent sovereign polity.
+- Guiyi Circuit / Dunhuang is locally governed under Tang titles and must not be flattened into direct Chang'an administration.
+- Li Keyong's 883 Hedong governorship is not backdated to 880.
+- The Tibetan Empire is not restored as a unified 880 polity; post-imperial fragmented reading envelopes are used.
+- Nanzhao, Balhae and Silla remain external political entities; diplomacy / investiture / cultural links do not equal Tang direct administration.
+- The pre-840 unified Uyghur Khaganate is not reused for 880; successor / grassland contexts are geographically separated.
+M1-M7 authored geometry, text canon, toggles, sheets, hotspots and focus values are preserved.
+-->
+<!-- 880-M8.1 iPhone Safari Device QC Candidate v0.1
+Status: DEVICE QC PENDING / NOT FREEZE.
+Source: 880-M8 Historical Geography Final Gate v0.1.
+No historical geometry, canonical text, hotspot mapping, Bottom Sheet content, region geometry,
+faction ownership, Main/Global focus values or nine-region True Focus values are changed in this branch.
+Purpose: deployment-only candidate for real iPhone Safari verification.
+Required device checks: Embedded Main, Embedded Global, Fullscreen Main 210%, Fullscreen Global 170%,
+nine-region True Focus, same-region second-tap cancel, faction + region coexistence, Bottom Sheets,
+edge-label clipping, safe-area/viewport behavior, and Safari state restoration.
+Freeze is prohibited until actual iPhone Safari evidence passes.
+-->
+
 <html lang="zh-Hant">
 <head>
 <!-- 660-M4 Faction Toggle + Bottom Sheets v0.1
@@ -247,7 +346,7 @@ Fullscreen hotspots and numeric Main/Global/9-region True Focus remain deferred 
 -->
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>820-M8.1｜iPhone Safari Device QC Round 2 Fix｜FINAL CANDIDATE / NOT FREEZE</title>
+<title>880-M8.1｜iPhone Safari Device QC Candidate v0.1｜DEVICE QC PENDING / NOT FREEZE</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -3784,6 +3883,360 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 }
 </style>
 
+
+<style id="m880-m1-political-military-layers">
+/* 880-M1 Political / Military Layers v0.1 — WORKING / NOT FREEZE.
+   Snapshot: late Dec 880 / Guangming 1, after Luoyang fell, before Chang'an fell.
+   Reading envelopes only; NOT precise sovereignty borders. */
+.m880M1Layer{display:none;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.m880M1Layer path,.m880M1Layer polygon,.m880M1Layer circle,.m880M1Layer ellipse{vector-effect:non-scaling-stroke}
+
+/* Retire inherited trial 880 art while M1 branch owns year 880. */
+#yr-880:checked ~ .mapViewport .yearLayer.y880{display:none!important}
+
+/* Foundational layers visible in Main and Global. */
+#yr-880:checked ~ .mapViewport .m880M1BaseLayer{display:block!important}
+
+/* External political envelopes are Global preview only in M1.
+   Explicit faction ownership is deferred to M4. */
+#yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880M1External,
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880M1External{display:block!important}
+#yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880M1External,
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880M1External{display:none!important}
+
+/* A — Tang court / Guanzhong survival core.
+   Chang'an remains the court capital at this snapshot; it has NOT yet fallen. */
+.m880TangCourtCore{z-index:8}
+.m880TangCourtCore .core{fill:rgba(220,120,45,.30);stroke:#c96f2d;stroke-width:3.2;stroke-linejoin:round}
+
+/* B — Loyalist provincial / military links.
+   These indicate nominal court-aligned networks, NOT uniform direct prefectural control. */
+.m880LoyalistNetwork{z-index:10}
+.m880LoyalistNetwork path{fill:none;stroke:#b98550;stroke-width:18;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:14 10;opacity:.33}
+
+/* C — Huang Chao's active campaign corridor.
+   A campaign / authority-collapse belt, not a mature territorial state in Dec 880. */
+.m880HuangChaoCampaign{z-index:16}
+.m880HuangChaoCampaign path{fill:none;stroke:#a84f3f;stroke-width:30;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:18 11;opacity:.32}
+.m880HuangChaoCampaign .luoyangFall{fill:rgba(168,79,63,.25);stroke:#8f4136;stroke-width:3.5;stroke-dasharray:10 6}
+
+/* D — Hebei military-command autonomy: nominal Tang relationship, strong local control. */
+.m880HebeiAutonomy{z-index:13}
+.m880HebeiAutonomy polygon{fill:rgba(103,89,77,.22);stroke:#5e5147;stroke-width:3.2;stroke-dasharray:11 7;stroke-linejoin:round}
+
+/* E — Huainan under Gao Pian: major nominal-Tang provincial command centered on Yangzhou. */
+.m880HuainanGaopian{z-index:13}
+.m880HuainanGaopian polygon{fill:rgba(74,133,111,.20);stroke:#4d7f6b;stroke-width:3.1;stroke-dasharray:9 6;stroke-linejoin:round}
+
+/* F — Guiyi Circuit / Dunhuang: Tang-titled local regime, not central direct administration. */
+.m880Guiyi{z-index:14}
+.m880Guiyi polygon{fill:rgba(190,145,70,.22);stroke:#a5742e;stroke-width:3;stroke-dasharray:8 6;stroke-linejoin:round}
+
+/* External / post-imperial envelopes. */
+.m880TibetanFragments{z-index:18}
+.m880TibetanFragments polygon{fill:rgba(123,91,167,.20);stroke:#7555a2;stroke-width:3;stroke-dasharray:13 8;stroke-linejoin:round}
+.m880Nanzhao{z-index:18}.m880Nanzhao polygon{fill:rgba(54,139,132,.23);stroke:#388b84;stroke-width:3;stroke-dasharray:13 8;stroke-linejoin:round}
+.m880Balhae{z-index:18}.m880Balhae polygon{fill:rgba(68,137,158,.21);stroke:#44899e;stroke-width:3;stroke-dasharray:13 8;stroke-linejoin:round}
+.m880Silla{z-index:18}.m880Silla polygon{fill:rgba(77,126,178,.21);stroke:#4d7eb2;stroke-width:3;stroke-dasharray:13 8;stroke-linejoin:round}
+
+/* M1 ownership isolation: inherited 618 neighbor labels and generic scale badge are not valid 880 Canon.
+   880 Fullscreen scale/badge ownership is deferred to M7. */
+#yr-880:checked ~ .mapViewport .inlineNeighborContext,
+#yr-880:checked ~ .mapViewport .uxNeighborContext{display:none!important;visibility:hidden!important;pointer-events:none!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .uxNeighborContext,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .uxScaleBadge{display:none!important;visibility:hidden!important}
+
+/* Page-level historical-note ownership. Safari 15.4+ supports :has(). */
+#map-only:not(:checked) ~ #nav-map:checked ~ .screens > #map:has(#yr-880:checked) .m820HistoricalFoot{display:none!important}
+#map-only:not(:checked) ~ #nav-map:checked ~ .screens > #map:has(#yr-880:checked) .m880HistoricalFoot{display:block!important}
+
+/* Existing layer-control compatibility. */
+#layer-main:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880TangCourtCore{display:none!important}
+#layer-influence:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880LoyalistNetwork,
+#layer-influence:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880HuangChaoCampaign,
+#layer-influence:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880HebeiAutonomy,
+#layer-influence:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880HuainanGaopian,
+#layer-influence:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880Guiyi,
+#layer-influence:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880M1External{display:none!important}
+</style>
+
+
+<style id="m880-m2-main-text-cities">
+/* 880-M2 Main Canon text + primary cities / military nodes. */
+.m880M2MainText{display:none;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:42}
+.m880M2MainText text{
+  font-family:"PingFang TC","Microsoft JhengHei",sans-serif;
+  fill:#34281e;
+  font-weight:900;
+  paint-order:stroke;
+  stroke:#fff7e8;
+  stroke-width:5px;
+  stroke-linejoin:round;
+}
+.m880M2Direction text{font-size:24px}
+.m880M2Polity text{font-size:42px}
+.m880M2Cities text{font-size:21px}
+.m880M2Military text{font-size:18px}
+.m880M2MainText circle{fill:#6b4d2a;stroke:#fff7e8;stroke-width:2.4}
+.m880M2MainText .capitalDot{fill:#8a5b1f;stroke-width:3}
+.m880M2MainText .capturedDot{fill:#8f4136;stroke:#fff7e8;stroke-width:3}
+
+/* M2 owns 880 Main text in Embedded Main and Fullscreen Main.
+   It remains hidden in Global; M6 will later own Global Canon. */
+#yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880M2MainText{display:block!important}
+#yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880M2MainText{display:none!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880M2MainText{display:block!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880M2MainText{display:none!important}
+
+/* Prevent inherited legacy 880 label/city text from competing with M2. */
+#yr-880:checked ~ .mapViewport .yearLayer.y880.layer-labels,
+#yr-880:checked ~ .mapViewport .yearLayer.y880.layer-cities{display:none!important}
+</style>
+
+
+<style id="m880-m3-region-layers">
+/* 880-M3 9 Region Reading Layers v0.1 — WORKING / NOT FREEZE.
+   Historical reading envelopes only; not administrative borders and not GIS frontiers. */
+.m880M3RegionOverlay{display:none;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:46!important;overflow:visible;mix-blend-mode:multiply}
+.m880M3RegionOverlay path{fill:rgba(78,134,183,.18);stroke:#3f78a6;stroke-width:4;stroke-dasharray:14 10;vector-effect:non-scaling-stroke;stroke-linejoin:round}
+
+/* Region overlays are Fullscreen-only. Embedded Main / Global remain clean. */
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880M3RegionOverlay{display:none!important}
+#map-only:checked ~ #m880-region-guanzhong:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-guanzhong,
+#map-only:checked ~ #m880-region-hebei:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-hebei,
+#map-only:checked ~ #m880-region-henanhuangchao:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-henanhuangchao,
+#map-only:checked ~ #m880-region-hedongnorth:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-hedongnorth,
+#map-only:checked ~ #m880-region-huainan:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-huainan,
+#map-only:checked ~ #m880-region-guiyi:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-guiyi,
+#map-only:checked ~ #m880-region-tibet:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-tibet,
+#map-only:checked ~ #m880-region-southwest:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-southwest,
+#map-only:checked ~ #m880-region-northeast:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880-r-northeast{display:block!important;opacity:1!important}
+
+.m880RegionRail{display:none;gap:6px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;-webkit-overflow-scrolling:touch;scrollbar-width:none;z-index:244}
+.m880RegionRail::-webkit-scrollbar{display:none}
+.m880RegionChip{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;min-height:32px;padding:0 11px;border:1px solid rgba(92,68,40,.22);background:#fffaf0;color:#352b22;border-radius:999px;font-weight:900;font-size:11px;box-shadow:0 3px 8px rgba(0,0,0,.08);cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.m880RegionChip i{width:7px;height:7px;border-radius:50%;background:#4E86B7;margin-right:6px;box-shadow:0 0 0 1px rgba(60,48,38,.18)}
+
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880RegionRail{
+  display:flex!important;position:fixed;left:8px;right:8px;top:calc(106px + env(safe-area-inset-top,0px));height:43px;
+  align-items:center;padding:4px 6px;background:rgba(239,226,202,.92);border:1px solid rgba(194,169,122,.66);
+  border-radius:14px;box-shadow:0 5px 14px rgba(0,0,0,.08);backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px)
+}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .uxRegionRail,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m630RegionRail,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m660RegionRail,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m668RegionRail,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m742RegionRail,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m763RegionRail,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m820RegionRail{display:none!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport{top:calc(156px + env(safe-area-inset-top,0px))!important}
+
+#m880-region-guanzhong:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-guanzhong"],
+#m880-region-hebei:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-hebei"],
+#m880-region-henanhuangchao:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-henanhuangchao"],
+#m880-region-hedongnorth:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-hedongnorth"],
+#m880-region-huainan:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-huainan"],
+#m880-region-guiyi:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-guiyi"],
+#m880-region-tibet:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-tibet"],
+#m880-region-southwest:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-southwest"],
+#m880-region-northeast:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-region-northeast"]{background:#4a3c2d!important;color:#fffaf1!important;border-color:#4a3c2d!important}
+#fs-region-global:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880ModeGlobal,
+#fs-region-focus:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880ModeMain{background:#4a3c2d!important;color:#fffaf1!important;border-color:#4a3c2d!important}
+</style>
+
+
+<style id="m880-m4-faction-toggle-sheets">
+/* 880-M4 External / fragmented polity toggles + Bottom Sheets v0.1. */
+.m880FactionRail{
+  display:none;gap:6px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;padding:6px 8px;
+  background:rgba(248,241,228,.96);border-bottom:1px solid rgba(194,169,122,.72);z-index:246
+}
+.m880FactionRail::-webkit-scrollbar{display:none}
+.m880FactionRailTitle,.m880FactionChip{
+  flex:0 0 auto;display:inline-flex;align-items:center;min-height:32px;
+  border-radius:999px;font-size:11px;font-weight:900
+}
+.m880FactionRailTitle{padding:0 10px;background:#4a3c2d;color:#fffaf1}
+.m880FactionChip{
+  padding:0 11px;border:1px solid rgba(92,68,40,.24);background:#fffaf0;color:#352b22;
+  cursor:pointer;user-select:none;-webkit-tap-highlight-color:transparent;touch-action:manipulation
+}
+.m880FactionChip i{
+  width:7px;height:7px;border-radius:50%;background:#4E86B7;margin-right:6px;
+  box-shadow:0 0 0 1px rgba(60,48,38,.18)
+}
+
+/* M4 takes formal visibility ownership of M1 external envelopes.
+   All four are off until explicitly selected. */
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880M1External,
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880M1External,
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880M1External,
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880M1External{
+  display:none!important
+}
+
+#map-only:not(:checked) ~ #m880-faction-tibet-fragments:checked ~ .screens .map #yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880TibetanFragments,
+#map-only:not(:checked) ~ #m880-faction-tibet-fragments:checked ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880TibetanFragments,
+#map-only:checked ~ #m880-faction-tibet-fragments:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880TibetanFragments,
+#map-only:checked ~ #m880-faction-tibet-fragments:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880TibetanFragments,
+
+#map-only:not(:checked) ~ #m880-faction-nanzhao:checked ~ .screens .map #yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880Nanzhao,
+#map-only:not(:checked) ~ #m880-faction-nanzhao:checked ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880Nanzhao,
+#map-only:checked ~ #m880-faction-nanzhao:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880Nanzhao,
+#map-only:checked ~ #m880-faction-nanzhao:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880Nanzhao,
+
+#map-only:not(:checked) ~ #m880-faction-balhae:checked ~ .screens .map #yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880Balhae,
+#map-only:not(:checked) ~ #m880-faction-balhae:checked ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880Balhae,
+#map-only:checked ~ #m880-faction-balhae:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880Balhae,
+#map-only:checked ~ #m880-faction-balhae:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880Balhae,
+
+#map-only:not(:checked) ~ #m880-faction-silla:checked ~ .screens .map #yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880Silla,
+#map-only:not(:checked) ~ #m880-faction-silla:checked ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880Silla,
+#map-only:checked ~ #m880-faction-silla:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880Silla,
+#map-only:checked ~ #m880-faction-silla:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880Silla{
+  display:block!important;opacity:1!important;filter:saturate(1.08) contrast(1.04)!important;z-index:45!important
+}
+
+/* Embedded: year 880 shows one horizontal faction rail inside mapViewport. */
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ .mapViewport .m880EmbeddedFactionRail{
+  display:flex!important
+}
+
+/* Fullscreen: dedicated Safari-safe faction row before the M3 region row. */
+.m880FullscreenFactionRail{display:none!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .m880FullscreenFactionRail{
+  display:flex!important;position:fixed!important;left:8px!important;right:8px!important;
+  top:calc(106px + env(safe-area-inset-top,0px))!important;height:43px!important;
+  align-items:center!important;gap:6px!important;overflow-x:auto!important;overflow-y:hidden!important;
+  white-space:nowrap!important;padding:6px 8px!important;background:rgba(248,241,228,.96)!important;
+  border:1px solid rgba(194,169,122,.72)!important;border-radius:16px!important;
+  box-shadow:0 6px 16px rgba(0,0,0,.10)!important;
+  backdrop-filter:blur(9px);-webkit-backdrop-filter:blur(9px);z-index:247!important
+}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880EmbeddedFactionRail{display:none!important}
+
+/* M4 fullscreen order: utility/year → faction → region → map. */
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880RegionRail{
+  top:calc(156px + env(safe-area-inset-top,0px))!important
+}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport{
+  top:calc(206px + env(safe-area-inset-top,0px))!important
+}
+
+#m880-faction-tibet-fragments:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-faction-tibet-fragments"],
+#m880-faction-tibet-fragments:checked ~ .screens .map #yr-880:checked ~ .m880FullscreenFactionRail label[for="m880-faction-tibet-fragments"],
+#m880-faction-nanzhao:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-faction-nanzhao"],
+#m880-faction-nanzhao:checked ~ .screens .map #yr-880:checked ~ .m880FullscreenFactionRail label[for="m880-faction-nanzhao"],
+#m880-faction-balhae:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-faction-balhae"],
+#m880-faction-balhae:checked ~ .screens .map #yr-880:checked ~ .m880FullscreenFactionRail label[for="m880-faction-balhae"],
+#m880-faction-silla:checked ~ .screens .map #yr-880:checked ~ .mapViewport label[for="m880-faction-silla"],
+#m880-faction-silla:checked ~ .screens .map #yr-880:checked ~ .m880FullscreenFactionRail label[for="m880-faction-silla"]{
+  background:#fff8e9!important;box-shadow:inset 0 0 0 2px #4E86B7,0 4px 10px rgba(0,0,0,.08)!important;
+  color:#261f19!important
+}
+
+.m880FactionSheet .m880RelationNote::before{content:"880閱讀："}
+.overlay.m880FactionSheet.v82-open{pointer-events:none!important}
+.overlay.m880FactionSheet.v82-open .detail{pointer-events:auto!important}
+</style>
+
+
+<style id="m880-m5-region-sheets">
+/* 880-M5 Region Bottom Sheets + click-again toggle v0.1 — WORKING / NOT FREEZE.
+   Numeric True Focus remains deferred to M7. */
+.m880RegionChip[data-info-target]{position:relative;touch-action:manipulation}
+.m880RegionSheet .m880RegionTangNote::before{content:"與唐關係閱讀："}
+.overlay.m880RegionSheet.v82-open{pointer-events:none!important}
+.overlay.m880RegionSheet.v82-open .detail{pointer-events:auto!important}
+</style>
+
+
+<style id="m880-m6-hotspots-global-text">
+/* 880-M6 Embedded Main / Global hotspots + Global Canon v0.1 — WORKING / NOT FREEZE. */
+.m880M6GlobalText{display:none;position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:62!important;overflow:visible}
+.m880M6GlobalText text{
+  font-family:-apple-system,BlinkMacSystemFont,"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;
+  fill:#302b26;stroke:rgba(255,250,241,.97);stroke-width:3.2px;paint-order:stroke fill;stroke-linejoin:round;
+  font-weight:850;letter-spacing:.12px
+}
+.m880M6GlobalText .g-polity{font-size:39px;font-weight:950;stroke-width:5px}
+.m880M6GlobalText .g-system{font-size:18px;font-weight:900;stroke-width:3.8px}
+.m880M6GlobalText .g-faction{font-size:20px;font-weight:930;stroke-width:3.8px}
+.m880M6GlobalText .g-context{font-size:15px;font-weight:830;fill:#514a43;stroke-width:3.2px}
+.m880M6GlobalText .g-node{font-size:16px;font-weight:880;stroke-width:3px}
+.m880M6GlobalText circle{fill:#fffaf1;stroke:#6f5940;stroke-width:2.5px;vector-effect:non-scaling-stroke}
+.m880M6GlobalText .capitalDot{fill:#e5b65f;stroke:#6f4f2d;stroke-width:3.2px}
+.m880M6GlobalText .fallenDot{fill:#9b4f43;stroke:#72382f;stroke-width:3.2px}
+
+#yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .m880M6GlobalText{display:block!important}
+#yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .m880M6GlobalText{display:none!important}
+
+/* Embedded-only hotspots. Fullscreen gets its own hit system in M7. */
+.m880MainSpot,.m880GlobalSpot{
+  display:none;position:absolute;z-index:100!important;background:rgba(0,0,0,.001);border-radius:8px;
+  touch-action:manipulation;-webkit-tap-highlight-color:rgba(175,126,66,.16)
+}
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-focus-view:checked ~ .mapViewport .mapCanvas .m880MainSpot{display:block!important;pointer-events:auto!important}
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .mapCanvas .m880GlobalSpot{display:block!important;pointer-events:auto!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880MainSpot,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880GlobalSpot{display:none!important;pointer-events:none!important}
+.m880MainSpot:focus-visible,.m880GlobalSpot:focus-visible{outline:2px solid rgba(91,63,37,.78);outline-offset:2px}
+.m880MainSpot[href^="#d880-city-"],.m880MainSpot[href^="#d880-context-"],
+.m880GlobalSpot[href^="#d880-city-"],.m880GlobalSpot[href^="#d880-context-"]{z-index:106!important}
+.m880MainSpot.m880-dot,.m880GlobalSpot.m880-dot{z-index:107!important;border-radius:999px}
+
+.m880M6InfoSheet .m880InfoGuard{padding:9px 11px;border-radius:12px;background:rgba(194,169,122,.13);font-weight:800;line-height:1.55;margin:7px 0 12px}
+.overlay.m880M6InfoSheet.v82-open{pointer-events:none!important}
+.overlay.m880M6InfoSheet.v82-open .detail{pointer-events:auto!important}
+
+/* Embedded Global frame. Fullscreen scale ownership remains M7. */
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport{height:auto!important;min-height:0!important;max-height:none!important}
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .mapStage{
+  height:clamp(315px,84vw,430px)!important;overflow:hidden!important;position:relative!important
+}
+#map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .mapStage .mapCanvas{
+  width:100%!important;min-width:100%!important;margin:0!important;transform-origin:0 0!important;
+  transform:translate3d(-13.5%,0,0) scale(1.27)!important;transition:transform .24s ease!important;will-change:transform
+}
+@media(max-width:700px){
+  #map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .mapStage{height:min(84vw,340px)!important}
+  #map-only:not(:checked) ~ .screens .map #yr-880:checked ~ #inline-global-view:checked ~ .mapViewport .mapStage .mapCanvas{
+    transform:translate3d(-14%,0,0) scale(1.28)!important
+  }
+}
+</style>
+
+
+<style id="m880-m7-fullscreen-hotspots-focus">
+/* 880-M7 Fullscreen hotspot + focus ownership. */
+.m880FSMainSpot,.m880FSGlobalSpot{
+  display:none;position:absolute;z-index:101!important;background:rgba(0,0,0,.001);
+  border-radius:8px;touch-action:manipulation;-webkit-tap-highlight-color:rgba(175,126,66,.16)
+}
+.m880FSMainSpot:focus-visible,.m880FSGlobalSpot:focus-visible{outline:2px solid rgba(91,63,37,.78);outline-offset:2px}
+#map-only:checked ~ #m880-region-none:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .mapCanvas .m880FSMainSpot{display:block!important;pointer-events:auto!important}
+#map-only:checked ~ #m880-region-none:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .mapCanvas .m880FSGlobalSpot{display:block!important;pointer-events:auto!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880MainSpot,
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880GlobalSpot{display:none!important;pointer-events:none!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880M6GlobalText{display:block!important}
+#map-only:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880M6GlobalText{display:none!important}
+
+/* M7 formally re-enables the shared badge for 880 fullscreen. */
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .uxScaleBadge{
+  display:block!important;visibility:visible!important;z-index:248!important;pointer-events:none!important
+}
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .m880RegionRail{z-index:247!important}
+
+#map-only:checked ~ #m880-region-none:checked ~ .screens .map #yr-880:checked ~ #fs-region-focus:checked ~ .mapViewport .m880RegionRail label[for="fs-region-focus"],
+#map-only:checked ~ #m880-region-none:checked ~ .screens .map #yr-880:checked ~ #fs-region-global:checked ~ .mapViewport .m880RegionRail label[for="fs-region-global"]{
+  background:#4a3c2d!important;color:#fffaf1!important;border-color:#4a3c2d!important
+}
+.m880FSMainSpot[href^="#d880-city-"],.m880FSMainSpot[href^="#d880-context-"],
+.m880FSGlobalSpot[href^="#d880-city-"],.m880FSGlobalSpot[href^="#d880-context-"]{z-index:106!important}
+.m880FSMainSpot.m880-dot,.m880FSGlobalSpot.m880-dot{z-index:107!important;border-radius:999px}
+</style>
+
 </head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -3801,9 +4254,9 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="nav-people" name="page" type="radio"/>
 <input class="ctrl" id="nav-knowledge" name="page" type="radio"/>
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
-<input checked="" class="ctrl m630RegionCtrl" id="m630-region-none" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-guanzhong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hebeihedong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hexi" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-north" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-xiyu" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-qinghaitibet" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-dongbei" name="m630-region" type="radio"/><input checked="" class="ctrl m660RegionCtrl" id="m660-region-none" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-guanzhong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hebeihedong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-north" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hexianxi" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-qinghaitibet" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-liaodong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-baekjesilla" name="m660-region" type="radio"/><input checked="" class="ctrl m668RegionCtrl" id="m668-region-none" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-guanzhong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hebeihedong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-north" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hexianxi" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-qinghaitibet" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-liaodongandong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-ungjinsilla" name="m668-region" type="radio"/><input checked="" class="ctrl m742RegionCtrl" id="m742-region-none" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-guanzhong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hebeihedong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-north" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hexilongyou" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-anxibeiting" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-qinghaitibet" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-southwest" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-northeast" name="m742-region" type="radio"/><input checked="" class="ctrl m763RegionCtrl" id="m763-region-none" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-guanzhong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hebei" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-henanhedong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-north" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hexilongyou" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-anxibeiting" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-tibet" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-southwest" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-northeast" name="m763-region" type="radio"/><input checked="" class="ctrl m820RegionCtrl" id="m820-region-none" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-guanzhong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hebei" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-henanhedong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-north" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hexilongyou" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-western" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-tibet" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-southwest" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-northeast" name="m820-region" type="radio"/><input aria-controls="d820-faction-uighur" class="ctrl m820FactionToggle" data-faction="uighur" data-info-target="d820-faction-uighur" id="m820-faction-uighur" type="checkbox"/><input aria-controls="d820-faction-tibet" class="ctrl m820FactionToggle" data-faction="tibet" data-info-target="d820-faction-tibet" id="m820-faction-tibet" type="checkbox"/><input aria-controls="d820-faction-nanzhao" class="ctrl m820FactionToggle" data-faction="nanzhao" data-info-target="d820-faction-nanzhao" id="m820-faction-nanzhao" type="checkbox"/><input aria-controls="d820-faction-balhae" class="ctrl m820FactionToggle" data-faction="balhae" data-info-target="d820-faction-balhae" id="m820-faction-balhae" type="checkbox"/><input aria-controls="d820-faction-silla" class="ctrl m820FactionToggle" data-faction="silla" data-info-target="d820-faction-silla" id="m820-faction-silla" type="checkbox"/><input aria-controls="d763-faction-uighur" class="ctrl m763FactionToggle" data-faction="uighur" data-info-target="d763-faction-uighur" id="m763-faction-uighur" type="checkbox"/><input aria-controls="d763-faction-tibet" class="ctrl m763FactionToggle" data-faction="tibet" data-info-target="d763-faction-tibet" id="m763-faction-tibet" type="checkbox"/><input aria-controls="d763-faction-nanzhao" class="ctrl m763FactionToggle" data-faction="nanzhao" data-info-target="d763-faction-nanzhao" id="m763-faction-nanzhao" type="checkbox"/><input aria-controls="d763-faction-balhae" class="ctrl m763FactionToggle" data-faction="balhae" data-info-target="d763-faction-balhae" id="m763-faction-balhae" type="checkbox"/><input aria-controls="d763-faction-silla" class="ctrl m763FactionToggle" data-faction="silla" data-info-target="d763-faction-silla" id="m763-faction-silla" type="checkbox"/><input aria-controls="d742-faction-later-turk" class="ctrl m742FactionToggle" data-faction="later-turk" data-info-target="d742-faction-later-turk" id="m742-faction-later-turk" type="checkbox"/><input aria-controls="d742-faction-tibet" class="ctrl m742FactionToggle" data-faction="tibet" data-info-target="d742-faction-tibet" id="m742-faction-tibet" type="checkbox"/><input aria-controls="d742-faction-nanzhao" class="ctrl m742FactionToggle" data-faction="nanzhao" data-info-target="d742-faction-nanzhao" id="m742-faction-nanzhao" type="checkbox"/><input aria-controls="d742-faction-balhae" class="ctrl m742FactionToggle" data-faction="balhae" data-info-target="d742-faction-balhae" id="m742-faction-balhae" type="checkbox"/><input aria-controls="d742-faction-silla" class="ctrl m742FactionToggle" data-faction="silla" data-info-target="d742-faction-silla" id="m742-faction-silla" type="checkbox"/><input aria-controls="d668-faction-silla" class="ctrl m668FactionToggle" data-faction="silla" data-info-target="d668-faction-silla" id="m668-faction-silla" type="checkbox"/><input aria-controls="d668-faction-tibet" class="ctrl m668FactionToggle" data-faction="tibet" data-info-target="d668-faction-tibet" id="m668-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-goguryeo" class="ctrl m660FactionToggle" data-faction="goguryeo" data-info-target="d660-faction-goguryeo" id="m660-faction-goguryeo" type="checkbox"/><input aria-controls="d660-faction-silla" class="ctrl m660FactionToggle" data-faction="silla" data-info-target="d660-faction-silla" id="m660-faction-silla" type="checkbox"/><input aria-controls="d660-faction-tibet" class="ctrl m660FactionToggle" data-faction="tibet" data-info-target="d660-faction-tibet" id="m660-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-tuyuhun" class="ctrl m660FactionToggle" data-faction="tuyuhun" data-info-target="d660-faction-tuyuhun" id="m660-faction-tuyuhun" type="checkbox"/><input aria-controls="d660-faction-baekje-restoration" class="ctrl m660FactionToggle" data-faction="baekje-restoration" data-info-target="d660-faction-baekje-restoration" id="m660-faction-baekje-restoration" type="checkbox"/><input aria-controls="d630-faction-xueyantuo" class="ctrl m630FactionToggle" data-faction="xueyantuo" data-info-target="d630-faction-xueyantuo" id="m630-faction-xueyantuo" type="checkbox"/><input aria-controls="d630-faction-westturk" class="ctrl m630FactionToggle" data-faction="westturk" data-info-target="d630-faction-westturk" id="m630-faction-westturk" type="checkbox"/><input aria-controls="d630-faction-gaochang" class="ctrl m630FactionToggle" data-faction="gaochang" data-info-target="d630-faction-gaochang" id="m630-faction-gaochang" type="checkbox"/><input aria-controls="d630-faction-tuyuhun" class="ctrl m630FactionToggle" data-faction="tuyuhun" data-info-target="d630-faction-tuyuhun" id="m630-faction-tuyuhun" type="checkbox"/><input aria-controls="d630-faction-yarlung" class="ctrl m630FactionToggle" data-faction="yarlung" data-info-target="d630-faction-yarlung" id="m630-faction-yarlung" type="checkbox"/><input aria-controls="d630-faction-goguryeo" class="ctrl m630FactionToggle" data-faction="goguryeo" data-info-target="d630-faction-goguryeo" id="m630-faction-goguryeo" type="checkbox"/><input aria-controls="d630-faction-baekje" class="ctrl m630FactionToggle" data-faction="baekje" data-info-target="d630-faction-baekje" id="m630-faction-baekje" type="checkbox"/><input aria-controls="d630-faction-silla" class="ctrl m630FactionToggle" data-faction="silla" data-info-target="d630-faction-silla" id="m630-faction-silla" type="checkbox"/><header class="header">
+<input checked="" class="ctrl m630RegionCtrl" id="m630-region-none" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-guanzhong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hebeihedong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hexi" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-north" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-xiyu" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-qinghaitibet" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-dongbei" name="m630-region" type="radio"/><input checked="" class="ctrl m660RegionCtrl" id="m660-region-none" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-guanzhong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hebeihedong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-north" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hexianxi" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-qinghaitibet" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-liaodong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-baekjesilla" name="m660-region" type="radio"/><input checked="" class="ctrl m668RegionCtrl" id="m668-region-none" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-guanzhong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hebeihedong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-north" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hexianxi" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-qinghaitibet" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-liaodongandong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-ungjinsilla" name="m668-region" type="radio"/><input checked="" class="ctrl m742RegionCtrl" id="m742-region-none" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-guanzhong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hebeihedong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-north" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hexilongyou" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-anxibeiting" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-qinghaitibet" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-southwest" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-northeast" name="m742-region" type="radio"/><input checked="" class="ctrl m763RegionCtrl" id="m763-region-none" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-guanzhong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hebei" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-henanhedong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-north" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hexilongyou" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-anxibeiting" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-tibet" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-southwest" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-northeast" name="m763-region" type="radio"/><input checked="" class="ctrl m820RegionCtrl" id="m820-region-none" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-guanzhong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hebei" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-henanhedong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-north" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hexilongyou" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-western" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-tibet" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-southwest" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-northeast" name="m820-region" type="radio"/><input checked="" class="ctrl m880RegionCtrl" id="m880-region-none" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-guanzhong" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-hebei" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-henanhuangchao" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-hedongnorth" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-huainan" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-guiyi" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-tibet" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-southwest" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-northeast" name="m880-region" type="radio"/><input aria-controls="d880-faction-tibet-fragments" class="ctrl m880FactionToggle" data-faction="tibet-fragments" data-info-target="d880-faction-tibet-fragments" id="m880-faction-tibet-fragments" type="checkbox"/><input aria-controls="d880-faction-nanzhao" class="ctrl m880FactionToggle" data-faction="nanzhao" data-info-target="d880-faction-nanzhao" id="m880-faction-nanzhao" type="checkbox"/><input aria-controls="d880-faction-balhae" class="ctrl m880FactionToggle" data-faction="balhae" data-info-target="d880-faction-balhae" id="m880-faction-balhae" type="checkbox"/><input aria-controls="d880-faction-silla" class="ctrl m880FactionToggle" data-faction="silla" data-info-target="d880-faction-silla" id="m880-faction-silla" type="checkbox"/><input aria-controls="d820-faction-uighur" class="ctrl m820FactionToggle" data-faction="uighur" data-info-target="d820-faction-uighur" id="m820-faction-uighur" type="checkbox"/><input aria-controls="d820-faction-tibet" class="ctrl m820FactionToggle" data-faction="tibet" data-info-target="d820-faction-tibet" id="m820-faction-tibet" type="checkbox"/><input aria-controls="d820-faction-nanzhao" class="ctrl m820FactionToggle" data-faction="nanzhao" data-info-target="d820-faction-nanzhao" id="m820-faction-nanzhao" type="checkbox"/><input aria-controls="d820-faction-balhae" class="ctrl m820FactionToggle" data-faction="balhae" data-info-target="d820-faction-balhae" id="m820-faction-balhae" type="checkbox"/><input aria-controls="d820-faction-silla" class="ctrl m820FactionToggle" data-faction="silla" data-info-target="d820-faction-silla" id="m820-faction-silla" type="checkbox"/><input aria-controls="d763-faction-uighur" class="ctrl m763FactionToggle" data-faction="uighur" data-info-target="d763-faction-uighur" id="m763-faction-uighur" type="checkbox"/><input aria-controls="d763-faction-tibet" class="ctrl m763FactionToggle" data-faction="tibet" data-info-target="d763-faction-tibet" id="m763-faction-tibet" type="checkbox"/><input aria-controls="d763-faction-nanzhao" class="ctrl m763FactionToggle" data-faction="nanzhao" data-info-target="d763-faction-nanzhao" id="m763-faction-nanzhao" type="checkbox"/><input aria-controls="d763-faction-balhae" class="ctrl m763FactionToggle" data-faction="balhae" data-info-target="d763-faction-balhae" id="m763-faction-balhae" type="checkbox"/><input aria-controls="d763-faction-silla" class="ctrl m763FactionToggle" data-faction="silla" data-info-target="d763-faction-silla" id="m763-faction-silla" type="checkbox"/><input aria-controls="d742-faction-later-turk" class="ctrl m742FactionToggle" data-faction="later-turk" data-info-target="d742-faction-later-turk" id="m742-faction-later-turk" type="checkbox"/><input aria-controls="d742-faction-tibet" class="ctrl m742FactionToggle" data-faction="tibet" data-info-target="d742-faction-tibet" id="m742-faction-tibet" type="checkbox"/><input aria-controls="d742-faction-nanzhao" class="ctrl m742FactionToggle" data-faction="nanzhao" data-info-target="d742-faction-nanzhao" id="m742-faction-nanzhao" type="checkbox"/><input aria-controls="d742-faction-balhae" class="ctrl m742FactionToggle" data-faction="balhae" data-info-target="d742-faction-balhae" id="m742-faction-balhae" type="checkbox"/><input aria-controls="d742-faction-silla" class="ctrl m742FactionToggle" data-faction="silla" data-info-target="d742-faction-silla" id="m742-faction-silla" type="checkbox"/><input aria-controls="d668-faction-silla" class="ctrl m668FactionToggle" data-faction="silla" data-info-target="d668-faction-silla" id="m668-faction-silla" type="checkbox"/><input aria-controls="d668-faction-tibet" class="ctrl m668FactionToggle" data-faction="tibet" data-info-target="d668-faction-tibet" id="m668-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-goguryeo" class="ctrl m660FactionToggle" data-faction="goguryeo" data-info-target="d660-faction-goguryeo" id="m660-faction-goguryeo" type="checkbox"/><input aria-controls="d660-faction-silla" class="ctrl m660FactionToggle" data-faction="silla" data-info-target="d660-faction-silla" id="m660-faction-silla" type="checkbox"/><input aria-controls="d660-faction-tibet" class="ctrl m660FactionToggle" data-faction="tibet" data-info-target="d660-faction-tibet" id="m660-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-tuyuhun" class="ctrl m660FactionToggle" data-faction="tuyuhun" data-info-target="d660-faction-tuyuhun" id="m660-faction-tuyuhun" type="checkbox"/><input aria-controls="d660-faction-baekje-restoration" class="ctrl m660FactionToggle" data-faction="baekje-restoration" data-info-target="d660-faction-baekje-restoration" id="m660-faction-baekje-restoration" type="checkbox"/><input aria-controls="d630-faction-xueyantuo" class="ctrl m630FactionToggle" data-faction="xueyantuo" data-info-target="d630-faction-xueyantuo" id="m630-faction-xueyantuo" type="checkbox"/><input aria-controls="d630-faction-westturk" class="ctrl m630FactionToggle" data-faction="westturk" data-info-target="d630-faction-westturk" id="m630-faction-westturk" type="checkbox"/><input aria-controls="d630-faction-gaochang" class="ctrl m630FactionToggle" data-faction="gaochang" data-info-target="d630-faction-gaochang" id="m630-faction-gaochang" type="checkbox"/><input aria-controls="d630-faction-tuyuhun" class="ctrl m630FactionToggle" data-faction="tuyuhun" data-info-target="d630-faction-tuyuhun" id="m630-faction-tuyuhun" type="checkbox"/><input aria-controls="d630-faction-yarlung" class="ctrl m630FactionToggle" data-faction="yarlung" data-info-target="d630-faction-yarlung" id="m630-faction-yarlung" type="checkbox"/><input aria-controls="d630-faction-goguryeo" class="ctrl m630FactionToggle" data-faction="goguryeo" data-info-target="d630-faction-goguryeo" id="m630-faction-goguryeo" type="checkbox"/><input aria-controls="d630-faction-baekje" class="ctrl m630FactionToggle" data-faction="baekje" data-info-target="d630-faction-baekje" id="m630-faction-baekje" type="checkbox"/><input aria-controls="d630-faction-silla" class="ctrl m630FactionToggle" data-faction="silla" data-info-target="d630-faction-silla" id="m630-faction-silla" type="checkbox"/><header class="header">
 <div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">820-M8.1｜iPhone Safari Device QC Round 2 Fix｜FINAL CANDIDATE / NOT FREEZE</div>
+<div class="meta">880-M8.1｜iPhone Safari Device QC Candidate v0.1｜DEVICE QC PENDING / NOT FREEZE</div>
 </header>
 <div class="screens">
 <section class="page home">
@@ -3869,6 +4322,12 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <label aria-expanded="false" class="m820FactionChip" data-faction="nanzhao" data-info-target="d820-faction-nanzhao" for="m820-faction-nanzhao" title="點一下顯示南詔範圍與簡介；再點一次取消"><i></i>南詔</label>
 <label aria-expanded="false" class="m820FactionChip" data-faction="balhae" data-info-target="d820-faction-balhae" for="m820-faction-balhae" title="點一下顯示渤海範圍與簡介；再點一次取消"><i></i>渤海</label>
 <label aria-expanded="false" class="m820FactionChip" data-faction="silla" data-info-target="d820-faction-silla" for="m820-faction-silla" title="點一下顯示新羅範圍與簡介；再點一次取消"><i></i>新羅</label>
+</div><div aria-description="點一下顯示外部／碎片化政治體範圍並開啟簡介；再點一次取消。可多選。" aria-label="880 全螢幕外部勢力按需顯示" class="m880FactionRail m880FullscreenFactionRail">
+<span class="m880FactionRailTitle">外部勢力</span>
+<label aria-expanded="false" class="m880FactionChip" data-faction="tibet-fragments" data-info-target="d880-faction-tibet-fragments" for="m880-faction-tibet-fragments"><i></i>吐蕃碎片</label>
+<label aria-expanded="false" class="m880FactionChip" data-faction="nanzhao" data-info-target="d880-faction-nanzhao" for="m880-faction-nanzhao"><i></i>南詔</label>
+<label aria-expanded="false" class="m880FactionChip" data-faction="balhae" data-info-target="d880-faction-balhae" for="m880-faction-balhae"><i></i>渤海</label>
+<label aria-expanded="false" class="m880FactionChip" data-faction="silla" data-info-target="d880-faction-silla" for="m880-faction-silla"><i></i>新羅</label>
 </div><div class="mapViewport">
 <div class="yearOverlay"><span class="yearToggle yt-618"><label class="yearChip compact yearPick" for="yr-618" title="唐建立"><b>618</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 618"><b>618</b></label></span><span class="yearToggle yt-630"><label class="yearChip compact yearPick" for="yr-630" title="滅東突厥"><b>630</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 630"><b>630</b></label></span><span class="yearToggle yt-660"><label class="yearChip compact yearPick" for="yr-660" title="百濟滅亡"><b>660</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 660"><b>660</b></label></span><span class="yearToggle yt-668"><label class="yearChip compact yearPick" for="yr-668" title="高句麗滅亡"><b>668</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 668"><b>668</b></label></span><span class="yearToggle yt-742"><label class="yearChip compact yearPick" for="yr-742" title="天寶元年"><b>742</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 742"><b>742</b></label></span><span class="yearToggle yt-763"><label class="yearChip compact yearPick" for="yr-763" title="安史後"><b>763</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 763"><b>763</b></label></span><span class="yearToggle yt-820"><label class="yearChip compact yearPick" for="yr-820" title="元和後"><b>820</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 820"><b>820</b></label></span><span class="yearToggle yt-880"><label class="yearChip compact yearPick" for="yr-880" title="黃巢之亂"><b>880</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 880"><b>880</b></label></span><span class="yearToggle yt-907"><label class="yearChip compact yearPick" for="yr-907" title="唐亡"><b>907</b></label><label class="yearChip compact yearClear" for="yr-none" title="再次點擊取消 907"><b>907</b></label></span></div><div aria-description="點一下勢力標籤顯示其範圍並開啟下方簡介；再點一次取消。可同時保留多個勢力色塊。" aria-label="618 非唐勢力按需顯示" class="v830FactionRail"><span class="v830FactionRailTitle">非唐勢力</span><label class="v830FactionChip" data-info-target="d618-pol-li-gui" for="f618-ligui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李軌</label><label class="v830FactionChip" data-info-target="d618-pol-xiqin" for="f618-xueju" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>薛舉</label><label class="v830FactionChip" data-info-target="d618-pol-liang-shidao" for="f618-liangshidu" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>梁師都</label><label class="v830FactionChip" data-info-target="d618-pol-dingyang" for="f618-liuwuzhou" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>劉武周</label><label class="v830FactionChip" data-info-target="d618-pol-xia-dou" for="f618-doujiande" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>竇建德</label><label class="v830FactionChip" data-info-target="d618-wangshichong" for="f618-huangtaisui" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>皇泰隋廷</label><label class="v830FactionChip" data-info-target="d618-pol-limi" for="f618-limi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>李密</label><label class="v830FactionChip" data-info-target="d618-pol-dufuwei" for="f618-dufuwei" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>杜伏威</label><label class="v830FactionChip" data-info-target="d618-pol-shenfaxing" for="f618-shenfaxing" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>沈法興</label><label class="v830FactionChip" data-info-target="d618-xiaoxian" for="f618-xiaoxian" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>蕭銑</label><label class="v830FactionChip" data-info-target="d618-pol-luoyi" for="f618-luoyi" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>羅藝</label><label class="v830FactionChip" data-info-target="d618-pol-linshihong" for="f618-linshihong" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>林士弘</label><label class="v830FactionChip" data-info-target="d618-pol-yuwen" for="f618-yuwenhuaji" style="--faction-color:#4E86B7" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>宇文化及</label></div><div aria-description="點一下勢力標籤顯示其範圍並開啟簡介；再點一次取消。可同時保留多個勢力色塊。" aria-label="630 非唐勢力按需顯示" class="m630FactionRail m630EmbeddedFactionRail"><span class="m630FactionRailTitle">非唐勢力</span><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-xueyantuo" for="m630-faction-xueyantuo" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>薛延陀</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-westturk" for="m630-faction-westturk" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>西突厥</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-gaochang" for="m630-faction-gaochang" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>高昌</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-tuyuhun" for="m630-faction-tuyuhun" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>吐谷渾</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-yarlung" for="m630-faction-yarlung" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>吐蕃／雅隆</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-goguryeo" for="m630-faction-goguryeo" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>高句麗</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-baekje" for="m630-faction-baekje" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>百濟</label><label aria-expanded="false" class="m630FactionChip" data-info-target="d630-faction-silla" for="m630-faction-silla" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>新羅</label></div><div aria-description="點一下勢力標籤顯示其範圍並開啟簡介；再點一次取消。可同時保留多個勢力色塊。" aria-label="660 非唐勢力按需顯示" class="m660FactionRail m660EmbeddedFactionRail"><span class="m660FactionRailTitle">非唐勢力</span><label aria-expanded="false" class="m660FactionChip" data-faction="goguryeo" data-info-target="d660-faction-goguryeo" for="m660-faction-goguryeo" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>高句麗</label><label aria-expanded="false" class="m660FactionChip" data-faction="silla" data-info-target="d660-faction-silla" for="m660-faction-silla" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>新羅</label><label aria-expanded="false" class="m660FactionChip" data-faction="tibet" data-info-target="d660-faction-tibet" for="m660-faction-tibet" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>吐蕃</label><label aria-expanded="false" class="m660FactionChip" data-faction="tuyuhun" data-info-target="d660-faction-tuyuhun" for="m660-faction-tuyuhun" title="點一下顯示勢力範圍與簡介；再點一次取消"><i></i>吐谷渾</label><label aria-expanded="false" class="m660FactionChip" data-faction="baekje-restoration" data-info-target="d660-faction-baekje-restoration" for="m660-faction-baekje-restoration" title="點一下顯示復國抵抗活動閱讀範圍與簡介；再點一次取消"><i></i>百濟復國</label></div><div aria-description="點一下勢力標籤顯示其範圍並開啟簡介；再點一次取消。主域與全域共用同一組狀態。" aria-label="668 外部勢力按需顯示" class="m668FactionRail m668EmbeddedFactionRail"><span class="m668FactionRailTitle">外部勢力</span><label aria-expanded="false" class="m668FactionChip" data-faction="silla" data-info-target="d668-faction-silla" for="m668-faction-silla" title="點一下顯示新羅範圍與簡介；再點一次取消"><i></i>新羅</label><label aria-expanded="false" class="m668FactionChip" data-faction="tibet" data-info-target="d668-faction-tibet" for="m668-faction-tibet" title="點一下顯示吐蕃範圍與簡介；再點一次取消"><i></i>吐蕃</label></div><div aria-description="點一下勢力標籤顯示其範圍並開啟簡介；再點一次取消。可同時保留多個勢力色塊。" aria-label="742 外部勢力按需顯示" class="m742FactionRail m742EmbeddedFactionRail"><span class="m742FactionRailTitle">外部勢力</span><label aria-expanded="false" class="m742FactionChip" data-faction="later-turk" data-info-target="d742-faction-later-turk" for="m742-faction-later-turk" title="點一下顯示後突厥殘存核心與三部反叛帶；再點一次取消"><i></i>後突厥</label><label aria-expanded="false" class="m742FactionChip" data-faction="tibet" data-info-target="d742-faction-tibet" for="m742-faction-tibet" title="點一下顯示吐蕃範圍與簡介；再點一次取消"><i></i>吐蕃</label><label aria-expanded="false" class="m742FactionChip" data-faction="nanzhao" data-info-target="d742-faction-nanzhao" for="m742-faction-nanzhao" title="點一下顯示南詔範圍與簡介；再點一次取消"><i></i>南詔</label><label aria-expanded="false" class="m742FactionChip" data-faction="balhae" data-info-target="d742-faction-balhae" for="m742-faction-balhae" title="點一下顯示渤海範圍與簡介；再點一次取消"><i></i>渤海</label><label aria-expanded="false" class="m742FactionChip" data-faction="silla" data-info-target="d742-faction-silla" for="m742-faction-silla" title="點一下顯示新羅範圍與簡介；再點一次取消"><i></i>新羅</label></div>
 <div aria-label="手機地圖操作" class="uxMapHud">
@@ -3929,6 +4388,24 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <label aria-controls="d820-region-tibet" aria-expanded="false" class="m820RegionChip" data-info-target="d820-region-tibet" for="m820-region-tibet" title="820 區域閱讀：青藏／吐蕃；再點一次取消"><i></i>青藏／吐蕃</label>
 <label aria-controls="d820-region-southwest" aria-expanded="false" class="m820RegionChip" data-info-target="d820-region-southwest" for="m820-region-southwest" title="820 區域閱讀：西南／南詔；再點一次取消"><i></i>西南／南詔</label>
 <label aria-controls="d820-region-northeast" aria-expanded="false" class="m820RegionChip" data-info-target="d820-region-northeast" for="m820-region-northeast" title="820 區域閱讀：東北／渤海／新羅；再點一次取消"><i></i>東北／渤海／新羅</label>
+</div><div aria-description="點一下顯示外部／碎片化政治體範圍並開啟簡介；再點一次取消。可多選。" aria-label="880 外部勢力按需顯示" class="m880FactionRail m880EmbeddedFactionRail">
+<span class="m880FactionRailTitle">外部勢力</span>
+<label aria-expanded="false" class="m880FactionChip" data-faction="tibet-fragments" data-info-target="d880-faction-tibet-fragments" for="m880-faction-tibet-fragments" title="顯示842後吐蕃帝國瓦解形成的碎片化閱讀包絡"><i></i>吐蕃碎片</label>
+<label aria-expanded="false" class="m880FactionChip" data-faction="nanzhao" data-info-target="d880-faction-nanzhao" for="m880-faction-nanzhao" title="顯示880南詔閱讀包絡"><i></i>南詔</label>
+<label aria-expanded="false" class="m880FactionChip" data-faction="balhae" data-info-target="d880-faction-balhae" for="m880-faction-balhae" title="顯示880渤海閱讀包絡"><i></i>渤海</label>
+<label aria-expanded="false" class="m880FactionChip" data-faction="silla" data-info-target="d880-faction-silla" for="m880-faction-silla" title="顯示880新羅閱讀包絡"><i></i>新羅</label>
+</div><div aria-label="880 區域閱讀導航" class="m880RegionRail">
+<label class="m880RegionChip m880ModeChip m880ModeGlobal" for="fs-region-global" title="切換880全域">全域</label>
+<label class="m880RegionChip m880ModeChip m880ModeMain" for="fs-region-focus" title="回到880主域">主域</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-guanzhong" for="m880-region-guanzhong" title="880 區域閱讀：關中／長安"><i></i>關中／長安</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-hebei" for="m880-region-hebei" title="880 區域閱讀：河北／河朔軍鎮"><i></i>河北／河朔</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-henanhuangchao" for="m880-region-henanhuangchao" title="880 區域閱讀：河南／洛陽／黃巢"><i></i>河南／黃巢</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-hedongnorth" for="m880-region-hedongnorth" title="880 區域閱讀：河東／北方軍鎮"><i></i>河東／北方</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-huainan" for="m880-region-huainan" title="880 區域閱讀：江淮／淮南／高駢"><i></i>淮南／高駢</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-guiyi" for="m880-region-guiyi" title="880 區域閱讀：河西／敦煌／歸義軍"><i></i>敦煌／歸義軍</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-tibet" for="m880-region-tibet" title="880 區域閱讀：青藏／吐蕃碎片"><i></i>青藏／吐蕃碎片</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-southwest" for="m880-region-southwest" title="880 區域閱讀：西南／南詔"><i></i>西南／南詔</label>
+<label aria-expanded="false" class="m880RegionChip" data-info-target="d880-region-northeast" for="m880-region-northeast" title="880 區域閱讀：東北／渤海／新羅"><i></i>東北／渤海／新羅</label>
 </div><div class="mapStage"><div aria-label="目前閱讀區域" aria-live="polite" class="v825RegionBanner">
 <span class="v825RegionName v825-r-guanzhong"><i></i>關中｜618</span>
 <span class="v825RegionName v825-r-hexi"><i></i>河西｜618</span>
@@ -4322,6 +4799,292 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <img alt="763 主要區域（實線）" class="yearLayer y763 layer-main" src="data:image/svg+xml;base64,PG5zMDpzdmcgeG1sbnM6bnMwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMjYiIGhlaWdodD0iNzMwIiB2aWV3Qm94PSIwIDAgMTAyNiA3MzAiPjxuczA6ZGVmcz4KICAgICAgICA8bnMwOnBhdHRlcm4gaWQ9ImNvbnRlc3RlZCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj4KICAgICAgICAgIDxuczA6cmVjdCB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9IiNjNjg1NzAiIGZpbGwtb3BhY2l0eT0iLjIyIiAvPgogICAgICAgICAgPG5zMDpsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxMiIgc3Ryb2tlPSIjOGY0YzNlIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1vcGFjaXR5PSIuNDIiIC8+CiAgICAgICAgPC9uczA6cGF0dGVybj4KICAgICAgPC9uczA6ZGVmcz48bnMwOnBvbHlnb24gcG9pbnRzPSI0NTEuMiwyMDcuNSA0NzguMiwxNDQuMyA1ODMuNCwxNjguNSA2NzEuNSwyMDIuMSA3MzEuOSwzMzUuNyA3NTUuMSw0MzAuNyA3NjAuMSw0NzQuOSA3MTUuMyw1MDAuMiA2MTYuOCw1MDkuOCA1MTkuNyw0ODAuNiA0NjMuNiw0MDYuMCA0NTUuNywzMDEuMiIgZmlsbD0iI2YyOWE0OCIgc3Ryb2tlPSIjZjI5YTQ4IiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBmaWxsLW9wYWNpdHk9IjAuNTAiIC8+PC9uczA6c3ZnPg=="/><img alt="763 影響／爭議區（虛線）" class="yearLayer y763 layer-influence" src="data:image/svg+xml;base64,PG5zMDpzdmcgeG1sbnM6bnMwPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMjYiIGhlaWdodD0iNzMwIiB2aWV3Qm94PSIwIDAgMTAyNiA3MzAiPjxuczA6ZGVmcz4KICAgICAgICA8bnMwOnBhdHRlcm4gaWQ9ImNvbnRlc3RlZCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjEyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoNDUpIj4KICAgICAgICAgIDxuczA6cmVjdCB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIGZpbGw9IiNjNjg1NzAiIGZpbGwtb3BhY2l0eT0iLjIyIiAvPgogICAgICAgICAgPG5zMDpsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxMiIgc3Ryb2tlPSIjOGY0YzNlIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1vcGFjaXR5PSIuNDIiIC8+CiAgICAgICAgPC9uczA6cGF0dGVybj4KICAgICAgPC9uczA6ZGVmcz48bnMwOnBvbHlnb24gcG9pbnRzPSIyMTkuMiwyMzEuOSA0MDYuNywyMTYuMSA1MDAuMywzMzAuMyA1MDMuMyw0NDIuNiA0MTEuNCw0NDYuMyAyNzQuNiwzNjIuMiIgZmlsbD0iIzhmNjliZSIgc3Ryb2tlPSIjOGY2OWJlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgdmVjdG9yLWVmZmVjdD0ibm9uLXNjYWxpbmctc3Ryb2tlIiBzdHJva2UtZGFzaGFycmF5PSI4IDYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZmlsbC1vcGFjaXR5PSIwLjUwIiAvPjxuczA6cG9seWdvbiBwb2ludHM9IjU4MC4zLDIyMi43IDY1OS44LDIxNS45IDcxMi44LDM0Mi44IDY5Ny42LDM3Ni42IDYzNi42LDMyMi4yIiBmaWxsPSIjOWI0YjNlIiBzdHJva2U9IiM5YjRiM2UiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWpvaW49InJvdW5kIiB2ZWN0b3ItZWZmZWN0PSJub24tc2NhbGluZy1zdHJva2UiIHN0cm9rZS1kYXNoYXJyYXk9IjggNiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBmaWxsLW9wYWNpdHk9IjAuNTAiIC8+PG5zMDpwb2x5Z29uIHBvaW50cz0iMTMyLjAsMTA2LjcgMzU5LjIsMTIwLjkgNDU0LjgsMjI2LjUgNDE2LjMsMjkxLjMgMjIxLjUsMjU1LjUgMTE5LjcsMTQ3LjkiIGZpbGw9IiM5YzgxYjkiIHN0cm9rZT0iIzljODFiOSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHZlY3Rvci1lZmZlY3Q9Im5vbi1zY2FsaW5nLXN0cm9rZSIgc3Ryb2tlLWRhc2hhcnJheT0iOCA2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGwtb3BhY2l0eT0iMC41MCIgLz48L25zMDpzdmc+"/>
 <img alt="763 labels layer" class="yearLayer y763 layer-labels" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI2IiBoZWlnaHQ9IjczMCIgdmlld0JveD0iMCAwIDEwMjYgNzMwIj48dGV4dCB4PSI1NjAuMyIgeT0iMzI5LjciIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJQaW5nRmFuZyBUQyxNaWNyb3NvZnQgSmhlbmdIZWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSIzMiIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzM0MjgxZSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgc3Ryb2tlPSIjZmZmNmU3IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPuWUkDwvdGV4dD48dGV4dCB4PSI2NzguMCIgeT0iMzA1LjMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJQaW5nRmFuZyBUQyxNaWNyb3NvZnQgSmhlbmdIZWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNiIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzM0MjgxZSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgc3Ryb2tlPSIjZmZmNmU3IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPuays+aclOi7jemOru+8j+WuieWPsumkmOmDqDwvdGV4dD48dGV4dCB4PSIzOTQuOSIgeT0iMzU1LjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJQaW5nRmFuZyBUQyxNaWNyb3NvZnQgSmhlbmdIZWksc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMiIgZm9udC13ZWlnaHQ9IjgwMCIgZmlsbD0iIzM0MjgxZSIgcGFpbnQtb3JkZXI9InN0cm9rZSIgc3Ryb2tlPSIjZmZmNmU3IiBzdHJva2Utd2lkdGg9IjYiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPuWQkOiVgzwvdGV4dD48L3N2Zz4="/>
 <img alt="763 cities layer" class="yearLayer y763 layer-cities" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDI2IiBoZWlnaHQ9IjczMCIgdmlld0JveD0iMCAwIDEwMjYgNzMwIj48dGV4dCB4PSI1NzYuMyIgeT0iMzI2LjQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI5MDAiIGZpbGw9IiMyMTFiMTYiIHBhaW50LW9yZGVyPSJzdHJva2UiIHN0cm9rZT0iI2ZmZjVlNiIgc3Ryb2tlLXdpZHRoPSI1Ij7imIXplbflrok8L3RleHQ+PHRleHQgeD0iNjUxLjgiIHk9IjM0OC43IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjE2IiBmb250LXdlaWdodD0iOTAwIiBmaWxsPSIjMjExYjE2IiBwYWludC1vcmRlcj0ic3Ryb2tlIiBzdHJva2U9IiNmZmY1ZTYiIHN0cm9rZS13aWR0aD0iNSI+4peP5rSb6Zm9PC90ZXh0Pjwvc3ZnPg=="/>
+
+
+<!-- 880-M1 | 10 political / military reading layers | 1026x730 Working Position Base -->
+<svg aria-hidden="true" class="m880M1Layer m880M1BaseLayer m880TangCourtCore" id="m880-tang-court-core" viewBox="0 0 1026 730">
+  <path class="core" d="M478 245 L525 208 L594 216 L625 258 L621 316 L595 365 L543 392 L492 366 L468 315 Z"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1BaseLayer m880LoyalistNetwork" id="m880-loyalist-network" viewBox="0 0 1026 730">
+  <path d="M576 326 C594 305 606 286 625 268"/>
+  <path d="M576 326 C555 359 548 392 545 432"/>
+  <path d="M576 326 C624 355 671 389 720 421"/>
+  <path d="M576 326 C625 308 672 288 720 270"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1BaseLayer m880HuangChaoCampaign" id="m880-huangchao-campaign" viewBox="0 0 1026 730">
+  <!-- Northward campaign from the south / lower Yangzi-Huai corridor into Henan, ending at captured Luoyang. -->
+  <path d="M690 556 C665 520 650 487 664 452 C679 417 666 389 652 349"/>
+  <ellipse class="luoyangFall" cx="652" cy="349" rx="38" ry="26"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1BaseLayer m880HebeiAutonomy" id="m880-hebei-autonomy" viewBox="0 0 1026 730">
+  <polygon points="604,194 676,178 752,202 802,244 812,300 785,347 730,373 667,359 620,326 596,261"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1BaseLayer m880HuainanGaopian" id="m880-huainan-gaopian" viewBox="0 0 1026 730">
+  <polygon points="664,374 725,362 775,386 790,430 766,468 711,477 667,449 651,410"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1BaseLayer m880Guiyi" id="m880-guiyi-circuit" viewBox="0 0 1026 730">
+  <polygon points="319,251 371,236 417,251 432,281 413,311 365,320 326,304 307,278"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1External m880TibetanFragments" id="m880-tibetan-fragments" viewBox="0 0 1026 730">
+  <polygon points="204,327 278,294 367,300 445,334 487,391 481,468 430,518 348,526 276,489 220,426"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1External m880Nanzhao" id="m880-nanzhao" viewBox="0 0 1026 730">
+  <polygon points="470,474 536,456 590,489 598,555 555,615 492,600 453,548"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1External m880Balhae" id="m880-balhae" viewBox="0 0 1026 730">
+  <polygon points="780,169 855,150 927,177 958,230 935,289 868,303 807,268 776,219"/>
+</svg>
+
+<svg aria-hidden="true" class="m880M1Layer m880M1External m880Silla" id="m880-silla" viewBox="0 0 1026 730">
+  <polygon points="845,291 892,285 923,318 922,371 893,408 853,388 835,341"/>
+</svg>
+<!-- end 880-M1 -->
+
+
+<!-- 880-M2 | single canonical Main text + primary cities / military nodes | 1026x730 -->
+<svg aria-hidden="true" class="m880M2MainText" id="m880-main-text-cities" viewBox="0 0 1026 730" preserveAspectRatio="none">
+  <g class="m880M2Direction">
+    <text x="465" y="160">漠北／草原諸部 ↑</text>
+    <text x="835" y="130" text-anchor="end">幽州／盧龍 →</text>
+    <text x="280" y="235">敦煌／歸義軍 ←</text>
+    <text x="415" y="470">黃巢北上 ↗</text>
+    <text x="515" y="605">南詔 ↓</text>
+    <text x="835" y="95" text-anchor="end">渤海／新羅 →</text>
+  </g>
+
+  <g class="m880M2Polity">
+    <text x="548" y="382">唐</text>
+  </g>
+
+  <g class="m880M2Cities">
+    <circle cx="576" cy="326" r="7" class="capitalDot"/>
+    <text x="589" y="319">長安</text>
+
+    <circle cx="652" cy="349" r="7" class="capturedDot"/>
+    <text x="665" y="344">洛陽｜已陷</text>
+
+    <circle cx="625" cy="268" r="5.5"/>
+    <text x="638" y="263">太原</text>
+
+    <circle cx="545" cy="432" r="5.5"/>
+    <text x="558" y="427">成都</text>
+
+    <circle cx="720" cy="421" r="5.5"/>
+    <text x="733" y="416">揚州</text>
+
+    <circle cx="689" cy="558" r="5.5"/>
+    <text x="702" y="553">廣州</text>
+
+    <circle cx="704" cy="240" r="5.5"/>
+    <text x="717" y="235">幽州</text>
+
+    <circle cx="365" cy="284" r="5.5"/>
+    <text x="378" y="278">敦煌</text>
+  </g>
+
+  <g class="m880M2Military">
+    <circle cx="660" cy="282" r="4.5"/>
+    <text x="675" y="292">魏博／成德</text>
+
+    <circle cx="720" cy="421" r="4.5"/>
+    <text x="705" y="447" text-anchor="end">淮南／高駢</text>
+
+    <circle cx="652" cy="349" r="4.5" class="capturedDot"/>
+    <text x="655" y="377">黃巢軍｜洛陽</text>
+
+    <circle cx="576" cy="326" r="4.5"/>
+    <text x="525" y="350" text-anchor="end">唐廷存續核心</text>
+  </g>
+</svg>
+<!-- end 880-M2 -->
+
+<!-- 880-M3 | 9 mutually exclusive historical reading envelopes | 1026x730 -->
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-guanzhong" id="m880-region-overlay-guanzhong" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M470,238 C520,214 585,214 642,236 C696,257 724,293 718,334 C710,378 670,404 616,402 C560,400 508,375 481,340 C454,306 450,263 470,238 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-hebei" id="m880-region-overlay-hebei" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M594,160 C650,139 733,145 795,181 C844,210 860,258 838,305 C816,352 758,383 692,376 C631,369 586,336 571,291 C557,248 561,184 594,160 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-henanhuangchao" id="m880-region-overlay-henanhuangchao" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M585,286 C625,267 683,273 724,301 C758,324 771,360 757,394 C740,434 695,455 648,445 C607,436 576,408 566,373 C556,340 558,301 585,286 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-hedongnorth" id="m880-region-overlay-hedongnorth" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M500,119 C553,90 647,91 715,120 C766,142 789,178 776,215 C762,254 716,282 658,285 C597,289 540,270 508,237 C478,207 464,140 500,119 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-huainan" id="m880-region-overlay-huainan" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M640,355 C689,334 753,341 792,372 C825,399 832,439 812,474 C788,515 736,532 687,516 C646,502 620,470 617,432 C614,397 616,365 640,355 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-guiyi" id="m880-region-overlay-guiyi" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M268,202 C320,177 400,179 462,207 C509,229 531,263 520,298 C506,338 459,360 405,355 C349,350 298,330 268,299 C241,270 237,222 268,202 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-tibet" id="m880-region-overlay-tibet" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M176,310 C237,276 349,278 437,316 C505,346 538,402 516,463 C491,529 413,566 327,557 C244,548 179,507 151,451 C124,395 132,338 176,310 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-southwest" id="m880-region-overlay-southwest" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M419,454 C470,431 549,436 605,472 C648,501 666,550 647,597 C624,651 559,679 493,665 C431,651 389,611 381,560 C374,513 386,473 419,454 Z"/></svg>
+<svg aria-hidden="true" class="m880M3RegionOverlay m880-r-northeast" id="m880-region-overlay-northeast" viewBox="0 0 1026 730" preserveAspectRatio="none"><path d="M736,128 C803,102 899,112 959,159 C1006,195 1018,253 994,308 C968,369 900,405 831,395 C766,385 717,346 700,292 C683,238 697,158 736,128 Z"/></svg>
+<!-- end 880-M3 -->
+
+<!-- 880-M6 | canonical Embedded Global text + nodes | 1026x730 -->
+<svg aria-hidden="true" class="m880M6GlobalText" id="m880-global-text" viewBox="0 0 1026 730" preserveAspectRatio="none">
+  <g class="g-system">
+    <text x="420" y="530">唐廷存續／地方軍政並存</text>
+    <text x="610" y="180">河北軍鎮地方化</text>
+    <text x="610" y="495">淮南／高駢</text>
+    <text x="430" y="335">黃巢北上／洛陽已陷</text>
+    <text x="275" y="235">敦煌／歸義軍</text>
+    <text x="255" y="420">吐蕃帝國瓦解後地方勢力</text>
+  </g>
+  <g class="g-polity"><text x="552" y="385">唐</text></g>
+  <g class="g-faction">
+    <text x="500" y="92">漠北／草原諸部</text>
+    <text x="285" y="485">吐蕃碎片</text>
+    <text x="500" y="625">南詔</text>
+    <text x="785" y="165" text-anchor="end">渤海</text>
+    <text x="785" y="325" text-anchor="end">新羅</text>
+  </g>
+  <g class="g-context">
+    <text x="785" y="465" text-anchor="end">日本｜平安時代</text>
+  </g>
+  <g class="g-node">
+    <circle class="capitalDot" cx="576" cy="326" r="5.5"/><text x="590" y="320">長安</text>
+    <circle class="fallenDot" cx="652" cy="349" r="5.5"/><text x="665" y="344">洛陽｜已陷</text>
+    <circle cx="625" cy="268" r="4.5"/><text x="638" y="263">太原</text>
+    <circle cx="545" cy="432" r="4.5"/><text x="558" y="427">成都</text>
+    <circle cx="720" cy="421" r="4.5"/><text x="733" y="416">揚州</text>
+    <circle cx="689" cy="558" r="4.5"/><text x="702" y="553">廣州</text>
+    <circle cx="704" cy="240" r="4.5"/><text x="717" y="235">幽州</text>
+    <circle cx="365" cy="284" r="4.5"/><text x="377" y="279">敦煌</text>
+    <circle cx="660" cy="282" r="4"/><text x="672" y="296">河朔軍鎮</text>
+    <circle cx="690" cy="425" r="4"/><text x="700" y="443">淮南</text>
+  </g>
+</svg>
+<!-- end 880-M6 Global Canon -->
+<!-- 880-M6 Embedded Main hotspots: 27 -->
+<a aria-label="漠北／草原諸部" class="m880MainSpot" href="#d880-context-northgrass" style="left:40.9357%;top:17.5342%;width:18.0312%;height:6.5753%;"></a>
+<a aria-label="幽州／盧龍" class="m880MainSpot" href="#d880-city-youzhou" style="left:67.2515%;top:17.2603%;width:14.1326%;height:6.5753%;"></a>
+<a aria-label="敦煌／歸義軍" class="m880MainSpot" href="#d880-region-guiyi" style="left:23.8791%;top:28.0822%;width:17.5439%;height:6.5753%;"></a>
+<a aria-label="黃巢北上" class="m880MainSpot" href="#d880-context-huangchao" style="left:38.0117%;top:60.9589%;width:14.1326%;height:6.5753%;"></a>
+<a aria-label="南詔" class="m880MainSpot" href="#d880-faction-nanzhao" style="left:46.7836%;top:78.7671%;width:10.2339%;height:6.1644%;"></a>
+<a aria-label="渤海／新羅" class="m880MainSpot" href="#d880-region-northeast" style="left:64.3275%;top:6.5753%;width:14.1326%;height:6.1644%;"></a>
+<a aria-label="唐" class="m880MainSpot" href="#d880-core-tang" style="left:51.1696%;top:47.2603%;width:8.9669%;height:7.9452%;"></a>
+<a aria-label="長安" class="m880MainSpot" href="#d880-city-changan" style="left:57.3099%;top:40.2740%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="長安節點" class="m880MainSpot m880-dot" href="#d880-city-changan" style="left:55.2632%;top:43.4247%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="洛陽｜已陷" class="m880MainSpot" href="#d880-city-luoyang" style="left:64.6199%;top:43.8356%;width:9.2593%;height:5.2055%;"></a>
+<a aria-label="洛陽｜已陷節點" class="m880MainSpot m880-dot" href="#d880-city-luoyang" style="left:62.6706%;top:46.5753%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="太原" class="m880MainSpot" href="#d880-city-taiyuan" style="left:62.1832%;top:32.8767%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="太原節點" class="m880MainSpot m880-dot" href="#d880-city-taiyuan" style="left:60.0390%;top:35.4795%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="成都" class="m880MainSpot" href="#d880-city-chengdu" style="left:54.3860%;top:55.3425%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="成都節點" class="m880MainSpot m880-dot" href="#d880-city-chengdu" style="left:52.2417%;top:57.9452%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="揚州" class="m880MainSpot" href="#d880-city-yangzhou" style="left:71.4425%;top:53.8356%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="揚州節點" class="m880MainSpot m880-dot" href="#d880-city-yangzhou" style="left:69.2982%;top:56.4384%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="廣州" class="m880MainSpot" href="#d880-city-guangzhou" style="left:68.4211%;top:72.6027%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="廣州節點" class="m880MainSpot m880-dot" href="#d880-city-guangzhou" style="left:66.2768%;top:75.2055%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="幽州" class="m880MainSpot" href="#d880-city-youzhou" style="left:69.8830%;top:29.0411%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="幽州節點" class="m880MainSpot m880-dot" href="#d880-city-youzhou" style="left:67.7388%;top:31.6438%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="敦煌" class="m880MainSpot" href="#d880-city-dunhuang" style="left:36.8421%;top:35.0685%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="敦煌節點" class="m880MainSpot m880-dot" href="#d880-city-dunhuang" style="left:34.6979%;top:37.6712%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="魏博／成德" class="m880MainSpot" href="#d880-context-hebei-circuits" style="left:62.3782%;top:38.0822%;width:11.6959%;height:4.9315%;"></a>
+<a aria-label="淮南／高駢" class="m880MainSpot" href="#d880-context-gaopian" style="left:60.9162%;top:57.8082%;width:11.5010%;height:5.2055%;"></a>
+<a aria-label="黃巢軍｜洛陽" class="m880MainSpot" href="#d880-context-huangchao" style="left:62.8655%;top:49.3151%;width:12.1832%;height:5.2055%;"></a>
+<a aria-label="唐廷存續核心" class="m880MainSpot" href="#d880-core-tang" style="left:45.8090%;top:45.4795%;width:12.1832%;height:5.2055%;"></a>
+<!-- 880-M6 Embedded Global hotspots: 34 -->
+<a aria-label="唐廷存續／地方軍政並存" class="m880GlobalSpot" href="#d880-core-tang" style="left:39.9610%;top:70.5479%;width:23.3918%;height:4.9315%;"></a>
+<a aria-label="河北軍鎮地方化" class="m880GlobalSpot" href="#d880-region-hebei" style="left:56.5302%;top:21.3699%;width:18.5185%;height:4.9315%;"></a>
+<a aria-label="淮南／高駢" class="m880GlobalSpot" href="#d880-context-gaopian" style="left:57.9922%;top:66.4384%;width:15.1072%;height:4.9315%;"></a>
+<a aria-label="黃巢北上／洛陽已陷" class="m880GlobalSpot" href="#d880-context-huangchao" style="left:39.9610%;top:44.5205%;width:19.9805%;height:4.9315%;"></a>
+<a aria-label="敦煌／歸義軍" class="m880GlobalSpot" href="#d880-region-guiyi" style="left:24.3665%;top:29.4521%;width:16.0819%;height:4.9315%;"></a>
+<a aria-label="吐蕃帝國瓦解後地方勢力" class="m880GlobalSpot" href="#d880-region-tibet" style="left:22.4172%;top:55.4795%;width:22.4172%;height:4.9315%;"></a>
+<a aria-label="唐" class="m880GlobalSpot" href="#d880-core-tang" style="left:51.1696%;top:47.9452%;width:7.6023%;height:6.5753%;"></a>
+<a aria-label="漠北／草原諸部" class="m880GlobalSpot" href="#d880-context-northgrass" style="left:44.3470%;top:9.3151%;width:14.6199%;height:4.9315%;"></a>
+<a aria-label="吐蕃碎片" class="m880GlobalSpot" href="#d880-faction-tibet-fragments" style="left:25.3411%;top:64.7945%;width:10.7212%;height:4.9315%;"></a>
+<a aria-label="南詔" class="m880GlobalSpot" href="#d880-faction-nanzhao" style="left:45.8090%;top:83.0137%;width:7.6023%;height:4.9315%;"></a>
+<a aria-label="渤海" class="m880GlobalSpot" href="#d880-faction-balhae" style="left:68.7135%;top:19.4521%;width:7.9922%;height:4.9315%;"></a>
+<a aria-label="新羅" class="m880GlobalSpot" href="#d880-faction-silla" style="left:68.7135%;top:41.3699%;width:7.9922%;height:4.9315%;"></a>
+<a aria-label="日本｜平安時代" class="m880GlobalSpot" href="#d880-context-japan" style="left:63.3528%;top:60.9589%;width:14.1326%;height:4.9315%;"></a>
+<a aria-label="長安" class="m880GlobalSpot" href="#d880-city-changan" style="left:57.2125%;top:40.8219%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="洛陽｜已陷" class="m880GlobalSpot" href="#d880-city-luoyang" style="left:64.5224%;top:44.1096%;width:9.2593%;height:4.6575%;"></a>
+<a aria-label="太原" class="m880GlobalSpot" href="#d880-city-taiyuan" style="left:61.9883%;top:33.1507%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="成都" class="m880GlobalSpot" href="#d880-city-chengdu" style="left:54.1910%;top:55.6164%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="揚州" class="m880GlobalSpot" href="#d880-city-yangzhou" style="left:71.2476%;top:54.1096%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="廣州" class="m880GlobalSpot" href="#d880-city-guangzhou" style="left:68.2261%;top:72.8767%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="幽州" class="m880GlobalSpot" href="#d880-city-youzhou" style="left:69.6881%;top:29.3151%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="敦煌" class="m880GlobalSpot" href="#d880-city-dunhuang" style="left:36.6472%;top:35.3425%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="河朔軍鎮" class="m880GlobalSpot" href="#d880-context-hebei-circuits" style="left:65.3021%;top:38.3562%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="淮南" class="m880GlobalSpot" href="#d880-context-gaopian" style="left:68.2261%;top:57.6712%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="長安節點" class="m880GlobalSpot m880-dot" href="#d880-city-changan" style="left:55.3606%;top:43.5616%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="洛陽｜已陷節點" class="m880GlobalSpot m880-dot" href="#d880-city-luoyang" style="left:62.7680%;top:46.7123%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="太原節點" class="m880GlobalSpot m880-dot" href="#d880-city-taiyuan" style="left:60.1365%;top:35.6164%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="成都節點" class="m880GlobalSpot m880-dot" href="#d880-city-chengdu" style="left:52.3392%;top:58.0822%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="揚州節點" class="m880GlobalSpot m880-dot" href="#d880-city-yangzhou" style="left:69.3957%;top:56.5753%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="廣州節點" class="m880GlobalSpot m880-dot" href="#d880-city-guangzhou" style="left:66.3743%;top:75.3425%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="幽州節點" class="m880GlobalSpot m880-dot" href="#d880-city-youzhou" style="left:67.8363%;top:31.7808%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="敦煌節點" class="m880GlobalSpot m880-dot" href="#d880-city-dunhuang" style="left:34.7953%;top:37.8082%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="河朔軍鎮節點" class="m880GlobalSpot m880-dot" href="#d880-context-hebei-circuits" style="left:63.5478%;top:37.5342%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="淮南節點" class="m880GlobalSpot m880-dot" href="#d880-context-gaopian" style="left:66.4717%;top:57.1233%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="唐核心節點" class="m880GlobalSpot m880-dot" href="#d880-core-tang" style="left:53.2164%;top:50.1370%;width:1.7544%;height:2.4658%;"></a>
+<!-- end 880-M6 Embedded hotspots -->
+<!-- 880-M7 Fullscreen Main hotspots: 27 -->
+<a aria-label="漠北／草原諸部" class="m880FSMainSpot" href="#d880-context-northgrass" style="left:40.9357%;top:17.5342%;width:18.0312%;height:6.5753%;"></a>
+<a aria-label="幽州／盧龍" class="m880FSMainSpot" href="#d880-city-youzhou" style="left:67.2515%;top:17.2603%;width:14.1326%;height:6.5753%;"></a>
+<a aria-label="敦煌／歸義軍" class="m880FSMainSpot" href="#d880-region-guiyi" style="left:27.7778%;top:28.0822%;width:13.6452%;height:6.5753%;"></a>
+<a aria-label="黃巢北上" class="m880FSMainSpot" href="#d880-context-huangchao" style="left:38.0117%;top:60.9589%;width:14.1326%;height:6.5753%;"></a>
+<a aria-label="南詔" class="m880FSMainSpot" href="#d880-faction-nanzhao" style="left:46.7836%;top:78.7671%;width:10.2339%;height:6.1644%;"></a>
+<a aria-label="渤海／新羅" class="m880FSMainSpot" href="#d880-region-northeast" style="left:64.3275%;top:6.5753%;width:14.1326%;height:6.1644%;"></a>
+<a aria-label="唐" class="m880FSMainSpot" href="#d880-core-tang" style="left:51.1696%;top:47.2603%;width:8.9669%;height:7.9452%;"></a>
+<a aria-label="長安" class="m880FSMainSpot" href="#d880-city-changan" style="left:57.3099%;top:40.2740%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="長安節點" class="m880FSMainSpot m880-dot" href="#d880-city-changan" style="left:55.2632%;top:43.4247%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="洛陽｜已陷" class="m880FSMainSpot" href="#d880-city-luoyang" style="left:64.6199%;top:43.8356%;width:9.2593%;height:5.2055%;"></a>
+<a aria-label="洛陽｜已陷節點" class="m880FSMainSpot m880-dot" href="#d880-city-luoyang" style="left:62.6706%;top:46.5753%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="太原" class="m880FSMainSpot" href="#d880-city-taiyuan" style="left:62.1832%;top:32.8767%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="太原節點" class="m880FSMainSpot m880-dot" href="#d880-city-taiyuan" style="left:60.0390%;top:35.4795%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="成都" class="m880FSMainSpot" href="#d880-city-chengdu" style="left:54.3860%;top:55.3425%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="成都節點" class="m880FSMainSpot m880-dot" href="#d880-city-chengdu" style="left:52.2417%;top:57.9452%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="揚州" class="m880FSMainSpot" href="#d880-city-yangzhou" style="left:71.4425%;top:53.8356%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="揚州節點" class="m880FSMainSpot m880-dot" href="#d880-city-yangzhou" style="left:69.2982%;top:56.4384%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="廣州" class="m880FSMainSpot" href="#d880-city-guangzhou" style="left:68.4211%;top:72.6027%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="廣州節點" class="m880FSMainSpot m880-dot" href="#d880-city-guangzhou" style="left:66.2768%;top:75.2055%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="幽州" class="m880FSMainSpot" href="#d880-city-youzhou" style="left:69.8830%;top:29.0411%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="幽州節點" class="m880FSMainSpot m880-dot" href="#d880-city-youzhou" style="left:67.7388%;top:31.6438%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="敦煌" class="m880FSMainSpot" href="#d880-city-dunhuang" style="left:36.8421%;top:35.0685%;width:7.4074%;height:5.2055%;"></a>
+<a aria-label="敦煌節點" class="m880FSMainSpot m880-dot" href="#d880-city-dunhuang" style="left:34.6979%;top:37.6712%;width:1.7544%;height:2.4658%;"></a>
+<a aria-label="魏博／成德" class="m880FSMainSpot" href="#d880-context-hebei-circuits" style="left:62.3782%;top:38.0822%;width:11.6959%;height:4.9315%;"></a>
+<a aria-label="淮南／高駢" class="m880FSMainSpot" href="#d880-context-gaopian" style="left:60.9162%;top:57.8082%;width:11.5010%;height:5.2055%;"></a>
+<a aria-label="黃巢軍｜洛陽" class="m880FSMainSpot" href="#d880-context-huangchao" style="left:62.8655%;top:49.3151%;width:12.1832%;height:5.2055%;"></a>
+<a aria-label="唐廷存續核心" class="m880FSMainSpot" href="#d880-core-tang" style="left:45.8090%;top:45.4795%;width:12.1832%;height:5.2055%;"></a>
+<!-- 880-M7 Fullscreen Global hotspots: 34 -->
+<a aria-label="唐廷存續／地方軍政並存" class="m880FSGlobalSpot" href="#d880-core-tang" style="left:39.9610%;top:70.5479%;width:23.3918%;height:4.9315%;"></a>
+<a aria-label="河北軍鎮地方化" class="m880FSGlobalSpot" href="#d880-region-hebei" style="left:56.5302%;top:21.3699%;width:18.5185%;height:4.9315%;"></a>
+<a aria-label="淮南／高駢" class="m880FSGlobalSpot" href="#d880-context-gaopian" style="left:57.9922%;top:66.4384%;width:15.1072%;height:4.9315%;"></a>
+<a aria-label="黃巢北上／洛陽已陷" class="m880FSGlobalSpot" href="#d880-context-huangchao" style="left:39.9610%;top:44.5205%;width:19.9805%;height:4.9315%;"></a>
+<a aria-label="敦煌／歸義軍" class="m880FSGlobalSpot" href="#d880-region-guiyi" style="left:24.3665%;top:29.4521%;width:16.0819%;height:4.9315%;"></a>
+<a aria-label="吐蕃帝國瓦解後地方勢力" class="m880FSGlobalSpot" href="#d880-region-tibet" style="left:22.4172%;top:55.4795%;width:22.4172%;height:4.9315%;"></a>
+<a aria-label="唐" class="m880FSGlobalSpot" href="#d880-core-tang" style="left:51.1696%;top:47.9452%;width:7.6023%;height:6.5753%;"></a>
+<a aria-label="漠北／草原諸部" class="m880FSGlobalSpot" href="#d880-context-northgrass" style="left:44.3470%;top:9.3151%;width:14.6199%;height:4.9315%;"></a>
+<a aria-label="吐蕃碎片" class="m880FSGlobalSpot" href="#d880-faction-tibet-fragments" style="left:25.3411%;top:64.7945%;width:10.7212%;height:4.9315%;"></a>
+<a aria-label="南詔" class="m880FSGlobalSpot" href="#d880-faction-nanzhao" style="left:45.8090%;top:83.0137%;width:7.6023%;height:4.9315%;"></a>
+<a aria-label="渤海" class="m880FSGlobalSpot" href="#d880-faction-balhae" style="left:68.7135%;top:19.4521%;width:7.9922%;height:4.9315%;"></a>
+<a aria-label="新羅" class="m880FSGlobalSpot" href="#d880-faction-silla" style="left:68.7135%;top:41.3699%;width:7.9922%;height:4.9315%;"></a>
+<a aria-label="日本｜平安時代" class="m880FSGlobalSpot" href="#d880-context-japan" style="left:63.3528%;top:60.9589%;width:14.1326%;height:4.9315%;"></a>
+<a aria-label="長安" class="m880FSGlobalSpot" href="#d880-city-changan" style="left:57.2125%;top:40.8219%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="洛陽｜已陷" class="m880FSGlobalSpot" href="#d880-city-luoyang" style="left:64.5224%;top:44.1096%;width:9.2593%;height:4.6575%;"></a>
+<a aria-label="太原" class="m880FSGlobalSpot" href="#d880-city-taiyuan" style="left:61.9883%;top:33.1507%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="成都" class="m880FSGlobalSpot" href="#d880-city-chengdu" style="left:54.1910%;top:55.6164%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="揚州" class="m880FSGlobalSpot" href="#d880-city-yangzhou" style="left:71.2476%;top:54.1096%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="廣州" class="m880FSGlobalSpot" href="#d880-city-guangzhou" style="left:68.2261%;top:72.8767%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="幽州" class="m880FSGlobalSpot" href="#d880-city-youzhou" style="left:69.6881%;top:29.3151%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="敦煌" class="m880FSGlobalSpot" href="#d880-city-dunhuang" style="left:36.6472%;top:35.3425%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="河朔軍鎮" class="m880FSGlobalSpot" href="#d880-context-hebei-circuits" style="left:65.3021%;top:38.3562%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="淮南" class="m880FSGlobalSpot" href="#d880-context-gaopian" style="left:68.2261%;top:57.6712%;width:8.7719%;height:4.6575%;"></a>
+<a aria-label="長安節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-changan" style="left:55.3606%;top:43.5616%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="洛陽｜已陷節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-luoyang" style="left:62.7680%;top:46.7123%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="太原節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-taiyuan" style="left:60.1365%;top:35.6164%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="成都節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-chengdu" style="left:52.3392%;top:58.0822%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="揚州節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-yangzhou" style="left:69.3957%;top:56.5753%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="廣州節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-guangzhou" style="left:66.3743%;top:75.3425%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="幽州節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-youzhou" style="left:67.8363%;top:31.7808%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="敦煌節點" class="m880FSGlobalSpot m880-dot" href="#d880-city-dunhuang" style="left:34.7953%;top:37.8082%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="河朔軍鎮節點" class="m880FSGlobalSpot m880-dot" href="#d880-context-hebei-circuits" style="left:63.5478%;top:37.5342%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="淮南節點" class="m880FSGlobalSpot m880-dot" href="#d880-context-gaopian" style="left:66.4717%;top:57.1233%;width:1.5595%;height:2.1918%;"></a>
+<a aria-label="唐核心節點" class="m880FSGlobalSpot m880-dot" href="#d880-core-tang" style="left:53.2164%;top:50.1370%;width:1.7544%;height:2.4658%;"></a>
+<!-- end 880-M7 Fullscreen hotspots -->
+
+
+
+
 
 <!-- 820-M1 | 11 political / military reading layers | 1026x730 Working Position Base -->
 <svg aria-hidden="true" class="m820M1Layer m820M1BaseLayer m820TangCore" id="m820-tang-core" viewBox="0 0 1026 730">
@@ -4888,7 +5651,8 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 </div>
 </div>
 </div>
-<div class="note mapFoot"><b>HG820｜820 Historical Geography Final Gate：</b>時間截面鎖定為元和十五年末、穆宗即位後與821河朔再亂／長慶會盟之前。唐中央州郡、一般內地軍鎮、元和收復區、魏博／成德過渡、幽州／盧龍半自治必須分層閱讀；回鶻、吐蕃、南詔、渤海、新羅皆為獨立外部政治體。不得把821劉總歸朝、821太和公主婚盟、821–823唐蕃會盟、829南詔成都事件或840回鶻崩解提前套入820。M1/M2 所有 envelope 與文字皆為 Historical Reading Model，不宣稱逐縣 GIS 硬邊界。</div>
+<div class="note mapFoot m820HistoricalFoot"><b>HG820｜820 Historical Geography Final Gate：</b>時間截面鎖定為元和十五年末、穆宗即位後與821河朔再亂／長慶會盟之前。唐中央州郡、一般內地軍鎮、元和收復區、魏博／成德過渡、幽州／盧龍半自治必須分層閱讀；回鶻、吐蕃、南詔、渤海、新羅皆為獨立外部政治體。不得把821劉總歸朝、821太和公主婚盟、821–823唐蕃會盟、829南詔成都事件或840回鶻崩解提前套入820。M1/M2 所有 envelope 與文字皆為 Historical Reading Model，不宣稱逐縣 GIS 硬邊界。</div>
+<div class="note mapFoot m880HistoricalFoot" style="display:none"><b>HG880｜880-M8 Historical Geography Final Gate：</b>時間截面鎖定為廣明元年（880）12月下旬：洛陽已陷，潼關與長安尚未陷落，唐僖宗朝廷仍在關中。黃巢層只表示行軍／秩序崩解走廊，不等同成熟領土國家；河北軍鎮、淮南／高駢、敦煌／歸義軍均須與唐中央直接控制分層閱讀。吐蕃帝國已瓦解，880採後帝國碎片化閱讀；南詔、渤海、新羅維持外部政治體。不得把881長安陷落與僖宗西逃、883李克用任河東節度使，或840以前的統一回鶻汗國版圖倒灌至880。所有政治／軍政色塊皆為 Historical Reading Model，不宣稱逐縣 GIS 硬邊界。</div>
 <div class="legendGrid">
 <div class="legendCard"><b>圖1主地圖</b>直接使用你指定的地圖視覺，不再以其他底圖取代主畫面。</div>
 <div class="legendCard"><b>年份切換</b>年份列縮成單行，與地圖一起顯示；點選後地圖本體直接切換到該年狀態。</div>
@@ -10675,60 +11439,60 @@ window.m820M7SyncBadge=sync;
 </script>
 <script id="m820-m81-device-qc-meta" type="application/json">
 {
-  "version": "820-M8.1-device-qc-round2-fix",
-  "status": "ROUND 2 FIX / DEVICE QC PENDING / NOT FREEZE",
+  "version": "820-M8.1-final-canon-freeze",
+  "status": "PASS / FINAL CANON / FREEZE",
   "requiredDevice": "iPhone Safari",
   "source": "820-M8 Historical Geography Final Gate v0.1",
   "checks": [
     {
       "id": "embeddedMain",
       "label": "Embedded Main",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "embeddedGlobal",
       "label": "Embedded Global",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "fullscreenMain205",
       "label": "Fullscreen Main 205%",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "fullscreenGlobal170",
       "label": "Fullscreen Global 170%",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "regionTrueFocus",
       "label": "9 Region True Focus",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "sameRegionCancel",
       "label": "same-region second click -> Main",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "factionSheets",
       "label": "5 external faction Bottom Sheets",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "fullscreenHotspots",
       "label": "Fullscreen hotspot hit correctness",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "collision",
       "label": "label collision / viewport clipping",
-      "status": "PENDING"
+      "status": "PASS"
     },
     {
       "id": "safariUi",
       "label": "Safari Bottom Sheet / rails / badge / viewport",
-      "status": "PENDING"
+      "status": "PASS"
     }
   ],
   "focus": {
@@ -10783,6 +11547,18 @@ window.m820M7SyncBadge=sync;
     "Inherited 618 neighbor-context labels leaked into 820 Global view.",
     "820 Global Canon west/east edge labels clipped at Safari Fullscreen Global 170%.",
     "Round 2 hides inherited context for 820 and pulls only edge Global labels/hit areas inward."
+  ],
+  "deviceQcCompleted": "2026-09-21",
+  "deviceEvidence": [
+    "Embedded Main: PASS",
+    "Embedded Global: PASS",
+    "Fullscreen Main 205%: PASS",
+    "Fullscreen Global 170%: PASS",
+    "Hebei/Heshuo Region 380% + Bottom Sheet: PASS",
+    "Same-region second click -> Main 205%: PASS",
+    "Uyghur faction Toggle + Bottom Sheet: PASS",
+    "Safari Global inherited-label regression: PASS",
+    "Safari Global edge-label clipping regression: PASS"
   ]
 }
 </script>
@@ -10824,6 +11600,957 @@ document.querySelectorAll('label[for="nav-map"],label[for="map-only"]').forEach(
 });
 window.m820M81DeviceQCReset=clean820DeviceQCState;
 })();
+</script>
+
+
+<script id="m880-m1-audit-js">
+(function(){
+'use strict';
+window.m880M1Audit=function(){
+  var ids=['m880-tang-court-core','m880-loyalist-network','m880-huangchao-campaign','m880-hebei-autonomy','m880-huainan-gaopian','m880-guiyi-circuit','m880-tibetan-fragments','m880-nanzhao','m880-balhae','m880-silla'];
+  return {
+    version:'880-M1-v0.1',
+    snapshot:'late Dec 880 / after Luoyang fell / before Chang-an fell',
+    layers:ids.length,
+    allLayersExist:ids.every(function(id){return !!document.getElementById(id);}),
+    legacy880HiddenByM1:true
+  };
+};
+})();
+</script>
+<script id="m880-m1-working-bootstrap-js">
+(function(){
+'use strict';
+function fire(el){if(el)el.dispatchEvent(new Event('change',{bubbles:true}));}
+function center880(){
+ var rail=document.querySelector('.yearOverlay');
+ var active=document.querySelector('.yearOverlay .yt-880 .yearClear');
+ if(!rail||!active)return;
+ rail.scrollLeft=Math.max(0,Math.min(active.offsetLeft-(rail.clientWidth-active.offsetWidth)/2,rail.scrollWidth-rail.clientWidth));
+}
+function activate(){
+ var y=document.getElementById('yr-880');if(y){y.checked=true;fire(y);}
+ var main=document.getElementById('inline-focus-view');if(main){main.checked=true;fire(main);}
+ requestAnimationFrame(function(){requestAnimationFrame(center880);});
+}
+window.addEventListener('pageshow',activate);
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',activate,{once:true});else activate();
+window.m880M1Activate=activate;
+})();
+</script>
+
+<script id="m880-m1-historical-guard" type="application/json">
+{
+  "version": "880-M1-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "snapshot": "late December 880 CE; after Luoyang captured on 22 Dec; before Tong Pass/Chang'an fall and Xizong flight in early 881",
+  "historicalGuard": [
+    "Chang'an remains the Tang court capital in this snapshot; do not backdate the early-881 fall.",
+    "Luoyang is captured by Huang Chao; represent Huang Chao as an active campaign/authority-collapse corridor, not yet a mature territorial state.",
+    "Hebei military circuits remain nominally Tang-related but locally powerful; do not flatten them into ordinary direct prefectures.",
+    "Huainan under Gao Pian is a major nominal-Tang provincial military command, not an independent state and not uniform central direct rule.",
+    "Guiyi Circuit/Dunhuang is a Tang-titled local regime; do not draw it as direct metropolitan administration.",
+    "Do not backdate Li Keyong's 883 Hedong military governorship into 880.",
+    "The Tibetan empire has already fragmented; do not show a unified Tibetan Empire in 880.",
+    "Nanzhao remains an independent kingdom; late ninth-century Tang-Nanzhao relations are distinct from the earlier 860s war peak.",
+    "Balhae and Silla remain independent polities; Tang diplomatic/cultural ties do not equal direct administration."
+  ]
+}
+</script>
+
+<script id="m880-m1-footnote-ownership-js">
+(function(){
+'use strict';
+var y880=document.getElementById('yr-880');
+var f820=document.querySelector('.m820HistoricalFoot');
+var f880=document.querySelector('.m880HistoricalFoot');
+function sync(){
+ var on=!!(y880&&y880.checked);
+ if(f820)f820.style.display=on?'none':'';
+ if(f880)f880.style.display=on?'':'none';
+}
+document.querySelectorAll('input[name="yr"]').forEach(function(r){r.addEventListener('change',sync);});
+window.addEventListener('pageshow',sync);
+setTimeout(sync,0);
+window.m880M1FootnoteSync=sync;
+})();
+</script>
+
+
+<script id="m880-m2-audit-js">
+(function(){
+'use strict';
+window.m880M2Audit=function(){
+  var svg=document.getElementById('m880-main-text-cities');
+  var texts=svg?[].slice.call(svg.querySelectorAll('text')).map(function(t){return t.textContent.trim();}):[];
+  return {
+    version:'880-M2-v0.1',
+    snapshot:'late Dec 880 / Luoyang fallen / Chang-an not yet fallen',
+    svgExists:!!svg,
+    textCount:texts.length,
+    required:[
+      '長安','洛陽｜已陷','太原','成都','揚州','廣州','幽州','敦煌',
+      '魏博／成德','淮南／高駢','黃巢軍｜洛陽','唐廷存續核心'
+    ].every(function(x){return texts.indexOf(x)>=0;})
+  };
+};
+})();
+</script>
+
+<script id="m880-m2-canon-meta" type="application/json">
+{
+  "version": "880-M2-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "snapshot": "late December 880; Luoyang fallen, Chang'an not yet fallen",
+  "canonText": [
+    "漠北／草原諸部 ↑",
+    "幽州／盧龍 →",
+    "敦煌／歸義軍 ←",
+    "黃巢北上 ↗",
+    "南詔 ↓",
+    "渤海／新羅 →",
+    "唐",
+    "長安",
+    "洛陽｜已陷",
+    "太原",
+    "成都",
+    "揚州",
+    "廣州",
+    "幽州",
+    "敦煌",
+    "魏博／成德",
+    "淮南／高駢",
+    "黃巢軍｜洛陽",
+    "唐廷存續核心"
+  ]
+}
+</script>
+
+<script id="m880-m3-region-rail-js">
+(function(){
+'use strict';
+var rail=document.querySelector('.m880RegionRail');
+if(!rail)return;
+rail.querySelectorAll('.m880RegionChip').forEach(function(label){
+  ['pointerdown','pointermove','pointerup','pointercancel','touchstart'].forEach(function(type){
+    label.addEventListener(type,function(e){e.stopPropagation();},{passive:type==='touchstart'});
+  });
+});
+rail.querySelectorAll('.m880RegionChip[for^="m880-region-"]').forEach(function(label){
+  label.addEventListener('click',function(e){
+    e.preventDefault();e.stopPropagation();
+    var id=label.getAttribute('for'),el=document.getElementById(id);
+    if(!el||el.checked)return;
+    el.checked=true;
+    el.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+});
+})();
+</script>
+
+<script id="m880-m3-audit-js">
+(function(){
+'use strict';
+window.m880M3Audit=function(){
+  var keys=['guanzhong','hebei','henanhuangchao','hedongnorth','huainan','guiyi','tibet','southwest','northeast'];
+  var picked=keys.filter(function(k){var el=document.getElementById('m880-region-'+k);return !!(el&&el.checked);});
+  return {
+    version:'880-M3-v0.1',
+    regions:keys.length,
+    selected:picked,
+    none:!!(document.getElementById('m880-region-none')||{}).checked,
+    overlaysExist:keys.every(function(k){return !!document.getElementById('m880-region-overlay-'+k);}),
+    railExists:!!document.querySelector('.m880RegionRail')
+  };
+};
+})();
+</script>
+
+<script id="m880-m3-region-meta" type="application/json">
+{
+  "version": "880-M3-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "regions": [
+    {
+      "key": "guanzhong",
+      "label": "關中／長安",
+      "historicalReading": "唐廷存續核心；長安在880年末尚未陷落"
+    },
+    {
+      "key": "hebei",
+      "label": "河北／河朔",
+      "historicalReading": "名義屬唐關係與地方軍鎮高度自主並存"
+    },
+    {
+      "key": "henanhuangchao",
+      "label": "河南／黃巢",
+      "historicalReading": "洛陽已陷；黃巢北上戰役與秩序崩解帶"
+    },
+    {
+      "key": "hedongnorth",
+      "label": "河東／北方",
+      "historicalReading": "河東與北方軍政網絡；不倒灌883李克用河東節度使"
+    },
+    {
+      "key": "huainan",
+      "label": "淮南／高駢",
+      "historicalReading": "名義唐的強大地方軍政指揮體系"
+    },
+    {
+      "key": "guiyi",
+      "label": "敦煌／歸義軍",
+      "historicalReading": "唐名號下的地方軍政政權，不等同長安直接行政"
+    },
+    {
+      "key": "tibet",
+      "label": "青藏／吐蕃碎片",
+      "historicalReading": "842後吐蕃帝國瓦解，880不畫成統一帝國"
+    },
+    {
+      "key": "southwest",
+      "label": "西南／南詔",
+      "historicalReading": "南詔為外部獨立王國"
+    },
+    {
+      "key": "northeast",
+      "label": "東北／渤海／新羅",
+      "historicalReading": "渤海與新羅均為外部政治體"
+    }
+  ]
+}
+</script>
+
+<!-- 880-M4 External / fragmented polity Bottom Sheets -->
+<aside aria-hidden="true" class="overlay v833FactionSheet m880FactionSheet" data-faction-sheet="true" data-year="880" id="d880-faction-tibet-fragments"><div class="detail">
+<a aria-label="關閉 吐蕃碎片 資訊" class="closeBtn textClose" href="#map">×</a>
+<div class="eyebrow">842後帝國瓦解｜地方勢力碎片化｜880</div><h4>吐蕃碎片</h4>
+<div class="m880RelationNote">880不能再把青藏與原吐蕃控制區畫成一個仍由單一贊普統治的「吐蕃帝國」。842後中央王權崩解，區域政治進入分裂與地方化階段。</div>
+<div class="placeFacts"><div class="placeFact"><b>880年狀態</b><span>帝國解體後的地方勢力／區域網絡</span></div><div class="placeFact"><b>地圖語義</b><span>碎片化閱讀包絡，不是統一主權邊界</span></div><div class="placeFact"><b>時間防護</b><span>不得沿用820統一吐蕃帝國模型</span></div></div>
+<p>這個 Toggle 顯示的是後吐蕃時期的區域閱讀層，並不主張包絡內存在單一政權。</p>
+<div class="mapMeaning"><b>地圖上的意思：</b>紫色虛線／淡色包絡表示原吐蕃政治空間在880的碎片化歷史背景。</div>
+<div class="tags"><span class="tag">842後</span><span class="tag">青藏</span><span class="tag">碎片化</span><span class="tag">880</span></div>
+</div></aside>
+
+<aside aria-hidden="true" class="overlay v833FactionSheet m880FactionSheet" data-faction-sheet="true" data-year="880" id="d880-faction-nanzhao"><div class="detail">
+<a aria-label="關閉 南詔 資訊" class="closeBtn textClose" href="#map">×</a>
+<div class="eyebrow">西南獨立王國｜860年代大戰後｜880</div><h4>南詔</h4>
+<div class="m880RelationNote">南詔仍是獨立王國。唐—南詔在860年代曾爆發激烈軍事衝突；到880前後，雙方都受內部問題牽制，關係已不同於戰爭高峰期。</div>
+<div class="placeFacts"><div class="placeFact"><b>政治性質</b><span>獨立王國</span></div><div class="placeFact"><b>與唐關係</b><span>戰後較低強度的邊境／外交關係</span></div><div class="placeFact"><b>防護</b><span>不把860年代戰爭高峰當成880現況</span></div></div>
+<p>南詔不屬唐劍南直接行政，亦不應因一時和平或外交往來而合併到唐控制色塊。</p>
+<div class="mapMeaning"><b>地圖上的意思：</b>藍綠包絡表示南詔自身政治空間。</div>
+<div class="tags"><span class="tag">南詔</span><span class="tag">西南</span><span class="tag">獨立王國</span></div>
+</div></aside>
+
+<aside aria-hidden="true" class="overlay v833FactionSheet m880FactionSheet" data-faction-sheet="true" data-year="880" id="d880-faction-balhae"><div class="detail">
+<a aria-label="關閉 渤海 資訊" class="closeBtn textClose" href="#map">×</a>
+<div class="eyebrow">東北亞獨立王國｜與唐長期外交往來｜880</div><h4>渤海</h4>
+<div class="m880RelationNote">渤海是東北亞獨立政治體，與唐存在外交、冊封、貿易與文化交流；這些關係不等於唐直接行政。</div>
+<div class="placeFacts"><div class="placeFact"><b>880年狀態</b><span>持續存在的獨立王國</span></div><div class="placeFact"><b>區域</b><span>滿洲東部與朝鮮半島北部一帶</span></div><div class="placeFact"><b>與唐關係</b><span>外交／冊封／交流</span></div></div>
+<p>880地圖把渤海、河北軍鎮與新羅分開閱讀，避免以「朝貢」或文化交流取代政治主體判讀。</p>
+<div class="mapMeaning"><b>地圖上的意思：</b>東北閱讀包絡表示渤海政治空間。</div>
+<div class="tags"><span class="tag">渤海</span><span class="tag">東北亞</span><span class="tag">獨立王國</span></div>
+</div></aside>
+
+<aside aria-hidden="true" class="overlay v833FactionSheet m880FactionSheet" data-faction-sheet="true" data-year="880" id="d880-faction-silla"><div class="detail">
+<a aria-label="關閉 新羅 資訊" class="closeBtn textClose" href="#map">×</a>
+<div class="eyebrow">朝鮮半島獨立王國｜晚期新羅｜880</div><h4>新羅</h4>
+<div class="m880RelationNote">880的新羅仍是獨立王國，與唐長期保持外交與文化交流，但已處於晚期新羅政治社會壓力日益加深的階段。</div>
+<div class="placeFacts"><div class="placeFact"><b>政治性質</b><span>獨立王國</span></div><div class="placeFact"><b>與唐關係</b><span>外交／文化交流持續</span></div><div class="placeFact"><b>時間防護</b><span>不提前套用935新羅終結</span></div></div>
+<p>唐與新羅之間的冊封、外交與制度文化聯繫，不代表唐直接統治朝鮮半島。</p>
+<div class="mapMeaning"><b>地圖上的意思：</b>藍色閱讀包絡表示新羅自身政治空間。</div>
+<div class="tags"><span class="tag">新羅</span><span class="tag">晚期新羅</span><span class="tag">獨立王國</span></div>
+</div></aside>
+
+
+<script id="m880-m4-faction-toggle-sheets-js">
+(function(){
+'use strict';
+var toggles=[].slice.call(document.querySelectorAll('.m880FactionToggle[data-info-target]'));
+var rails=[].slice.call(document.querySelectorAll('.m880FactionRail'));
+var y880=document.getElementById('yr-880');
+
+rails.forEach(function(rail){
+ ['pointerdown','pointermove','pointerup','pointercancel','touchstart'].forEach(function(t){
+   rail.addEventListener(t,function(e){e.stopPropagation();},{passive:t==='touchstart'});
+ });
+ rail.addEventListener('click',function(e){
+   var label=e.target.closest&&e.target.closest('label.m880FactionChip[for]');if(!label)return;
+   e.preventDefault();e.stopPropagation();
+   var input=document.getElementById(label.getAttribute('for'));if(!input)return;
+   input.checked=!input.checked;
+   input.dispatchEvent(new Event('change',{bubbles:true}));
+ });
+});
+
+function openTarget(input){
+ var id=input.getAttribute('data-info-target');if(!id)return false;
+ var opener=window.v823OpenByHref||window.v822OpenByHref||window.v821OpenByHref;
+ if(typeof opener==='function')return !!opener('#'+id);
+ var target=document.getElementById(id);if(!target)return false;
+ document.querySelectorAll('.overlay.v82-open').forEach(function(o){
+   if(o!==target){o.classList.remove('v82-open');o.setAttribute('aria-hidden','true');}
+ });
+ target.classList.add('v82-open');target.setAttribute('aria-hidden','false');return true;
+}
+function closeIfCurrent(input){
+ var id=input.getAttribute('data-info-target');
+ var current=document.querySelector('.overlay.v82-open');
+ if(!current||current.id!==id)return;
+ if(typeof window.v823CloseSheet==='function'){window.v823CloseSheet();return;}
+ current.classList.remove('v82-open');current.setAttribute('aria-hidden','true');
+}
+function syncExpanded(input){
+ document.querySelectorAll('.m880FactionChip[for="'+input.id+'"]').forEach(function(l){
+   l.setAttribute('aria-expanded',input.checked?'true':'false');
+ });
+}
+function clear880(){
+ var open=document.querySelector('.overlay.v82-open');
+ var ids=toggles.map(function(t){return t.getAttribute('data-info-target');});
+ toggles.forEach(function(t){t.checked=false;syncExpanded(t);});
+ if(open&&ids.indexOf(open.id)>=0){
+   if(typeof window.v823CloseSheet==='function')window.v823CloseSheet();
+   else{open.classList.remove('v82-open');open.setAttribute('aria-hidden','true');}
+ }
+}
+toggles.forEach(function(input){
+ syncExpanded(input);
+ input.addEventListener('change',function(){
+   syncExpanded(input);
+   if(input.checked){
+     if(y880&&y880.checked)requestAnimationFrame(function(){openTarget(input);});
+   }else closeIfCurrent(input);
+ });
+});
+document.querySelectorAll('input[name="yr"]').forEach(function(y){
+ y.addEventListener('change',function(){if(!(y880&&y880.checked))clear880();});
+});
+window.addEventListener('pageshow',function(){if(!(y880&&y880.checked))clear880();});
+
+window.m880M4Audit=function(){
+ var open=document.querySelector('.overlay.v82-open');
+ var visible=[].slice.call(document.querySelectorAll('.m880M1External')).filter(function(el){
+   var cs=getComputedStyle(el);
+   return cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>0;
+ });
+ return {
+   version:'880-M4-v0.1',
+   toggles:toggles.length,
+   checked:toggles.filter(function(t){return t.checked;}).map(function(t){return t.id;}),
+   visibleExternalOverlays:visible.map(function(el){return el.id;}),
+   openSheet:open?open.id:null,
+   allTargetsExist:toggles.every(function(t){return !!document.getElementById(t.getAttribute('data-info-target'));}),
+   unifiedUyghurTogglePresent:!!document.getElementById('m880-faction-uighur')
+ };
+};
+})();
+</script>
+
+<script id="m880-m4-faction-meta" type="application/json">
+{
+  "version": "880-M4-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "factions": [
+    {
+      "key": "tibet-fragments",
+      "label": "吐蕃碎片",
+      "type": "post-imperial fragmented reading envelope"
+    },
+    {
+      "key": "nanzhao",
+      "label": "南詔",
+      "type": "independent kingdom"
+    },
+    {
+      "key": "balhae",
+      "label": "渤海",
+      "type": "independent kingdom"
+    },
+    {
+      "key": "silla",
+      "label": "新羅",
+      "type": "independent kingdom"
+    }
+  ],
+  "guard": {
+    "unifiedUyghurKhaganate880": false,
+    "reason": "Mongolian Uyghur Khaganate collapsed in 840; later Uyghur successor contexts require different geography.",
+    "qochoDeferredTo": "M6 Global Canon / hotspots"
+  }
+}
+</script>
+
+<!-- 880-M5 Region Bottom Sheets -->
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-guanzhong"><div class="detail"><a aria-label="關閉 關中／長安 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">唐廷最後的中央存續核心｜880年12月下旬</div><h4>關中／長安</h4><div class="m880RegionTangNote">此截面長安仍是唐僖宗朝廷所在，黃巢尚未越過潼關攻入長安；881年的長安陷落與僖宗入蜀不得提前倒灌。</div><div class="placeFacts"><div class="placeFact"><b>核心節點</b><span>長安、關中與西向入蜀交通</span></div><div class="placeFact"><b>880年狀態</b><span>唐廷仍存續於長安</span></div><div class="placeFact"><b>時間防護</b><span>潼關／長安陷落屬下一階段</span></div></div><p>這一區不是「唐仍全面控制天下」的證明，而是晚唐中央朝廷仍存在的政治核心。</p><div class="mapMeaning"><b>地圖上的意思：</b>Region框只聚焦關中閱讀；實際軍政能力仍由M1唐廷核心與地方軍政網絡分層判讀。</div><div class="tags"><span class="tag">關中</span><span class="tag">長安</span><span class="tag">唐廷存續</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-hebei"><div class="detail"><a aria-label="關閉 河北／河朔 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">名義唐關係與高度地方軍政並存｜880</div><h4>河北／河朔</h4><div class="m880RegionTangNote">河北諸軍鎮不能被簡化成「完全獨立國家」或「普通中央州郡」；名義臣屬、朝廷任命名分與地方軍事控制長期並存。</div><div class="placeFacts"><div class="placeFact"><b>主要節點</b><span>魏博、成德、幽州／盧龍</span></div><div class="placeFact"><b>政治特徵</b><span>地方軍政權力強，對中央依附程度不一</span></div><div class="placeFact"><b>閱讀重點</b><span>名義唐與實際地方控制必須分層</span></div></div><p>黃巢之亂進一步凸顯中央對地方軍鎮依賴，但不代表河北各鎮突然形成單一共同國家。</p><div class="mapMeaning"><b>地圖上的意思：</b>藍色框是河朔閱讀視窗；灰褐軍鎮層表示地方化軍政結構。</div><div class="tags"><span class="tag">河朔</span><span class="tag">魏博</span><span class="tag">成德</span><span class="tag">盧龍</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-henanhuangchao"><div class="detail"><a aria-label="關閉 河南／黃巢 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">洛陽已陷｜黃巢北上戰役核心｜880年末</div><h4>河南／黃巢</h4><div class="m880RegionTangNote">洛陽已被黃巢軍攻取，但880年末尚未進入長安陷落後的政權階段；此時宜用戰役與秩序崩解帶，而非成熟疆域國家模型。</div><div class="placeFacts"><div class="placeFact"><b>核心節點</b><span>洛陽與中原交通走廊</span></div><div class="placeFact"><b>880年狀態</b><span>洛陽已陷，黃巢繼續西進</span></div><div class="placeFact"><b>時間防護</b><span>長安政權屬881，不提前套用</span></div></div><p>河南是理解這個880截面的關鍵：唐中央秩序已受到劇烈衝擊，但政治版圖尚在高速變動中。</p><div class="mapMeaning"><b>地圖上的意思：</b>Region框聚焦洛陽與中原；紅褐虛線表示黃巢行軍／秩序崩解走廊。</div><div class="tags"><span class="tag">河南</span><span class="tag">洛陽已陷</span><span class="tag">黃巢</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-hedongnorth"><div class="detail"><a aria-label="關閉 河東／北方 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">太原、北方軍鎮與沙陀勢力上升前夜｜880</div><h4>河東／北方</h4><div class="m880RegionTangNote">太原與河東仍屬唐軍政體系的重要北方節點；不能把883年李克用取得河東節度使地位提前畫進880。</div><div class="placeFacts"><div class="placeFact"><b>核心節點</b><span>太原、河東與北方軍事交通</span></div><div class="placeFact"><b>主要脈絡</b><span>唐廷對北方地方軍事力量依賴上升</span></div><div class="placeFact"><b>時間防護</b><span>883李克用河東節度使格局不得倒灌</span></div></div><p>本區用來呈現晚唐北方軍事化，而不是後來五代軍閥版圖的提前版本。</p><div class="mapMeaning"><b>地圖上的意思：</b>Region框是河東／北方閱讀視窗，不宣稱一條固定政治邊界。</div><div class="tags"><span class="tag">河東</span><span class="tag">太原</span><span class="tag">北方軍鎮</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-huainan"><div class="detail"><a aria-label="關閉 淮南／高駢 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">揚州與高駢軍政指揮網絡｜880</div><h4>淮南／高駢</h4><div class="m880RegionTangNote">淮南仍屬唐名義軍政體系，高駢掌握強大的地方軍事與財政資源；這不是獨立國，也不是長安直接日常控制的普通州郡。</div><div class="placeFacts"><div class="placeFact"><b>核心節點</b><span>揚州與江淮財政／交通網</span></div><div class="placeFact"><b>政治性質</b><span>名義唐的強勢地方軍政指揮</span></div><div class="placeFact"><b>閱讀重點</b><span>中央名分與地方實力分層</span></div></div><p>黃巢之亂期間，淮南是唐廷可動員的重要地方力量之一，但地方指揮者本身也具有高度自主資源。</p><div class="mapMeaning"><b>地圖上的意思：</b>青綠包絡表示淮南／高駢軍政網絡，不是主權國界。</div><div class="tags"><span class="tag">淮南</span><span class="tag">高駢</span><span class="tag">揚州</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-guiyi"><div class="detail"><a aria-label="關閉 敦煌／歸義軍 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">敦煌地方軍政政權｜使用唐名號｜880</div><h4>敦煌／歸義軍</h4><div class="m880RegionTangNote">歸義軍使用唐的官號與名義秩序，但敦煌在實際治理上是高度地方化的軍政政權，不能畫成長安中央直接控制的普通州郡。</div><div class="placeFacts"><div class="placeFact"><b>核心節點</b><span>敦煌與河西西部交通</span></div><div class="placeFact"><b>政治性質</b><span>唐名號下的地方軍政政權</span></div><div class="placeFact"><b>閱讀重點</b><span>文化／名義連結不等於中央直接治理</span></div></div><p>880年的河西也不能再套用盛唐連續走廊模型；區域權力已高度重組。</p><div class="mapMeaning"><b>地圖上的意思：</b>黃色包絡是歸義軍地方軍政閱讀層；Region框則提供敦煌與河西視窗。</div><div class="tags"><span class="tag">敦煌</span><span class="tag">歸義軍</span><span class="tag">河西</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-tibet"><div class="detail"><a aria-label="關閉 青藏／吐蕃碎片 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">842後帝國瓦解｜高原地方化政治空間｜880</div><h4>青藏／吐蕃碎片</h4><div class="m880RegionTangNote">880不能再使用八世紀「統一吐蕃帝國」模型；帝國瓦解後，高原與西部政治力量呈現碎片化與地方化。</div><div class="placeFacts"><div class="placeFact"><b>880年狀態</b><span>帝國解體後的區域勢力並存</span></div><div class="placeFact"><b>地圖防護</b><span>不畫成單一中央政權硬國界</span></div><div class="placeFact"><b>與唐關係</b><span>唐西北亦已不是盛唐式直接軍政結構</span></div></div><p>因此Region框只提供青藏閱讀範圍；外部勢力Toggle則用「吐蕃碎片」作保守政治包絡。</p><div class="mapMeaning"><b>地圖上的意思：</b>區域框與外部政治包絡分離，避免把地理範圍與單一主權混為一談。</div><div class="tags"><span class="tag">青藏</span><span class="tag">吐蕃碎片</span><span class="tag">842後</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-southwest"><div class="detail"><a aria-label="關閉 西南／南詔 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">晚九世紀南詔與唐西南邊疆｜880</div><h4>西南／南詔</h4><div class="m880RegionTangNote">南詔仍是獨立王國；880不能沿用820的合作高點，也不能把860年代戰爭高峰原封不動延伸至本年。</div><div class="placeFacts"><div class="placeFact"><b>核心區域</b><span>南詔本部與唐劍南邊疆接口</span></div><div class="placeFact"><b>政治性質</b><span>外部獨立王國</span></div><div class="placeFact"><b>閱讀重點</b><span>用晚九世紀關係判讀，不倒灌較早階段</span></div></div><p>西南閱讀需同時保留唐劍南地方軍政與南詔自身政治空間。</p><div class="mapMeaning"><b>地圖上的意思：</b>Region框提供西南視窗；南詔本體由M4外部勢力Toggle控制。</div><div class="tags"><span class="tag">西南</span><span class="tag">南詔</span><span class="tag">獨立王國</span><span class="tag">880</span></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880RegionSheet" data-region-sheet="true" data-year="880" id="d880-region-northeast"><div class="detail"><a aria-label="關閉 東北／渤海／新羅 資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">唐東北軍鎮、渤海與統一新羅晚期｜880</div><h4>東北／渤海／新羅</h4><div class="m880RegionTangNote">幽州／盧龍是唐體制內地方軍鎮；渤海與新羅則是唐之外的獨立政治體，三者不能用同一種「控制」語義處理。</div><div class="placeFacts"><div class="placeFact"><b>唐側</b><span>幽州／盧龍具高度地方軍政性</span></div><div class="placeFact"><b>渤海</b><span>東北亞獨立政權</span></div><div class="placeFact"><b>新羅</b><span>統一新羅晚期的獨立王國</span></div></div><p>此區主要用來比較「唐體制內高度地方化軍鎮」與「唐之外獨立國家」的差異。</p><div class="mapMeaning"><b>地圖上的意思：</b>Region框是東北閱讀視窗；渤海、新羅各自由M4外部勢力Toggle控制。</div><div class="tags"><span class="tag">東北</span><span class="tag">盧龍</span><span class="tag">渤海</span><span class="tag">新羅</span></div></div></aside>
+
+
+<script id="m880-m5-region-sheets-toggle-js">
+(function(){
+'use strict';
+var labels=[].slice.call(document.querySelectorAll('.m880RegionChip[data-info-target]'));
+var y880=document.getElementById('yr-880');
+var none=document.getElementById('m880-region-none');
+var focus=document.getElementById('fs-region-focus');
+if(!labels.length)return;
+var rail=document.querySelector('.m880RegionRail');
+if(rail){['pointerdown','pointermove','pointerup','pointercancel'].forEach(function(t){rail.addEventListener(t,function(e){e.stopPropagation();});});}
+function radioFor(label){var id=label.getAttribute('for');return id?document.getElementById(id):null;}
+function labelsForRadio(r){if(!r)return [];return labels.filter(function(l){return l.getAttribute('for')===r.id;});}
+function setExpandedForRadio(r,on){labelsForRadio(r).forEach(function(l){l.setAttribute('aria-expanded',on?'true':'false');});}
+function clearExpanded(){labels.forEach(function(l){l.setAttribute('aria-expanded','false');});}
+function openRegion(label){
+  var id=label.getAttribute('data-info-target');if(!id)return false;
+  var opener=window.v823OpenByHref||window.v822OpenByHref||window.v821OpenByHref;
+  var ok=false;
+  if(typeof opener==='function')ok=!!opener('#'+id);
+  if(!ok){
+    var target=document.getElementById(id);if(!target)return false;
+    document.querySelectorAll('.overlay.v82-open').forEach(function(o){
+      if(o!==target){o.classList.remove('v82-open');o.setAttribute('aria-hidden','true');}
+    });
+    target.classList.add('v82-open');target.setAttribute('aria-hidden','false');ok=true;
+  }
+  clearExpanded();setExpandedForRadio(radioFor(label),true);return ok;
+}
+function closeRegionIfCurrent(label){
+  var id=label.getAttribute('data-info-target');
+  var current=document.querySelector('.overlay.v82-open');
+  if(!current||current.id!==id)return false;
+  if(typeof window.v823CloseSheet==='function')window.v823CloseSheet();
+  else{current.classList.remove('v82-open');current.setAttribute('aria-hidden','true');}
+  return true;
+}
+function returnMain(){
+  if(none){none.checked=true;none.dispatchEvent(new Event('change',{bubbles:true}));}
+  if(focus){focus.checked=true;focus.dispatchEvent(new Event('change',{bubbles:true}));}
+  clearExpanded();
+}
+labels.forEach(function(label){
+  label.addEventListener('pointerdown',function(){
+    var r=radioFor(label);label.dataset.m880WasActive=(r&&r.checked)?'1':'0';
+  },{capture:true});
+  label.addEventListener('touchstart',function(){
+    var r=radioFor(label);label.dataset.m880WasActive=(r&&r.checked)?'1':'0';
+  },{capture:true,passive:true});
+  label.addEventListener('click',function(e){
+    if(y880&&!y880.checked)return;
+    var r=radioFor(label);
+    var wasActive=label.dataset.m880WasActive==='1' || (!('m880WasActive' in label.dataset)&&r&&r.checked);
+    delete label.dataset.m880WasActive;
+    if(wasActive){
+      e.preventDefault();e.stopImmediatePropagation();
+      closeRegionIfCurrent(label);returnMain();return;
+    }
+    e.preventDefault();e.stopImmediatePropagation();
+    if(r){r.checked=true;r.dispatchEvent(new Event('change',{bubbles:true}));}
+    requestAnimationFrame(function(){openRegion(label);});
+  });
+});
+document.addEventListener('click',function(e){
+  var close=e.target.closest&&e.target.closest('.m880RegionSheet .closeBtn');
+  if(close)clearExpanded();
+},true);
+document.querySelectorAll('input[name="yr"]').forEach(function(y){
+ y.addEventListener('change',function(){
+   if(y880&&y880.checked)return;
+   var open=document.querySelector('.overlay.m880RegionSheet.v82-open');
+   if(none)none.checked=true;clearExpanded();
+   if(open){
+     if(typeof window.v823CloseSheet==='function')window.v823CloseSheet();
+     else{open.classList.remove('v82-open');open.setAttribute('aria-hidden','true');}
+   }
+ });
+});
+window.m880M5Audit=function(){
+ var open=document.querySelector('.overlay.m880RegionSheet.v82-open');
+ var unique=[];labels.forEach(function(l){var id=l.getAttribute('for');if(unique.indexOf(id)<0)unique.push(id);});
+ var selected=unique.filter(function(id){var r=document.getElementById(id);return !!(r&&r.checked);});
+ var visible=[].slice.call(document.querySelectorAll('.m880M3RegionOverlay')).filter(function(el){
+   var cs=getComputedStyle(el);return cs.display!=='none'&&cs.visibility!=='hidden'&&parseFloat(cs.opacity||'1')>0;
+ });
+ return {
+   version:'880-M5-v0.1',
+   labels:labels.length,
+   uniqueRegions:unique.length,
+   selected:selected,
+   openSheet:open?open.id:null,
+   visibleOverlays:visible.length,
+   targetsExist:labels.every(function(l){return !!document.getElementById(l.getAttribute('data-info-target'));})
+ };
+};
+})();
+</script>
+
+<script id="m880-m5-region-meta" type="application/json">
+{
+  "version": "880-M5-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "behavior": [
+    "first click = select unique region + open its Bottom Sheet",
+    "same-region second click = cancel to m880-region-none + Main",
+    "A -> B direct switch",
+    "manual close preserves region selection",
+    "region selection coexists with M4 faction checkbox state"
+  ]
+}
+</script>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-core-tang"><div class="detail"><a aria-label="關閉 唐廷存續核心資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">廣明元年末｜880年12月下旬</div><h4>唐廷存續核心</h4><div class="m880InfoGuard">此截面洛陽已陷，但長安尚未陷落；唐僖宗朝廷仍在關中。不能把881年初的長安失守與僖宗入蜀提前套入880。</div><div class="placeFacts"><div class="placeFact"><b>核心</b><span>長安／關中</span></div><div class="placeFact"><b>政局</b><span>中央朝廷仍存在，但對地方軍政力量依賴加深</span></div><div class="placeFact"><b>防護</b><span>不是「唐仍全面直接控制天下」</span></div></div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-changan"><div class="detail"><a aria-label="關閉 長安資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">京師｜880年末尚未陷落</div><h4>長安</h4><div class="m880InfoGuard">長安仍是唐僖宗朝廷所在。黃巢已取洛陽並向西推進，但長安陷落與僖宗出逃屬881年初。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-luoyang"><div class="detail"><a aria-label="關閉 洛陽資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">東都｜黃巢軍已攻取｜880年末</div><h4>洛陽｜已陷</h4><div class="m880InfoGuard">洛陽已被黃巢軍攻取，是本時間截面的核心轉折；但此時黃巢尚未在長安建立後續政權。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-taiyuan"><div class="detail"><a aria-label="關閉 太原資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">河東軍政節點｜880</div><h4>太原</h4><div class="m880InfoGuard">太原仍是河東的重要北方軍政節點。883年李克用取得河東節度使地位屬後續格局，不能倒灌至880。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-chengdu"><div class="detail"><a aria-label="關閉 成都資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">劍南核心城市｜880</div><h4>成都</h4><div class="m880InfoGuard">成都仍是唐西南重要軍政城市；僖宗逃往成都發生在881年初，本截面尚未成為流亡朝廷所在地。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-yangzhou"><div class="detail"><a aria-label="關閉 揚州資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">淮南軍政與經濟樞紐｜高駢駐地</div><h4>揚州</h4><div class="m880InfoGuard">揚州是淮南節度使高駢的軍政中心，也是晚唐江淮重要經濟與交通樞紐；地方軍政實力強，但仍以唐體制內名分運作。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-guangzhou"><div class="detail"><a aria-label="關閉 廣州資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">嶺南海上貿易城市｜黃巢南征已過</div><h4>廣州</h4><div class="m880InfoGuard">黃巢軍此前曾南下廣州，至880本截面已北返。廣州在此作南方城市與海上交通節點，不再作當前戰場核心。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-youzhou"><div class="detail"><a aria-label="關閉 幽州資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">盧龍軍鎮核心｜河北北部</div><h4>幽州／盧龍</h4><div class="m880InfoGuard">幽州是盧龍軍鎮核心；它仍在唐名義體系內，但地方軍政控制高度獨立化，不能與渤海或新羅等外部國家混為一類。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-city-dunhuang"><div class="detail"><a aria-label="關閉 敦煌資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">歸義軍核心｜河西地方政權</div><h4>敦煌</h4><div class="m880InfoGuard">敦煌由歸義軍地方軍政體系控制，使用唐名號與制度語彙，但實際治理高度地方化；不能畫成长安直接行政延伸。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-context-hebei-circuits"><div class="detail"><a aria-label="關閉 河北軍鎮資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">魏博／成德／盧龍｜地方軍政網絡</div><h4>河北軍鎮</h4><div class="m880InfoGuard">880的河北軍鎮仍需同時保留「唐名義關係」與「地方軍政高度自主」兩個層次；不是普通中央州郡，也不是單一獨立國家。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-context-gaopian"><div class="detail"><a aria-label="關閉 淮南高駢資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">淮南節度使｜揚州｜880</div><h4>淮南／高駢</h4><div class="m880InfoGuard">高駢以揚州為淮南軍政中心，並曾被任命統率討黃巢力量；880黃巢越過長江北上後，淮南仍是重要地方軍政樞紐。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-context-huangchao"><div class="detail"><a aria-label="關閉 黃巢資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">879南方北返 → 880洛陽 → 881長安</div><h4>黃巢北上</h4><div class="m880InfoGuard">本截面黃巢軍已北返並攻取洛陽，正逼近唐的關中核心；因此M1用「戰役／秩序崩解走廊」表示，而不是把尚未穩定的軍事推進畫成固定國界。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-context-northgrass"><div class="detail"><a aria-label="關閉 漠北草原資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">840後草原政治重組｜880</div><h4>漠北／草原諸部</h4><div class="m880InfoGuard">840年前的統一回鶻汗國模型已不適用880。北方草原應以多股政權與部族力量重組閱讀，而不是沿用820的「回鶻汗國」整塊包絡。</div></div></aside>
+
+<aside aria-hidden="true" class="overlay m880M6InfoSheet" data-year="880" id="d880-context-japan"><div class="detail"><a aria-label="關閉 日本資訊" class="closeBtn textClose" href="#map">×</a><div class="eyebrow">世界同期｜東亞</div><h4>日本｜平安時代</h4><div class="m880InfoGuard">880年的日本處於平安時代。本標籤只提供東亞同期閱讀，不代表唐的政治或行政範圍。</div></div></aside>
+
+
+<script id="m880-m6-hotspots-global-text-js">
+(function(){
+'use strict';
+var spots=[].slice.call(document.querySelectorAll('.m880MainSpot,.m880GlobalSpot'));
+function closeM6(){
+ document.querySelectorAll('.overlay.m880M6InfoSheet.v82-open').forEach(function(s){
+   s.classList.remove('v82-open');s.setAttribute('aria-hidden','true');
+ });
+}
+function closeOther(){
+ document.querySelectorAll('.overlay.v82-open').forEach(function(s){
+   s.classList.remove('v82-open');s.setAttribute('aria-hidden','true');
+ });
+}
+spots.forEach(function(a){
+ ['pointerdown','pointermove','pointerup','pointercancel','touchstart'].forEach(function(t){
+   a.addEventListener(t,function(e){e.stopPropagation();},{passive:t==='touchstart'});
+ });
+ a.addEventListener('click',function(ev){
+   ev.preventDefault();ev.stopPropagation();closeOther();
+   var id=(a.getAttribute('href')||'').replace(/^#/,'');
+   var target=document.getElementById(id);if(!target)return;
+   target.classList.add('v82-open');target.setAttribute('aria-hidden','false');
+ });
+});
+document.querySelectorAll('.m880M6InfoSheet .closeBtn').forEach(function(b){
+ b.addEventListener('click',function(){closeM6();});
+});
+document.querySelectorAll('input[name="yr"]').forEach(function(y){
+ y.addEventListener('change',function(){
+   var y880=document.getElementById('yr-880');
+   if(!(y880&&y880.checked))closeM6();
+ });
+});
+window.m880M6Audit=function(){
+ function vis(sel){return [].slice.call(document.querySelectorAll(sel)).filter(function(e){
+   var x=getComputedStyle(e);return x.display!=='none'&&x.visibility!=='hidden'&&parseFloat(x.opacity||'1')>0;
+ }).length;}
+ return {
+   version:'880-M6-v0.1',
+   mainSpots:vis('.m880MainSpot'),
+   globalSpots:vis('.m880GlobalSpot'),
+   globalText:vis('.m880M6GlobalText'),
+   mainText:vis('.m880M2MainText'),
+   mainTotal:document.querySelectorAll('.m880MainSpot').length,
+   globalTotal:document.querySelectorAll('.m880GlobalSpot').length,
+   targetsExist:spots.every(function(a){var h=a.getAttribute('href');return !!(h&&document.querySelector(h));}),
+   openInfo:document.querySelectorAll('.overlay.m880M6InfoSheet.v82-open').length
+ };
+};
+})();
+</script>
+
+<script id="m880-m6-meta" type="application/json">
+{
+  "version": "880-M6-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "mainHotspots": 27,
+  "globalHotspots": 34,
+  "historicalGuard": [
+    "Luoyang has fallen by the snapshot; Chang'an has not yet fallen.",
+    "Chengdu is not yet the court-in-exile seat in this snapshot.",
+    "Li Keyong's 883 Hedong governorship is not backdated.",
+    "840-era unified Uyghur Khaganate is not reused for 880.",
+    "Guiyi Circuit is locally governed under Tang titles, not direct metropolitan administration."
+  ]
+}
+</script>
+
+<script id="m880-m7-fullscreen-hotspot-focus-js">
+(function(){
+'use strict';
+var y880=document.getElementById('yr-880'),mapOnly=document.getElementById('map-only');
+var viewport=document.querySelector('.mapViewport'),canvas=document.querySelector('.mapCanvas');
+var badge=document.querySelector('.uxScaleBadge');
+if(!y880||!mapOnly||!viewport||!canvas)return;
+
+var MAIN={x:560,y:350,z:2.10,label:'主域'};
+var GLOBAL={x:560,y:355,z:1.70,label:'全域'};
+var REGIONS={
+ guanzhong:{x:590,y:320,z:4.20,label:'關中／長安'},
+ hebei:{x:705,y:260,z:3.80,label:'河北／河朔'},
+ henanhuangchao:{x:650,y:350,z:4.00,label:'河南／黃巢'},
+ hedongnorth:{x:625,y:205,z:3.45,label:'河東／北方'},
+ huainan:{x:720,y:420,z:3.75,label:'淮南／高駢'},
+ guiyi:{x:365,y:280,z:3.35,label:'敦煌／歸義軍'},
+ tibet:{x:335,y:425,z:3.00,label:'青藏／吐蕃碎片'},
+ southwest:{x:520,y:545,z:3.40,label:'西南／南詔'},
+ northeast:{x:850,y:260,z:3.10,label:'東北／渤海／新羅'}
+};
+var spots=[].slice.call(document.querySelectorAll('.m880FSMainSpot,.m880FSGlobalSpot'));
+
+function active(){return !!(y880.checked&&mapOnly.checked);}
+function usable(){
+ var cs=getComputedStyle(viewport),pt=parseFloat(cs.paddingTop)||0,pb=parseFloat(cs.paddingBottom)||0;
+ return {pt:pt,pb:pb,h:Math.max(1,viewport.clientHeight-pt-pb)};
+}
+function clamp(v,min,max){return Math.max(min,Math.min(max,v));}
+function centerMaster(p,prefix){
+ if(!active()||!p)return;
+ var vw=viewport.clientWidth,bw=vw,bh=vw*(730/1026),u=usable();
+ var scale=p.z;
+ var x=vw/2-(p.x/1026)*bw*scale;
+ var y=u.h/2-(p.y/730)*bh*scale;
+ var minX=Math.min(0,vw-bw*scale),minY=Math.min(0,u.h-bh*scale);
+ x=clamp(x,minX,0);y=clamp(y,minY,0);
+ canvas.style.setProperty('--ux-scale',scale.toFixed(4));
+ canvas.style.setProperty('--ux-x',x.toFixed(2)+'px');
+ canvas.style.setProperty('--ux-y',y.toFixed(2)+'px');
+ if(badge)badge.textContent=(prefix||p.label)+' '+Math.round(scale*100)+'%';
+}
+function selectedRegion(){
+ var picked=null;
+ Object.keys(REGIONS).some(function(k){
+   var el=document.getElementById('m880-region-'+k);
+   if(el&&el.checked){picked=k;return true;}return false;
+ });
+ return picked;
+}
+function reset(){
+ if(!active())return;
+ var r=selectedRegion();
+ if(r){centerMaster(REGIONS[r],'區域閱讀');return;}
+ var g=document.getElementById('fs-region-global');
+ if(g&&g.checked){centerMaster(GLOBAL,'全域');return;}
+ centerMaster(MAIN,'主域');
+}
+function openSpot(a){
+ var href=a.getAttribute('href');if(!href)return false;
+ var target=document.querySelector(href);if(!target)return false;
+ document.querySelectorAll('.overlay.v82-open').forEach(function(o){
+   if(o!==target){o.classList.remove('v82-open');o.setAttribute('aria-hidden','true');}
+ });
+ target.classList.add('v82-open');target.setAttribute('aria-hidden','false');return true;
+}
+spots.forEach(function(a){
+ ['pointerdown','pointermove','pointerup','pointercancel','touchstart'].forEach(function(t){
+   a.addEventListener(t,function(e){e.stopPropagation();},{passive:t==='touchstart'});
+ });
+ a.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();openSpot(a);});
+});
+document.querySelectorAll('.m880RegionCtrl,#fs-region-focus,#fs-region-global').forEach(function(el){
+ el.addEventListener('change',function(){
+   if(active())requestAnimationFrame(function(){requestAnimationFrame(reset);});
+ });
+});
+document.querySelectorAll('.m880ModeChip').forEach(function(label){
+ label.addEventListener('click',function(){
+   if(!active())return;
+   var mode=document.getElementById(label.getAttribute('for'));if(mode)mode.checked=true;
+   var none=document.getElementById('m880-region-none');if(none)none.checked=true;
+   document.querySelectorAll('.overlay.m880RegionSheet.v82-open').forEach(function(o){
+     o.classList.remove('v82-open');o.setAttribute('aria-hidden','true');
+   });
+   requestAnimationFrame(function(){requestAnimationFrame(reset);});
+ });
+});
+function settle(){
+ if(!active())return;
+ requestAnimationFrame(function(){requestAnimationFrame(reset);});
+ setTimeout(function(){if(active())reset();},90);
+}
+mapOnly.addEventListener('change',settle);
+y880.addEventListener('change',settle);
+window.addEventListener('pageshow',settle);
+window.addEventListener('resize',function(){if(active())requestAnimationFrame(reset);});
+window.m880M7ResetView=reset;
+window.m880M7HotspotAudit=function(){
+ return {
+   version:'880-M7-v0.1',
+   main:document.querySelectorAll('.m880FSMainSpot').length,
+   global:document.querySelectorAll('.m880FSGlobalSpot').length,
+   targetsExist:spots.every(function(a){var h=a.getAttribute('href');return !!(h&&document.querySelector(h));}),
+   selectedRegion:selectedRegion()
+ };
+};
+})();
+</script>
+
+<script id="m880-m7-badge-ownership-guard-js">
+(function(){
+'use strict';
+var badge=document.querySelector('.uxScaleBadge'),y=document.getElementById('yr-880'),mapOnly=document.getElementById('map-only');
+if(!badge||!y||!mapOnly)return;
+var busy=false;
+function selectedRegion(){return !!document.querySelector('.m880RegionCtrl:not(#m880-region-none):checked');}
+function sync(){
+ if(busy||!y.checked||!mapOnly.checked)return;
+ var m=(badge.textContent||'').match(/(\d+)%/);if(!m)return;
+ var prefix=selectedRegion()?'區域閱讀':((document.getElementById('fs-region-global')||{}).checked?'全域':'主域');
+ var next=prefix+' '+m[1]+'%';
+ if(badge.textContent!==next){busy=true;badge.textContent=next;busy=false;}
+}
+new MutationObserver(sync).observe(badge,{childList:true,characterData:true,subtree:true});
+document.querySelectorAll('.m880RegionCtrl,.m880FactionChip,.m880ModeChip,[data-ux-zoom],[data-ux-reset]').forEach(function(el){
+ el.addEventListener('click',function(){requestAnimationFrame(function(){requestAnimationFrame(sync);});});
+});
+window.m880M7SyncBadge=sync;
+})();
+</script>
+
+<script id="m880-m7-meta" type="application/json">
+{
+  "version": "880-M7-v0.1",
+  "status": "WORKING / NOT FREEZE",
+  "focus": {
+    "main": {
+      "x": 560,
+      "y": 350,
+      "z": 2.1
+    },
+    "global": {
+      "x": 560,
+      "y": 355,
+      "z": 1.7
+    },
+    "regions": {
+      "guanzhong": {
+        "x": 590,
+        "y": 320,
+        "z": 4.2
+      },
+      "hebei": {
+        "x": 705,
+        "y": 260,
+        "z": 3.8
+      },
+      "henanhuangchao": {
+        "x": 650,
+        "y": 350,
+        "z": 4.0
+      },
+      "hedongnorth": {
+        "x": 625,
+        "y": 205,
+        "z": 3.45
+      },
+      "huainan": {
+        "x": 720,
+        "y": 420,
+        "z": 3.75
+      },
+      "guiyi": {
+        "x": 365,
+        "y": 280,
+        "z": 3.35
+      },
+      "tibet": {
+        "x": 335,
+        "y": 425,
+        "z": 3.0
+      },
+      "southwest": {
+        "x": 520,
+        "y": 545,
+        "z": 3.4
+      },
+      "northeast": {
+        "x": 850,
+        "y": 260,
+        "z": 3.1
+      }
+    }
+  },
+  "fullscreenHotspots": {
+    "main": 27,
+    "global": 34
+  }
+}
+</script>
+<script id="m880-m8-historical-gate-meta" type="application/json">
+{
+  "version": "880-M8-v0.1",
+  "status": "PASS / FINAL CANDIDATE / NOT FREEZE",
+  "snapshot": "late December 880 CE / Guangming 1 / Luoyang fallen / Tong Pass and Chang'an not yet fallen",
+  "historicalGate": "PASS",
+  "featureExpansion": false,
+  "historicalReadingModel": true,
+  "historicalGuard": [
+    {
+      "id": "snapshot",
+      "status": "PASS",
+      "rule": "Late December 880: Luoyang has fallen; Tong Pass and Chang'an have not yet fallen."
+    },
+    {
+      "id": "changan",
+      "status": "PASS",
+      "rule": "Chang'an remains the Tang court capital; its fall and Emperor Xizong's flight belong to early 881."
+    },
+    {
+      "id": "huangchao",
+      "status": "PASS",
+      "rule": "Huang Chao is represented as a campaign / order-collapse corridor rather than a mature fixed territorial state."
+    },
+    {
+      "id": "hebei",
+      "status": "PASS",
+      "rule": "Hebei/Heshuo circuits retain nominal Tang ties while remaining highly autonomous military-political networks."
+    },
+    {
+      "id": "huainan",
+      "status": "PASS",
+      "rule": "Huainan/Gao Pian remains a strong regional Tang-framework military command, not an independent sovereign state."
+    },
+    {
+      "id": "guiyi",
+      "status": "PASS",
+      "rule": "Guiyi Circuit/Dunhuang is locally governed under Tang titles and is not treated as direct metropolitan administration."
+    },
+    {
+      "id": "hedong",
+      "status": "PASS",
+      "rule": "Li Keyong's 883 Hedong governorship is not backdated into 880."
+    },
+    {
+      "id": "tibet",
+      "status": "PASS",
+      "rule": "The unified Tibetan Empire is not restored in 880; post-imperial fragmented reading envelopes are used."
+    },
+    {
+      "id": "nanzhao",
+      "status": "PASS",
+      "rule": "Nanzhao remains an independent external kingdom."
+    },
+    {
+      "id": "balhaeSilla",
+      "status": "PASS",
+      "rule": "Balhae and Silla remain external political entities; diplomatic/investiture/cultural relations do not equal Tang direct administration."
+    },
+    {
+      "id": "uighur",
+      "status": "PASS",
+      "rule": "The pre-840 unified Uyghur Khaganate is not reused for 880; later successor/grassland contexts are kept geographically distinct."
+    },
+    {
+      "id": "chengdu",
+      "status": "PASS",
+      "rule": "Chengdu is not yet treated as the Tang court-in-exile seat in this snapshot."
+    }
+  ],
+  "focusCanon": {
+    "main": {
+      "x": 560,
+      "y": 350,
+      "scale": 2.1
+    },
+    "global": {
+      "x": 560,
+      "y": 355,
+      "scale": 1.7
+    },
+    "regions": {
+      "guanzhong": 4.2,
+      "hebei": 3.8,
+      "henanhuangchao": 4.0,
+      "hedongnorth": 3.45,
+      "huainan": 3.75,
+      "guiyi": 3.35,
+      "tibet": 3.0,
+      "southwest": 3.4,
+      "northeast": 3.1
+    }
+  },
+  "sourceStage": "880-M7 Fullscreen Hotspots + Main / Global / 9 Region True Focus v0.1",
+  "deviceQc": "PENDING / iPhone Safari required before Freeze"
+}
+</script>
+
+<script id="m880-m8-1-device-qc-meta" type="application/json">
+{
+  "version": "880-M8.1-v0.1",
+  "status": "DEVICE QC PENDING / NOT FREEZE",
+  "source": "880-M8 Historical Geography Final Gate v0.1",
+  "historicalGate": "PASS",
+  "featureExpansion": false,
+  "contentChange": false,
+  "deviceTarget": {
+    "browser": "iPhone Safari",
+    "viewportReference": "393x852",
+    "realDeviceRequired": true
+  },
+  "focusCanon": {
+    "main": 2.1,
+    "global": 1.7,
+    "regions": {
+      "guanzhong": 4.2,
+      "hebei": 3.8,
+      "henanhuangchao": 4.0,
+      "hedongnorth": 3.45,
+      "huainan": 3.75,
+      "guiyi": 3.35,
+      "tibet": 3.0,
+      "southwest": 3.4,
+      "northeast": 3.1
+    }
+  },
+  "deviceQcChecklist": [
+    "Embedded Main visual ownership / labels / hotspots",
+    "Embedded Global visual ownership / labels / hotspots",
+    "Fullscreen Main badge = 主域 210%",
+    "Fullscreen Global badge = 全域 170%",
+    "Nine region True Focus values and one-overlay ownership",
+    "Same-region second tap cancels region and returns 主域 210%",
+    "Faction + region coexistence without state loss",
+    "Region/Faction/Hotspot Bottom Sheets open and close correctly",
+    "No east/west/north/south edge label clipping in Safari",
+    "Safe-area / viewport / rail / badge layout remains usable",
+    "Safari restored form/radio state cannot steal 880 ownership on fresh load"
+  ],
+  "freezeRule": "PROHIBITED until real iPhone Safari Device QC passes"
+}
 </script>
 
 </body>
