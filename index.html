@@ -4237,6 +4237,18 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 .m880FSMainSpot.m880-dot,.m880FSGlobalSpot.m880-dot{z-index:107!important;border-radius:999px}
 </style>
 
+
+<style id="m880-m81-safari-badge-position-fix-v02">
+/* 880-M8.1 Safari Device Fix v0.2
+   Evidence: real iPhone Safari Round 1 screenshots.
+   880 adds a dedicated fullscreen faction rail, pushing the map viewport down by 50px.
+   The shared uxScaleBadge was still using the inherited pre-faction top baseline and overlapped the 880 region rail.
+   Device-only layout correction: move 880 badge to map HUD top. No history, geometry, focus value, hotspot, sheet, or toggle changes. */
+#map-only:checked ~ .screens .map #yr-880:checked ~ .mapViewport .uxScaleBadge{
+  top:calc(214px + env(safe-area-inset-top,0px))!important;
+  left:8px!important;
+}
+</style>
 </head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -12553,5 +12565,28 @@ window.m880M7SyncBadge=sync;
 }
 </script>
 
+
+<script type="application/json" id="m880-m81-device-fix-v02-meta">
+{
+  "stage":"880-M8.1",
+  "build":"iPhone Safari Device Fix v0.2",
+  "status":"ROUND 2 DEVICE QC PENDING / NOT FREEZE",
+  "round1Evidence":"8 real iPhone Safari screenshots supplied by user",
+  "round1Result":{
+    "home":"PASS",
+    "embeddedMain":"PASS",
+    "embeddedGlobal":"PASS",
+    "factionBottomSheets":"PASS",
+    "fullscreenMain210":"PASS with badge-layout defect",
+    "regionGuanzhong420":"PASS with badge-layout defect",
+    "factionRegionCoexist":"PASS",
+    "badgeLayout":"FIXED IN v0.2",
+    "fullscreenGlobal170":"PENDING ROUND 2 EVIDENCE",
+    "sameRegionSecondTapCancel":"PENDING ROUND 2 EVIDENCE"
+  },
+  "fixScope":"880-only fullscreen uxScaleBadge top offset from inherited baseline to map-HUD baseline; no canonical content changes",
+  "freezeRule":"PROHIBITED until Round 2 real iPhone Safari evidence passes"
+}
+</script>
 </body>
 </html>
