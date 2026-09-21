@@ -1,3 +1,9 @@
+<!-- Xia-M2 iPhone Safari Device Fix v0.2
+Source: Xia-M2 Main Canon Text + Primary Archaeological Nodes v0.1
+Status: DEVICE FIX / ROUND 2 RECHECK PENDING / NOT FREEZE
+Fix scope: make M2 overlay CSS background transparent on iPhone Safari; update visible version label only.
+No changes to Xia-M1 archaeology/document layers, node semantics, geometry, UI-D1.1, or Tang Final Canon.
+-->
 <!-- Xia-M2 Main Canon Text + Primary Archaeological Nodes v0.1
 Status: WORKING / NOT FREEZE.
 Source: Xia-M1 Political / Archaeological Reading Layers v0.1; Xia-M1 real iPhone Safari Device QC PASS.
@@ -533,7 +539,7 @@ M1-M5 authored content and 880 Final Canon remain protected.
 
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>中國歷史 × 世界歷史｜夏朝 Xia-M2 Main Canon Text + Primary Archaeological Nodes v0.1｜WORKING / NOT FREEZE</title>
+<title>中國歷史 × 世界歷史｜夏朝 Xia-M2 iPhone Safari Device Fix v0.2｜ROUND 2 RECHECK PENDING / NOT FREEZE</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -4841,7 +4847,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 </style>
 
 <style id="xia-m2-style">
-.xiaM2Overlay{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:5}
+.xiaM2Overlay{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:5;background:transparent!important}
 .xiaM2Overlay text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:2.3px;stroke-linejoin:round}
 .xiaM2Overlay .nodeDot{stroke:#fffaf0;stroke-width:1.3}
 .xiaM2Overlay .context{opacity:.78}
@@ -4878,7 +4884,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <div id="xia-m1-reading-layers-meta" hidden data-status="WORKING / NOT FREEZE" data-stage="Xia-M1 Political / Archaeological Reading Layers" data-snapshot="c.1700 BCE" data-main="archaeological observation" data-global="adds transmitted-text + correlation hypothesis" data-hard-border="prohibited" data-region="deferred" data-faction="deferred" data-hotspot="deferred" data-fullscreen="deferred"></div>
 <header class="header">
 <div class="brand">中國歷史 × 世界歷史</div>
-<div class="meta">Xia-M1｜Political / Archaeological Reading Layers v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected</div>
+<div class="meta">Xia-M2｜Main Canon Text + Primary Archaeological Nodes v0.2｜DEVICE FIX / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected</div>
 <nav class="hierBack" aria-label="上一頁導航">
   <label class="backToHome" for="nav-home" aria-label="上一頁，返回首頁"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">首頁</span></label>
   <label class="backToDynasty" for="nav-dynasty" aria-label="上一頁，返回朝代總覽"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">朝代總覽</span></label>
@@ -14627,8 +14633,8 @@ window.m907M7SyncBadge=sync;
 </script>
 <script id="xia-m2-main-text-nodes-meta" type="application/json">
 {
-  "version":"Xia-M2-v0.1",
-  "status":"WORKING / NOT FREEZE",
+  "version":"Xia-M2-v0.2-device-fix",
+  "status":"DEVICE FIX / ROUND 2 RECHECK PENDING / NOT FREEZE",
   "snapshot":"c.1700 BCE archaeological reading node",
   "scope":"Main Canon Text + Primary Archaeological Nodes",
   "m1DeviceQC":"PASS",
@@ -14643,5 +14649,7 @@ window.m907M7SyncBadge=sync;
 }
 </script>
 
+
+<div id="xia-m2-device-fix-v02-meta" hidden data-status="ROUND 2 RECHECK PENDING / NOT FREEZE" data-fix="transparent M2 SVG overlay background on Safari" data-source="Xia-M2 v0.1" data-m1-protection="unchanged" data-tang-protection="read-only"></div>
 </body>
 </html>
