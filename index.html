@@ -1,3 +1,11 @@
+<!-- Xia-M2 Main Canon Text + Primary Archaeological Nodes v0.1
+Status: WORKING / NOT FREEZE.
+Source: Xia-M1 Political / Archaeological Reading Layers v0.1; Xia-M1 real iPhone Safari Device QC PASS.
+M2 scope: add a Main-mode canonical archaeological label layer and primary archaeological/context nodes through a runtime overlay; M1 reading envelopes and mode ownership remain unchanged.
+Primary reading nodes: Erlitou urban core; Dongxiafeng / southern Shanxi Erlitou-culture resource node; Xinzhai as earlier transition/context. These are archaeological/context nodes, NOT a list of proven Xia capitals.
+Global Canon text, Region, peer-culture toggles, Bottom Sheets, hotspots, fullscreen focus and True Focus remain deferred.
+-->
+
 <!DOCTYPE html>
 
 <!-- Xia-M1 Political / Archaeological Reading Layers v0.1
@@ -525,7 +533,7 @@ M1-M5 authored content and 880 Final Canon remain protected.
 
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>中國歷史 × 世界歷史｜夏朝 Xia-M1 Political / Archaeological Reading Layers v0.1｜WORKING / NOT FREEZE</title>
+<title>中國歷史 × 世界歷史｜夏朝 Xia-M2 Main Canon Text + Primary Archaeological Nodes v0.1｜WORKING / NOT FREEZE</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -4830,6 +4838,17 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 .m907FSMainSpot[href^="#d907-city-"],.m907FSMainSpot[href^="#d907-context-"],
 .m907FSGlobalSpot[href^="#d907-city-"],.m907FSGlobalSpot[href^="#d907-context-"]{z-index:106!important}
 .m907FSMainSpot.m907-dot,.m907FSGlobalSpot.m907-dot{z-index:107!important;border-radius:999px}
+</style>
+
+<style id="xia-m2-style">
+.xiaM2Overlay{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:5}
+.xiaM2Overlay text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:2.3px;stroke-linejoin:round}
+.xiaM2Overlay .nodeDot{stroke:#fffaf0;stroke-width:1.3}
+.xiaM2Overlay .context{opacity:.78}
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM2Overlay{display:none}
+.xiaM2Note{margin-top:9px;padding:9px 10px;border:1px solid #d5bd93;border-radius:13px;background:#fffaf1;color:#5e5245;font-size:10px;line-height:1.55}
+.xiaM2Note b{color:#3f342b}
+.xiaM2NodeList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:9px}.xiaM2Node{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:8px;font-size:9px;line-height:1.45;color:#62564a}.xiaM2Node b{display:block;font-size:10px;color:#352b22;margin-bottom:2px}.xiaM2Node .tag{display:inline-block;border-radius:999px;padding:2px 6px;background:#ead8b8;color:#62492e;font-size:8px;font-weight:900;margin-bottom:4px}@media(max-width:430px){.xiaM2NodeList{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -14560,5 +14579,69 @@ window.m907M7SyncBadge=sync;
   });
 })();
 </script>
+
+<script id="xia-m2-main-text-nodes-script">
+(function(){
+  function svgEl(tag, attrs, text){
+    var e=document.createElementNS('http://www.w3.org/2000/svg',tag);
+    Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});
+    if(text!=null)e.textContent=text;
+    return e;
+  }
+  function install(){
+    var stage=document.querySelector('.xiaM1MapStage');
+    if(!stage || document.getElementById('xia-m2-main-text-nodes')) return;
+    var svg=svgEl('svg',{id:'xia-m2-main-text-nodes',class:'xiaM2Overlay',viewBox:'665 270 125 94',preserveAspectRatio:'xMidYMid slice','aria-label':'夏朝M2主域文字與主要考古節點'});
+    // M2 uses compact numbered markers. Detailed wording stays below the map to avoid mobile label collisions.
+    function marker(cx,cy,n,fill){
+      svg.appendChild(svgEl('circle',{cx:String(cx),cy:String(cy),r:'3.1',fill:fill,class:'nodeDot'}));
+      svg.appendChild(svgEl('text',{x:String(cx),y:String(cy+1.7),'text-anchor':'middle','font-size':'4.8','font-weight':'900',fill:'#fffaf0',stroke:'none'},String(n)));
+    }
+    marker(730,334,1,'#7b4f24');
+    marker(688,290,2,'#346f87');
+    marker(759,315,3,'#8f785b');
+    stage.appendChild(svg);
+
+    var notes=document.querySelector('.xiaM1ModeNotes');
+    if(notes && !document.getElementById('xia-m2-note')){
+      var d=document.createElement('div'); d.id='xia-m2-note'; d.className='xiaM2Note';
+      d.innerHTML='<b>M2｜主域節點規則：</b>「二里頭」是本截面的都邑核心考古節點；「東下馮」表示晉南二里頭文化／資源網絡節點；「新砦」只作較早期轉折脈絡。三者都不等於已證實的「夏王都清單」。';
+      notes.insertAdjacentElement('afterend',d);
+      var list=document.createElement('div'); list.id='xia-m2-node-list'; list.className='xiaM2NodeList';
+      list.innerHTML='<div class="xiaM2Node"><span class="tag">① A｜考古</span><b>二里頭｜都邑核心</b>大型建築、手工業與高等級墓葬等都邑性證據。</div><div class="xiaM2Node"><span class="tag">② A｜考古</span><b>東下馮｜晉南節點</b>二里頭文化與中條山資源網絡的重要區域節點。</div><div class="xiaM2Node"><span class="tag">③ 前期脈絡</span><b>新砦｜轉折背景</b>只作龍山末至二里頭初期轉折閱讀，不視為約前1700的政治中心。</div>';
+      d.insertAdjacentElement('afterend',list);
+    }
+
+    // Runtime version labels without changing M1 authored source blocks.
+    var eyebrow=document.querySelector('.xiaMapHead .eyebrow'); if(eyebrow) eyebrow.textContent='Layer 3｜Xia Map｜M2';
+    var badge=document.querySelector('.xiaM1Badge'); if(badge) badge.textContent='M2｜WORKING';
+    var head=document.querySelector('.xiaMapHead h2'); if(head) head.textContent='夏朝｜約前1700｜M2';
+    var lead=document.querySelector('.xiaMapHead .lead'); if(lead) lead.textContent='Main Canon Text + Primary Archaeological Nodes v0.1。M2 只補主域考古文字與節點；M1 的考古／文獻分層、柔性包絡與非硬式疆界原則完全保留。';
+
+    var hub=document.querySelector('.xiaHub h2'); if(hub) hub.innerHTML='夏朝｜Historical Baseline → M2';
+    var gate=document.querySelector('.xiaHub .stats .stat:first-child b'); if(gate) gate.textContent='M2';
+    var launch=document.querySelector('.xiaM1Launch b'); if(launch) launch.textContent='進入 M2 地圖';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install); else install();
+})();
+</script>
+<script id="xia-m2-main-text-nodes-meta" type="application/json">
+{
+  "version":"Xia-M2-v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "snapshot":"c.1700 BCE archaeological reading node",
+  "scope":"Main Canon Text + Primary Archaeological Nodes",
+  "m1DeviceQC":"PASS",
+  "hardSovereigntyBorder":false,
+  "mainOnlyOverlay":true,
+  "primaryNodes":[
+    {"name":"二里頭","role":"urban core archaeological node","evidence":"A"},
+    {"name":"東下馮","role":"southern Shanxi Erlitou-culture/resource-network node","evidence":"A"},
+    {"name":"新砦","role":"earlier transition/context node; not c.1700 polity claim","evidence":"A/context"}
+  ],
+  "deferred":["Global Canon text","Region","peer-culture toggles","Bottom Sheets","hotspots","fullscreen focus","True Focus"]
+}
+</script>
+
 </body>
 </html>
