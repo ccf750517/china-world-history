@@ -1,4 +1,22 @@
 <!DOCTYPE html>
+
+<!-- UI-D1｜Dynasty Hub Layer v0.1
+Status: WORKING / NOT FREEZE.
+Branch source: 907 Final Canon / Freeze M8.1 (read-only protected).
+Purpose: add a system-level Dynasty layer above the completed Tang dynasty module.
+Navigation target: Home → Dynasty Index → Dynasty Hub → Year Map / Time / People / Knowledge.
+Tang authored geometry, year maps, focus, hotspot, Bottom Sheet, Faction and Region interaction blocks remain unchanged.
+Xia is marked as the next construction dynasty; no Xia historical map content is invented in UI-D1.
+-->
+<!-- 907 FINAL CANON / FREEZE
+Freeze date: 2026-09-21.
+Freeze basis: M8 Historical Geography Final Gate PASS + M8.1 real iPhone Safari Device QC Round 1 and Round 2 PASS.
+Device evidence retained: Embedded Main/Global; faction Bottom Sheets; Fullscreen Main 210%; Fullscreen Global 170%; region True Focus; Faction + Region coexistence; same-region second-tap cancel; Safari edge safe-margin recheck.
+Final device fix retained: 907 fullscreen edge safe-margin corrections for western/eastern labels and synchronized hotspot rectangles.
+Frozen scope: 907 historical/time-slice Canon; political/military authored geometry; Main/Global canonical text; faction toggles and Bottom Sheets; 9 Region reading layers and Bottom Sheets; Embedded/Fullscreen hotspots; Main 210% / Global 170%; nine-region True Focus; historical-geography guards; M8.1 Safari fixes.
+Any future change must branch from this Final Canon into a new Working Candidate; do not modify this frozen file in place.
+-->
+
 <!-- 907-M8.1 iPhone Safari Device QC Round 1 Edge Safe-Margin Fix v0.2
 Status: ROUND 2 EDGE RECHECK PENDING / NOT FREEZE.
 Real iPhone Safari Round 1 evidence supplied by user (9 screenshots):
@@ -476,7 +494,7 @@ M1-M5 authored content and 880 Final Canon remain protected.
 
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,maximum-scale=8,user-scalable=yes,viewport-fit=cover" name="viewport"/>
-<title>907-M8.1｜iPhone Safari Device Fix v0.2｜EDGE RECHECK PENDING / NOT FREEZE</title>
+<title>UI-D1｜Dynasty Hub Layer v0.1｜WORKING / NOT FREEZE</title>
 <style>
 :root {
   --paper:#f8f1e4; --paper2:#e6d6b7; --bg:#d6c5a7; --ink:#2d261f; --muted:#6a6054;
@@ -489,6 +507,8 @@ a { color:inherit; text-decoration:none; }
 .ctrl { position:absolute; opacity:0; pointer-events:none; }
 .page { display:none; }
 #nav-home:checked ~ .screens .home,
+#nav-dynasty:checked ~ .screens .dynasty,
+#nav-tanghub:checked ~ .screens .tangHub,
 #nav-map:checked ~ .screens .map,
 #nav-time:checked ~ .screens .time,
 #nav-people:checked ~ .screens .people,
@@ -523,6 +543,25 @@ h3 { font-size:18px; margin:14px 0 10px; }
 .quickGrid b { display:block; font-size:14px; }
 .quickGrid small { font-size:10px; color:var(--muted); }
 
+
+/* UI-D1 Dynasty Hub */
+.systemHero{padding:20px}.systemHero h2{font-size:27px}.systemHero .lead{font-size:13px}
+.dynastyGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.dynastyCard{position:relative;background:#fffaf1;border:1px solid #d5bd93;border-radius:18px;padding:14px;min-height:108px;display:flex;flex-direction:column;justify-content:space-between}
+.dynastyCard.isTang{border:2px solid #4a3c2d;background:#f7ecd8}.dynastyCard.isNext{border:2px solid #b38747;background:#fff6e5}
+.dynastyCard h4{font-size:19px;margin:0 0 4px}.dynastyCard p{font-size:10px;line-height:1.55;color:var(--muted);margin:0}.dynastyCard small{font-size:9px;color:#7c6d5e}
+.dynastyBadge{display:inline-flex;align-items:center;width:max-content;border-radius:999px;padding:5px 8px;font-size:9px;font-weight:900;background:#ead9ba;color:#5a4129;margin-bottom:8px}
+.dynastyCard.isTang .dynastyBadge{background:#4a3c2d;color:#fffaf1}.dynastyCard.isNext .dynastyBadge{background:#b38747;color:#fff}
+.dynastyCard label{position:absolute;inset:0;cursor:pointer;border-radius:18px}.dynastyCard label span{position:absolute;right:12px;bottom:10px;font-size:11px;font-weight:900;color:#6f5336}
+.dynastyEraTitle{font-size:12px;font-weight:900;color:#6b5c4c;margin:18px 0 8px}
+.hubActions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:12px 0}
+.hubAction{background:#fffaf1;border:1px solid #d5bd93;border-radius:16px;padding:13px;min-height:72px;display:flex;gap:10px;align-items:center;cursor:pointer}
+.hubAction b{display:block;font-size:14px}.hubAction small{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+.yearHubGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px}
+.yearHubBtn{appearance:none;border:1px solid #cfb183;background:#fffaf1;border-radius:14px;padding:11px 6px;color:var(--ink);font:inherit;cursor:pointer;text-align:center}
+.yearHubBtn b{display:block;font-size:17px}.yearHubBtn small{display:block;font-size:9px;color:var(--muted);margin-top:3px}
+.moduleStatus{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}.moduleStatus .stat b{font-size:18px}
+@media(min-width:760px){.dynastyGrid{grid-template-columns:repeat(4,minmax(0,1fr))}.yearHubGrid{grid-template-columns:repeat(5,minmax(0,1fr))}}
 .note { margin-top:12px; background:#fff8ea; border-left:4px solid #b38747; border-radius:12px; padding:10px 12px; font-size:11px; line-height:1.7; color:#594f44; }
 
 .mapWrap { overflow:hidden; }
@@ -592,6 +631,7 @@ h3 { font-size:18px; margin:14px 0 10px; }
 }
 .bottom label b { font-size:24px; line-height:1; }
 .bottom label[for="nav-home"] b,
+.bottom label[for="nav-dynasty"] b,
 .bottom label[for="nav-map"] b,
 .bottom label[for="nav-time"] b,
 .bottom label[for="nav-people"] b,
@@ -602,8 +642,8 @@ h3 { font-size:18px; margin:14px 0 10px; }
 .bottom label[for="nav-people"] { position:relative; top:4px; }
 
 #nav-home:checked ~ .bottom label[for="nav-home"],
+#nav-dynasty:checked ~ .bottom label[for="nav-dynasty"],
 #nav-map:checked ~ .bottom label[for="nav-map"],
-#nav-time:checked ~ .bottom label[for="nav-time"],
 #nav-people:checked ~ .bottom label[for="nav-people"],
 #nav-knowledge:checked ~ .bottom label[for="nav-knowledge"],
 #nav-index:checked ~ .bottom label[for="nav-index"] {
@@ -4711,36 +4751,115 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 <input class="ctrl" id="layer-modern" type="checkbox"/>
 <input class="ctrl" id="layer-certainty" type="checkbox"/>
 <input checked="" class="ctrl" id="nav-home" name="page" type="radio"/>
+<input class="ctrl" id="nav-dynasty" name="page" type="radio"/>
+<input class="ctrl" id="nav-tanghub" name="page" type="radio"/>
 <input class="ctrl" id="nav-map" name="page" type="radio"/>
 <input class="ctrl" id="nav-time" name="page" type="radio"/>
 <input class="ctrl" id="nav-people" name="page" type="radio"/>
 <input class="ctrl" id="nav-knowledge" name="page" type="radio"/>
 <input class="ctrl" id="nav-index" name="page" type="radio"/>
-<input checked="" class="ctrl m630RegionCtrl" id="m630-region-none" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-guanzhong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hebeihedong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hexi" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-north" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-xiyu" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-qinghaitibet" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-dongbei" name="m630-region" type="radio"/><input checked="" class="ctrl m660RegionCtrl" id="m660-region-none" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-guanzhong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hebeihedong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-north" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hexianxi" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-qinghaitibet" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-liaodong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-baekjesilla" name="m660-region" type="radio"/><input checked="" class="ctrl m668RegionCtrl" id="m668-region-none" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-guanzhong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hebeihedong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-north" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hexianxi" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-qinghaitibet" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-liaodongandong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-ungjinsilla" name="m668-region" type="radio"/><input checked="" class="ctrl m742RegionCtrl" id="m742-region-none" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-guanzhong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hebeihedong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-north" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hexilongyou" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-anxibeiting" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-qinghaitibet" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-southwest" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-northeast" name="m742-region" type="radio"/><input checked="" class="ctrl m763RegionCtrl" id="m763-region-none" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-guanzhong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hebei" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-henanhedong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-north" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hexilongyou" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-anxibeiting" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-tibet" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-southwest" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-northeast" name="m763-region" type="radio"/><input checked="" class="ctrl m820RegionCtrl" id="m820-region-none" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-guanzhong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hebei" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-henanhedong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-north" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hexilongyou" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-western" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-tibet" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-southwest" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-northeast" name="m820-region" type="radio"/><input checked="" class="ctrl m880RegionCtrl" id="m880-region-none" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-guanzhong" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-hebei" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-henanhuangchao" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-hedongnorth" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-huainan" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-guiyi" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-tibet" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-southwest" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-northeast" name="m880-region" type="radio"/><input checked="" class="ctrl m907RegionCtrl" id="m907-region-none" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-guanzhongqi" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-hedongjin" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-central-liang" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-hebei-youyan" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-southeast" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-jinghu" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-northwest" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-southwest" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-northeast" name="m907-region" type="radio"/><input aria-controls="d907-faction-tibet-fragments" class="ctrl m907FactionToggle" data-faction="tibet-fragments" data-info-target="d907-faction-tibet-fragments" id="m907-faction-tibet-fragments" type="checkbox"/><input aria-controls="d907-faction-dachanghe" class="ctrl m907FactionToggle" data-faction="dachanghe" data-info-target="d907-faction-dachanghe" id="m907-faction-dachanghe" type="checkbox"/><input aria-controls="d907-faction-khitan" class="ctrl m907FactionToggle" data-faction="khitan" data-info-target="d907-faction-khitan" id="m907-faction-khitan" type="checkbox"/><input aria-controls="d907-faction-balhae" class="ctrl m907FactionToggle" data-faction="balhae" data-info-target="d907-faction-balhae" id="m907-faction-balhae" type="checkbox"/><input aria-controls="d907-faction-korea-three" class="ctrl m907FactionToggle" data-faction="korea-three" data-info-target="d907-faction-korea-three" id="m907-faction-korea-three" type="checkbox"/><input aria-controls="d880-faction-tibet-fragments" class="ctrl m880FactionToggle" data-faction="tibet-fragments" data-info-target="d880-faction-tibet-fragments" id="m880-faction-tibet-fragments" type="checkbox"/><input aria-controls="d880-faction-nanzhao" class="ctrl m880FactionToggle" data-faction="nanzhao" data-info-target="d880-faction-nanzhao" id="m880-faction-nanzhao" type="checkbox"/><input aria-controls="d880-faction-balhae" class="ctrl m880FactionToggle" data-faction="balhae" data-info-target="d880-faction-balhae" id="m880-faction-balhae" type="checkbox"/><input aria-controls="d880-faction-silla" class="ctrl m880FactionToggle" data-faction="silla" data-info-target="d880-faction-silla" id="m880-faction-silla" type="checkbox"/><input aria-controls="d820-faction-uighur" class="ctrl m820FactionToggle" data-faction="uighur" data-info-target="d820-faction-uighur" id="m820-faction-uighur" type="checkbox"/><input aria-controls="d820-faction-tibet" class="ctrl m820FactionToggle" data-faction="tibet" data-info-target="d820-faction-tibet" id="m820-faction-tibet" type="checkbox"/><input aria-controls="d820-faction-nanzhao" class="ctrl m820FactionToggle" data-faction="nanzhao" data-info-target="d820-faction-nanzhao" id="m820-faction-nanzhao" type="checkbox"/><input aria-controls="d820-faction-balhae" class="ctrl m820FactionToggle" data-faction="balhae" data-info-target="d820-faction-balhae" id="m820-faction-balhae" type="checkbox"/><input aria-controls="d820-faction-silla" class="ctrl m820FactionToggle" data-faction="silla" data-info-target="d820-faction-silla" id="m820-faction-silla" type="checkbox"/><input aria-controls="d763-faction-uighur" class="ctrl m763FactionToggle" data-faction="uighur" data-info-target="d763-faction-uighur" id="m763-faction-uighur" type="checkbox"/><input aria-controls="d763-faction-tibet" class="ctrl m763FactionToggle" data-faction="tibet" data-info-target="d763-faction-tibet" id="m763-faction-tibet" type="checkbox"/><input aria-controls="d763-faction-nanzhao" class="ctrl m763FactionToggle" data-faction="nanzhao" data-info-target="d763-faction-nanzhao" id="m763-faction-nanzhao" type="checkbox"/><input aria-controls="d763-faction-balhae" class="ctrl m763FactionToggle" data-faction="balhae" data-info-target="d763-faction-balhae" id="m763-faction-balhae" type="checkbox"/><input aria-controls="d763-faction-silla" class="ctrl m763FactionToggle" data-faction="silla" data-info-target="d763-faction-silla" id="m763-faction-silla" type="checkbox"/><input aria-controls="d742-faction-later-turk" class="ctrl m742FactionToggle" data-faction="later-turk" data-info-target="d742-faction-later-turk" id="m742-faction-later-turk" type="checkbox"/><input aria-controls="d742-faction-tibet" class="ctrl m742FactionToggle" data-faction="tibet" data-info-target="d742-faction-tibet" id="m742-faction-tibet" type="checkbox"/><input aria-controls="d742-faction-nanzhao" class="ctrl m742FactionToggle" data-faction="nanzhao" data-info-target="d742-faction-nanzhao" id="m742-faction-nanzhao" type="checkbox"/><input aria-controls="d742-faction-balhae" class="ctrl m742FactionToggle" data-faction="balhae" data-info-target="d742-faction-balhae" id="m742-faction-balhae" type="checkbox"/><input aria-controls="d742-faction-silla" class="ctrl m742FactionToggle" data-faction="silla" data-info-target="d742-faction-silla" id="m742-faction-silla" type="checkbox"/><input aria-controls="d668-faction-silla" class="ctrl m668FactionToggle" data-faction="silla" data-info-target="d668-faction-silla" id="m668-faction-silla" type="checkbox"/><input aria-controls="d668-faction-tibet" class="ctrl m668FactionToggle" data-faction="tibet" data-info-target="d668-faction-tibet" id="m668-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-goguryeo" class="ctrl m660FactionToggle" data-faction="goguryeo" data-info-target="d660-faction-goguryeo" id="m660-faction-goguryeo" type="checkbox"/><input aria-controls="d660-faction-silla" class="ctrl m660FactionToggle" data-faction="silla" data-info-target="d660-faction-silla" id="m660-faction-silla" type="checkbox"/><input aria-controls="d660-faction-tibet" class="ctrl m660FactionToggle" data-faction="tibet" data-info-target="d660-faction-tibet" id="m660-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-tuyuhun" class="ctrl m660FactionToggle" data-faction="tuyuhun" data-info-target="d660-faction-tuyuhun" id="m660-faction-tuyuhun" type="checkbox"/><input aria-controls="d660-faction-baekje-restoration" class="ctrl m660FactionToggle" data-faction="baekje-restoration" data-info-target="d660-faction-baekje-restoration" id="m660-faction-baekje-restoration" type="checkbox"/><input aria-controls="d630-faction-xueyantuo" class="ctrl m630FactionToggle" data-faction="xueyantuo" data-info-target="d630-faction-xueyantuo" id="m630-faction-xueyantuo" type="checkbox"/><input aria-controls="d630-faction-westturk" class="ctrl m630FactionToggle" data-faction="westturk" data-info-target="d630-faction-westturk" id="m630-faction-westturk" type="checkbox"/><input aria-controls="d630-faction-gaochang" class="ctrl m630FactionToggle" data-faction="gaochang" data-info-target="d630-faction-gaochang" id="m630-faction-gaochang" type="checkbox"/><input aria-controls="d630-faction-tuyuhun" class="ctrl m630FactionToggle" data-faction="tuyuhun" data-info-target="d630-faction-tuyuhun" id="m630-faction-tuyuhun" type="checkbox"/><input aria-controls="d630-faction-yarlung" class="ctrl m630FactionToggle" data-faction="yarlung" data-info-target="d630-faction-yarlung" id="m630-faction-yarlung" type="checkbox"/><input aria-controls="d630-faction-goguryeo" class="ctrl m630FactionToggle" data-faction="goguryeo" data-info-target="d630-faction-goguryeo" id="m630-faction-goguryeo" type="checkbox"/><input aria-controls="d630-faction-baekje" class="ctrl m630FactionToggle" data-faction="baekje" data-info-target="d630-faction-baekje" id="m630-faction-baekje" type="checkbox"/><input aria-controls="d630-faction-silla" class="ctrl m630FactionToggle" data-faction="silla" data-info-target="d630-faction-silla" id="m630-faction-silla" type="checkbox"/><header class="header">
-<div class="brand">中國歷史 × 世界歷史｜唐朝</div>
-<div class="meta">907-M8.1｜iPhone Safari Device Fix v0.2｜EDGE RECHECK PENDING / NOT FREEZE</div>
+<input checked="" class="ctrl m630RegionCtrl" id="m630-region-none" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-guanzhong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hebeihedong" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-hexi" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-north" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-xiyu" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-qinghaitibet" name="m630-region" type="radio"/><input class="ctrl m630RegionCtrl" id="m630-region-dongbei" name="m630-region" type="radio"/><input checked="" class="ctrl m660RegionCtrl" id="m660-region-none" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-guanzhong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hebeihedong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-north" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-hexianxi" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-qinghaitibet" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-liaodong" name="m660-region" type="radio"/><input class="ctrl m660RegionCtrl" id="m660-region-baekjesilla" name="m660-region" type="radio"/><input checked="" class="ctrl m668RegionCtrl" id="m668-region-none" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-guanzhong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hebeihedong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-north" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-hexianxi" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-qinghaitibet" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-liaodongandong" name="m668-region" type="radio"/><input class="ctrl m668RegionCtrl" id="m668-region-ungjinsilla" name="m668-region" type="radio"/><input checked="" class="ctrl m742RegionCtrl" id="m742-region-none" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-guanzhong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hebeihedong" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-north" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-hexilongyou" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-anxibeiting" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-qinghaitibet" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-southwest" name="m742-region" type="radio"/><input class="ctrl m742RegionCtrl" id="m742-region-northeast" name="m742-region" type="radio"/><input checked="" class="ctrl m763RegionCtrl" id="m763-region-none" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-guanzhong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hebei" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-henanhedong" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-north" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-hexilongyou" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-anxibeiting" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-tibet" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-southwest" name="m763-region" type="radio"/><input class="ctrl m763RegionCtrl" id="m763-region-northeast" name="m763-region" type="radio"/><input checked="" class="ctrl m820RegionCtrl" id="m820-region-none" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-guanzhong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hebei" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-henanhedong" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-north" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-hexilongyou" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-western" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-tibet" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-southwest" name="m820-region" type="radio"/><input class="ctrl m820RegionCtrl" id="m820-region-northeast" name="m820-region" type="radio"/><input checked="" class="ctrl m880RegionCtrl" id="m880-region-none" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-guanzhong" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-hebei" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-henanhuangchao" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-hedongnorth" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-huainan" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-guiyi" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-tibet" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-southwest" name="m880-region" type="radio"/><input class="ctrl m880RegionCtrl" id="m880-region-northeast" name="m880-region" type="radio"/><input checked="" class="ctrl m907RegionCtrl" id="m907-region-none" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-guanzhongqi" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-hedongjin" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-central-liang" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-hebei-youyan" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-southeast" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-jinghu" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-northwest" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-southwest" name="m907-region" type="radio"/><input class="ctrl m907RegionCtrl" id="m907-region-northeast" name="m907-region" type="radio"/><input aria-controls="d907-faction-tibet-fragments" class="ctrl m907FactionToggle" data-faction="tibet-fragments" data-info-target="d907-faction-tibet-fragments" id="m907-faction-tibet-fragments" type="checkbox"/><input aria-controls="d907-faction-dachanghe" class="ctrl m907FactionToggle" data-faction="dachanghe" data-info-target="d907-faction-dachanghe" id="m907-faction-dachanghe" type="checkbox"/><input aria-controls="d907-faction-khitan" class="ctrl m907FactionToggle" data-faction="khitan" data-info-target="d907-faction-khitan" id="m907-faction-khitan" type="checkbox"/><input aria-controls="d907-faction-balhae" class="ctrl m907FactionToggle" data-faction="balhae" data-info-target="d907-faction-balhae" id="m907-faction-balhae" type="checkbox"/><input aria-controls="d907-faction-korea-three" class="ctrl m907FactionToggle" data-faction="korea-three" data-info-target="d907-faction-korea-three" id="m907-faction-korea-three" type="checkbox"/><input aria-controls="d880-faction-tibet-fragments" class="ctrl m880FactionToggle" data-faction="tibet-fragments" data-info-target="d880-faction-tibet-fragments" id="m880-faction-tibet-fragments" type="checkbox"/><input aria-controls="d880-faction-nanzhao" class="ctrl m880FactionToggle" data-faction="nanzhao" data-info-target="d880-faction-nanzhao" id="m880-faction-nanzhao" type="checkbox"/><input aria-controls="d880-faction-balhae" class="ctrl m880FactionToggle" data-faction="balhae" data-info-target="d880-faction-balhae" id="m880-faction-balhae" type="checkbox"/><input aria-controls="d880-faction-silla" class="ctrl m880FactionToggle" data-faction="silla" data-info-target="d880-faction-silla" id="m880-faction-silla" type="checkbox"/><input aria-controls="d820-faction-uighur" class="ctrl m820FactionToggle" data-faction="uighur" data-info-target="d820-faction-uighur" id="m820-faction-uighur" type="checkbox"/><input aria-controls="d820-faction-tibet" class="ctrl m820FactionToggle" data-faction="tibet" data-info-target="d820-faction-tibet" id="m820-faction-tibet" type="checkbox"/><input aria-controls="d820-faction-nanzhao" class="ctrl m820FactionToggle" data-faction="nanzhao" data-info-target="d820-faction-nanzhao" id="m820-faction-nanzhao" type="checkbox"/><input aria-controls="d820-faction-balhae" class="ctrl m820FactionToggle" data-faction="balhae" data-info-target="d820-faction-balhae" id="m820-faction-balhae" type="checkbox"/><input aria-controls="d820-faction-silla" class="ctrl m820FactionToggle" data-faction="silla" data-info-target="d820-faction-silla" id="m820-faction-silla" type="checkbox"/><input aria-controls="d763-faction-uighur" class="ctrl m763FactionToggle" data-faction="uighur" data-info-target="d763-faction-uighur" id="m763-faction-uighur" type="checkbox"/><input aria-controls="d763-faction-tibet" class="ctrl m763FactionToggle" data-faction="tibet" data-info-target="d763-faction-tibet" id="m763-faction-tibet" type="checkbox"/><input aria-controls="d763-faction-nanzhao" class="ctrl m763FactionToggle" data-faction="nanzhao" data-info-target="d763-faction-nanzhao" id="m763-faction-nanzhao" type="checkbox"/><input aria-controls="d763-faction-balhae" class="ctrl m763FactionToggle" data-faction="balhae" data-info-target="d763-faction-balhae" id="m763-faction-balhae" type="checkbox"/><input aria-controls="d763-faction-silla" class="ctrl m763FactionToggle" data-faction="silla" data-info-target="d763-faction-silla" id="m763-faction-silla" type="checkbox"/><input aria-controls="d742-faction-later-turk" class="ctrl m742FactionToggle" data-faction="later-turk" data-info-target="d742-faction-later-turk" id="m742-faction-later-turk" type="checkbox"/><input aria-controls="d742-faction-tibet" class="ctrl m742FactionToggle" data-faction="tibet" data-info-target="d742-faction-tibet" id="m742-faction-tibet" type="checkbox"/><input aria-controls="d742-faction-nanzhao" class="ctrl m742FactionToggle" data-faction="nanzhao" data-info-target="d742-faction-nanzhao" id="m742-faction-nanzhao" type="checkbox"/><input aria-controls="d742-faction-balhae" class="ctrl m742FactionToggle" data-faction="balhae" data-info-target="d742-faction-balhae" id="m742-faction-balhae" type="checkbox"/><input aria-controls="d742-faction-silla" class="ctrl m742FactionToggle" data-faction="silla" data-info-target="d742-faction-silla" id="m742-faction-silla" type="checkbox"/><input aria-controls="d668-faction-silla" class="ctrl m668FactionToggle" data-faction="silla" data-info-target="d668-faction-silla" id="m668-faction-silla" type="checkbox"/><input aria-controls="d668-faction-tibet" class="ctrl m668FactionToggle" data-faction="tibet" data-info-target="d668-faction-tibet" id="m668-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-goguryeo" class="ctrl m660FactionToggle" data-faction="goguryeo" data-info-target="d660-faction-goguryeo" id="m660-faction-goguryeo" type="checkbox"/><input aria-controls="d660-faction-silla" class="ctrl m660FactionToggle" data-faction="silla" data-info-target="d660-faction-silla" id="m660-faction-silla" type="checkbox"/><input aria-controls="d660-faction-tibet" class="ctrl m660FactionToggle" data-faction="tibet" data-info-target="d660-faction-tibet" id="m660-faction-tibet" type="checkbox"/><input aria-controls="d660-faction-tuyuhun" class="ctrl m660FactionToggle" data-faction="tuyuhun" data-info-target="d660-faction-tuyuhun" id="m660-faction-tuyuhun" type="checkbox"/><input aria-controls="d660-faction-baekje-restoration" class="ctrl m660FactionToggle" data-faction="baekje-restoration" data-info-target="d660-faction-baekje-restoration" id="m660-faction-baekje-restoration" type="checkbox"/><input aria-controls="d630-faction-xueyantuo" class="ctrl m630FactionToggle" data-faction="xueyantuo" data-info-target="d630-faction-xueyantuo" id="m630-faction-xueyantuo" type="checkbox"/><input aria-controls="d630-faction-westturk" class="ctrl m630FactionToggle" data-faction="westturk" data-info-target="d630-faction-westturk" id="m630-faction-westturk" type="checkbox"/><input aria-controls="d630-faction-gaochang" class="ctrl m630FactionToggle" data-faction="gaochang" data-info-target="d630-faction-gaochang" id="m630-faction-gaochang" type="checkbox"/><input aria-controls="d630-faction-tuyuhun" class="ctrl m630FactionToggle" data-faction="tuyuhun" data-info-target="d630-faction-tuyuhun" id="m630-faction-tuyuhun" type="checkbox"/><input aria-controls="d630-faction-yarlung" class="ctrl m630FactionToggle" data-faction="yarlung" data-info-target="d630-faction-yarlung" id="m630-faction-yarlung" type="checkbox"/><input aria-controls="d630-faction-goguryeo" class="ctrl m630FactionToggle" data-faction="goguryeo" data-info-target="d630-faction-goguryeo" id="m630-faction-goguryeo" type="checkbox"/><input aria-controls="d630-faction-baekje" class="ctrl m630FactionToggle" data-faction="baekje" data-info-target="d630-faction-baekje" id="m630-faction-baekje" type="checkbox"/><input aria-controls="d630-faction-silla" class="ctrl m630FactionToggle" data-faction="silla" data-info-target="d630-faction-silla" id="m630-faction-silla" type="checkbox"/><div id="ui-d1-meta" hidden data-status="WORKING / NOT FREEZE" data-source="907 Final Canon M8.1" data-layer="Dynasty Hub" data-next-dynasty="Xia" data-tang-protection="read-only"></div>
+<header class="header">
+<div class="brand">中國歷史 × 世界歷史</div>
+<div class="meta">UI-D1｜Dynasty Hub Layer v0.1｜WORKING / NOT FREEZE｜唐朝 Final Canon protected</div>
 </header>
 <div class="screens">
 <section class="page home">
 <div class="pageInner">
-<div class="hero">
-<h2>唐朝完整試用版</h2>
-<p class="lead">618 延續多區域固定色彩與 True Focus；v8.2 將地名資訊改為浮動 Bottom Sheet。點擊地名只開啟說明，不改變地圖中心、縮放、平移或頁面捲動；只有使用者拖曳、縮放或區域導航才會移動地圖。</p>
+<div class="hero systemHero">
+<div class="eyebrow">中國歷史 × 世界歷史｜總入口</div>
+<h2>從朝代進入歷史</h2>
+<p class="lead">系統正式加入「朝代層」。先選朝代，再進入該朝代的時間節點、地圖、人物、事件與知識網。唐朝作為已完成的標準母模組；後續由夏朝開始依同一套工程與 QC 規格逐朝建構。</p>
 <div class="stats">
-<div class="stat"><b>742</b><span>主要地圖年代</span></div>
-<div class="stat"><b>9</b><span>可切換年代</span></div>
-<div class="stat"><b>26</b><span>可互動地點</span></div>
-<div class="stat"><b>110</b><span>知識內容</span></div>
+<div class="stat"><b>19</b><span>主線朝代／時期</span></div>
+<div class="stat"><b>1</b><span>完成母模組</span></div>
+<div class="stat"><b>9</b><span>唐朝時間節點</span></div>
+<div class="stat"><b>夏</b><span>下一施工朝代</span></div>
 </div>
 </div>
-<h3>快速入口</h3>
+<h3>開始探索</h3>
 <div class="quickGrid">
-<label for="nav-map"><span class="qicon">圖</span><span><b>地圖</b><small>主地圖、互動地點、全圖模式</small></span></label>
-<label for="nav-time"><span class="qicon">時</span><span><b>時間</b><small>九個歷史年代與大事</small></span></label>
-<label for="nav-people"><span class="qicon">人</span><span><b>人物</b><small>皇帝、將領、文人等</small></span></label>
-<label for="nav-knowledge"><span class="qicon">知</span><span><b>知識</b><small>制度、文化、城市、世界</small></span></label>
+<label for="nav-dynasty"><span class="qicon">朝</span><span><b>朝代</b><small>夏、商、周、秦、漢、唐……</small></span></label>
+<label for="nav-tanghub"><span class="qicon">唐</span><span><b>唐朝母模組</b><small>已完成 Final Canon / Freeze</small></span></label>
+<label for="nav-map"><span class="qicon">圖</span><span><b>唐朝地圖</b><small>直接進入目前已完成模組</small></span></label>
+<label for="nav-index"><span class="qicon">索</span><span><b>總索引</b><small>人物、知識與關鍵字</small></span></label>
 </div>
-<div class="note"><b>這版關鍵修正：</b>年份切換顯示的是裁出的真實地圖區，不再出現大資訊板；「全圖」就是回到完整地圖尺寸；進入「單獨顯示地圖」後仍可按「全圖」恢復。</div>
+<div class="note"><b>架構更新：</b>唐朝地圖與 618–907 的 Final Canon 不重做；UI-D1 只在其上方增加「朝代總覽 → 朝代 Hub」兩個導航層。下一個內容工程將從夏朝開始。</div>
+</div>
+</section>
+<section class="page dynasty">
+<div class="pageInner">
+<div class="hero">
+<div class="eyebrow">Layer 1｜Dynasty Index</div>
+<h2>朝代總覽</h2>
+<p class="lead">這一層只負責選擇朝代／歷史時期。進入朝代後，才顯示該朝專屬年份、地圖與知識入口，避免未來數十個年份全部平鋪在同一層。</p>
+</div>
+<div class="dynastyEraTitle">上古與先秦</div>
+<div class="dynastyGrid">
+<div class="dynastyCard isNext"><span class="dynastyBadge">NEXT｜下一施工</span><div><h4>夏</h4><p>早期王朝／傳世文獻與考古證據需分層處理。</p></div><small>Pre-M1 Historical Baseline</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>商</h4><p>甲骨文、都邑遷徙與考古文化區。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>西周</h4><p>封建網絡、王畿與諸侯分層。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>東周</h4><p>春秋／戰國採多國並立時間節點。</p></div><small>Pending</small></div>
+</div>
+<div class="dynastyEraTitle">帝國形成與分裂</div>
+<div class="dynastyGrid">
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>秦</h4><p>統一帝國與郡縣體系。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>西漢</h4><p>帝國擴張、郡國與西域。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>新</h4><p>王莽政權與漢末重組。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>東漢</h4><p>州郡、邊疆與東漢晚期分裂。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>三國</h4><p>魏、蜀、吳並立。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>西晉</h4><p>短期統一與八王／永嘉轉折。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>東晉／十六國</h4><p>南北多政權並立。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>南北朝</h4><p>南朝與北朝多期切換。</p></div><small>Pending</small></div>
+</div>
+<div class="dynastyEraTitle">再統一至中古轉型</div>
+<div class="dynastyGrid">
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>隋</h4><p>再統一、運河與隋末群雄。</p></div><small>Pending</small></div>
+<div class="dynastyCard isTang"><span class="dynastyBadge">FINAL CANON</span><div><h4>唐</h4><p>618–907；完整 M1–M8.1 母模組。</p></div><small>9 個正式時間節點</small><label for="nav-tanghub" aria-label="進入唐朝 Hub"><span>進入 →</span></label></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>五代十國</h4><p>多政權並立與北方五代。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>宋／遼／西夏／金</h4><p>分期處理北宋、南宋及並立政權。</p></div><small>Pending</small></div>
+</div>
+<div class="dynastyEraTitle">後期帝國</div>
+<div class="dynastyGrid">
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>元</h4><p>行省、蒙古帝國關聯與歐亞網絡。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>明</h4><p>兩京、邊疆、海洋與世界白銀。</p></div><small>Pending</small></div>
+<div class="dynastyCard"><span class="dynastyBadge">待建立</span><div><h4>清</h4><p>多區域帝國與近代轉折。</p></div><small>Pending</small></div>
+</div>
+<div class="note"><b>施工規則：</b>「待建立」不是空白複製。每個朝代先做自己的 Historical Baseline，再套用唐朝已驗證的 UI、M1–M8.1 與 Device QC 流程。</div>
+</div>
+</section>
+<section class="page tangHub">
+<div class="pageInner">
+<div class="hero">
+<div class="eyebrow">Layer 2｜Dynasty Hub</div>
+<h2>唐朝｜618–907</h2>
+<p class="lead">唐朝是目前完成的標準母模組。九個時間節點已完成 Historical Geography Final Gate、Fullscreen／Hotspot／Region／Faction／Bottom Sheet 與 iPhone Safari Device QC；907 作為唐亡後轉場節點保留。</p>
+<div class="moduleStatus">
+<div class="stat"><b>Final</b><span>模組狀態</span></div>
+<div class="stat"><b>9</b><span>時間節點</span></div>
+<div class="stat"><b>M8.1</b><span>最高 Gate</span></div>
+</div>
+</div>
+<h3>唐朝入口</h3>
+<div class="hubActions">
+<label class="hubAction" for="nav-map"><span class="qicon">圖</span><span><b>進入地圖</b><small>Main／Global／Region／Faction</small></span></label>
+<label class="hubAction" for="nav-time"><span class="qicon">時</span><span><b>時間軸</b><small>查看唐朝事件與年份</small></span></label>
+<label class="hubAction" for="nav-people"><span class="qicon">人</span><span><b>人物</b><small>皇帝、將領、文人</small></span></label>
+<label class="hubAction" for="nav-knowledge"><span class="qicon">知</span><span><b>知識網</b><small>制度、文化、城市、世界</small></span></label>
+</div>
+<h3>9 個正式時間節點</h3>
+<div class="yearHubGrid">
+<button class="yearHubBtn" data-year-target="yr-618" type="button"><b>618</b><small>建唐／群雄</small></button>
+<button class="yearHubBtn" data-year-target="yr-630" type="button"><b>630</b><small>貞觀前期</small></button>
+<button class="yearHubBtn" data-year-target="yr-660" type="button"><b>660</b><small>東北亞轉折</small></button>
+<button class="yearHubBtn" data-year-target="yr-668" type="button"><b>668</b><small>高句麗滅亡後</small></button>
+<button class="yearHubBtn" data-year-target="yr-742" type="button"><b>742</b><small>盛唐</small></button>
+<button class="yearHubBtn" data-year-target="yr-763" type="button"><b>763</b><small>安史亂後</small></button>
+<button class="yearHubBtn" data-year-target="yr-820" type="button"><b>820</b><small>中晚唐</small></button>
+<button class="yearHubBtn" data-year-target="yr-880" type="button"><b>880</b><small>黃巢之亂</small></button>
+<button class="yearHubBtn" data-year-target="yr-907" type="button"><b>907</b><small>唐亡／轉場</small></button>
+</div>
+<div class="note"><b>Freeze 保護：</b>UI-D1 只增加上層導航。唐朝各年份 authored geometry、Canon text、Focus、Hotspot、Bottom Sheet、Region 與 Faction interaction 均沿用既有 Final Canon。</div>
 </div>
 </section>
 <section class="page map" id="map">
@@ -9656,8 +9775,8 @@ body.ux-inline-focus618 .inlineNeighborContext{display:block;}
 </article></div>
 <nav class="bottom">
 <label for="nav-home"><b>⌂</b><span>首頁</span></label>
+<label for="nav-dynasty"><b>朝</b><span>朝代</span></label>
 <label for="nav-map"><b>⌖</b><span>地圖</span></label>
-<label for="nav-time"><b>◷</b><span>時間</span></label>
 <label for="nav-people"><b>人</b><span>人物</span></label>
 <label for="nav-knowledge"><b>▦</b><span>知識</span></label>
 <label for="nav-index"><b>⌕</b><span>索引</span></label>
@@ -14058,12 +14177,13 @@ window.m907M7SyncBadge=sync;
 </script>
 <script id="m907-m8-1-device-qc-meta" type="application/json">
 {
-  "version": "907-M8.1-v0.1",
-  "status": "DEVICE QC PENDING / NOT FREEZE",
-  "source": "907-M8 Historical Geography Final Gate v0.1",
+  "version": "907-M8.1-Final",
+  "status": "PASS / FINAL CANON / FREEZE",
+  "source": "907-M8.1 iPhone Safari Device Fix v0.2",
   "historicalGate": "PASS",
   "featureExpansion": false,
   "contentChange": false,
+  "freezeDate": "2026-09-21",
   "deviceTarget": {
     "browser": "iPhone Safari",
     "viewportReference": "393x852",
@@ -14084,49 +14204,82 @@ window.m907M7SyncBadge=sync;
       "northeast": 2.85
     }
   },
-  "deviceQcChecklist": [
-    "Embedded Main visual ownership / labels / hotspots",
-    "Embedded Global visual ownership / labels / hotspots",
-    "Fullscreen Main badge = 主域 210%",
-    "Fullscreen Global badge = 全域 170%",
-    "Nine region True Focus values and one-overlay ownership",
-    "Same-region second tap cancels region and returns 主域 210%",
-    "Faction + region coexistence without state loss",
-    "Region/Faction/Hotspot Bottom Sheets open and close correctly",
-    "No east/west/north/south edge label clipping in Safari",
-    "Safe-area / viewport / faction rail / region rail / badge layout remains usable",
-    "Safari reload/back form-state restore cannot steal 907 ownership on fresh load"
-  ],
-  "freezeRule": "PROHIBITED until real iPhone Safari Device QC passes"
+  "deviceQc": {
+    "round1": "PARTIAL PASS; edge safe-margin issue isolated and fixed in v0.2",
+    "round2": "PASS",
+    "finalFactionRegionCoexist": "PASS",
+    "finalResult": "PASS"
+  },
+  "freezeRule": "907 is frozen; future changes require an explicit 907 Revision / unfreeze branch"
 }
 </script>
 
 
 <script type="application/json" id="m907-m81-device-fix-v02-meta">
 {
-  "stage":"907-M8.1",
-  "build":"iPhone Safari Device Fix v0.2",
-  "status":"ROUND 2 EDGE RECHECK PENDING / NOT FREEZE",
-  "round1Evidence":"9 real iPhone Safari screenshots supplied by user",
-  "round1Result":{
-    "home":"PASS",
-    "embeddedMain":"PASS",
-    "embeddedGlobal":"PASS",
-    "khitanBottomSheet":"PASS",
-    "fullscreenMain210":"PASS except edge labels",
-    "fullscreenGlobal170":"PASS except east edge label",
-    "factionMultiSelect":"PASS",
-    "regionHedongJin380":"PASS",
-    "badgeLayout":"PASS"
-  },
-  "fixScope":{
-    "mainLabels":["敦煌／歸義軍","吳越／東南","渤海／朝鮮半島"],
-    "globalLabels":["渤海","朝鮮三政權","日本｜平安時代"],
-    "matchingHotspots":"Embedded + Fullscreen shifted with labels"
-  },
-  "protectedUnchanged":"historical wording; political/military geometry; Main 210%; Global 170%; all nine True Focus values; Region geometry; Bottom Sheet content; faction ownership; year logic",
-  "freezeRule":"PROHIBITED until real iPhone Safari Round 2 edge recheck plus remaining interaction gates pass"
+  "stage": "907-M8.1",
+  "build": "iPhone Safari Device Fix v0.2",
+  "status": "PASS / RETAINED IN FINAL CANON",
+  "round1Evidence": "9 real iPhone Safari screenshots supplied by user",
+  "round2Evidence": "4 edge/focus recheck screenshots plus 1 final Faction+Region coexistence screenshot supplied by user",
+  "deviceFixScope": "Fullscreen edge safe-margin labels + synchronized Embedded/Fullscreen hotspot rectangles only",
+  "contentChange": false,
+  "geometryChange": "text/hotspot safe-margin only; political/military and Region geometry unchanged",
+  "finalResult": "PASS"
 }
+</script>
+
+<script type="application/json" id="m907-m81-final-freeze-meta">
+{
+  "stage": "907-M8.1",
+  "status": "PASS / FINAL CANON / FREEZE",
+  "freezeDate": "2026-09-21",
+  "finalSource": "907-M8.1 iPhone Safari Device Fix v0.2",
+  "deviceQcEvidence": {
+    "home": "PASS",
+    "embeddedMain": "PASS",
+    "embeddedGlobal": "PASS",
+    "factionSheet": "PASS",
+    "fullscreenMain210": "PASS",
+    "fullscreenGlobal170": "PASS",
+    "edgeSafeMargin": "PASS",
+    "regionTrueFocus": "PASS",
+    "sameRegionSecondTapCancel": "PASS",
+    "factionRegionCoexist": "PASS"
+  },
+  "focusCanon": {
+    "main": "210%",
+    "global": "170%",
+    "regions": {
+      "關中／岐": "410%",
+      "河東／晉": "380%",
+      "中原／後梁": "400%",
+      "河北／幽燕": "360%",
+      "東南／吳／吳越": "375%",
+      "荊湖／楚／荊南": "355%",
+      "西北／歸義": "300%",
+      "西南／蜀／大長和": "325%",
+      "東北／契丹／渤海": "285%"
+    }
+  },
+  "protectedRule": "Do not overwrite 907 authored geometry / Canon / interaction blocks unless user explicitly opens a 907 Revision."
+}
+</script>
+
+<script id="ui-d1-dynasty-hub-script">
+(()=>{
+  document.querySelectorAll('.yearHubBtn[data-year-target]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const target=document.getElementById(btn.dataset.yearTarget);
+      const mapNav=document.getElementById('nav-map');
+      if(target) target.checked=true;
+      if(mapNav) mapNav.checked=true;
+      target?.dispatchEvent(new Event('change',{bubbles:true}));
+      mapNav?.dispatchEvent(new Event('change',{bubbles:true}));
+      window.scrollTo({top:0,left:0,behavior:'auto'});
+    });
+  });
+})();
 </script>
 </body>
 </html>
