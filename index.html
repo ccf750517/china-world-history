@@ -14722,5 +14722,106 @@ window.m907M7SyncBadge=sync;
   "interactionLogicChanged":false
 }
 </script>
+
+
+<!-- Xia-M4 Contemporary Archaeological Cultures Toggle + Bottom Sheets v0.1
+Source: Xia-M3 iPhone Safari Device Fix v0.2
+Status: WORKING / NOT FREEZE
+Scope: multi-select contemporaneous archaeological-culture reading toggles, overlays, Bottom Sheets, and M3 Region coexistence.
+Semantics: archaeological cultures / interaction systems, not states, foreign countries, or political borders.
+-->
+<style id="xia-m4-style">
+.xiaM4CultureWrap{margin-top:8px;border-top:1px solid #d4b987;padding-top:9px}
+.xiaM4CultureTitle{font-size:10px;color:var(--muted);margin:0 0 6px}
+.xiaM4CultureRail{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 5px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.xiaM4CultureRail::-webkit-scrollbar{display:none}
+.xiaM4CultureBtn{flex:0 0 auto;border:1px solid #c9aa77;border-radius:999px;background:#fffaf1;color:#3f342b;padding:7px 10px;font-size:10px;font-weight:850;white-space:nowrap}
+.xiaM4CultureBtn[aria-pressed="true"]{background:#355b62;color:#fffaf1;border-color:#355b62;box-shadow:0 0 0 2px rgba(53,91,98,.12)}
+.xiaM4CultureOverlay{position:absolute;inset:0;width:100%;height:100%;z-index:7;pointer-events:none;background:transparent!important}
+.xiaM4CultureOverlay .c4{display:none}
+.xiaM4CultureOverlay .c4.active{display:inline}
+.xiaM4CultureOverlay text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:2.2px;stroke-linejoin:round;font-weight:900}
+.xiaM4CultureOverlay .zone{fill:rgba(58,100,103,.08);stroke:#355b62;stroke-width:1.4;stroke-dasharray:4 3}
+.xiaM4CultureOverlay .far{fill:none;stroke:#7f6043;stroke-width:1.4;stroke-dasharray:3.2 3.2}
+.xiaM4CultureOverlay .arrow{fill:#355b62;stroke:none}
+.xiaM4CultureNote{margin-top:8px;background:#eef5f3;border-left:4px solid #527b80;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#465b5c}
+.xiaM4SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:180;display:none;padding:0 8px;pointer-events:none}
+.xiaM4SheetShell.open{display:block}
+.xiaM4Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.18);padding:14px 16px 16px;max-height:54vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.xiaM4SheetGrip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.xiaM4SheetHead{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.xiaM4SheetEyebrow{font-size:9px;color:#786a5b;margin-bottom:3px}
+.xiaM4SheetTitle{font-size:20px;font-weight:950;line-height:1.15}
+.xiaM4SheetClose{flex:0 0 auto;width:36px;height:36px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:20px;font-weight:900}
+.xiaM4SheetBody{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}
+.xiaM4SheetGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.xiaM4SheetCard{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}
+.xiaM4SheetCard b{display:block;color:#705538;margin-bottom:2px}
+@media(max-width:430px){.xiaM4SheetGrid{grid-template-columns:1fr 1fr}.xiaM4Sheet{padding:13px 14px 15px}}
+</style>
+
+<script id="xia-m4-cultures-js">
+(function(){
+  var defs={
+    xiaqiyuan:{label:'下七垣文化',short:'下七垣',eyebrow:'豫北／冀南｜先商文化研究的重要系統',body:'約前1700的比較閱讀中，下七垣文化與二里頭文化大致同時存在，主要分布於豫北、冀南一帶。它常被置於先商文化的討論脈絡，但本圖只表示考古學文化與互動方向，不把它直接等同於一個固定政治國界。',cards:[['時間關係','與二里頭文化大致相始終'],['空間閱讀','豫北／冀南文化系統'],['方法防護','考古文化 ≠ 已證實政權疆界']]},
+    yueshi:{label:'岳石文化',short:'岳石',eyebrow:'山東｜東方同時代文化系統',body:'岳石文化主要見於山東地區，年代與二里頭文化中後段有明顯重疊。考古材料顯示雙方存在接觸，但文化面貌保持顯著差異；因此 M4 將它作為獨立的同期文化閱讀層，而不是「夏朝東部領土」。',cards:[['區域','山東及其鄰近地帶'],['互動','可見有限交流與文化因素往來'],['方法防護','不能用二里頭影響直接推成政治統治']]},
+    qijia:{label:'齊家文化',short:'齊家',eyebrow:'甘青｜西北青銅時代文化網絡',body:'齊家文化位於甘青及周邊西北地區，年代與二里頭時段有交疊，考古研究亦討論兩者之間的器物與技術交流。此處只作遠距文化交流閱讀，不把西北文化區納入夏朝硬式疆界。',cards:[['區域','甘青及西北文化網絡'],['互動','器物、技術與長距離交流議題'],['方法防護','交流存在 ≠ 主權隸屬']]},
+    zhukaigou:{label:'朱開溝文化',short:'朱開溝',eyebrow:'內蒙古中南部｜北方文化互動',body:'朱開溝文化的部分年代與二里頭三、四期及其後相接，內蒙古中南部相關遺存可見二里頭文化因素。這裡用作北方交流與文化傳播的閱讀節點，不作夏朝行政控制區。',cards:[['區域','內蒙古中南部'],['時間關係','部分時段與二里頭中後期重疊'],['方法防護','文化因素傳播 ≠ 直接統治']]},
+    lowerxj:{label:'夏家店下層文化',short:'夏家店下層',eyebrow:'遼西／內蒙古東部｜北東方文化系統',body:'夏家店下層文化約處於夏至早商時期，在遼西與內蒙古東部形成自己的聚落與文化系統，亦可見與中原交流的線索。M4 以遠距文化網絡處理，不把其範圍視為夏王朝疆界。',cards:[['區域','遼西／內蒙古東部'],['時間關係','約當夏至早商時期'],['方法防護','同期與交流不等於政治臣屬']]}
+  };
+  function svgEl(tag,attrs){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});return e;}
+  function addText(g,x,y,t,anchor){var e=svgEl('text',{x:x,y:y,'font-size':'5.2','text-anchor':anchor||'middle'});e.textContent=t;g.appendChild(e);return e;}
+  function buildOverlay(stage){
+    var svg=svgEl('svg',{id:'xia-m4-culture-overlay',class:'xiaM4CultureOverlay',viewBox:'665 270 125 94',preserveAspectRatio:'xMidYMid slice','aria-label':'夏朝M4同期考古文化疊加層'});
+    var g;
+    g=svgEl('g',{class:'c4','data-culture':'xiaqiyuan'});g.appendChild(svgEl('ellipse',{class:'zone',cx:'724',cy:'289',rx:'14',ry:'8'}));addText(g,724,286,'下七垣／先商');svg.appendChild(g);
+    g=svgEl('g',{class:'c4','data-culture':'yueshi'});g.appendChild(svgEl('ellipse',{class:'zone',cx:'779',cy:'320',rx:'10',ry:'15'}));addText(g,775,306,'岳石／山東','end');svg.appendChild(g);
+    g=svgEl('g',{class:'c4','data-culture':'qijia'});g.appendChild(svgEl('path',{class:'far',d:'M670 306 Q675 294 688 286'}));addText(g,671,311,'齊家／西北','start');svg.appendChild(g);
+    g=svgEl('g',{class:'c4','data-culture':'zhukaigou'});g.appendChild(svgEl('path',{class:'far',d:'M699 276 Q706 280 711 286'}));addText(g,700,276,'朱開溝 ↑','start');svg.appendChild(g);
+    g=svgEl('g',{class:'c4','data-culture':'lowerxj'});g.appendChild(svgEl('path',{class:'far',d:'M772 277 Q781 282 787 291'}));addText(g,786,276,'夏家店下層 ↗','end');svg.appendChild(g);
+    stage.appendChild(svg);
+    return svg;
+  }
+  function init(){
+    var regionWrap=document.getElementById('xia-m3-region-wrap');
+    var stage=document.querySelector('.xiaM1MapStage');
+    if(!regionWrap||!stage||document.getElementById('xia-m4-culture-wrap'))return;
+    var wrap=document.createElement('div');wrap.id='xia-m4-culture-wrap';wrap.className='xiaM4CultureWrap';
+    wrap.innerHTML='<div class="xiaM4CultureTitle">M4｜同期考古文化（可複選；再次點擊可取消）</div><div class="xiaM4CultureRail" role="group" aria-label="夏朝同期考古文化"><button class="xiaM4CultureBtn" type="button" data-culture="xiaqiyuan" aria-pressed="false">下七垣</button><button class="xiaM4CultureBtn" type="button" data-culture="yueshi" aria-pressed="false">岳石</button><button class="xiaM4CultureBtn" type="button" data-culture="qijia" aria-pressed="false">齊家</button><button class="xiaM4CultureBtn" type="button" data-culture="zhukaigou" aria-pressed="false">朱開溝</button><button class="xiaM4CultureBtn" type="button" data-culture="lowerxj" aria-pressed="false">夏家店下層</button></div>';
+    regionWrap.insertAdjacentElement('afterend',wrap);
+    var ov=buildOverlay(stage);
+    var note=document.createElement('div');note.id='xia-m4-culture-note';note.className='xiaM4CultureNote';note.innerHTML='<b>M4 規則：</b>這一列是「同期考古文化／區域文化系統」，不是外國清單。可多選，用來比較約前1700年前後的文化互動；虛線與閱讀包絡皆不表示政治疆界。';
+    var m3note=document.getElementById('xia-m3-region-note');if(m3note)m3note.insertAdjacentElement('afterend',note);
+    var shell=document.createElement('div');shell.id='xia-m4-sheet-shell';shell.className='xiaM4SheetShell';shell.setAttribute('aria-live','polite');shell.innerHTML='<section class="xiaM4Sheet" role="dialog" aria-modal="false" aria-labelledby="xia-m4-sheet-title"><div class="xiaM4SheetGrip"></div><div class="xiaM4SheetHead"><div><div id="xia-m4-sheet-eyebrow" class="xiaM4SheetEyebrow"></div><div id="xia-m4-sheet-title" class="xiaM4SheetTitle"></div></div><button id="xia-m4-sheet-close" class="xiaM4SheetClose" type="button" aria-label="關閉資訊卡">×</button></div><div id="xia-m4-sheet-body" class="xiaM4SheetBody"></div><div id="xia-m4-sheet-grid" class="xiaM4SheetGrid"></div></section>';
+    document.body.appendChild(shell);
+    var rail=wrap.querySelector('.xiaM4CultureRail');
+    function setGroup(k,on){var g=ov.querySelector('[data-culture="'+k+'"]');if(g)g.classList.toggle('active',on);var b=rail.querySelector('[data-culture="'+k+'"]');if(b)b.setAttribute('aria-pressed',on?'true':'false');}
+    function showSheet(k){var d=defs[k];if(!d)return;document.getElementById('xia-m4-sheet-eyebrow').textContent=d.eyebrow+'｜約前1700';document.getElementById('xia-m4-sheet-title').textContent=d.label;document.getElementById('xia-m4-sheet-body').textContent=d.body;document.getElementById('xia-m4-sheet-grid').innerHTML=d.cards.map(function(c){return '<div class="xiaM4SheetCard"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.culture=k;shell.classList.add('open');}
+    function closeSheet(){shell.classList.remove('open');shell.removeAttribute('data-culture');}
+    rail.addEventListener('click',function(e){var b=e.target.closest('.xiaM4CultureBtn');if(!b)return;var k=b.dataset.culture;var on=b.getAttribute('aria-pressed')!=='true';setGroup(k,on);if(on)showSheet(k);else if(shell.dataset.culture===k)closeSheet();document.documentElement.setAttribute('data-xia-m4-cultures',Array.from(rail.querySelectorAll('.xiaM4CultureBtn[aria-pressed="true"]')).map(function(x){return x.dataset.culture;}).join(',')||'none');});
+    document.getElementById('xia-m4-sheet-close').addEventListener('click',closeSheet);
+    window.xiaM4ClearCultures=function(){rail.querySelectorAll('.xiaM4CultureBtn').forEach(function(b){setGroup(b.dataset.culture,false);});closeSheet();document.documentElement.setAttribute('data-xia-m4-cultures','none');};
+  }
+  function updateVersion(){var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M4｜Contemporary Archaeological Cultures Toggle＋Bottom Sheets v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';document.title='中國歷史 × 世界歷史｜夏朝 Xia-M4 Contemporary Archaeological Cultures Toggle＋Bottom Sheets v0.1｜WORKING / NOT FREEZE';}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){updateVersion();init();});else{updateVersion();init();}
+})();
+</script>
+<script id="xia-m4-meta" type="application/json">
+{
+  "version":"Xia-M4-v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "snapshot":"ca. 1700 BCE archaeological reading node",
+  "semantics":"contemporary archaeological cultures / regional cultural systems, not states or political borders",
+  "toggles":["下七垣文化","岳石文化","齊家文化","朱開溝文化","夏家店下層文化"],
+  "multiSelect":true,
+  "bottomSheets":true,
+  "regionCoexistence":true,
+  "regionBottomSheets":false,
+  "hotspots":false,
+  "trueFocus":false,
+  "source":"Xia-M3 iPhone Safari Device Fix v0.2"
+}
+</script>
+
 </body>
 </html>
