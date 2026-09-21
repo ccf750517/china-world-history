@@ -5061,9 +5061,9 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 </svg>
 <svg id="xia-m3-region-overlay" class="xiaM3RegionOverlay" viewBox="665 270 125 94" preserveAspectRatio="xMidYMid slice" aria-label="夏朝M3考古閱讀區疊加層">
 <g class="r" data-region="iluo"><ellipse cx="729" cy="334" rx="27" ry="18" fill="#9b6a2e" fill-opacity=".10" stroke="#7f5527" stroke-width="1.7" stroke-dasharray="5 3"/><text x="729" y="312" text-anchor="middle" font-size="5.6" font-weight="900" fill="#5a3d25">伊洛／二里頭核心閱讀</text></g>
-<g class="r" data-region="jinnan"><ellipse cx="691" cy="295" rx="20" ry="15" fill="#42768a" fill-opacity=".09" stroke="#3e7890" stroke-width="1.7" stroke-dasharray="5 3"/><text x="691" y="276" text-anchor="middle" font-size="5.4" font-weight="900" fill="#2f6175">晉南／東下馮</text></g>
+<g class="r" data-region="jinnan"><ellipse cx="691" cy="295" rx="20" ry="15" fill="#42768a" fill-opacity=".09" stroke="#3e7890" stroke-width="1.7" stroke-dasharray="5 3"/><text x="691" y="309" text-anchor="middle" font-size="5.1" font-weight="900" fill="#2f6175">晉南／東下馮</text></g>
 <g class="r" data-region="songshan"><ellipse cx="744" cy="319" rx="22" ry="14" fill="#8d6e45" fill-opacity=".08" stroke="#6f5840" stroke-width="1.6" stroke-dasharray="4 3"/><text x="748" y="300" text-anchor="middle" font-size="5.2" font-weight="900" fill="#5b4938">嵩山／鄭洛</text></g>
-<g class="r" data-region="east"><ellipse cx="772" cy="334" rx="19" ry="16" fill="#a47c46" fill-opacity=".08" stroke="#8a6637" stroke-width="1.6" stroke-dasharray="4 3"/><text x="771" y="314" text-anchor="middle" font-size="5.2" font-weight="900" fill="#6c4f2f">豫東擴展閱讀</text></g>
+<g class="r" data-region="east"><ellipse cx="766" cy="334" rx="17" ry="16" fill="#a47c46" fill-opacity=".08" stroke="#8a6637" stroke-width="1.6" stroke-dasharray="4 3"/><text x="764" y="315" text-anchor="middle" font-size="5.0" font-weight="900" fill="#6c4f2f">豫東擴展閱讀</text></g>
 <g class="r" data-region="south"><ellipse cx="744" cy="356" rx="25" ry="11" fill="#6d8267" fill-opacity=".08" stroke="#5c7358" stroke-width="1.6" stroke-dasharray="4 3"/><text x="746" y="354" text-anchor="middle" font-size="5.1" font-weight="900" fill="#4d654b">豫南互動閱讀</text></g>
 <g class="r" data-region="west"><ellipse cx="678" cy="329" rx="16" ry="17" fill="#7c6689" fill-opacity=".08" stroke="#695575" stroke-width="1.6" stroke-dasharray="4 3"/><text x="679" y="307" text-anchor="middle" font-size="5.1" font-weight="900" fill="#5c4868">陝東／商洛資源走廊</text></g>
 </svg>
@@ -14707,6 +14707,20 @@ window.m907M7SyncBadge=sync;
 </script>
 <script id="xia-m3-meta" type="application/json">
 {"version":"Xia-M3-v0.1","status":"WORKING / NOT FREEZE","snapshot":"ca. 1700 BCE archaeological reading node","regions":["伊洛／二里頭","晉南／東下馮","嵩山／鄭洛","豫東","豫南","陝東／商洛"],"semantics":"archaeological reading regions, not political borders","bottomSheets":false,"hotspots":false,"trueFocus":false,"source":"Xia-M2 Device Fix v0.2"}
+</script>
+
+<script id="xia-m3-device-fix-v02-meta" type="application/json">
+{
+  "version":"Xia-M3-DeviceFix-v0.2",
+  "status":"ROUND 2 DEVICE RECHECK PENDING / NOT FREEZE",
+  "scope":"iPhone Safari region label collision + east safe-margin only",
+  "changes":[
+    "jinnan label moved into its reading envelope to avoid M1 resource-label collision",
+    "east reading envelope shifted inward and narrowed for iPhone safe margin"
+  ],
+  "historicalSemanticsChanged":false,
+  "interactionLogicChanged":false
+}
 </script>
 </body>
 </html>
