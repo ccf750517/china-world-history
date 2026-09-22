@@ -4875,6 +4875,49 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 .xiaM2Note b{color:#3f342b}
 .xiaM2NodeList{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:9px}.xiaM2Node{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:8px;font-size:9px;line-height:1.45;color:#62564a}.xiaM2Node b{display:block;font-size:10px;color:#352b22;margin-bottom:2px}.xiaM2Node .tag{display:inline-block;border-radius:999px;padding:2px 6px;background:#ead8b8;color:#62492e;font-size:8px;font-weight:900;margin-bottom:4px}@media(max-width:430px){.xiaM2NodeList{grid-template-columns:1fr}}
 </style>
+
+<style id="xia-m6-style">
+/* Xia-M6 Hotspots + Global Canon v0.1 — WORKING / NOT FREEZE */
+.xiaM6GlobalCanon{position:absolute;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;background:transparent!important;display:none;overflow:visible}
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalCanon{display:block}
+.xiaM6GlobalCanon text{
+  font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  fill:#3a342e;stroke:#fffaf0;stroke-width:2.3px;paint-order:stroke fill;stroke-linejoin:round;
+  font-weight:900;letter-spacing:.05px
+}
+.xiaM6GlobalCanon .gCulture{font-size:4.4px;fill:#355b62}
+.xiaM6GlobalCanon .gMethod{font-size:4.1px;fill:#705538}
+html[data-xia-m4-cultures*="xiaqiyuan"] .xiaM6GlobalCanon [data-culture="xiaqiyuan"],
+html[data-xia-m4-cultures*="yueshi"] .xiaM6GlobalCanon [data-culture="yueshi"],
+html[data-xia-m4-cultures*="qijia"] .xiaM6GlobalCanon [data-culture="qijia"],
+html[data-xia-m4-cultures*="zhukaigou"] .xiaM6GlobalCanon [data-culture="zhukaigou"],
+html[data-xia-m4-cultures*="lowerxj"] .xiaM6GlobalCanon [data-culture="lowerxj"]{display:none}
+
+.xiaM6Spot{display:none;position:absolute;z-index:12;border:0;background:rgba(0,0,0,.001);border-radius:10px;padding:0;touch-action:manipulation;-webkit-tap-highlight-color:rgba(178,135,75,.15)}
+#xia-m1-main:checked ~ .xiaM1MapStage .xiaM6MainSpot{display:block}
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalSpot{display:block}
+.xiaM6Spot:focus-visible{outline:2px solid rgba(88,62,40,.76);outline-offset:2px}
+.xiaM6Spot.dot{border-radius:999px}
+
+.xiaM6CanonNote{display:none;margin-top:8px;background:#f3efe5;border-left:4px solid #786a5b;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#51473d}
+#xia-m1-global:checked ~ .xiaM1ModeNotes + .xiaM6CanonNote{display:block}
+.xiaM6CanonNote b{color:#3f342b}
+
+.xiaM6SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:182;display:none;padding:0 8px;pointer-events:none}
+.xiaM6SheetShell.open{display:block}
+.xiaM6Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.18);padding:14px 16px 16px;max-height:54vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.xiaM6SheetGrip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.xiaM6SheetHead{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.xiaM6SheetEyebrow{font-size:9px;color:#786a5b;margin-bottom:3px}
+.xiaM6SheetTitle{font-size:20px;font-weight:950;line-height:1.15}
+.xiaM6SheetClose{flex:0 0 auto;width:36px;height:36px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:20px;font-weight:900}
+.xiaM6SheetBody{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}
+.xiaM6SheetGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.xiaM6SheetCard{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}
+.xiaM6SheetCard b{display:block;color:#705538;margin-bottom:2px}
+@media(max-width:430px){.xiaM6SheetGrid{grid-template-columns:1fr 1fr}.xiaM6Sheet{padding:13px 14px 15px}}
+</style>
+
 </head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -14899,6 +14942,118 @@ Semantics: research reading regions, not administrative divisions or sovereignty
   "cultureCoexistence":true,
   "semantics":"archaeological reading regions, not administrative divisions or sovereignty borders",
   "source":"Xia-M4 Contemporary Archaeological Cultures Toggle + Bottom Sheets v0.1"
+}
+</script>
+
+
+<!-- Xia-M6 Hotspots + Global Canon v0.1
+Source: Xia-M5 Region Bottom Sheets + click-again toggle v0.1
+Status: WORKING / NOT FREEZE
+Scope: Embedded Main/Global hotspots, compact Global Canon labels, neutral information Bottom Sheet.
+Fullscreen focus/hotspots remain deferred to M7.
+-->
+<script id="xia-m6-hotspots-global-canon-js">
+(function(){
+'use strict';
+var defs={
+  erlitou:{title:'二里頭都邑核心',eyebrow:'A｜考古可觀察｜都邑核心',body:'本截面把二里頭作為約前1700年前後最重要的都邑考古節點。宮殿區、道路與手工業遺存可支持「高度中心化聚落」的閱讀，但不能僅據此把它無條件等同於傳世文獻中的某一座夏都。',cards:[['證據類型','考古遺址／都邑結構'],['閱讀層級','核心節點，不是硬式國界'],['方法防護','二里頭 ≠ 無條件等同夏都']]},
+  core:{title:'二里頭文化核心分布',eyebrow:'A｜考古可觀察｜文化分布',body:'橙色柔性包絡表示二里頭文化核心分布的閱讀範圍，用於比較聚落、陶器與區域互動。它不是夏王朝已證實的行政疆界，也不表示包絡內各地具有相同政治控制。',cards:[['證據類型','文化分布／聚落網絡'],['地圖語義','柔性 reading envelope'],['方法防護','文化分布 ≠ 政治疆界']]},
+  dongxiafeng:{title:'東下馮／晉南網絡',eyebrow:'A｜晉南｜資源與地方類型',body:'東下馮及晉南材料用來閱讀二里頭文化因素、地方類型與中條山資源方向的互動。M6 把它視為跨區網絡節點，不把資源交流直接推成夏朝的行政隸屬。',cards:[['區域','晉南／中條山方向'],['閱讀重點','資源、地方類型與交流'],['方法防護','互動 ≠ 行政隸屬']]},
+  xinzhai:{title:'新砦｜較早期轉折脈絡',eyebrow:'A｜前期脈絡｜新砦',body:'新砦主要用來閱讀龍山末期至二里頭早段之間的文化轉折。本約前1700截面不把新砦當成與二里頭並列的當前政治中心，而是保留為前期歷史脈絡節點。',cards:[['時間位置','較早於本工作截面的核心階段'],['用途','理解文化轉折'],['方法防護','不作約前1700政治中心']]},
+  iluo:{title:'伊洛水系',eyebrow:'地理底層｜伊洛盆地',body:'伊河、洛河及其盆地是理解二里頭聚落位置、交通與資源整合的重要地理底層。水系線只表示自然地理與交通條件，不代表政治邊界。',cards:[['類型','自然地理／交通條件'],['作用','都邑與區域互動背景'],['方法防護','水系 ≠ 政治疆界']]},
+  transmitted:{title:'傳世文獻中的「夏」',eyebrow:'B｜傳世文獻層',body:'後世傳世文獻保存了夏、王系與若干地名傳統。M6 將這些資訊與考古層分開呈現：它們是歷史記憶與文本證據，不能直接用來替考古分布畫出一條已證實的夏朝疆界。',cards:[['證據類型','後世傳世文獻'],['用途','王系／地名／活動核心閱讀'],['方法防護','文獻記載 ≠ 已驗證疆界']]},
+  correlation:{title:'二里頭 ↔ 夏王朝對應假說',eyebrow:'C｜考古—文獻對應',body:'把二里頭文化或二里頭都邑與傳世文獻中的夏王朝相對應，是重要且長期存在的研究框架，但仍屬需要分層表達的學術判讀。系統不把此假說自動升格為無爭議事實。',cards:[['證據層級','對應假說'],['用途','比較年代、空間與文本傳統'],['方法防護','假說 ≠ 無條件硬事實']]},
+  xiaqiyuan:{title:'下七垣文化｜豫北／冀南',eyebrow:'同期文化比較｜約前1700',body:'下七垣文化與二里頭時段大致相交，主要用於豫北／冀南的先商文化研究與中原北部互動比較。它是考古文化系統，不是夏朝北方行政區。',cards:[['類型','同期考古文化'],['空間','豫北／冀南'],['方法防護','文化系統 ≠ 政治疆界']]},
+  yueshi:{title:'岳石文化｜山東',eyebrow:'同期文化比較｜約前1700',body:'岳石文化主要見於山東及其鄰近地帶，與二里頭中後段存在時間重疊與有限交流。M6 只提供比較閱讀，不把文化接觸解讀成夏朝向東的政治統治。',cards:[['類型','同期考古文化'],['空間','山東及鄰近地區'],['方法防護','交流 ≠ 政治統治']]},
+  qijia:{title:'齊家文化｜西北',eyebrow:'同期文化比較｜西北網絡',body:'齊家文化位於甘青等西北地區，與二里頭時段存在年代交疊與長距離交流議題。這裡只作遠距比較，並不把西北文化區納入夏朝疆域。',cards:[['類型','同期／交疊考古文化'],['空間','甘青與西北網絡'],['方法防護','交流 ≠ 主權隸屬']]},
+  zhukaigou:{title:'朱開溝文化｜北方',eyebrow:'同期文化比較｜北方互動',body:'朱開溝文化的部分階段與二里頭中後段相接，可用來閱讀北方文化因素與中原互動。其文化因素流動不能直接等同於政治控制。',cards:[['類型','北方考古文化'],['空間','內蒙古中南部方向'],['方法防護','文化因素 ≠ 直接統治']]},
+  lowerxj:{title:'夏家店下層文化｜遼西',eyebrow:'同期文化比較｜北東方',body:'夏家店下層文化在遼西／內蒙古東部形成自己的聚落與文化系統，與中原存在交流線索。M6 將其作東北方向的同期比較，不作夏王朝臣屬或疆界判定。',cards:[['類型','北東方考古文化'],['空間','遼西／內蒙古東部'],['方法防護','同期交流 ≠ 臣屬']]},
+};
+function svgEl(tag,attrs){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});return e;}
+function buildGlobalCanon(stage){
+  var svg=svgEl('svg',{id:'xia-m6-global-canon',class:'xiaM6GlobalCanon',viewBox:'665 270 125 94',preserveAspectRatio:'xMidYMid slice','aria-label':'夏朝M6全域Canonical文字層'});
+  function txt(x,y,t,key,anchor,cls){var e=svgEl('text',{x:x,y:y,'text-anchor':anchor||'start',class:cls||'gCulture','data-culture':key||''});e.textContent=t;svg.appendChild(e);}
+  txt(724,279,'下七垣｜豫北冀南','xiaqiyuan','middle');
+  txt(787,308,'岳石｜山東','yueshi','end');
+  txt(667,317,'齊家｜西北 ↖','qijia','start');
+  txt(701,273,'朱開溝｜北方 ↑','zhukaigou','start');
+  txt(789,282,'夏家店下層｜遼西 ↗','lowerxj','end');
+  txt(667,359,'B／C 分層：文獻記憶 ≠ 考古硬邊界','', 'start','gMethod');
+  stage.appendChild(svg);
+  return svg;
+}
+function addSpot(stage,cls,key,label,left,top,width,height){
+  var b=document.createElement('button');b.type='button';b.className='xiaM6Spot '+cls;b.dataset.m6=key;b.setAttribute('aria-label',label+'：開啟說明');
+  b.style.left=left+'%';b.style.top=top+'%';b.style.width=width+'%';b.style.height=height+'%';
+  stage.appendChild(b);return b;
+}
+function closeOtherSheets(){
+  ['xia-m4-sheet-shell','xia-m5-region-sheet-shell'].forEach(function(id){var s=document.getElementById(id);if(s)s.classList.remove('open');});
+}
+function init(){
+  var stage=document.querySelector('.xiaM1MapStage');if(!stage||document.getElementById('xia-m6-global-canon'))return;
+  buildGlobalCanon(stage);
+  /* Main: five existing canonical labels/nodes. */
+  addSpot(stage,'xiaM6MainSpot','dongxiafeng','晉南／東下馮',4,9,29,22);
+  addSpot(stage,'xiaM6MainSpot','erlitou','二里頭都邑核心',39,45,31,21);
+  addSpot(stage,'xiaM6MainSpot','core','二里頭文化核心分布',24,72,52,20);
+  addSpot(stage,'xiaM6MainSpot','xinzhai','新砦／較早期轉折',70,31,23,20);
+  addSpot(stage,'xiaM6MainSpot','iluo','伊洛水系',61,62,31,18);
+  /* Global: method + contemporaneous culture context. */
+  addSpot(stage,'xiaM6GlobalSpot','transmitted','傳世文獻中的夏',5,2,49,18);
+  addSpot(stage,'xiaM6GlobalSpot','correlation','二里頭與夏王朝對應假說',5,80,55,18);
+  addSpot(stage,'xiaM6GlobalSpot','xiaqiyuan','下七垣文化',34,4,33,17);
+  addSpot(stage,'xiaM6GlobalSpot','yueshi','岳石文化',73,30,26,25);
+  addSpot(stage,'xiaM6GlobalSpot','qijia','齊家文化',0,39,24,20);
+  addSpot(stage,'xiaM6GlobalSpot','zhukaigou','朱開溝文化',21,0,30,14);
+  addSpot(stage,'xiaM6GlobalSpot','lowerxj','夏家店下層文化',73,2,27,18);
+
+  var note=document.createElement('div');note.id='xia-m6-global-canon-note';note.className='xiaM6CanonNote';
+  note.innerHTML='<b>M6｜Global Canon：</b>全域模式把 B 類傳世文獻、C 類考古—文獻對應假說與同期文化比較層固定分開。可點擊地圖文字／節點查看說明；任何一層都不能單獨升格為「已證實夏疆域」。';
+  var notes=document.querySelector('.xiaM1ModeNotes');if(notes)notes.insertAdjacentElement('afterend',note);
+
+  var shell=document.createElement('div');shell.id='xia-m6-sheet-shell';shell.className='xiaM6SheetShell';shell.setAttribute('aria-live','polite');
+  shell.innerHTML='<section class="xiaM6Sheet" role="dialog" aria-modal="false" aria-labelledby="xia-m6-sheet-title"><div class="xiaM6SheetGrip"></div><div class="xiaM6SheetHead"><div><div id="xia-m6-sheet-eyebrow" class="xiaM6SheetEyebrow"></div><div id="xia-m6-sheet-title" class="xiaM6SheetTitle"></div></div><button id="xia-m6-sheet-close" class="xiaM6SheetClose" type="button" aria-label="關閉Hotspot資訊卡">×</button></div><div id="xia-m6-sheet-body" class="xiaM6SheetBody"></div><div id="xia-m6-sheet-grid" class="xiaM6SheetGrid"></div></section>';
+  document.body.appendChild(shell);
+  function closeSheet(){shell.classList.remove('open');shell.removeAttribute('data-target');document.documentElement.setAttribute('data-xia-m6-sheet','closed');}
+  function showSheet(key){var d=defs[key];if(!d)return;closeOtherSheets();document.getElementById('xia-m6-sheet-eyebrow').textContent=d.eyebrow+'｜約前1700';document.getElementById('xia-m6-sheet-title').textContent=d.title;document.getElementById('xia-m6-sheet-body').textContent=d.body;document.getElementById('xia-m6-sheet-grid').innerHTML=d.cards.map(function(c){return '<div class="xiaM6SheetCard"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.target=key;shell.classList.add('open');document.documentElement.setAttribute('data-xia-m6-sheet',key);}
+  stage.querySelectorAll('.xiaM6Spot').forEach(function(b){
+    ['pointerdown','pointermove','pointerup','pointercancel','touchstart'].forEach(function(t){b.addEventListener(t,function(e){e.stopPropagation();},{passive:t==='touchstart'});});
+    b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();showSheet(b.dataset.m6);});
+  });
+  document.getElementById('xia-m6-sheet-close').addEventListener('click',closeSheet);
+  var main=document.getElementById('xia-m1-main'),global=document.getElementById('xia-m1-global');
+  [main,global].forEach(function(x){if(x)x.addEventListener('change',closeSheet);});
+  window.xiaM6CloseSheet=closeSheet;
+  window.xiaM6Audit=function(){
+    function vis(sel){return Array.from(document.querySelectorAll(sel)).filter(function(e){var s=getComputedStyle(e);return s.display!=='none'&&s.visibility!=='hidden'&&parseFloat(s.opacity||'1')>0;}).length;}
+    return {version:'Xia-M6-v0.1',mainSpots:vis('.xiaM6MainSpot'),globalSpots:vis('.xiaM6GlobalSpot'),globalCanon:vis('.xiaM6GlobalCanon'),sheetOpen:shell.classList.contains('open'),target:shell.dataset.target||null};
+  };
+}
+function updateVersion(){
+  var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M6｜Hotspots＋Global Canon v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
+  document.title='中國歷史 × 世界歷史｜夏朝 Xia-M6 Hotspots＋Global Canon v0.1｜WORKING / NOT FREEZE';
+  var eye=document.querySelector('.xiaMapHead .eyebrow');if(eye)eye.textContent='Layer 5｜Xia Map｜M6';
+  var h2=document.querySelector('.xiaMapHead h2');if(h2)h2.textContent='夏朝｜約前1700｜M6';
+  var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Hotspots＋Global Canon v0.1。主域與全域加入可點擊考古／文獻節點；全域同時固定顯示同期文化方向文字。所有資訊卡都是閱讀輔助，不把文化分布、文本記憶或對應假說轉成硬式夏疆域。';
+  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M6｜WORKING';
+  var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M6 地圖';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){updateVersion();init();});else{updateVersion();init();}
+})();
+</script>
+<script id="xia-m6-meta" type="application/json">
+{
+  "version":"Xia-M6-v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "snapshot":"ca. 1700 BCE archaeological reading node",
+  "mainHotspots":5,
+  "globalHotspots":7,
+  "globalCanon":"compact synchronism labels + strict B/C methodological guard",
+  "bottomSheet":"neutral hotspot info sheet; does not alter M3 Region or M4 Culture selection",
+  "fullscreenHotspots":false,
+  "trueFocus":false,
+  "source":"Xia-M5 Region Bottom Sheets + click-again toggle v0.1"
 }
 </script>
 
