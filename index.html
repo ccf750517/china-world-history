@@ -15891,5 +15891,79 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }</script>
 <div id="xia-m8-1-v05-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.5" data-status="REAL iPHONE SAFARI FINAL RECHECK PENDING / NOT FREEZE" data-sheet-text-guard="dedupe-ca1700"></div>
 
+
+
+<!-- Xia-M8.1｜iPhone Safari Device Fix v0.6
+Source: Xia-M8.1 Device Fix v0.5 + real iPhone Safari Round 5 evidence
+Status: DEVICE FIX / REAL iPHONE SAFARI MAIN-LABEL RECHECK PENDING / NOT FREEZE
+Issue fixed:
+- Main mode still exposed long legacy map labels and, on real iPhone Safari, residual Global text/culture labels could remain visually present after mode transitions, causing overlap at the north edge and lower map edge.
+Scope: mobile label-presentation / mode-isolation only. No historical content, archaeological geometry, hotspot semantics, Region/Culture state, Bottom Sheet content, or True Focus value change.
+-->
+<style id="xia-m8-1-v06-main-label-cleanup-css">
+/* Hard mode isolation: Global-only visual layers must never remain visible while Main is active. */
+#xia-m1-main:checked ~ .xiaM1MapStage .xiaM6GlobalCanon,
+#xia-m1-main:checked ~ .xiaM1MapStage .xiaM6GlobalTapLabel,
+#xia-m1-main:checked ~ .xiaM1MapStage .xiaM81MethodOwner,
+#xia-m1-main:checked ~ .xiaM1MapStage .xiaGlobalOnly{display:none!important}
+
+@media(max-width:430px){
+  /* Main mobile uses the same compact five A owners already proven in Global, instead of the long legacy SVG labels. */
+  #xia-m1-main:checked ~ .xiaM1MapStage #xia-m1-map-svg text.xiaM81V04ReplaceText{display:none!important}
+  #xia-m1-main:checked ~ .xiaM1MapStage .xiaM81AOwner{display:flex!important}
+  /* Selected M4 culture is already explicit in the control rail; retain its geometry but suppress duplicate in-map culture text. */
+  #xia-m1-main:checked ~ .xiaM1MapStage .xiaM4CultureOverlay text{display:none!important}
+  /* Keep compact Main owners readable over the archaeological geometry. */
+  #xia-m1-main:checked ~ .xiaM1MapStage .xiaM81AOwner{
+    z-index:98!important;font-size:8.1px!important;padding:4px 6px!important;
+    background:rgba(255,250,241,.97)!important;border-color:rgba(120,92,58,.72)!important;
+  }
+}
+</style>
+<script id="xia-m8-1-v06-main-label-cleanup-js">
+(function(){
+'use strict';
+function one(s,r){return (r||document).querySelector(s)}
+function sync(){
+  var main=one('#xia-m1-main'),global=one('#xia-m1-global');
+  var isMain=!!(main&&main.checked),isGlobal=!!(global&&global.checked);
+  document.documentElement.setAttribute('data-xia-m8-1-mode',isGlobal?'global':'main');
+  document.querySelectorAll('.xiaM81AOwner').forEach(function(b){
+    b.setAttribute('aria-hidden',(!isMain&&!isGlobal)?'true':'false');
+  });
+  document.querySelectorAll('.xiaM81MethodOwner,.xiaM6GlobalTapLabel').forEach(function(b){
+    b.setAttribute('aria-hidden',isGlobal?'false':'true');
+  });
+}
+function boot(){
+  var main=one('#xia-m1-main'),global=one('#xia-m1-global');
+  [main,global].forEach(function(x){if(x)x.addEventListener('change',function(){requestAnimationFrame(sync);});});
+  sync();
+  document.documentElement.setAttribute('data-xia-m8-1-device-qc','device-fix-v0.6-main-label-recheck');
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8.1 iPhone Safari 裝置修正 v0.6';
+  var meta=one('.header .meta');if(meta)meta.textContent='夏朝 Xia-M8.1｜iPhone Safari 裝置修正 v0.6｜主域標籤＋模式隔離最終複驗｜尚未凍結｜UI-D1.1＋唐朝正式基準受保護';
+  var badge=one('.xiaM1Badge');if(badge)badge.textContent='M8.1｜v0.6 主域複驗';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m8-1-v06-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"Device Fix v0.6",
+  "status":"REAL iPHONE SAFARI MAIN-LABEL RECHECK PENDING / NOT FREEZE",
+  "round5Evidence":"A/B/C representative Global owners and culture sheet text guard passed; real iPhone Main screenshots still showed legacy long-label overlap and residual Global-label interference",
+  "mainLabelFix":"mobile Main hides legacy long A/location labels and reuses five compact A owners",
+  "modeIsolationFix":"Main forcibly hides Global Canon text, Global culture pills, B/C owners and Global-only SVG group",
+  "cultureLabelFix":"mobile Main retains selected M4 culture geometry while suppressing duplicate in-map culture text",
+  "historicalContentChange":false,
+  "mapGeometryChange":false,
+  "hotspotSemanticChange":false,
+  "regionSetChange":false,
+  "cultureSetChange":false,
+  "trueFocusValueChange":false,
+  "next":"real iPhone Safari v0.6 Main/Global switch + Main label collision recheck"
+}</script>
+<div id="xia-m8-1-v06-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.6" data-status="REAL iPHONE SAFARI MAIN-LABEL RECHECK PENDING / NOT FREEZE" data-main-label-layout="compact-five-a-owners" data-mode-isolation="hard-main-global"></div>
+
 </body>
 </html>
