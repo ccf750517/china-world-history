@@ -15129,6 +15129,7 @@ function init(){
   var main=document.getElementById('xia-m1-main'),global=document.getElementById('xia-m1-global');
   [main,global].forEach(function(x){if(x)x.addEventListener('change',closeSheet);});
   window.xiaM6CloseSheet=closeSheet;
+  window.xiaM6ShowSheet=showSheet;
   window.xiaM6Audit=function(){
     function vis(sel){return Array.from(document.querySelectorAll(sel)).filter(function(e){var s=getComputedStyle(e);return s.display!=='none'&&s.visibility!=='hidden'&&parseFloat(s.opacity||'1')>0;}).length;}
     return {version:'Xia-M6-v0.4-device-fix',mainSpots:vis('.xiaM6MainSpot'),globalSpots:vis('.xiaM6GlobalSpot'),globalCanon:vis('.xiaM6GlobalCanon'),globalTapLabels:vis('.xiaM6GlobalTapLabel'),sheetOpen:shell.classList.contains('open'),target:shell.dataset.target||null};
@@ -15237,11 +15238,36 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
     mo.observe(document.documentElement,{attributes:true,attributeFilter:['data-xia-m3-region']});
     window.addEventListener('resize',function(){if(document.documentElement.classList.contains('xiaM7Fullscreen'))render(state.manual?{scale:state.scale,cx:state.cx,cy:state.cy,label:'手動 '+Math.round(state.scale*100)+'%'}:null);});
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.documentElement.classList.contains('xiaM7Fullscreen'))close();});
+    /* v0.2 DEVICE FIX — fullscreen hotspot ownership.
+       In fullscreen the zoom-plane transform invalidates M6's stage-percentage fallback.
+       Resolve the tap against the actually transformed M6 button rectangles instead,
+       in capture phase, before older M4 culture controls can claim the click. */
+    var fsTap=null;
+    stage.addEventListener('pointerdown',function(e){
+      if(!document.documentElement.classList.contains('xiaM7Fullscreen'))return;
+      fsTap={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};
+    },true);
+    stage.addEventListener('pointerup',function(e){
+      if(!document.documentElement.classList.contains('xiaM7Fullscreen')||!fsTap||fsTap.id!==e.pointerId)return;
+      var d=fsTap;fsTap=null;
+      if(Math.hypot(e.clientX-d.x,e.clientY-d.y)>14||Date.now()-d.t>900)return;
+      var selector=(global&&global.checked)?'.xiaM6GlobalTapLabel,.xiaM6GlobalSpot':'.xiaM6MainSpot';
+      var hits=Array.from(stage.querySelectorAll(selector)).filter(function(b){
+        var cs=getComputedStyle(b);if(cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<=0)return false;
+        var r=b.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;
+      });
+      if(!hits.length)return;
+      /* Explicit label buttons are narrower and therefore win over broad fallback rectangles. */
+      hits.sort(function(a,b){var ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();return ar.width*ar.height-br.width*br.height;});
+      var key=hits[0].dataset.m6;if(!key||!window.xiaM6ShowSheet)return;
+      e.preventDefault();e.stopImmediatePropagation();window.xiaM6ShowSheet(key);
+    },true);
+    stage.addEventListener('pointercancel',function(){fsTap=null;},true);
     window.xiaM7Audit=function(){return {fullscreen:document.documentElement.classList.contains('xiaM7Fullscreen'),mode:(global&&global.checked?'global':'main'),region:activeRegion()||'none',scale:state.scale,badge:document.getElementById('xia-m7-badge').textContent,m6Sheet:document.documentElement.getAttribute('data-xia-m6-sheet')||'closed'};};
   }
   function version(){
-    var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M7｜Fullscreen Hotspots＋True Focus v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
-    document.title='中國歷史 × 世界歷史｜夏朝 Xia-M7 Fullscreen Hotspots＋True Focus v0.1';
+    var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M7｜Fullscreen Hotspots＋True Focus v0.2｜DEVICE FIX / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
+    document.title='中國歷史 × 世界歷史｜夏朝 Xia-M7 Fullscreen Hotspots＋True Focus v0.2';
     var eye=document.querySelector('.xiaMapHead .eyebrow');if(eye)eye.textContent='Layer 6｜Xia Map｜M7';
     var h2=document.querySelector('.xiaMapHead h2');if(h2)h2.textContent='夏朝｜約前1700｜M7';
     var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Fullscreen Hotspots＋True Focus v0.1。M7 將 M1–M6 原地圖提升為全螢幕閱讀：Main / Global、6 Region True Focus、Culture＋Region 狀態與 M6 Hotspot 全部沿用，不新增硬式疆界。';
@@ -15252,7 +15278,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 <script id="xia-m7-meta" type="application/json">{
-  "version":"Xia-M7-v0.1",
+  "version":"Xia-M7-v0.2-device-fix",
   "status":"WORKING / NOT FREEZE",
   "scope":"Fullscreen Hotspots + Main / Global / 6 Region True Focus",
   "fullscreenMain":100,
@@ -15263,7 +15289,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   "hardSovereigntyBorder":false,
   "next":"Xia-M8 Historical Geography Final Gate after device QC"
 }</script>
-<div id="xia-m7-machine-meta" hidden data-version="Xia-M7-v0.1" data-status="WORKING / NOT FREEZE" data-main-focus="100" data-global-focus="100" data-regions="6" data-hotspots="M6-preserved" data-hard-border="false"></div>
+<div id="xia-m7-machine-meta" hidden data-version="Xia-M7-v0.2-device-fix" data-status="DEVICE FIX / NOT FREEZE" data-main-focus="100" data-global-focus="100" data-regions="6" data-hotspots="M6-preserved" data-hard-border="false"></div>
 
 </body>
 </html>
