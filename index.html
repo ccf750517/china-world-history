@@ -15844,5 +15844,52 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }</script>
 <div id="xia-m8-1-v04-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.4" data-status="REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-global-label-layout="compact-deterministic-owners"></div>
 
+
+<!-- Xia-M8.1｜iPhone Safari Device Fix v0.5
+Source: Xia-M8.1 Device Fix v0.4 + real iPhone Safari Round 4 evidence
+Status: DEVICE FIX / REAL iPHONE SAFARI FINAL RECHECK PENDING / NOT FREEZE
+Issue fixed:
+- Culture Bottom Sheet eyebrow could duplicate the same snapshot token as 「同期文化比較｜約前1700｜約前1700」.
+Scope: presentation-text normalization only. No historical content, map geometry, hotspot ownership, Region/Culture state, or True Focus change.
+-->
+<script id="xia-m8-1-v05-sheet-text-guard-js">
+(function(){
+'use strict';
+function normalize(){
+  document.querySelectorAll('.xiaM4SheetEyebrow,.xiaM5SheetEyebrow,.xiaM6SheetEyebrow').forEach(function(el){
+    var s=(el.textContent||'').trim();
+    var prev='';
+    while(s!==prev){prev=s;s=s.replace(/｜約前1700｜約前1700/g,'｜約前1700');}
+    if(el.textContent!==s)el.textContent=s;
+  });
+}
+function boot(){
+  normalize();
+  var obs=new MutationObserver(normalize);
+  obs.observe(document.body,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class','data-culture','data-region','data-target']});
+  document.documentElement.setAttribute('data-xia-m8-1-device-qc','device-fix-v0.5-final-recheck');
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8.1 iPhone Safari 裝置修正 v0.5';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='夏朝 Xia-M8.1｜iPhone Safari 裝置修正 v0.5｜資訊卡文字＋全域熱點最終複驗｜尚未凍結｜UI-D1.1＋唐朝正式基準受保護';
+  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M8.1｜v0.5 最終複驗';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m8-1-v05-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"Device Fix v0.5",
+  "status":"REAL iPHONE SAFARI FINAL RECHECK PENDING / NOT FREEZE",
+  "round4Evidence":"Global label collisions visually resolved; Xia home progress card shows M8.1; one Global culture owner opened the correct sheet; culture sheet eyebrow exposed duplicate snapshot token",
+  "sheetTextFix":"normalize repeated 約前1700 token in M4/M5/M6 sheet eyebrow without editing frozen authored blocks",
+  "historicalContentChange":false,
+  "mapGeometryChange":false,
+  "hotspotOwnershipChange":false,
+  "regionSetChange":false,
+  "cultureSetChange":false,
+  "trueFocusValueChange":false,
+  "next":"real iPhone Safari final recheck: A/B/C representative owners + culture owner + sheet eyebrow + home architecture note"
+}</script>
+<div id="xia-m8-1-v05-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.5" data-status="REAL iPHONE SAFARI FINAL RECHECK PENDING / NOT FREEZE" data-sheet-text-guard="dedupe-ca1700"></div>
+
 </body>
 </html>
