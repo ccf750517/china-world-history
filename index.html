@@ -4928,6 +4928,33 @@ html[data-xia-m4-cultures*="lowerxj"] .xiaM6GlobalCanon [data-culture="lowerxj"]
 @media(max-width:430px){.xiaM6SheetGrid{grid-template-columns:1fr 1fr}.xiaM6Sheet{padding:13px 14px 15px}}
 </style>
 
+
+<style id="xia-m7-style">
+/* Xia-M7 Fullscreen Hotspots + True Focus v0.1 — WORKING / NOT FREEZE */
+.xiaM7FullscreenBtn{border:1px solid #c7a86f;background:#fffaf1;color:#3f342b;border-radius:999px;padding:8px 11px;font-weight:900;font-size:10px;white-space:nowrap}
+.xiaM7Toolbar{display:none}
+html.xiaM7Fullscreen{overflow:hidden}
+html.xiaM7Fullscreen body{overflow:hidden}
+html.xiaM7Fullscreen .header,html.xiaM7Fullscreen .hierBack,html.xiaM7Fullscreen .bottom{display:none!important}
+html.xiaM7Fullscreen .xiaMap .pageInner{max-width:none!important;margin:0!important;padding:0!important}
+html.xiaM7Fullscreen .xiaMapHead{display:none!important}
+html.xiaM7Fullscreen .xiaM1Panel{position:fixed!important;inset:0!important;z-index:1000!important;margin:0!important;border:0!important;border-radius:0!important;background:#d6c39d!important;padding:calc(8px + env(safe-area-inset-top,0px)) 8px calc(8px + env(safe-area-inset-bottom,0px))!important;overflow:auto!important;-webkit-overflow-scrolling:touch}
+html.xiaM7Fullscreen .xiaM7Toolbar{display:flex;position:sticky;top:0;z-index:1100;align-items:center;gap:7px;padding:4px 0 8px;background:linear-gradient(#d6c39d 80%,rgba(214,195,157,0));}
+.xiaM7Toolbar button{border:1px solid #c2a06b;background:#fffaf1;color:#392f27;border-radius:999px;padding:8px 11px;font-weight:900;font-size:10px;white-space:nowrap}
+.xiaM7Toolbar .exit{background:#4b3b2c;color:#fffaf1;border-color:#4b3b2c}
+.xiaM7FocusBadge{margin-left:auto;background:rgba(69,56,44,.86);color:#fffaf1;border-radius:999px;padding:7px 10px;font-weight:900;font-size:9px;white-space:nowrap}
+html.xiaM7Fullscreen .xiaM1Controls{position:sticky;top:48px;z-index:1060;background:rgba(255,250,241,.93);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:14px;padding:8px!important;margin-bottom:7px}
+html.xiaM7Fullscreen .xiaM3RegionWrap,html.xiaM7Fullscreen .xiaM4CultureWrap{position:relative;z-index:1050;background:rgba(255,250,241,.90);border-radius:13px;padding:6px!important;margin-bottom:7px}
+html.xiaM7Fullscreen .xiaM1MapStage{height:auto!important;min-height:0!important;aspect-ratio:4/3!important;margin-top:6px!important;border-radius:12px!important;touch-action:none!important;background:#cbbd9d!important}
+.xiaM7ZoomPlane{position:absolute;inset:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;touch-action:none}
+.xiaM7ZoomPlane>svg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.xiaM7ZoomPlane>#xia-m1-map-svg{position:absolute!important;inset:0!important}
+html.xiaM7Fullscreen .xiaM1ModeNotes,html.xiaM7Fullscreen .xiaM2Note,html.xiaM7Fullscreen .xiaM2NodeList,html.xiaM7Fullscreen .xiaM3RegionNote,html.xiaM7Fullscreen .xiaM1Legend,html.xiaM7Fullscreen .xiaM1Guard,html.xiaM7Fullscreen .xiaM1Sources,html.xiaM7Fullscreen .xiaM6CanonNote{display:none!important}
+html.xiaM7Fullscreen .xiaM4SheetShell,html.xiaM7Fullscreen .xiaM5SheetShell,html.xiaM7Fullscreen .xiaM6SheetShell{bottom:calc(4px + env(safe-area-inset-bottom,0px))!important;z-index:1300!important}
+html.xiaM7Fullscreen .xiaM4Sheet,html.xiaM7Fullscreen .xiaM5Sheet,html.xiaM7Fullscreen .xiaM6Sheet{max-height:52dvh!important}
+@media(max-width:430px){html.xiaM7Fullscreen .xiaM1MapStage{height:auto!important;min-height:0!important;aspect-ratio:4/3!important}.xiaM7Toolbar button{padding:7px 9px}.xiaM7FocusBadge{font-size:8px}}
+</style>
+
 </head>
 <body>
 <input class="ctrl" id="map-only" type="checkbox"/>
@@ -15153,5 +15180,90 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <script id="xia-m6-device-fix-v04-meta" type="application/json">
 {"version":"Xia-M6-v0.4-device-fix","status":"GLOBAL HOTSPOT LABEL RECHECK PENDING / NOT FREEZE","scope":"Global Hotspot Safari ownership only","changes":["five explicit top-layer Global M6 tap labels","visible labels are independent buttons with z-index 90","existing M4 Culture overlays remain visual/state layers only","M1-M5 history/state and M6 sheet content unchanged"],"required_device_recheck":["Global xiaqiyuan explicit M6 label opens M6 sheet while Region+Culture active"]}
 </script>
+
+<script id="xia-m7-fullscreen-true-focus-js">
+(function(){
+  function boot(){
+    var panel=document.querySelector('.xiaM1Panel'),stage=document.querySelector('.xiaM1MapStage'),controls=document.querySelector('.xiaM1Controls');
+    if(!panel||!stage||!controls||document.getElementById('xia-m7-toolbar'))return;
+    var main=document.getElementById('xia-m1-main'),global=document.getElementById('xia-m1-global');
+    var rail=document.querySelector('.xiaM3RegionRail');
+    var plane=document.createElement('div');plane.className='xiaM7ZoomPlane';plane.id='xia-m7-zoom-plane';
+    while(stage.firstChild)plane.appendChild(stage.firstChild);stage.appendChild(plane);
+
+    var fsBtn=document.createElement('button');fsBtn.type='button';fsBtn.className='xiaM7FullscreenBtn';fsBtn.id='xia-m7-enter';fsBtn.textContent='全螢幕地圖';fsBtn.setAttribute('aria-label','進入夏朝全螢幕地圖');controls.appendChild(fsBtn);
+    var tb=document.createElement('div');tb.className='xiaM7Toolbar';tb.id='xia-m7-toolbar';
+    tb.innerHTML='<button type="button" class="exit" id="xia-m7-exit">退出地圖</button><button type="button" id="xia-m7-minus">−</button><button type="button" id="xia-m7-reset">重置</button><button type="button" id="xia-m7-plus">＋</button><span class="xiaM7FocusBadge" id="xia-m7-badge">主域 165%</span>';
+    panel.insertBefore(tb,panel.firstChild);
+
+    var regions={
+      iluo:{label:'伊洛／二里頭',cx:.512,cy:.681,scale:1.45},
+      jinnan:{label:'晉南／東下馮',cx:.208,cy:.266,scale:1.50},
+      songshan:{label:'嵩山／鄭洛',cx:.632,cy:.521,scale:1.45},
+      east:{label:'豫東',cx:.808,cy:.681,scale:1.45},
+      south:{label:'豫南',cx:.632,cy:.840,scale:1.45},
+      west:{label:'陝東／商洛',cx:.160,cy:.625,scale:1.45}
+    };
+    var state={scale:1.00,cx:.5,cy:.50,manual:0};
+    function activeRegion(){var v=document.documentElement.getAttribute('data-xia-m3-region')||'';return regions[v]?v:'';}
+    function canonical(){
+      var r=activeRegion();
+      if(r){var d=regions[r];return {scale:d.scale,cx:d.cx,cy:d.cy,label:'區域閱讀 '+Math.round(d.scale*100)+'%｜'+d.label};}
+      if(global&&global.checked)return {scale:1.00,cx:.50,cy:.50,label:'全域 100%'};
+      return {scale:1.00,cx:.50,cy:.50,label:'主域 100%'};
+    }
+    function render(custom){
+      if(!document.documentElement.classList.contains('xiaM7Fullscreen'))return;
+      var d=custom||canonical();state.scale=d.scale;state.cx=d.cx;state.cy=d.cy;
+      var w=stage.clientWidth||1,h=stage.clientHeight||1;
+      var tx=w*.5-d.scale*d.cx*w,ty=h*.5-d.scale*d.cy*h;
+      plane.style.transform='translate('+tx+'px,'+ty+'px) scale('+d.scale+')';
+      document.getElementById('xia-m7-badge').textContent=d.label||('縮放 '+Math.round(d.scale*100)+'%');
+      document.documentElement.setAttribute('data-xia-m7-focus',d.label||'manual');
+    }
+    function open(){
+      if(window.xiaM6CloseSheet)window.xiaM6CloseSheet();
+      document.documentElement.classList.add('xiaM7Fullscreen');state.manual=0;
+      requestAnimationFrame(function(){render();stage.scrollIntoView({block:'center'});});
+    }
+    function close(){document.documentElement.classList.remove('xiaM7Fullscreen');plane.style.transform='';document.documentElement.setAttribute('data-xia-m7-focus','embedded');}
+    fsBtn.addEventListener('click',open);document.getElementById('xia-m7-exit').addEventListener('click',close);
+    document.getElementById('xia-m7-reset').addEventListener('click',function(){state.manual=0;render();});
+    document.getElementById('xia-m7-plus').addEventListener('click',function(){var c=canonical();var s=Math.min(3.6,(state.scale||c.scale)+.15);state.manual=1;render({scale:s,cx:state.cx||c.cx,cy:state.cy||c.cy,label:'手動 '+Math.round(s*100)+'%'});});
+    document.getElementById('xia-m7-minus').addEventListener('click',function(){var c=canonical();var s=Math.max(1,(state.scale||c.scale)-.15);state.manual=1;render({scale:s,cx:state.cx||c.cx,cy:state.cy||c.cy,label:'手動 '+Math.round(s*100)+'%'});});
+    [main,global].forEach(function(el){if(el)el.addEventListener('change',function(){state.manual=0;requestAnimationFrame(function(){render();});});});
+    if(rail)rail.addEventListener('click',function(){state.manual=0;requestAnimationFrame(function(){requestAnimationFrame(function(){render();});});});
+    var mo=new MutationObserver(function(ms){if(!document.documentElement.classList.contains('xiaM7Fullscreen'))return;for(var i=0;i<ms.length;i++){if(ms[i].attributeName==='data-xia-m3-region'){state.manual=0;render();break;}}});
+    mo.observe(document.documentElement,{attributes:true,attributeFilter:['data-xia-m3-region']});
+    window.addEventListener('resize',function(){if(document.documentElement.classList.contains('xiaM7Fullscreen'))render(state.manual?{scale:state.scale,cx:state.cx,cy:state.cy,label:'手動 '+Math.round(state.scale*100)+'%'}:null);});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.documentElement.classList.contains('xiaM7Fullscreen'))close();});
+    window.xiaM7Audit=function(){return {fullscreen:document.documentElement.classList.contains('xiaM7Fullscreen'),mode:(global&&global.checked?'global':'main'),region:activeRegion()||'none',scale:state.scale,badge:document.getElementById('xia-m7-badge').textContent,m6Sheet:document.documentElement.getAttribute('data-xia-m6-sheet')||'closed'};};
+  }
+  function version(){
+    var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M7｜Fullscreen Hotspots＋True Focus v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
+    document.title='中國歷史 × 世界歷史｜夏朝 Xia-M7 Fullscreen Hotspots＋True Focus v0.1';
+    var eye=document.querySelector('.xiaMapHead .eyebrow');if(eye)eye.textContent='Layer 6｜Xia Map｜M7';
+    var h2=document.querySelector('.xiaMapHead h2');if(h2)h2.textContent='夏朝｜約前1700｜M7';
+    var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Fullscreen Hotspots＋True Focus v0.1。M7 將 M1–M6 原地圖提升為全螢幕閱讀：Main / Global、6 Region True Focus、Culture＋Region 狀態與 M6 Hotspot 全部沿用，不新增硬式疆界。';
+    var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M7｜WORKING';
+    var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M7 地圖';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){version();boot();});else{version();boot();}
+})();
+</script>
+<script id="xia-m7-meta" type="application/json">{
+  "version":"Xia-M7-v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "scope":"Fullscreen Hotspots + Main / Global / 6 Region True Focus",
+  "fullscreenMain":100,
+  "fullscreenGlobal":100,
+  "regionTrueFocus":{"伊洛／二里頭":145,"晉南／東下馮":150,"嵩山／鄭洛":145,"豫東":145,"豫南":145,"陝東／商洛":145},
+  "hotspots":"M6 embedded hotspot buttons are preserved inside transformed fullscreen zoom plane",
+  "statePersistence":["M3 Region","M4 Culture","M6 Hotspot sheets"],
+  "hardSovereigntyBorder":false,
+  "next":"Xia-M8 Historical Geography Final Gate after device QC"
+}</script>
+<div id="xia-m7-machine-meta" hidden data-version="Xia-M7-v0.1" data-status="WORKING / NOT FREEZE" data-main-focus="100" data-global-focus="100" data-regions="6" data-hotspots="M6-preserved" data-hard-border="false"></div>
+
 </body>
 </html>
