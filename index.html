@@ -4882,7 +4882,7 @@ body.ux-js-map #map-only:checked ~ .screens .map .mapViewport .mapStage .mapCanv
 </style>
 
 <style id="xia-m6-style">
-/* Xia-M6 Hotspots + Global Canon v0.3 — DEVICE FIX / NOT FREEZE */
+/* Xia-M6 Hotspots + Global Canon v0.4 — DEVICE FIX / NOT FREEZE */
 .xiaM6GlobalCanon{position:absolute;inset:0;width:100%;height:100%;z-index:8;pointer-events:none;background:transparent!important;display:none;overflow:visible}
 #xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalCanon{display:block}
 .xiaM6GlobalCanon text{
@@ -4904,6 +4904,10 @@ html[data-xia-m4-cultures*="lowerxj"] .xiaM6GlobalCanon [data-culture="lowerxj"]
 .xiaM6Spot:focus-visible{outline:2px solid rgba(88,62,40,.76);outline-offset:2px}
 .xiaM6Spot.dot{border-radius:999px}
 .xiaM6GlobalSpot{z-index:42!important;}
+/* v0.4: explicit top-layer Global hotspot labels. These are the tap owners on Safari. */
+.xiaM6GlobalTapLabel{display:none;position:absolute;z-index:90!important;border:1px solid rgba(120,92,58,.68);background:rgba(255,250,241,.94);color:#3e342b;border-radius:999px;padding:5px 8px;font-size:9px;font-weight:900;line-height:1;box-shadow:0 2px 8px rgba(51,43,35,.12);touch-action:manipulation;-webkit-tap-highlight-color:transparent;pointer-events:auto!important;white-space:nowrap}
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalTapLabel{display:block}
+.xiaM6GlobalTapLabel:active{transform:scale(.98)}
 
 .xiaM6CanonNote{display:none;margin-top:8px;background:#f3efe5;border-left:4px solid #786a5b;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#51473d}
 #xia-m1-global:checked ~ .xiaM1ModeNotes + .xiaM6CanonNote{display:block}
@@ -14993,6 +14997,9 @@ function addSpot(stage,cls,key,label,left,top,width,height){
   b.style.left=left+'%';b.style.top=top+'%';b.style.width=width+'%';b.style.height=height+'%';
   stage.appendChild(b);return b;
 }
+function addGlobalTapLabel(stage,key,label,left,top){
+  var b=document.createElement('button');b.type='button';b.className='xiaM6GlobalTapLabel';b.dataset.m6=key;b.textContent=label;b.setAttribute('aria-label',label+'：開啟M6說明');b.style.left=left+'%';b.style.top=top+'%';stage.appendChild(b);return b;
+}
 function closeOtherSheets(){
   ['xia-m4-sheet-shell','xia-m5-region-sheet-shell'].forEach(function(id){var s=document.getElementById(id);if(s)s.classList.remove('open');});
 }
@@ -15013,6 +15020,12 @@ function init(){
   addSpot(stage,'xiaM6GlobalSpot','qijia','齊家文化',0,34,28,29);
   addSpot(stage,'xiaM6GlobalSpot','zhukaigou','朱開溝文化',18,0,36,11);
   addSpot(stage,'xiaM6GlobalSpot','lowerxj','夏家店下層文化',68,0,32,14);
+  /* v0.4 Safari tap owners: explicit, top-most labels. */
+  addGlobalTapLabel(stage,'xiaqiyuan','下七垣｜先商',34,14);
+  addGlobalTapLabel(stage,'yueshi','岳石｜山東',72,37);
+  addGlobalTapLabel(stage,'qijia','齊家｜西北',2,43);
+  addGlobalTapLabel(stage,'zhukaigou','朱開溝｜北方',31,2);
+  addGlobalTapLabel(stage,'lowerxj','夏家店下層｜遼西',69,4);
 
   var note=document.createElement('div');note.id='xia-m6-global-canon-note';note.className='xiaM6CanonNote';
   note.innerHTML='<b>M6｜Global Canon：</b>全域模式把 B 類傳世文獻、C 類考古—文獻對應假說與同期文化比較層固定分開。可點擊地圖文字／節點查看說明；任何一層都不能單獨升格為「已證實夏疆域」。';
@@ -15056,7 +15069,7 @@ function init(){
     e.preventDefault();e.stopPropagation();stageLastActivate=Date.now();showSheet(key);
   },true);
   stage.addEventListener('pointercancel',function(){stageDown=null;},true);
-  stage.querySelectorAll('.xiaM6Spot').forEach(function(b){
+  stage.querySelectorAll('.xiaM6Spot,.xiaM6GlobalTapLabel').forEach(function(b){
     var down=null,lastActivate=0;
     b.addEventListener('pointerdown',function(e){
       e.stopPropagation();
@@ -15091,24 +15104,24 @@ function init(){
   window.xiaM6CloseSheet=closeSheet;
   window.xiaM6Audit=function(){
     function vis(sel){return Array.from(document.querySelectorAll(sel)).filter(function(e){var s=getComputedStyle(e);return s.display!=='none'&&s.visibility!=='hidden'&&parseFloat(s.opacity||'1')>0;}).length;}
-    return {version:'Xia-M6-v0.3-device-fix',mainSpots:vis('.xiaM6MainSpot'),globalSpots:vis('.xiaM6GlobalSpot'),globalCanon:vis('.xiaM6GlobalCanon'),sheetOpen:shell.classList.contains('open'),target:shell.dataset.target||null};
+    return {version:'Xia-M6-v0.4-device-fix',mainSpots:vis('.xiaM6MainSpot'),globalSpots:vis('.xiaM6GlobalSpot'),globalCanon:vis('.xiaM6GlobalCanon'),globalTapLabels:vis('.xiaM6GlobalTapLabel'),sheetOpen:shell.classList.contains('open'),target:shell.dataset.target||null};
   };
 }
 function updateVersion(){
-  var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M6｜Hotspots＋Global Canon v0.3｜DEVICE FIX / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
-  document.title='中國歷史 × 世界歷史｜夏朝 Xia-M6 Hotspots＋Global Canon v0.3｜DEVICE FIX / NOT FREEZE';
+  var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M6｜Hotspots＋Global Canon v0.4｜DEVICE FIX / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
+  document.title='中國歷史 × 世界歷史｜夏朝 Xia-M6 Hotspots＋Global Canon v0.4｜DEVICE FIX / NOT FREEZE';
   var eye=document.querySelector('.xiaMapHead .eyebrow');if(eye)eye.textContent='Layer 5｜Xia Map｜M6';
   var h2=document.querySelector('.xiaMapHead h2');if(h2)h2.textContent='夏朝｜約前1700｜M6';
-  var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Hotspots＋Global Canon v0.3 Device Fix。主域 Hotspot 維持既有 PASS；全域新增 map-stage capture fallback 與較安全的文化 hitbox，避免既有 Culture layer 搶走 Safari 點擊。歷史內容與 M1–M5 狀態邏輯不變。';
+  var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Hotspots＋Global Canon v0.4 Device Fix。主域 Hotspot 維持既有 PASS；全域文化 Hotspot 改由最高層、可見且獨立的 M6 文字熱區接管點擊，避免與 M4 Culture overlay 競爭。歷史內容與 M1–M5 狀態邏輯不變。';
   var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M6｜DEVICE FIX';
-  var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M6 v0.3 地圖';
+  var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M6 v0.4 地圖';
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){updateVersion();init();});else{updateVersion();init();}
 })();
 </script>
 <script id="xia-m6-meta" type="application/json">
 {
-  "version":"Xia-M6-v0.3-device-fix",
+  "version":"Xia-M6-v0.4-device-fix",
   "status":"WORKING / NOT FREEZE",
   "snapshot":"ca. 1700 BCE archaeological reading node",
   "mainHotspots":5,
@@ -15124,7 +15137,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 
 <script id="xia-m6-device-fix-v02-meta" type="application/json">
 {
-  "version":"Xia-M6-v0.3-device-fix",
+  "version":"Xia-M6-v0.4-device-fix",
   "status":"ROUND 2 RECHECK PENDING / NOT FREEZE",
   "fix":"Safari hotspot pointer/touch ownership and button hit behavior",
   "coordinatesChanged":false,
@@ -15134,7 +15147,11 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 </script>
 
 <script id="xia-m6-device-fix-v03-meta" type="application/json">
-{"version":"Xia-M6-v0.3-device-fix","status":"GLOBAL HOTSPOT EDGE/HIT RECHECK PENDING / NOT FREEZE","scope":"Global Hotspot iPhone Safari hit ownership only","changes":["global culture hitboxes enlarged/repositioned","stage-level pointer capture fallback routes short taps to M6 Global sheet","M1-M5 state/history unchanged","Main M6 hotspot semantics unchanged"],"required_device_recheck":["Global xiaqiyuan M6 sheet while Region+Culture active"]}
+{"version":"Xia-M6-v0.4-device-fix","status":"GLOBAL HOTSPOT EDGE/HIT RECHECK PENDING / NOT FREEZE","scope":"Global Hotspot iPhone Safari hit ownership only","changes":["global culture hitboxes enlarged/repositioned","stage-level pointer capture fallback routes short taps to M6 Global sheet","M1-M5 state/history unchanged","Main M6 hotspot semantics unchanged"],"required_device_recheck":["Global xiaqiyuan M6 sheet while Region+Culture active"]}
+</script>
+
+<script id="xia-m6-device-fix-v04-meta" type="application/json">
+{"version":"Xia-M6-v0.4-device-fix","status":"GLOBAL HOTSPOT LABEL RECHECK PENDING / NOT FREEZE","scope":"Global Hotspot Safari ownership only","changes":["five explicit top-layer Global M6 tap labels","visible labels are independent buttons with z-index 90","existing M4 Culture overlays remain visual/state layers only","M1-M5 history/state and M6 sheet content unchanged"],"required_device_recheck":["Global xiaqiyuan explicit M6 label opens M6 sheet while Region+Culture active"]}
 </script>
 </body>
 </html>
