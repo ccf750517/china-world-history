@@ -18,6 +18,11 @@ Primary reading nodes: Erlitou urban core; Dongxiafeng / southern Shanxi Erlitou
 Global Canon text, Region, peer-culture toggles, Bottom Sheets, hotspots, fullscreen focus and True Focus remain deferred.
 -->
 
+<!-- Xia-M6 iPhone Safari Device Fix v0.2
+Status: DEVICE FIX / ROUND 2 RECHECK PENDING / NOT FREEZE.
+Real iPhone Safari Round 1: Main/Global/Region/Culture base states rendered, but M6 hotspot sheets were not evidenced; strengthen hotspot touch ownership and Safari button hit behavior only.
+Fix scope: M6 hotspot CSS pointer ownership + touch/pointer fallback; no changes to M1-M5 historical content, M3/M4 state logic, M6 hotspot coordinates or Bottom Sheet content.
+-->
 <!DOCTYPE html>
 
 <!-- Xia-M1 Political / Archaeological Reading Layers v0.1
@@ -4893,7 +4898,7 @@ html[data-xia-m4-cultures*="qijia"] .xiaM6GlobalCanon [data-culture="qijia"],
 html[data-xia-m4-cultures*="zhukaigou"] .xiaM6GlobalCanon [data-culture="zhukaigou"],
 html[data-xia-m4-cultures*="lowerxj"] .xiaM6GlobalCanon [data-culture="lowerxj"]{display:none}
 
-.xiaM6Spot{display:none;position:absolute;z-index:12;border:0;background:rgba(0,0,0,.001);border-radius:10px;padding:0;touch-action:manipulation;-webkit-tap-highlight-color:rgba(178,135,75,.15)}
+.xiaM6Spot{display:none;position:absolute;z-index:30!important;border:0;background:rgba(0,0,0,.001);border-radius:10px;padding:0;touch-action:manipulation;-webkit-tap-highlight-color:rgba(178,135,75,.15);pointer-events:auto!important;-webkit-appearance:none;appearance:none;cursor:pointer;transform:translateZ(0);-webkit-transform:translateZ(0)}
 #xia-m1-main:checked ~ .xiaM1MapStage .xiaM6MainSpot{display:block}
 #xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalSpot{display:block}
 .xiaM6Spot:focus-visible{outline:2px solid rgba(88,62,40,.76);outline-offset:2px}
@@ -13777,7 +13782,7 @@ window.m880M7SyncBadge=sync;
 <script id="m907-m1-historical-guard" type="application/json">
 {
   "version":"907-M1-v0.1",
-  "status":"WORKING / NOT FREEZE",
+  "status":"DEVICE FIX / ROUND 2 RECHECK PENDING / NOT FREEZE",
   "snapshot":"autumn 907 CE; after Later Liang foundation and after Former Shu imperial proclamation in September",
   "layerSemantics":"historical reading envelopes; not precise sovereignty borders",
   "baseLayers":[
@@ -15018,8 +15023,33 @@ function init(){
   function closeSheet(){shell.classList.remove('open');shell.removeAttribute('data-target');document.documentElement.setAttribute('data-xia-m6-sheet','closed');}
   function showSheet(key){var d=defs[key];if(!d)return;closeOtherSheets();document.getElementById('xia-m6-sheet-eyebrow').textContent=d.eyebrow+'｜約前1700';document.getElementById('xia-m6-sheet-title').textContent=d.title;document.getElementById('xia-m6-sheet-body').textContent=d.body;document.getElementById('xia-m6-sheet-grid').innerHTML=d.cards.map(function(c){return '<div class="xiaM6SheetCard"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.target=key;shell.classList.add('open');document.documentElement.setAttribute('data-xia-m6-sheet',key);}
   stage.querySelectorAll('.xiaM6Spot').forEach(function(b){
-    ['pointerdown','pointermove','pointerup','pointercancel','touchstart'].forEach(function(t){b.addEventListener(t,function(e){e.stopPropagation();},{passive:t==='touchstart'});});
-    b.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();showSheet(b.dataset.m6);});
+    var down=null,lastActivate=0;
+    b.addEventListener('pointerdown',function(e){
+      e.stopPropagation();
+      down={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};
+    });
+    b.addEventListener('pointermove',function(e){e.stopPropagation();});
+    b.addEventListener('pointercancel',function(e){e.stopPropagation();down=null;});
+    b.addEventListener('pointerup',function(e){
+      e.stopPropagation();
+      if(!down||down.id!==e.pointerId)return;
+      var dx=e.clientX-down.x,dy=e.clientY-down.y,age=Date.now()-down.t;down=null;
+      if(Math.hypot(dx,dy)>12||age>850)return;
+      if(e.pointerType==='touch'||e.pointerType==='pen'){
+        e.preventDefault();lastActivate=Date.now();showSheet(b.dataset.m6);
+      }
+    });
+    b.addEventListener('touchstart',function(e){e.stopPropagation();},{passive:true});
+    b.addEventListener('touchend',function(e){
+      e.stopPropagation();
+      if(Date.now()-lastActivate<700)return;
+      e.preventDefault();lastActivate=Date.now();showSheet(b.dataset.m6);
+    },{passive:false});
+    b.addEventListener('click',function(e){
+      e.preventDefault();e.stopPropagation();
+      if(Date.now()-lastActivate<700)return;
+      lastActivate=Date.now();showSheet(b.dataset.m6);
+    });
   });
   document.getElementById('xia-m6-sheet-close').addEventListener('click',closeSheet);
   var main=document.getElementById('xia-m1-main'),global=document.getElementById('xia-m1-global');
@@ -15027,24 +15057,24 @@ function init(){
   window.xiaM6CloseSheet=closeSheet;
   window.xiaM6Audit=function(){
     function vis(sel){return Array.from(document.querySelectorAll(sel)).filter(function(e){var s=getComputedStyle(e);return s.display!=='none'&&s.visibility!=='hidden'&&parseFloat(s.opacity||'1')>0;}).length;}
-    return {version:'Xia-M6-v0.1',mainSpots:vis('.xiaM6MainSpot'),globalSpots:vis('.xiaM6GlobalSpot'),globalCanon:vis('.xiaM6GlobalCanon'),sheetOpen:shell.classList.contains('open'),target:shell.dataset.target||null};
+    return {version:'Xia-M6-v0.2-device-fix',mainSpots:vis('.xiaM6MainSpot'),globalSpots:vis('.xiaM6GlobalSpot'),globalCanon:vis('.xiaM6GlobalCanon'),sheetOpen:shell.classList.contains('open'),target:shell.dataset.target||null};
   };
 }
 function updateVersion(){
-  var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M6｜Hotspots＋Global Canon v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
-  document.title='中國歷史 × 世界歷史｜夏朝 Xia-M6 Hotspots＋Global Canon v0.1｜WORKING / NOT FREEZE';
+  var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M6｜Hotspots＋Global Canon v0.2｜DEVICE FIX / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
+  document.title='中國歷史 × 世界歷史｜夏朝 Xia-M6 Hotspots＋Global Canon v0.2｜DEVICE FIX / NOT FREEZE';
   var eye=document.querySelector('.xiaMapHead .eyebrow');if(eye)eye.textContent='Layer 5｜Xia Map｜M6';
   var h2=document.querySelector('.xiaMapHead h2');if(h2)h2.textContent='夏朝｜約前1700｜M6';
-  var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Hotspots＋Global Canon v0.1。主域與全域加入可點擊考古／文獻節點；全域同時固定顯示同期文化方向文字。所有資訊卡都是閱讀輔助，不把文化分布、文本記憶或對應假說轉成硬式夏疆域。';
-  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M6｜WORKING';
-  var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M6 地圖';
+  var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Hotspots＋Global Canon v0.2 Device Fix。主域與全域的 Hotspot 加強 iPhone Safari 點擊接管；歷史內容、節點位置與 M1–M5 狀態邏輯不變。';
+  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M6｜DEVICE FIX';
+  var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M6 v0.2 地圖';
 }
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){updateVersion();init();});else{updateVersion();init();}
 })();
 </script>
 <script id="xia-m6-meta" type="application/json">
 {
-  "version":"Xia-M6-v0.1",
+  "version":"Xia-M6-v0.2-device-fix",
   "status":"WORKING / NOT FREEZE",
   "snapshot":"ca. 1700 BCE archaeological reading node",
   "mainHotspots":5,
@@ -15057,5 +15087,16 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }
 </script>
 
+
+<script id="xia-m6-device-fix-v02-meta" type="application/json">
+{
+  "version":"Xia-M6-v0.2-device-fix",
+  "status":"ROUND 2 RECHECK PENDING / NOT FREEZE",
+  "fix":"Safari hotspot pointer/touch ownership and button hit behavior",
+  "coordinatesChanged":false,
+  "historicalContentChanged":false,
+  "m1ToM5StateLogicChanged":false
+}
+</script>
 </body>
 </html>
