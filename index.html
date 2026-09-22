@@ -15516,5 +15516,98 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   "freezeGate":"real-device PASS required"
 }</script>
 <div id="xia-m8-1-machine-meta" hidden data-stage="Xia-M8.1" data-status="DEVICE QC PENDING / NOT FREEZE" data-preflight="PASS" data-real-device="required" data-touch-target="44" data-next="Freeze Gate after iPhone Safari PASS"></div>
+
+
+<!-- Xia-M8.1｜iPhone Safari Device Fix v0.2
+Source: Xia-M8.1 iPhone Safari Final Device QC Candidate v0.1
+Status: DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE
+Issue from real iPhone Safari: first-screen control stack consumed excessive vertical space, forcing an extra upward swipe before meaningful map reading.
+Fix scope: mobile-only vertical compaction of the operation/M3/M4 control stack. 44×44 touch targets are retained. No historical content, M1-M7 map geometry, Region/Culture set, hotspot coordinates, Bottom Sheet content, or focus values changed.
+-->
+<style id="xia-m8-1-v02-first-screen-compact-css">
+/* M8.1 v0.2 — iPhone first-screen density fix. Visual stack is compacted without shrinking primary touch targets below 44×44 CSS px. */
+@media(max-width:430px){
+  .xiaMap .pageInner{padding-left:8px!important;padding-right:8px!important}
+  .xiaM1Panel{padding:8px!important}
+
+  /* Operation block: two deterministic rows instead of a title row + loosely wrapped controls. */
+  .xiaM1Controls{
+    display:grid!important;
+    grid-template-columns:auto minmax(74px,.9fr) minmax(112px,1.22fr) auto!important;
+    gap:4px!important;
+    align-items:center!important;
+    padding:0 0 4px!important;
+  }
+  .xiaM1Controls .title{
+    width:auto!important;margin:0!important;font-size:9px!important;line-height:1!important;
+    grid-column:1;grid-row:1;align-self:center;white-space:nowrap;
+  }
+  .xiaM1Controls label[for="xia-m1-main"]{grid-column:2;grid-row:1}
+  .xiaM1Controls label[for="xia-m1-global"]{grid-column:3;grid-row:1}
+  .xiaM1Controls .xiaM7FullscreenBtn{grid-column:4;grid-row:1}
+  .xiaM1Controls .node{margin:0!important;min-width:0!important;text-align:center;padding:5px 3px!important;line-height:1.05!important;font-size:10px!important}
+  .xiaM1Controls .node:nth-of-type(1){grid-column:1;grid-row:2}
+  .xiaM1Controls .node:nth-of-type(2){grid-column:2;grid-row:2}
+  .xiaM1Controls .node:nth-of-type(3){grid-column:3;grid-row:2}
+  .xiaM1Controls .node:nth-of-type(4){grid-column:4;grid-row:2}
+  .xiaM1Controls label,.xiaM1Controls .xiaM7FullscreenBtn{
+    min-height:44px!important;height:44px!important;padding:0 8px!important;line-height:1!important;
+    font-size:10.5px!important;white-space:nowrap!important;
+  }
+  .xiaM1Controls .xiaM7FullscreenBtn{min-width:72px!important;font-size:9.5px!important}
+
+  /* M3/M4 each become one compact horizontal control row. */
+  .xiaM3RegionWrap,.xiaM4CultureWrap{
+    display:grid!important;grid-template-columns:auto minmax(0,1fr)!important;align-items:center!important;
+    column-gap:5px!important;margin-top:4px!important;padding-top:4px!important;margin-bottom:0!important;
+  }
+  .xiaM3RegionTitle,.xiaM4CultureTitle{
+    margin:0!important;font-size:9px!important;line-height:1.1!important;white-space:nowrap!important;
+  }
+  .xiaM3RegionRail,.xiaM4CultureRail{
+    min-width:0!important;gap:4px!important;padding:0!important;align-items:center!important;
+  }
+  .xiaM3RegionBtn,.xiaM4CultureBtn{
+    min-width:44px!important;min-height:44px!important;height:44px!important;padding:0 9px!important;
+    line-height:1!important;font-size:10px!important;
+  }
+  .xiaM1MapStage{margin-top:4px!important}
+}
+</style>
+<script id="xia-m8-1-v02-first-screen-compact-js">
+(function(){
+'use strict';
+function boot(){
+  var root=document.documentElement;
+  root.setAttribute('data-xia-m8-1-device-qc','device-fix-v0.2-recheck');
+  root.setAttribute('data-xia-m8-1-first-screen','compact');
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8.1 iPhone Safari 裝置修正 v0.2';
+  var meta=document.querySelector('.header .meta');
+  if(meta)meta.textContent='夏朝 Xia-M8.1｜iPhone Safari 裝置修正 v0.2｜實機複驗待完成｜尚未凍結｜UI-D1.1＋唐朝正式基準受保護';
+  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M8.1｜裝置複驗';
+  if(window.matchMedia&&window.matchMedia('(max-width:430px)').matches){
+    var r=document.querySelector('.xiaM3RegionTitle');if(r)r.textContent='M3｜考古區';
+    var c=document.querySelector('.xiaM4CultureTitle');if(c)c.textContent='M4｜同期文化';
+  }
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m8-1-v02-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"Device Fix v0.2",
+  "status":"REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE",
+  "issue":"first-screen control stack too tall; map required an extra upward swipe",
+  "fix":"mobile-only compact two-row operation grid + single-row M3/M4 rails + reduced noninteractive spacing",
+  "touchTargetMinimum":"44x44 CSS px for primary interactive controls",
+  "historicalContentChange":false,
+  "mapGeometryChange":false,
+  "regionSetChange":false,
+  "cultureSetChange":false,
+  "hotspotCoordinateChange":false,
+  "focusValueChange":false,
+  "next":"real iPhone Safari first-screen recheck; then remaining M8.1 Device QC"
+}</script>
+<div id="xia-m8-1-v02-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.2" data-status="REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-first-screen="compact" data-touch-target="44" data-next="iPhone Safari recheck"></div>
 </body>
 </html>
