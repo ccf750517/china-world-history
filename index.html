@@ -14823,5 +14823,84 @@ Semantics: archaeological cultures / interaction systems, not states, foreign co
 }
 </script>
 
+
+
+<!-- Xia-M5 Region Bottom Sheets + click-again toggle v0.1
+Source: Xia-M4 Contemporary Archaeological Cultures Toggle + Bottom Sheets v0.1
+Status: WORKING / NOT FREEZE
+Scope: Region Bottom Sheets for six M3 archaeological reading regions, preserving M4 Culture multi-select and M3 click-again semantics.
+Semantics: research reading regions, not administrative divisions or sovereignty borders.
+-->
+<style id="xia-m5-style">
+.xiaM5SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:181;display:none;padding:0 8px;pointer-events:none}
+.xiaM5SheetShell.open{display:block}
+.xiaM5Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.18);padding:14px 16px 16px;max-height:54vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.xiaM5SheetGrip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.xiaM5SheetHead{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.xiaM5SheetEyebrow{font-size:9px;color:#786a5b;margin-bottom:3px}
+.xiaM5SheetTitle{font-size:20px;font-weight:950;line-height:1.15}
+.xiaM5SheetClose{flex:0 0 auto;width:36px;height:36px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:20px;font-weight:900}
+.xiaM5SheetBody{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}
+.xiaM5SheetGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.xiaM5SheetCard{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}
+.xiaM5SheetCard b{display:block;color:#705538;margin-bottom:2px}
+@media(max-width:430px){.xiaM5SheetGrid{grid-template-columns:1fr 1fr}.xiaM5Sheet{padding:13px 14px 15px}}
+</style>
+<script id="xia-m5-region-sheets-js">
+(function(){
+  var defs={
+    iluo:{label:'伊洛／二里頭',eyebrow:'核心區閱讀｜都邑與聚落層級',body:'此區以伊洛盆地與二里頭都邑核心為閱讀中心，用來比較都邑、聚落層級、水系與近距離資源網絡。它是考古閱讀包絡，不等於已證實的「夏都行政區」或夏王朝硬式疆界。',cards:[['核心節點','二里頭都邑與伊洛盆地'],['閱讀重點','聚落層級、交通與水系'],['方法防護','核心文化區 ≠ 已證實政治疆界']]},
+    jinnan:{label:'晉南／東下馮',eyebrow:'北方互動閱讀｜資源與地方類型',body:'此區以晉南、東下馮及中條山方向的文化與資源互動作比較閱讀。二里頭文化因素與地方遺存可在此討論，但本系統不把它畫成夏王朝的固定行政區。',cards:[['代表節點','東下馮與晉南遺存'],['閱讀重點','資源、地方類型與交流'],['方法防護','文化互動 ≠ 行政隸屬']]},
+    songshan:{label:'嵩山／鄭洛',eyebrow:'中部走廊閱讀｜轉折與區域連接',body:'此區用來閱讀嵩山、鄭洛之間的考古序列與區域連接，並放置新砦等較早期轉折脈絡。它不是約前1700年的單一政治中心模型。',cards:[['脈絡節點','新砦等較早期轉折材料'],['閱讀重點','文化序列與區域連接'],['方法防護','早期脈絡 ≠ 同期王權中心']]},
+    east:{label:'豫東',eyebrow:'東向擴展閱讀｜文化分布與地方差異',body:'此區用來比較二里頭文化因素向豫東方向的擴展、地方類型與互動。包絡只表示研究閱讀範圍，不表示夏王朝向東的確定國界。',cards:[['方向','豫東及東向文化接觸'],['閱讀重點','擴展、地方差異與交流'],['方法防護','分布範圍 ≠ 主權範圍']]},
+    south:{label:'豫南',eyebrow:'南向互動閱讀｜文化交界與交流',body:'此區用來觀察豫南方向的文化交界、交流與地方差異。M3/M5 的包絡不是「夏朝南界」，而是方便比較考古材料的閱讀區。',cards:[['方向','豫南與南向交流走廊'],['閱讀重點','文化交界與地方差異'],['方法防護','交流走廊 ≠ 國境線']]},
+    west:{label:'陝東／商洛',eyebrow:'西向連接閱讀｜通道與資源互動',body:'此區用來閱讀陝東、商洛方向與中原核心之間的通道、資源與文化互動。現階段不把這些線索轉換成夏王朝西部行政疆界。',cards:[['方向','陝東／商洛及西向通道'],['閱讀重點','資源、交通與文化互動'],['方法防護','連接存在 ≠ 政治控制']]}
+  };
+  function init(){
+    var rail=document.querySelector('.xiaM3RegionRail'); if(!rail||document.getElementById('xia-m5-region-sheet-shell'))return;
+    rail.querySelectorAll('.xiaM3RegionBtn').forEach(function(b){b.setAttribute('aria-controls','xia-m5-region-sheet-shell');b.setAttribute('aria-expanded','false');});
+    var shell=document.createElement('div');shell.id='xia-m5-region-sheet-shell';shell.className='xiaM5SheetShell';shell.setAttribute('aria-live','polite');
+    shell.innerHTML='<section class="xiaM5Sheet" role="dialog" aria-modal="false" aria-labelledby="xia-m5-sheet-title"><div class="xiaM5SheetGrip"></div><div class="xiaM5SheetHead"><div><div id="xia-m5-sheet-eyebrow" class="xiaM5SheetEyebrow"></div><div id="xia-m5-sheet-title" class="xiaM5SheetTitle"></div></div><button id="xia-m5-sheet-close" class="xiaM5SheetClose" type="button" aria-label="關閉區域資訊卡">×</button></div><div id="xia-m5-sheet-body" class="xiaM5SheetBody"></div><div id="xia-m5-sheet-grid" class="xiaM5SheetGrid"></div></section>';
+    document.body.appendChild(shell);
+    function clearExpanded(){rail.querySelectorAll('.xiaM3RegionBtn').forEach(function(b){b.setAttribute('aria-expanded','false');});}
+    function closeSheet(){shell.classList.remove('open');shell.removeAttribute('data-region');clearExpanded();document.documentElement.setAttribute('data-xia-m5-region-sheet','closed');}
+    function closeCultureSheet(){var s=document.getElementById('xia-m4-sheet-shell');if(s){s.classList.remove('open');s.removeAttribute('data-culture');}}
+    function showSheet(k){var d=defs[k];if(!d)return;closeCultureSheet();clearExpanded();document.getElementById('xia-m5-sheet-eyebrow').textContent=d.eyebrow+'｜約前1700';document.getElementById('xia-m5-sheet-title').textContent=d.label;document.getElementById('xia-m5-sheet-body').textContent=d.body;document.getElementById('xia-m5-sheet-grid').innerHTML=d.cards.map(function(c){return '<div class="xiaM5SheetCard"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.region=k;shell.classList.add('open');var b=rail.querySelector('[data-region="'+k+'"]');if(b)b.setAttribute('aria-expanded','true');document.documentElement.setAttribute('data-xia-m5-region-sheet',k);}
+    rail.addEventListener('click',function(e){var b=e.target.closest('.xiaM3RegionBtn');if(!b)return;var k=b.dataset.region;setTimeout(function(){if(b.getAttribute('aria-pressed')==='true')showSheet(k);else if(shell.dataset.region===k)closeSheet();},0);});
+    var cRail=document.querySelector('.xiaM4CultureRail');if(cRail)cRail.addEventListener('click',function(){closeSheet();},true);
+    document.getElementById('xia-m5-sheet-close').addEventListener('click',closeSheet);
+    window.xiaM5CloseRegionSheet=closeSheet;
+    document.documentElement.setAttribute('data-xia-m5-region-sheet','closed');
+  }
+  function updateVersion(){
+    var m=document.querySelector('.header .meta');if(m)m.textContent='Xia-M5｜Region Bottom Sheets＋click-again toggle v0.1｜WORKING / NOT FREEZE｜UI-D1.1＋唐朝 Final Canon protected';
+    document.title='中國歷史 × 世界歷史｜夏朝 Xia-M5 Region Bottom Sheets＋click-again toggle v0.1｜WORKING / NOT FREEZE';
+    var eyebrow=document.querySelector('.xiaMapHead .eyebrow');if(eyebrow)eyebrow.textContent='Layer 5｜Xia Map｜M5';
+    var head=document.querySelector('.xiaMapHead h2');if(head)head.textContent='夏朝｜約前1700｜M5';
+    var lead=document.querySelector('.xiaMapHead .lead');if(lead)lead.textContent='Region Bottom Sheets＋click-again toggle v0.1。六個考古閱讀區現在可開啟各自說明；手動關閉資訊卡不取消 Region，同區再次點擊才取消選取。所有 Region 仍是研究閱讀包絡，不是行政疆界。';
+    var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M5｜WORKING';
+    var launch=document.querySelector('.xiaM1Launch b');if(launch)launch.textContent='進入 M5 地圖';
+    var hub=document.querySelector('.xiaHub h2');if(hub)hub.innerHTML='夏朝｜Historical Baseline → M5';
+    var gate=document.querySelector('.xiaHub .stats .stat:first-child b');if(gate)gate.textContent='M5';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){updateVersion();init();});else{updateVersion();init();}
+})();
+</script>
+<script id="xia-m5-meta" type="application/json">
+{
+  "version":"Xia-M5-v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "snapshot":"ca. 1700 BCE archaeological reading node",
+  "regions":["伊洛／二里頭","晉南／東下馮","嵩山／鄭洛","豫東","豫南","陝東／商洛"],
+  "bottomSheets":true,
+  "clickAgainToggle":true,
+  "manualCloseKeepsRegion":true,
+  "directSwitch":true,
+  "cultureCoexistence":true,
+  "semantics":"archaeological reading regions, not administrative divisions or sovereignty borders",
+  "source":"Xia-M4 Contemporary Archaeological Cultures Toggle + Bottom Sheets v0.1"
+}
+</script>
+
 </body>
 </html>
