@@ -1,3 +1,10 @@
+<!-- Xia-M8｜歷史地理最終閘門 v0.1
+Source: Xia-M7 v0.2 DEVICE FIX — user-confirmed Final Canon / Freeze on 2026-09-22 after iPhone Safari Device QC PASS.
+Status: FINAL CANDIDATE / NOT FREEZE.
+Scope: historical-geography semantics, Traditional-Chinese visible terminology, state/accessibility consistency, M1-M7 regression guard, and M8.1 device-QC handoff.
+No new archaeological/political geometry, region set, culture set, hotspot coordinates, or focus values are introduced in M8.
+UI-D1.1 and all Tang Final Canon blocks remain read-only protected.
+-->
 <!-- Xia-M3 Archaeological Reading Regions v0.1
 Source: Xia-M2 iPhone Safari Device Fix v0.2
 Status: WORKING / NOT FREEZE
@@ -15291,5 +15298,223 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }</script>
 <div id="xia-m7-machine-meta" hidden data-version="Xia-M7-v0.2-device-fix" data-status="DEVICE FIX / NOT FREEZE" data-main-focus="100" data-global-focus="100" data-regions="6" data-hotspots="M6-preserved" data-hard-border="false"></div>
 
+
+<style id="xia-m8-final-gate-style">
+/* Xia-M8：歷史地理最終閘門。僅做最終語義、可用性與狀態一致性修正；不改 M1-M7 地圖幾何與聚焦值。 */
+.xiaM8Guard{margin-top:9px;padding:10px 11px;background:#fff3d8;border-left:4px solid #8f6936;border-radius:12px;font-size:10px;line-height:1.65;color:#4d4033}
+.xiaM8Guard b{color:#3e3025}
+.xiaM8Guard .sub{display:block;margin-top:4px;color:#6a5948;font-size:9px}
+/* 手機優先：主要切換控制至少 44px 高；不改地圖熱區幾何。 */
+.xiaM1Controls label,.xiaM3RegionBtn,.xiaM4CultureBtn,.xiaM7FullscreenBtn,.xiaM7Toolbar button{min-height:44px}
+.xiaM7Toolbar button{min-width:44px}
+.xiaM1Controls label,.xiaM3RegionBtn,.xiaM4CultureBtn,.xiaM7FullscreenBtn,.xiaM7Toolbar button{display:inline-flex;align-items:center;justify-content:center}
+.xiaM7FocusBadge{min-height:36px;display:inline-flex;align-items:center}
+html.xiaM7Fullscreen .xiaM8Guard{display:none!important}
+@media(max-width:430px){.xiaM3RegionBtn,.xiaM4CultureBtn{font-size:11px}.xiaM7Toolbar button{font-size:11px}.xiaM7FocusBadge{font-size:9px}}
+</style>
+<script id="xia-m8-final-gate-js">
+(function(){
+'use strict';
+var root=document.documentElement;
+function one(sel){return document.querySelector(sel);}
+function setText(sel,txt){var e=one(sel);if(e)e.textContent=txt;}
+function replaceVisible(rootNode,pairs){
+  if(!rootNode)return;
+  var w=document.createTreeWalker(rootNode,NodeFilter.SHOW_TEXT,{acceptNode:function(n){
+    var p=n.parentElement;if(!p||/^(SCRIPT|STYLE|NOSCRIPT)$/i.test(p.tagName))return NodeFilter.FILTER_REJECT;
+    return NodeFilter.FILTER_ACCEPT;
+  }});
+  var n,arr=[];while(n=w.nextNode())arr.push(n);
+  arr.forEach(function(t){var orig=t.nodeValue,s=orig;pairs.forEach(function(p){s=s.split(p[0]).join(p[1]);});if(s!==orig)t.nodeValue=s;});
+}
+function syncSheetA11y(){
+  var m4=one('#xia-m4-sheet-shell'),m5=one('#xia-m5-region-sheet-shell'),m6=one('#xia-m6-sheet-shell');
+  function open(s){return !!(s&&s.classList.contains('open'));}
+  if(m4){m4.setAttribute('aria-hidden',open(m4)?'false':'true');var k4=m4.dataset.culture||'';document.querySelectorAll('.xiaM4CultureBtn').forEach(function(b){b.setAttribute('aria-controls','xia-m4-sheet-shell');b.setAttribute('aria-expanded',(open(m4)&&b.dataset.culture===k4)?'true':'false');});}
+  if(m5){m5.setAttribute('aria-hidden',open(m5)?'false':'true');var k5=m5.dataset.region||'';document.querySelectorAll('.xiaM3RegionBtn').forEach(function(b){b.setAttribute('aria-expanded',(open(m5)&&b.dataset.region===k5)?'true':'false');});}
+  if(m6){m6.setAttribute('aria-hidden',open(m6)?'false':'true');var k6=m6.dataset.target||'';document.querySelectorAll('.xiaM6Spot,.xiaM6GlobalTapLabel').forEach(function(b){b.setAttribute('aria-controls','xia-m6-sheet-shell');b.setAttribute('aria-expanded',(open(m6)&&b.dataset.m6===k6)?'true':'false');});}
+}
+function installObservers(){
+  ['xia-m4-sheet-shell','xia-m5-region-sheet-shell','xia-m6-sheet-shell'].forEach(function(id){var s=document.getElementById(id);if(s)new MutationObserver(syncSheetA11y).observe(s,{attributes:true,attributeFilter:['class','data-culture','data-region','data-target']});});
+  var m6grid=one('#xia-m6-sheet-grid');if(m6grid)new MutationObserver(function(){replaceVisible(one('#xia-m6-sheet-shell'),[['reading envelope','閱讀包絡']]);}).observe(m6grid,{childList:true,subtree:true,characterData:true});
+}
+/* M8 全域熱點歸屬守門：舊 M6 座標回退會讓重疊矩形互搶事件。
+   M8 先以實際畫面矩形判定，優先順序為：明確文化文字按鈕 > B/C 方法層 > 其他寬鬆文化矩形。
+   這不是新增熱點，而是把既有 7 個全域熱點的點擊歸屬固定化，並同時涵蓋嵌入與全螢幕。 */
+function installGlobalOwnershipGuard(){
+  var stage=one('.xiaM1MapStage'),global=one('#xia-m1-global');if(!stage||!global||window.__xiaM8GlobalGuard)return;window.__xiaM8GlobalGuard=1;
+  var down=null,methodKeys={transmitted:1,correlation:1};
+  function visibleHitList(x,y){
+    return Array.from(stage.querySelectorAll('.xiaM6GlobalTapLabel,.xiaM6GlobalSpot')).filter(function(b){
+      var cs=getComputedStyle(b);if(cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<=0)return false;
+      var r=b.getBoundingClientRect();return x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom;
+    });
+  }
+  function smallest(list){return list.sort(function(a,b){var ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();return ar.width*ar.height-br.width*br.height;})[0]||null;}
+  function owner(hits){
+    var explicit=hits.filter(function(b){return b.classList.contains('xiaM6GlobalTapLabel');});if(explicit.length)return smallest(explicit);
+    var method=hits.filter(function(b){return !!methodKeys[b.dataset.m6];});if(method.length)return smallest(method);
+    return smallest(hits);
+  }
+  window.addEventListener('pointerdown',function(e){
+    if(!global.checked||!stage.contains(e.target))return;
+    down={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};
+  },true);
+  window.addEventListener('pointerup',function(e){
+    if(!global.checked||!down||down.id!==e.pointerId)return;
+    var d=down;down=null;if(Math.hypot(e.clientX-d.x,e.clientY-d.y)>14||Date.now()-d.t>900)return;
+    var hit=owner(visibleHitList(e.clientX,e.clientY));if(!hit)return;
+    var key=hit.dataset.m6;if(!key||!window.xiaM6ShowSheet)return;
+    e.preventDefault();e.stopImmediatePropagation();window.xiaM6ShowSheet(key);syncSheetA11y();
+  },true);
+  window.addEventListener('pointercancel',function(){down=null;},true);
+}
+function addGuard(){
+  if(one('#xia-m8-hg-guard'))return;
+  var d=document.createElement('div');d.id='xia-m8-hg-guard';d.className='xiaM8Guard';
+  d.innerHTML='<b>M8｜歷史地理最終閘門：</b>「約前1700」是考古閱讀截面，不是精確夏王在位年。A 類考古、B 類傳世文獻、C 類考古—文獻對應假說與 D 類爭議未定必須分層；二里頭遺址／二里頭文化不得無條件等同傳世文獻中的夏王朝。六個區域是研究閱讀包絡，五種同期文化是約前1700前後的比較層；文化分布、交流網絡、文本記憶與對應假說均不等於已證實的夏王朝硬式主權疆界。<span class="sub">同期文化的年代範圍彼此並不完全相同；本圖表達「大致同時／近同期比較窗」，不主張它們在某一精確年份完全同步。</span>';
+  var anchor=one('#xia-m6-global-canon-note')||one('.xiaM1Guard');if(anchor)anchor.insertAdjacentElement('afterend',d);
+}
+function finalText(){
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8 歷史地理最終閘門 v0.1｜最終候選';
+  setText('.header .meta','夏朝 Xia-M8｜歷史地理最終閘門 v0.1｜最終候選／尚未凍結｜UI-D1.1＋唐朝正式基準受保護');
+  var xiaBack=one('.backToXiaHub .backTarget');if(xiaBack)xiaBack.textContent='夏朝入口';var xiaBackLabel=one('.backToXiaHub');if(xiaBackLabel)xiaBackLabel.setAttribute('aria-label','上一頁，返回夏朝入口');
+  setText('.xiaHub .eyebrow','第 2 層｜朝代入口｜M8');
+  setText('.xiaHub .xiaStatus','最終候選／尚未凍結');
+  setText('.xiaHub h2','夏朝｜史實基準 → M8');
+  var hubLead=one('.xiaHub .hero .lead');if(hubLead)hubLead.textContent='夏朝模組已完成 M1～M7 的證據分層、主要考古節點、六個閱讀區、同期文化、資訊卡、熱點與全螢幕真實聚焦。M8 不再擴張地圖功能，而是鎖定約前1700考古閱讀截面的歷史地理語義、方法防護與回歸標準；任何面狀範圍仍不得解讀為已證實的夏王朝硬式疆界。';
+  var gate=one('.xiaHub .stats .stat:first-child b');if(gate)gate.textContent='M8';var gateLabel=one('.xiaHub .stats .stat:first-child span');if(gateLabel)gateLabel.textContent='目前閘門';
+  var launch=one('.xiaM1Launch b');if(launch)launch.textContent='進入 M8 地圖';
+  setText('.xiaMapHead .eyebrow','第 6 層｜夏朝地圖｜M8');
+  setText('.xiaMapHead h2','夏朝研究｜約前1700考古閱讀截面｜M8');
+  var lead=one('.xiaMapHead .lead');if(lead)lead.textContent='M8 歷史地理最終閘門。M1～M7 的主域／全域、六個區域真實聚焦、同期文化、資訊卡與熱點全部保留；本輪只收斂史實語義、中文介面、狀態一致性與最終 QC，不新增硬式疆界。';
+  setText('.xiaM1Badge','M8｜最終候選');
+  var src=one('.xiaM1Sources');if(src)src.textContent='研究基準：二里頭時期位於前二千紀早段，約前1700可作二里頭都邑已形成後的工作閱讀截面；二里頭與傳世文獻中「夏」的對應是重要研究框架，但必須與可直接觀察的考古材料分層。同期文化僅作大致同時／近同期比較，不用來推定政治隸屬。';
+  var dcard=Array.from(document.querySelectorAll('.xiaEvidence.d')).find(function(x){return /二里頭晚期/.test(x.textContent)});if(dcard)dcard.innerHTML='<b>D｜爭議／未定</b>夏的絕對年代、各王在位年、都邑精確位置，以及二里頭各期如何與文獻中的夏末／早商對應等。介面必須明示不確定性。';
+  var xq=one('.xiaM6GlobalTapLabel[data-m6="xiaqiyuan"]');if(xq){xq.textContent='下七垣｜豫北冀南';xq.setAttribute('aria-label','下七垣｜豫北冀南：開啟 M6 說明');}
+  var close6=one('#xia-m6-sheet-close');if(close6)close6.setAttribute('aria-label','關閉熱點資訊卡');
+  var minus=one('#xia-m7-minus'),plus=one('#xia-m7-plus'),reset=one('#xia-m7-reset'),exit=one('#xia-m7-exit'),badge=one('#xia-m7-badge');
+  if(minus)minus.setAttribute('aria-label','縮小地圖');if(plus)plus.setAttribute('aria-label','放大地圖');if(reset)reset.setAttribute('aria-label','重置地圖聚焦');if(exit)exit.setAttribute('aria-label','退出全螢幕地圖');if(badge){badge.setAttribute('role','status');badge.setAttribute('aria-live','polite');if(/165%/.test(badge.textContent))badge.textContent='主域 100%';}
+  replaceVisible(one('.xiaHub'),[
+    ['WORKING / NOT FREEZE','施工中／尚未凍結'],['Historical Baseline','史實基準'],['目前 Gate','目前閘門'],['Gate','閘門'],['Toggle','切換'],['Bottom Sheet','底部面板'],['Freeze','凍結'],['PASS 條件','通過條件'],['UI 必須','介面必須']
+  ]);
+  replaceVisible(one('.xiaMap'),[
+    ['Archaeological Reading Region','考古閱讀區'],['Historical / Archaeological Reading Envelope','歷史／考古閱讀包絡'],['Global Canon','全域正式閱讀層'],['reading envelope','閱讀包絡'],['Hotspot','熱點'],['Region','區域'],['Culture','文化'],['Main / Global','主域／全域'],['Main','主域'],['Global','全域'],['True Focus','真實聚焦']
+  ]);
+}
+function historicalSheetCorrections(){
+  var m4=one('#xia-m4-sheet-shell'),m6=one('#xia-m6-sheet-shell');
+  function fixM4(){
+    if(!m4||!m4.classList.contains('open'))return;
+    var k=m4.dataset.culture||'',eye=one('#xia-m4-sheet-eyebrow'),body=one('#xia-m4-sheet-body'),grid=one('#xia-m4-sheet-grid');
+    if(k==='xiaqiyuan'){
+      var xqEye='豫北／冀南｜先商問題研究的重要系統｜約前1700',xqBody='前二千紀早段的比較閱讀中，下七垣文化與二里頭時期有顯著年代重疊，主要分布於豫北、冀南一帶。它常被納入先商問題討論，但本圖不把整個下七垣文化無條件等同於單一「先商」政治實體，也不據此畫出政權疆界。';
+      if(eye&&eye.textContent!==xqEye)eye.textContent=xqEye;
+      if(body&&body.textContent!==xqBody)body.textContent=xqBody;
+      if(grid)replaceVisible(grid,[['與二里頭文化大致相始終','與二里頭時期有顯著重疊']]);
+    }else if(k==='lowerxj'){
+      var lxBody='夏家店下層文化主要年代落在前二千紀早至中段，在遼西與內蒙古東部形成自己的聚落與文化系統，與本約前1700閱讀截面有年代重疊，亦可見與中原交流的線索。M4 以遠距文化網絡處理，不把其範圍視為夏王朝疆界。';
+      if(body&&body.textContent!==lxBody)body.textContent=lxBody;
+      if(grid)replaceVisible(grid,[['約當夏至早商時期','與本截面有年代重疊']]);
+    }
+  }
+  function fixM6(){
+    if(!m6)return;var title=one('#xia-m6-sheet-title'),body=one('#xia-m6-sheet-body');
+    if(title&&/下七垣文化/.test(title.textContent)&&body){var oldBody=body.textContent,newBody=oldBody.replace('主要用於豫北／冀南的先商文化研究與中原北部互動比較。','主要用於豫北／冀南區域考古、先商問題研究與中原北部互動比較；是否可把整個下七垣文化無條件等同「先商」不作定論。');if(newBody!==oldBody)body.textContent=newBody;}
+    replaceVisible(m6,[['reading envelope','閱讀包絡']]);
+  }
+  if(m4)new MutationObserver(fixM4).observe(m4,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','data-culture']});
+  if(m6)new MutationObserver(fixM6).observe(m6,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['class','data-target']});
+  fixM4();fixM6();
+}
+function machineState(){
+  if(!root.hasAttribute('data-xia-m4-cultures'))root.setAttribute('data-xia-m4-cultures','none');
+  if(!root.hasAttribute('data-xia-m5-region-sheet'))root.setAttribute('data-xia-m5-region-sheet','closed');
+  if(!root.hasAttribute('data-xia-m6-sheet'))root.setAttribute('data-xia-m6-sheet','closed');
+  if(!root.hasAttribute('data-xia-m7-focus'))root.setAttribute('data-xia-m7-focus','embedded');
+  root.setAttribute('data-xia-m8-gate','final-candidate');
+}
+function boot(){machineState();addGuard();finalText();syncSheetA11y();installObservers();installGlobalOwnershipGuard();historicalSheetCorrections();}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m7-freeze-record" type="application/json">{
+  "stage":"Xia-M7",
+  "status":"FINAL CANON / FREEZE",
+  "freezeDate":"2026-09-22",
+  "deviceQC":"iPhone Safari PASS",
+  "scope":"Main/Global fullscreen, 6-region True Focus, M6 hotspot ownership and state persistence",
+  "note":"This record supersedes earlier pre-freeze WORKING / DEVICE FIX status markers retained in source for provenance."
+}</script>
+<script id="xia-m8-meta" type="application/json">{
+  "version":"Xia-M8-v0.1",
+  "status":"FINAL CANDIDATE / NOT FREEZE",
+  "stage":"Historical Geography Final Gate",
+  "snapshot":"c.1700 BCE archaeological reading node; not a precise Xia royal reign year",
+  "evidenceModel":{"A":"archaeological observation","B":"transmitted textual tradition","C":"archaeology-text correlation hypothesis","D":"contested/unresolved"},
+  "hardSovereigntyBorder":false,
+  "regions":6,
+  "peerCultures":5,
+  "mainHotspots":5,
+  "globalHotspots":7,
+  "globalTapLabels":5,
+  "fullscreenMain":100,
+  "fullscreenGlobal":100,
+  "regionTrueFocus":{"伊洛／二里頭":145,"晉南／東下馮":150,"嵩山／鄭洛":145,"豫東":145,"豫南":145,"陝東／商洛":145},
+  "m8Changes":["final historical-geography guard","Traditional-Chinese visible terminology","deterministic initial state metadata","ARIA state consistency for M4/M5/M6 sheets","Global hotspot ownership priority guard before legacy coordinate fallback","44px primary mobile controls","cautious Xiaqiyuan/proto-Shang wording"],
+  "protected":["UI-D1.1 Final Canon","Tang Final Canon","Xia M1-M7 geometry and focus values"],
+  "next":"Xia-M8.1 iPhone Safari Final Device QC"
+}</script>
+<div id="xia-m8-machine-meta" hidden data-version="Xia-M8-v0.1" data-status="FINAL CANDIDATE / NOT FREEZE" data-source-m7="FINAL CANON / FREEZE" data-snapshot="c.1700 BCE archaeological reading node" data-hard-border="false" data-regions="6" data-peer-cultures="5" data-main-hotspots="5" data-global-hotspots="7" data-main-focus="100" data-global-focus="100" data-next="Xia-M8.1 iPhone Safari Final Device QC"></div>
+
+
+
+<!-- Xia-M8.1｜iPhone Safari 最終實機 QC 候選 v0.1
+Source: Xia-M8 Historical Geography Final Gate v0.1 (PASS / FINAL CANDIDATE / NOT FREEZE)
+Status: DEVICE QC PENDING / NOT FREEZE
+Scope: device-QC prep only. No historical content, map geometry, Region/Culture set, hotspot coordinates, or focus values changed.
+Preflight correction: Bottom Sheet close controls raised to 44×44 CSS px minimum touch target.
+-->
+<style id="xia-m8-1-device-qc-prep-style">
+/* M8.1 pre-device correction: all three Bottom Sheet close controls meet the 44×44 mobile touch target. */
+.xiaM4SheetClose,.xiaM5SheetClose,.xiaM6SheetClose{
+  width:44px!important;height:44px!important;min-width:44px!important;min-height:44px!important;
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  touch-action:manipulation!important;
+}
+</style>
+<script id="xia-m8-1-device-qc-prep-js">
+(function(){
+'use strict';
+function boot(){
+  var root=document.documentElement;
+  root.setAttribute('data-xia-m8-1-device-qc','pending');
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8.1 iPhone Safari 最終實機 QC 候選';
+  var meta=document.querySelector('.header .meta');
+  if(meta)meta.textContent='夏朝 Xia-M8.1｜iPhone Safari 最終實機 QC 候選｜尚未凍結｜UI-D1.1＋唐朝正式基準受保護';
+  var eye=document.querySelector('.xiaMapHead .eyebrow');if(eye)eye.textContent='第 6 層｜夏朝地圖｜M8.1';
+  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M8.1｜實機 QC';
+  ['xia-m4-sheet-close','xia-m5-sheet-close','xia-m6-sheet-close'].forEach(function(id){var b=document.getElementById(id);if(b)b.setAttribute('data-m81-touch-target','44');});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m8-1-device-qc-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"v0.1",
+  "status":"DEVICE QC PENDING / NOT FREEZE",
+  "source":"Xia-M8 Historical Geography Final Gate v0.1",
+  "deviceTarget":"real iPhone Safari",
+  "viewportReference":"393x852 CSS px",
+  "preflight":"PASS",
+  "preflightFix":"M4/M5/M6 Bottom Sheet close controls 36x36 -> 44x44 CSS px",
+  "historicalContentChange":false,
+  "mapGeometryChange":false,
+  "hotspotCoordinateChange":false,
+  "focusValueChange":false,
+  "requiredFinalChecks":["embedded main","embedded global","M4/M5/M6 Bottom Sheets","fullscreen main","fullscreen global","6-region true focus","same-region second tap cancel","region+culture coexist","edge safe margin","Safari state restore"],
+  "freezeGate":"real-device PASS required"
+}</script>
+<div id="xia-m8-1-machine-meta" hidden data-stage="Xia-M8.1" data-status="DEVICE QC PENDING / NOT FREEZE" data-preflight="PASS" data-real-device="required" data-touch-target="44" data-next="Freeze Gate after iPhone Safari PASS"></div>
 </body>
 </html>
