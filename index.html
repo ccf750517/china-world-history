@@ -15092,10 +15092,12 @@ function init(){
     return null;
   }
   stage.addEventListener('pointerdown',function(e){
+    if(window.__xiaM81V03DirectOwners)return;
     if(!global||!global.checked)return;
     stageDown={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};
   },true);
   stage.addEventListener('pointerup',function(e){
+    if(window.__xiaM81V03DirectOwners)return;
     if(!global||!global.checked||!stageDown||stageDown.id!==e.pointerId)return;
     var d=stageDown; stageDown=null;
     if(Math.hypot(e.clientX-d.x,e.clientY-d.y)>14||Date.now()-d.t>900)return;
@@ -15609,5 +15611,121 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   "next":"real iPhone Safari first-screen recheck; then remaining M8.1 Device QC"
 }</script>
 <div id="xia-m8-1-v02-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.2" data-status="REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-first-screen="compact" data-touch-target="44" data-next="iPhone Safari recheck"></div>
+
+
+<!-- Xia-M8.1｜iPhone Safari Device Fix v0.3
+Source: Xia-M8.1 iPhone Safari Device Fix v0.2 + real iPhone Safari Round 2 evidence
+Status: DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE
+Issues fixed:
+1) Global map visible A-layer labels were not reliably tappable; Global is now an interactive superset of Main.
+2) Global broad fallback hit rectangles competed with visible labels on iPhone Safari; replaced by seven deterministic visible/semantic owners (5 culture labels + B/C method owners).
+3) Repeated Global/M4/Region text labels caused collision; redundant duplicate text is suppressed while geometry remains.
+4) Home Xia progress card still showed Pre-M1 after Safari reload; synchronized to M8.1 device-QC status.
+No historical-content, political/archaeological geometry, Region/Culture set, or True Focus value change.
+-->
+<style id="xia-m8-1-v03-hotspot-label-fix-css">
+/* Global is a semantic superset of Main: the five A-layer hotspot owners remain tappable. */
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6MainSpot{display:block!important;z-index:94!important}
+/* Retire the seven old broad Global rectangles from pointer ownership. Five culture labels + two method owners replace them. */
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalSpot{display:none!important}
+/* The M6 SVG culture/method text duplicated M1/M4 labels. Keep the historical geometry, remove only redundant text. */
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalCanon text{display:none!important}
+/* When Global is active, M6's explicit culture pills already name the selected culture; M4 overlay keeps geometry only. */
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM4CultureOverlay text{display:none!important}
+
+.xiaM81MethodOwner{
+  display:none;position:absolute;z-index:95!important;border:0;background:rgba(0,0,0,.001);
+  border-radius:10px;padding:0;touch-action:manipulation;-webkit-tap-highlight-color:rgba(178,135,75,.15);
+  pointer-events:auto!important;-webkit-appearance:none;appearance:none;cursor:pointer;
+}
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM81MethodOwner{display:block!important}
+.xiaM6GlobalTapLabel{z-index:96!important;background:rgba(255,250,241,.97)!important}
+
+@media(max-width:430px){
+  /* The selected Region already appears in the M3 rail and fullscreen focus badge; suppress its duplicate in-map title. */
+  .xiaM3RegionOverlay .r.active text{display:none!important}
+  .xiaM6GlobalTapLabel{font-size:8.4px!important;padding:4px 6px!important;box-shadow:0 2px 6px rgba(51,43,35,.10)!important}
+}
+</style>
+<script id="xia-m8-1-v03-hotspot-label-fix-js">
+(function(){
+'use strict';
+/* Set immediately: disables the legacy embedded Global coordinate fallback in this v0.3 branch. */
+window.__xiaM81V03DirectOwners=true;
+function one(s,r){return (r||document).querySelector(s)}
+function bindOwner(b){
+  if(!b||b.dataset.m81v03Bound==='1')return;b.dataset.m81v03Bound='1';
+  var down=null,last=0;
+  function fire(e){
+    var key=b.dataset.m6;if(!key||!window.xiaM6ShowSheet)return false;
+    if(e){e.preventDefault();e.stopImmediatePropagation();}
+    last=Date.now();window.xiaM6ShowSheet(key);return true;
+  }
+  b.addEventListener('pointerdown',function(e){down={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};},true);
+  b.addEventListener('pointerup',function(e){
+    if(!down||down.id!==e.pointerId)return;var d=down;down=null;
+    if(Math.hypot(e.clientX-d.x,e.clientY-d.y)<=14&&Date.now()-d.t<=900)fire(e);
+  },true);
+  b.addEventListener('pointercancel',function(){down=null;},true);
+  b.addEventListener('touchend',function(e){if(Date.now()-last<650)return;fire(e);},{capture:true,passive:false});
+  b.addEventListener('click',function(e){if(Date.now()-last<650){e.preventDefault();e.stopImmediatePropagation();return;}fire(e);},true);
+}
+function addMethodOwner(plane,key,label,left,top,width,height){
+  var id='xia-m81-owner-'+key,b=document.getElementById(id);
+  if(!b){b=document.createElement('button');b.type='button';b.id=id;b.className='xiaM81MethodOwner';b.dataset.m6=key;b.setAttribute('aria-label',label+'：開啟資訊卡');plane.appendChild(b);}
+  b.style.left=left+'%';b.style.top=top+'%';b.style.width=width+'%';b.style.height=height+'%';bindOwner(b);return b;
+}
+function setPill(key,left,top,label){var b=one('.xiaM6GlobalTapLabel[data-m6="'+key+'"]');if(!b)return;b.style.left=left+'%';b.style.top=top+'%';if(label)b.textContent=label;bindOwner(b);}
+function syncHomeProgress(){
+  var cards=Array.from(document.querySelectorAll('.dynastyCard'));
+  var card=cards.find(function(c){var h=c.querySelector('h4');return h&&h.textContent.trim()==='夏';});
+  if(card){var badge=card.querySelector('.dynastyBadge'),small=card.querySelector('small'),p=card.querySelector('p');
+    if(badge)badge.textContent='M8.1｜裝置複驗';
+    if(small)small.textContent='歷史地理最終閘門／實機 QC';
+    if(p)p.textContent='證據分層、六區域、同期文化、資訊卡、熱點與全螢幕聚焦已完成；目前進行 iPhone Safari 最終裝置複驗。';
+  }
+  Array.from(document.querySelectorAll('.home .stats .stat')).forEach(function(s){var b=s.querySelector('b'),sp=s.querySelector('span');if(b&&b.textContent.trim()==='夏'&&sp)sp.textContent='M8.1 裝置複驗';});
+}
+function boot(){
+  var stage=one('.xiaM1MapStage'),plane=one('#xia-m7-zoom-plane')||stage;if(!stage||!plane)return;
+  /* B/C visible M1 labels get deterministic, narrow owners instead of the retired broad fallback rectangles. */
+  addMethodOwner(plane,'transmitted','B｜傳世文獻中的夏',1,0,52,12);
+  addMethodOwner(plane,'correlation','C｜二里頭—夏王朝對應假說',1,84,62,15);
+  /* Re-space the five visible Global culture pills into a collision-resistant arrangement. */
+  setPill('zhukaigou',32,1,'朱開溝｜北方');
+  setPill('lowerxj',69,3,'夏家店下層｜遼西');
+  setPill('xiaqiyuan',36,15,'下七垣｜豫北冀南');
+  setPill('qijia',1,46,'齊家｜西北');
+  setPill('yueshi',76,40,'岳石｜山東');
+  /* Main A-layer owners work in both Main and Global. */
+  stage.querySelectorAll('.xiaM6MainSpot,.xiaM6GlobalTapLabel,.xiaM81MethodOwner').forEach(bindOwner);
+  syncHomeProgress();
+  document.documentElement.setAttribute('data-xia-m8-1-device-qc','device-fix-v0.3-recheck');
+  document.documentElement.setAttribute('data-xia-m8-1-global-owner','direct-visible-labels');
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8.1 iPhone Safari 裝置修正 v0.3';
+  var meta=one('.header .meta');if(meta)meta.textContent='夏朝 Xia-M8.1｜iPhone Safari 裝置修正 v0.3｜全域熱點＋標籤複驗待完成｜尚未凍結｜UI-D1.1＋唐朝正式基準受保護';
+  var badge=one('.xiaM1Badge');if(badge)badge.textContent='M8.1｜v0.3 複驗';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m8-1-v03-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"Device Fix v0.3",
+  "status":"REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE",
+  "round2Findings":["Global visible A-layer labels not reliably tappable","some map labels had no deterministic hotspot owner","duplicate Global/M4/Region labels caused collision","Safari reload exposed stale Xia Pre-M1 progress text"],
+  "interactionFix":"Global becomes interactive superset of Main; five A owners + five explicit culture owners + two B/C method owners",
+  "retiredFallback":"seven broad Global rectangles hidden from pointer ownership; semantic hotspot count remains 7",
+  "labelFix":"hide redundant M6 Global SVG text; hide M4 text in Global; hide active Region in-map title on mobile; retain geometry",
+  "homeProgressFix":"Xia card synchronized from Pre-M1 to M8.1 device-QC status",
+  "historicalContentChange":false,
+  "mapGeometryChange":false,
+  "regionSetChange":false,
+  "cultureSetChange":false,
+  "trueFocusValueChange":false,
+  "next":"real iPhone Safari recheck: Global A/B/C/culture hotspots + label collision + reload home status"
+}</script>
+<div id="xia-m8-1-v03-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.3" data-status="REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-global-owner="direct-visible-labels" data-next="iPhone Safari v0.3 recheck"></div>
+
 </body>
 </html>
