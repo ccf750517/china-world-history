@@ -15727,5 +15727,122 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }</script>
 <div id="xia-m8-1-v03-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.3" data-status="REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-global-owner="direct-visible-labels" data-next="iPhone Safari v0.3 recheck"></div>
 
+
+
+<!-- Xia-M8.1｜iPhone Safari Device Fix v0.4
+Source: Xia-M8.1 Device Fix v0.3 + real iPhone Safari Round 3 evidence
+Status: DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE
+Issues fixed:
+1) Global labels still collided: A archaeology labels, B/C method labels and culture pills competed for the same mobile map space.
+2) Visible Global owners are standardized as compact deterministic pills; legacy SVG text is hidden in Global only.
+3) Home architecture note still described Xia as Pre-M1 after the progress card had already advanced to M8.1.
+No historical-content, archaeological geometry, Region/Culture set, hotspot semantics, or True Focus value change.
+-->
+<style id="xia-m8-1-v04-global-label-owner-css">
+.xiaM81AOwner,.xiaM81MethodOwner{
+  display:none;position:absolute;z-index:98!important;align-items:center;justify-content:center;
+  min-height:30px;max-width:42%;padding:4px 7px;border:1px solid rgba(120,92,58,.72)!important;
+  background:rgba(255,250,241,.98)!important;color:#3e342b!important;border-radius:999px!important;
+  font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;font-size:8.4px!important;font-weight:900!important;
+  line-height:1!important;white-space:nowrap;box-shadow:0 2px 6px rgba(51,43,35,.10)!important;
+  touch-action:manipulation;-webkit-tap-highlight-color:rgba(178,135,75,.15);pointer-events:auto!important;
+  -webkit-appearance:none;appearance:none;cursor:pointer;
+}
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM81AOwner,
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM81MethodOwner{display:flex!important}
+#xia-m1-global:checked ~ .xiaM1MapStage #xia-m1-map-svg text.xiaM81V04ReplaceText{display:none!important}
+/* Culture pills and A/B/C owners share one compact visual language in Global. */
+#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalTapLabel{
+  z-index:99!important;font-size:8.4px!important;padding:4px 7px!important;line-height:1!important;
+  background:rgba(255,250,241,.98)!important;border-color:rgba(120,92,58,.72)!important;
+}
+@media(max-width:430px){
+  .xiaM81AOwner,.xiaM81MethodOwner,#xia-m1-global:checked ~ .xiaM1MapStage .xiaM6GlobalTapLabel{
+    font-size:8.1px!important;padding:4px 6px!important;
+  }
+}
+</style>
+<script id="xia-m8-1-v04-global-label-owner-js">
+(function(){
+'use strict';
+function one(s,r){return (r||document).querySelector(s)}
+function bind(b){
+  if(!b||b.dataset.m81v04Bound==='1')return;b.dataset.m81v04Bound='1';
+  var down=null,last=0;
+  function fire(e){var k=b.dataset.m6;if(!k||!window.xiaM6ShowSheet)return false;if(e){e.preventDefault();e.stopImmediatePropagation();}last=Date.now();window.xiaM6ShowSheet(k);return true;}
+  b.addEventListener('pointerdown',function(e){down={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};},true);
+  b.addEventListener('pointerup',function(e){if(!down||down.id!==e.pointerId)return;var d=down;down=null;if(Math.hypot(e.clientX-d.x,e.clientY-d.y)<=14&&Date.now()-d.t<=900)fire(e);},true);
+  b.addEventListener('pointercancel',function(){down=null;},true);
+  b.addEventListener('touchend',function(e){if(Date.now()-last<650)return;fire(e);},{capture:true,passive:false});
+  b.addEventListener('click',function(e){if(Date.now()-last<650){e.preventDefault();e.stopImmediatePropagation();return;}fire(e);},true);
+}
+function place(b,left,top,label){
+  b.style.left=left+'%';b.style.top=top+'%';b.style.width='auto';b.style.height='auto';
+  b.style.transform='translate(-50%,-50%)';if(label)b.textContent=label;bind(b);
+}
+function ensureA(plane,key,label,left,top){
+  var id='xia-m81-v04-a-'+key,b=document.getElementById(id);
+  if(!b){b=document.createElement('button');b.type='button';b.id=id;b.className='xiaM81AOwner';b.dataset.m6=key;b.setAttribute('aria-label',label+'：開啟資訊卡');plane.appendChild(b);}place(b,left,top,label);return b;
+}
+function markLegacyTexts(){
+  var svg=one('#xia-m1-map-svg');if(!svg)return;
+  var replace=new Set([
+    'A｜二里頭都邑核心','A｜二里頭文化核心分布','A｜晉南／中條山資源互動','伊洛水系 →',
+    '洛陽（今）','偃師／二里頭','B｜傳世文獻：夏活動核心閱讀','C｜二里頭 ↔ 夏王朝：對應假說'
+  ]);
+  svg.querySelectorAll('text').forEach(function(t){if(replace.has(t.textContent.trim()))t.classList.add('xiaM81V04ReplaceText');});
+}
+function syncHomeNote(){
+  Array.from(document.querySelectorAll('.home .note')).forEach(function(n){
+    if((n.textContent||'').indexOf('架構更新：')!==-1){
+      n.innerHTML='<b>架構更新：</b>唐朝地圖與 618–907 的正式基準維持受保護；夏朝已完成 M1～M8 歷史地理與互動工程，目前進入 M8.1 iPhone Safari 最終裝置複驗。夏朝仍採證據分層與柔性閱讀包絡，不建立未經證實的硬式疆界。';
+    }
+  });
+}
+function boot(){
+  var stage=one('.xiaM1MapStage'),plane=one('#xia-m7-zoom-plane')||stage;if(!stage||!plane)return;
+  markLegacyTexts();
+  /* Compact Global A owners. */
+  ensureA(plane,'dongxiafeng','A｜晉南',14,25);
+  ensureA(plane,'xinzhai','A｜新砦',72,27);
+  ensureA(plane,'erlitou','A｜二里頭',49,49);
+  ensureA(plane,'iluo','A｜伊洛水系',68,60);
+  ensureA(plane,'core','A｜文化核心',49,72);
+  /* Turn B/C owners into visible compact labels. */
+  var b=one('#xia-m81-owner-transmitted');if(b){place(b,16,7,'B｜傳世文獻');b.setAttribute('aria-label','B｜傳世文獻：開啟資訊卡');}
+  var c=one('#xia-m81-owner-correlation');if(c){place(c,20,88,'C｜對應假說');c.setAttribute('aria-label','C｜對應假說：開啟資訊卡');}
+  /* Re-space culture owners around the compact A/B/C system. */
+  var pos={
+    zhukaigou:[48,7,'朱開溝｜北方'],lowerxj:[82,7,'夏家店下層｜遼西'],
+    xiaqiyuan:[45,22,'下七垣｜豫北冀南'],qijia:[10,48,'齊家｜西北'],yueshi:[86,43,'岳石｜山東']
+  };
+  Object.keys(pos).forEach(function(k){var p=pos[k],x=one('.xiaM6GlobalTapLabel[data-m6="'+k+'"]');if(x)place(x,p[0],p[1],p[2]);});
+  syncHomeNote();
+  document.documentElement.setAttribute('data-xia-m8-1-device-qc','device-fix-v0.4-recheck');
+  document.documentElement.setAttribute('data-xia-m8-1-global-label-layout','compact-deterministic-owners');
+  document.title='中國歷史 × 世界歷史｜夏朝｜M8.1 iPhone Safari 裝置修正 v0.4';
+  var meta=one('.header .meta');if(meta)meta.textContent='夏朝 Xia-M8.1｜iPhone Safari 裝置修正 v0.4｜全域熱點＋標籤最終複驗｜尚未凍結｜UI-D1.1＋唐朝正式基準受保護';
+  var badge=one('.xiaM1Badge');if(badge)badge.textContent='M8.1｜v0.4 複驗';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m8-1-v04-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"Device Fix v0.4",
+  "status":"REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE",
+  "round3Evidence":"Global culture hotspot ownership improved and Xia home progress card updated; map-label overlap remained around A/B/C and culture labels",
+  "globalLabelFix":"replace legacy Global A/B/C SVG text with compact deterministic clickable A/B/C owners; re-space five culture owners",
+  "homeNoteFix":"stale Pre-M1 architecture note synchronized to M8.1 device-QC progress",
+  "historicalContentChange":false,
+  "mapGeometryChange":false,
+  "regionSetChange":false,
+  "cultureSetChange":false,
+  "hotspotSemanticChange":false,
+  "trueFocusValueChange":false,
+  "next":"real iPhone Safari v0.4 recheck: all Global A/B/C + five culture owners, label collisions, home note"
+}</script>
+<div id="xia-m8-1-v04-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.4" data-status="REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-global-label-layout="compact-deterministic-owners"></div>
+
 </body>
 </html>
