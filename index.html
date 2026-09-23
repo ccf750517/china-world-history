@@ -17173,5 +17173,57 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   "freezeRule":"Freeze only after real iPhone Safari evidence passes and user explicitly orders Freeze."
 }</script>
 <div id="shang-m8-1-machine-meta" hidden data-stage="Shang-M8.1" data-version="v0.1" data-status="PRE-DEVICE QC PASS / REAL iPHONE SAFARI FINAL DEVICE QC PENDING / NOT FREEZE" data-source="Shang-M8-v0.1" data-real-device="pending" data-freeze="false"></div>
+
+
+<!-- Shang-M8.1｜iPhone Safari Device QC Candidate v0.2
+Source: Shang-M8.1 Candidate v0.1 + real iPhone Safari evidence.
+Status: DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE.
+Fix scope: homepage status synchronization only. Real-device screenshots confirmed the map-stage header/stat were M8.1, while the home hero lead still said Shang Pre-M1. No historical content, geometry, hotspot ownership, M3/M4/M5/M6/M7 interaction, focus value, or mobile map layout is changed.
+Previously passed real-device evidence remains valid because this patch only changes homepage/version status text.
+-->
+<script id="shang-m8-1-v02-home-sync-js">
+(function(){
+'use strict';
+function one(s){return document.querySelector(s)}
+function boot(){
+  document.documentElement.setAttribute('data-shang-stage','M8.1');
+  document.documentElement.setAttribute('data-shang-m8-1-version','v0.2');
+  document.documentElement.setAttribute('data-shang-device-qc','real-device-partial-pass-home-status-recheck-pending');
+  document.title='中國歷史 × 世界歷史｜商朝 M8.1｜iPhone Safari 裝置修正 v0.2｜尚未凍結';
+  var meta=one('.header .meta');
+  if(meta)meta.textContent='商朝 Shang-M8.1｜iPhone Safari 裝置修正 v0.2｜首頁狀態同步複驗＋六區聚焦待完成｜尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var badge=one('.shangM1Badge');if(badge)badge.textContent='M8.1｜v0.2 複驗';
+  var mapLead=one('.shangMapHead .lead');if(mapLead)mapLead.textContent='M8.1｜iPhone Safari 裝置修正 v0.2。v0.2 僅修正首頁狀態文字漂移；M1～M8 的史實、幾何、熱點、聚焦值與既有實機通過項目全部保持。';
+  var homeLead=one('.home .systemHero .lead');
+  if(homeLead)homeLead.textContent='唐朝母模組與夏朝正式模組均已完成並凍結；商朝 M1～M8 已完成內部施工與歷史地理最終閘門，目前進行 M8.1 iPhone Safari 最終裝置複驗。';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M8.1 裝置複驗</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){
+    if((n.textContent||'').indexOf('架構更新：')!==-1){
+      n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝 M1～M8 已完成內部施工與歷史地理最終閘門，目前進入 M8.1 iPhone Safari 最終裝置複驗。商朝仍採 A1/A2/B/C/D 證據分層、六區域研究視窗與柔性同期比較層，不建立未經證實的硬式疆界。';
+    }
+  });
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){
+    var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;
+    var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M8.1｜裝置複驗';
+    var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜Final Device QC Candidate v0.2';
+  });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="shang-m8-1-v02-home-sync-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M8.1 iPhone Safari Final Device QC Candidate v0.2",
+  "status":"DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE",
+  "source":"Shang-M8.1 Candidate v0.1",
+  "fix":"homepage status synchronization: remove stale Shang Pre-M1 hero text",
+  "historicalDelta":"none",
+  "geometryDelta":"none",
+  "interactionDelta":"none",
+  "inheritedDevicePass":["first-screen map visibility","Main hotspots 5/5","Global hotspots 7/7","M3 region interaction","M4 multi-select + M3 coexistence","fullscreen enter/exit","manual zoom/reset","Yinxu/Huan River true focus 165%","Main-Global-Main mode isolation"],
+  "remainingDeviceQC":["five remaining M3 true-focus regions","homepage status after reload"],
+  "freeze":false
+}</script>
+<div id="shang-m8-1-v02-machine-meta" hidden data-stage="Shang-M8.1" data-version="v0.2" data-status="DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-fix="homepage-status-sync" data-freeze="false"></div>
 </body>
 </html>
