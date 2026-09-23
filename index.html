@@ -4976,6 +4976,8 @@ html.xiaM7Fullscreen .xiaM4Sheet,html.xiaM7Fullscreen .xiaM5Sheet,html.xiaM7Full
 <input checked="" class="ctrl" id="nav-home" name="page" type="radio"/>
 <input class="ctrl" id="nav-dynasty" name="page" type="radio"/>
 <input class="ctrl" id="nav-xiahub" name="page" type="radio"/>
+<input class="ctrl" id="nav-shanghub" name="page" type="radio"/>
+<input class="ctrl" id="nav-shangmap" name="page" type="radio"/>
 <input class="ctrl" id="nav-xiamap" name="page" type="radio"/>
 <input class="ctrl" id="nav-tanghub" name="page" type="radio"/>
 <input class="ctrl" id="nav-map" name="page" type="radio"/>
@@ -4995,6 +4997,7 @@ html.xiaM7Fullscreen .xiaM4Sheet,html.xiaM7Fullscreen .xiaM5Sheet,html.xiaM7Full
   <label class="backToHome" for="nav-home" aria-label="上一頁，返回首頁"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">首頁</span></label>
   <label class="backToDynasty" for="nav-dynasty" aria-label="上一頁，返回朝代總覽"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">朝代總覽</span></label>
   <label class="backToXiaHub" for="nav-xiahub" aria-label="上一頁，返回夏朝 Hub"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">夏朝 Hub</span></label>
+  <label class="backToShangHub" for="nav-shanghub" aria-label="上一頁，返回商朝入口"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">商朝入口</span></label>
   <label class="backToTangHub" for="nav-tanghub" aria-label="上一頁，返回唐朝 Hub"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">唐朝 Hub</span></label>
   <label class="backIndexHome" for="nav-home" aria-label="上一頁，返回首頁"><span class="backArrow">←</span><span>上一頁</span><span class="backTarget">首頁</span></label>
 </nav>
@@ -5111,6 +5114,148 @@ html.xiaM7Fullscreen .xiaM4Sheet,html.xiaM7Fullscreen .xiaM5Sheet,html.xiaM7Full
 <div class="xiaRule"><b>PASS 條件 3</b>｜每個標籤都帶證據類型，後續 Bottom Sheet 必須可看到「考古／文獻／假說／爭議」身份。</div>
 </div>
 <div class="note"><b>M1 已建立第一個可操作地圖：</b>約前1700為工作考古截面。主域只顯示考古可觀察層；全域再疊加傳世文獻與對應假說。M1 仍不建立硬式「夏疆域」。</div>
+</div>
+</section>
+
+
+<section class="page shangHub" id="shang-prem1">
+<div class="pageInner">
+  <div class="hero">
+    <div class="eyebrow">第 2 層｜商朝入口｜Pre-M1</div>
+    <span class="xiaStatus">施工中 / 尚未凍結</span>
+    <h2>商朝｜史實基準 v0.1</h2>
+    <p class="lead">商朝的證據結構與夏朝不同：晚商具有殷墟考古、甲骨文等同時代出土文字，可直接支撐部分王室、祭祀、戰爭與地理研究；但這些晚商證據不得反向套用到早商／中商。Pre-M1 先固定年代、證據類型、都邑與空間語義，再進入 M1 地圖。</p>
+    <div class="moduleStatus">
+      <div class="stat"><b>Pre-M1</b><span>目前關卡</span></div>
+      <div class="stat"><b>A1/A2/B/C/D</b><span>證據類型</span></div>
+      <div class="stat"><b>0</b><span>硬式疆界</span></div>
+    </div>
+  </div>
+<div class="shangM1Entry" id="shang-m1-entry">
+  <label class="shangM1Launch" for="nav-shangmap" aria-label="進入商朝 M1 地圖"><span><b>進入 M1 地圖</b><small>約前1200｜主域：考古＋同時代出土文字／全域：文獻與對應閱讀</small></span><span class="go">→</span></label>
+  <div class="shangM1Snapshot"><b>工作截面｜約前1200</b><small>晚商／殷墟／甲骨文證據密集閱讀節點；不等於某一商王精確在位年。</small></div>
+</div>
+
+
+  <h3>證據分級</h3>
+  <div class="xiaEvidenceGrid">
+    <div class="xiaEvidence a"><b>A1｜考古可觀察</b><small>城址、宮殿基址、墓葬、作坊、青銅器、陶器、聚落層位與測年等。可以定位與分期，但考古文化分布不自動等於王朝主權邊界。</small></div>
+    <div class="xiaEvidence a"><b>A2｜同時代出土文字</b><small>以殷墟甲骨文為核心，另含可可靠斷代的晚商銘文。這是商朝特有的高權重證據，但主要集中於晚商，不能直接替早商補上不存在的文字證據。</small></div>
+    <div class="xiaEvidence b"><b>B｜後世傳世文獻</b><small>《尚書》《史記》《竹書紀年》等保存的王世、遷都與事件傳統。可與出土材料對讀，但須標明成書／傳承時差與文本層次。</small></div>
+    <div class="xiaEvidence c"><b>C｜考古—文獻對應</b><small>例如鄭州商城、偃師商城、洹北商城與「亳／隞／相／殷」等傳世都邑名的對應。強弱不一，必須逐項標示為研究判讀，不直接改名。</small></div>
+    <div class="xiaEvidence d"><b>D｜爭議／未定</b><small>商初絕對年代、各次遷都的考古對應、早中商政治中心轉移、二里崗文化擴張與商王權直接控制範圍等，均不得用單一答案硬化。</small></div>
+  </div>
+
+  <div class="xiaGuard"><b>Pre-M1 硬規則：</b>不得把「二里崗文化分布」直接畫成「商帝國疆域」；不得把晚商甲骨文記錄的方國、征伐與王室網絡回投到早商；不得把某一考古城址無條件改名為傳世文獻中的特定都邑。</div>
+
+  <h3>商朝分期基準</h3>
+  <div class="xiaRules">
+    <div class="xiaRule"><b>早商｜約前1600～前1400</b><br>以二里崗時期與鄭州商城、偃師商城等為主要考古參照。二里崗物質文化影響範圍廣，但「廣泛分布／交流」與「商王直接行政控制」必須分開。</div>
+    <div class="xiaRule"><b>中商｜約前1400～前1250</b><br>以小雙橋、洹北商城等轉型材料為重要參照。這一階段的都邑序列與傳世遷都敘事仍存在多種研究方案。</div>
+    <div class="xiaRule"><b>晚商｜約前1250～前1050</b><br>以安陽殷墟為核心。甲骨文、王陵、宮殿宗廟區與手工業遺存提供遠高於早中商的直接證據密度；不同年代方案對起訖年仍有細部差異。</div>
+    <div class="xiaRule"><b>時段隔離</b><br>早商、中商、晚商須各自有時間所有權。任何地圖資訊若只被晚商證據支持，不得出現在早商畫面當作既定事實。</div>
+  </div>
+
+  <h3>地理基準</h3>
+  <div class="xiaRules">
+    <div class="xiaRule"><b>早商核心參照｜鄭州商城／二里崗</b><br>鄭州商城是早商研究的核心大型城址之一；其宮殿、城垣、作坊與聚落結構可作考古主域，但不以文化分布線代替政治國界。</div>
+    <div class="xiaRule"><b>中商轉型參照｜小雙橋／洹北</b><br>作為早商到晚商之間的城市與文化轉型閱讀節點；是否對應某一傳世王都須放在 C 類假說層。</div>
+    <div class="xiaRule"><b>晚商核心參照｜安陽殷墟</b><br>殷墟具有考古遺址與甲骨文雙重支撐，是晚商最穩定的核心地理錨點；王室中心明確，不代表外圍所有互動區都是同質行政領土。</div>
+    <div class="xiaRule"><b>區域互動</b><br>長江中游、山東、晉陝、北方及其他區域與中原商文化存在不同程度交流、競爭與地方發展；後續 M4 應採「同期考古文化／區域中心」而不是一律改寫成屬國。</div>
+  </div>
+
+  <h3>候選時間節點｜尚未凍結</h3>
+  <div class="xiaNodeGrid">
+    <div class="xiaNode"><b>約前1600</b><small>夏商轉型與早商建立的閱讀門檻；絕對年代方案需並列。</small></div>
+    <div class="xiaNode"><b>約前1500</b><small>鄭州商城／二里崗成熟階段的早商城市與手工業網絡。</small></div>
+    <div class="xiaNode"><b>約前1300</b><small>洹北—殷墟轉型與安陽地區王都序列的關鍵閱讀節點。</small></div>
+    <div class="xiaNode"><b>約前1200</b><small>晚商殷墟與甲骨文高密度證據期；建議作 M1 第一正式工作截面。</small></div>
+    <div class="xiaNode"><b>約前1050</b><small>商周轉折閱讀門檻；避免把單一精確年視為無爭議唯一答案。</small></div>
+  </div>
+
+  <div class="note"><b>年代規則：</b>本系統採「約」年代與考古分期優先。殷墟／晚商可使用較密集的甲骨文與測年資訊；早商、中商的絕對年代與傳世王年對應須保留方案差異。</div>
+
+  <h3>Pre-M1 → M1 關卡</h3>
+  <div class="xiaRules">
+    <div class="xiaRule"><b>PASS 條件 1</b>｜第一個正式截面暫定「約前1200」，明示為晚商／殷墟／甲骨文證據密集的閱讀節點，不等於某一王精確在位年。</div>
+    <div class="xiaRule"><b>PASS 條件 2</b>｜M1 主域只呈現該截面的考古＋同時代出土文字；後世文獻與考古—文獻對應另放全域／對照層。</div>
+    <div class="xiaRule"><b>PASS 條件 3</b>｜方國、征伐對象、文化區與王朝控制必須分層；甲骨文中的地名或方名不得直接轉譯成現代行政式疆界。</div>
+    <div class="xiaRule"><b>PASS 條件 4</b>｜M1 之前不新增區域切換、同期文化複選、資訊卡、熱點、全螢幕或真實聚焦；依既有 M1→M8.1 工程順序逐步加入。</div>
+  </div>
+
+  <div class="note"><b>史實參照：</b>Pre-M1 以殷墟與甲骨文資料、早／中／晚商考古分期、鄭州商城與洹北等城市考古為主，並保留絕對年代與傳世都邑對應的不確定性。此層只建立方法與史實基準，不建立商朝硬式疆界。</div>
+</div>
+</section>
+
+
+<section class="page shangMap" id="shang-map">
+<div class="pageInner">
+  <div class="shangMapHead">
+    <div>
+      <div class="eyebrow">第 3 層｜商朝地圖｜M1</div>
+      <h2>商朝｜約前1200</h2>
+      <p class="lead">M1｜政治／考古／出土文字閱讀層 v0.1。此截面位於晚商殷墟時期的高密度證據窗；主域只呈現 A1 考古可觀察與 A2 同時代出土文字，全域才加入 B 後世文獻與 C 考古—文獻對應。所有面狀範圍都是閱讀包絡，不是商王朝硬式國界。</p>
+    </div>
+    <span class="shangM1Badge">M1｜施工中</span>
+  </div>
+  <div class="shangM1Panel">
+    <input checked class="ctrl" id="shang-m1-main" name="shang-m1-mode" type="radio"/>
+    <input class="ctrl" id="shang-m1-global" name="shang-m1-mode" type="radio"/>
+    <div class="shangM1Controls">
+      <div class="title">操作</div>
+      <label for="shang-m1-main">主域｜考古＋甲骨</label>
+      <label for="shang-m1-global">全域｜文獻對照</label>
+      <span class="node future">約前1600</span>
+      <span class="node future">約前1500</span>
+      <span class="node future">約前1300</span>
+      <span class="node current">約前1200</span>
+      <span class="node future">約前1050</span>
+    </div>
+    <div class="shangM1MapStage">
+      <svg id="shang-m1-map-svg" viewBox="665 270 125 94" preserveAspectRatio="xMidYMid slice" role="img" aria-label="商朝約前1200晚商殷墟考古、甲骨文與後世文獻分層閱讀地圖">
+        <g id="shang-m1-base"></g>
+        <!-- A1 archaeological observation -->
+        <ellipse cx="752" cy="300" rx="25" ry="17" fill="#b7792d" fill-opacity="0.18" stroke="#9a6320" stroke-width="2.1" stroke-dasharray="7 5"/>
+        <ellipse cx="752" cy="300" rx="13" ry="9" fill="#d69a45" fill-opacity="0.30" stroke="#8d5a25" stroke-width="1.8"/>
+        <path d="M733 294 C742 288 754 288 767 294 C762 301 761 307 767 312" fill="none" stroke="#5b8fa1" stroke-width="2.4" stroke-linecap="round" opacity="0.78"/>
+        <rect x="747.5" y="296.5" width="6.5" height="5.5" rx="1.2" fill="#fffaf0" stroke="#4a3c2d" stroke-width="1.3"/>
+        <circle cx="740" cy="291" r="3.1" fill="#6d5644" stroke="#fffaf0" stroke-width="1.2"/>
+        <circle cx="761" cy="305" r="2.5" fill="#8d6e45" stroke="#fffaf0" stroke-width="1.2"/>
+        <text x="752" y="282" text-anchor="middle" font-size="6.7" font-weight="900" fill="#2d261f">A1｜殷墟王室核心閱讀</text>
+        <text x="756" y="299" text-anchor="start" dx="4" font-size="5.2" font-weight="800" fill="#4b4036" class="subtleText">小屯宮殿宗廟區</text>
+        <text x="739" y="287" text-anchor="end" dx="-4" font-size="5.0" font-weight="800" fill="#59493d" class="subtleText">西北岡王陵區</text>
+        <text x="765" y="314" text-anchor="start" font-size="5.0" font-weight="800" fill="#376778" class="subtleText">洹河／安陽盆地</text>
+        <!-- A2 contemporary oracle-bone / inscription evidence -->
+        <ellipse cx="752" cy="300" rx="34" ry="23" fill="none" stroke="#376f7a" stroke-width="2.1" stroke-dasharray="3 4"/>
+        <path d="M720 301 C707 300 696 296 686 288" fill="none" stroke="#376f7a" stroke-width="1.8" stroke-dasharray="5 4"/>
+        <path d="M748 277 C746 267 744 260 740 252" fill="none" stroke="#376f7a" stroke-width="1.8" stroke-dasharray="5 4"/>
+        <path d="M780 298 C791 298 800 300 809 305" fill="none" stroke="#376f7a" stroke-width="1.8" stroke-dasharray="5 4"/>
+        <path d="M751 323 C751 334 748 344 744 353" fill="none" stroke="#376f7a" stroke-width="1.8" stroke-dasharray="5 4"/>
+        <text x="752" y="329" text-anchor="middle" font-size="5.7" font-weight="900" fill="#285d68">A2｜甲骨文所見王室活動／對外互動</text>
+        <text x="752" y="337" text-anchor="middle" font-size="4.6" font-weight="700" fill="#4d686e" class="subtleText">方向網絡閱讀，不把「方」或征伐對象畫成固定國界</text>
+        <!-- B/C only in Global -->
+        <g class="shangGlobalOnly">
+          <ellipse cx="750" cy="300" rx="54" ry="36" fill="#62594f" fill-opacity="0.05" stroke="#62594f" stroke-width="2.0" stroke-dasharray="9 7"/>
+          <ellipse cx="752" cy="300" rx="38" ry="26" fill="none" stroke="#a67835" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+          <text x="681" y="276" text-anchor="start" font-size="5.9" font-weight="900" fill="#55493f">B｜後世文獻：商／殷晚期王都與王世敘事</text>
+          <text x="681" y="359" text-anchor="start" font-size="5.6" font-weight="900" fill="#8d672f">C｜盤庚遷殷 ↔ 安陽王都序列：對應閱讀</text>
+        </g>
+      </svg>
+    </div>
+    <div class="shangM1ModeNotes">
+      <div class="shangM1ModeNote mainNote"><b>主域：</b>只顯示 A1「考古可觀察」與 A2「同時代出土文字」。殷墟王室核心、宮殿宗廟、王陵與甲骨文活動網絡都有較直接的晚商證據；A2 的方向線表示文字所見關係閱讀，不代表固定邊界。</div>
+      <div class="shangM1ModeNote globalNote"><b>全域：</b>在 A1/A2 之外再加入 B「後世傳世文獻」與 C「考古—文獻對應」。傳世王世、遷都敘事與安陽王都序列必須和出土材料分層閱讀。</div>
+    </div>
+    <div class="shangM1Legend">
+      <div class="a1"><b>A1｜考古可觀察</b><br><i></i>殷墟聚落／宮殿宗廟／王陵／作坊與地層</div>
+      <div class="a2"><b>A2｜同時代出土文字</b><br><i></i>甲骨文與可靠斷代的晚商銘文</div>
+      <div class="b"><b>B｜後世傳世文獻</b><br><i></i>王世、遷都與事件傳統</div>
+      <div class="c"><b>C｜對應閱讀</b><br><i></i>考古城市序列與傳世都邑敘事對讀</div>
+      <div class="d"><b>D｜爭議未定</b><br><i></i>不把未定地點、方國位置或王年硬化</div>
+    </div>
+    <div class="shangM1Guard"><b>M1 硬規則：</b>約前1200只是晚商證據密集的閱讀截面，不等於某一王精確王年。甲骨文中的「方」、征伐、貢納與往來是關係證據；除非位置可被獨立支持，不能把名稱直接放成現代式固定領土。二里崗等早商材料亦不得回投到此截面當作同時狀態。</div>
+    <div class="shangM1Sources">史實基準：晚商／殷墟約前1250～前1050的考古分期；殷墟甲骨文為同時代王室卜辭證據，主要涉及晚商；約前1200僅作工作截面。M2 以前不新增正式熱點、資訊卡、區域切換、同期文化複選、全螢幕或真實聚焦。</div>
+  </div>
 </div>
 </section>
 
@@ -15965,5 +16110,981 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }</script>
 <div id="xia-m8-1-v06-machine-meta" hidden data-stage="Xia-M8.1" data-version="Device Fix v0.6" data-status="REAL iPHONE SAFARI MAIN-LABEL RECHECK PENDING / NOT FREEZE" data-main-label-layout="compact-five-a-owners" data-mode-isolation="hard-main-global"></div>
 
+
+<!-- Xia-M8.1 Final Canon / Freeze v0.6
+Freeze date: 2026-09-23
+Freeze basis: Xia-M8 Historical Geography Final Gate PASS + Xia-M8.1 real iPhone Safari Final Device QC PASS.
+Frozen scope: Xia M1-M8.1 historical/archaeological semantics, six reading regions, five contemporary-culture layers, Main/Global hotspot ownership, Bottom Sheets, Fullscreen, six-region True Focus, v0.2 first-screen compaction, v0.3-v0.6 label/ownership/mode-isolation fixes.
+Protection: do not silently overwrite. Any later Xia change requires an explicit post-Freeze Revision branch.
+-->
+<style id="xia-m81-final-freeze-style">
+.dynastyCard.xiaFinal{border:2px solid #4a3c2d;background:#f7ecd8}
+.dynastyCard.xiaFinal .dynastyBadge{background:#4a3c2d;color:#fffaf1}
+</style>
+<script id="xia-m81-final-freeze-js">
+(function(){
+'use strict';
+function boot(){
+  document.documentElement.setAttribute('data-xia-final-canon','v0.6');
+  document.documentElement.setAttribute('data-xia-freeze','2026-09-23');
+  document.title='中國歷史 × 世界歷史｜夏朝 Xia-M8.1 Final Canon / Freeze v0.6';
+  var meta=document.querySelector('.header .meta');
+  if(meta)meta.textContent='夏朝 Xia-M8.1｜Final Canon / Freeze v0.6｜iPhone Safari 最終實機 QC PASS｜UI-D1.1＋唐朝正式基準受保護';
+  var badge=document.querySelector('.xiaM1Badge');if(badge)badge.textContent='M8.1｜FINAL CANON';
+  var st=document.querySelector('.xiaHub .xiaStatus');if(st)st.textContent='FINAL CANON / FREEZE';
+  var h=document.querySelector('.xiaHub h2');if(h)h.textContent='夏朝｜M8.1 Final Canon';
+  var stats=document.querySelectorAll('.xiaHub .moduleStatus .stat');
+  if(stats[0])stats[0].innerHTML='<b>M8.1</b><span>正式凍結</span>';
+  var cards=[].slice.call(document.querySelectorAll('.dynastyCard'));
+  cards.forEach(function(card){var h4=card.querySelector('h4');if(h4&&h4.textContent.trim()==='夏'){
+    card.classList.remove('isNext');card.classList.add('xiaFinal');
+    var b=card.querySelector('.dynastyBadge');if(b)b.textContent='正式基準';
+    var sm=card.querySelector('small');if(sm)sm.textContent='M1–M8.1｜v0.6';
+  }});
+  var hs=document.querySelectorAll('.home .stat');
+  if(hs[3])hs[3].innerHTML='<b>夏</b><span>Final Canon</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){
+    n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M1～M8.1 均已完成 Final Canon / Freeze。夏朝維持證據分層與柔性閱讀包絡；未來修改必須另開修訂分支。';
+  }});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="xia-m81-final-freeze-meta" type="application/json">{
+  "stage":"Xia-M8.1",
+  "version":"v0.6",
+  "status":"PASS / FINAL CANON / FREEZE",
+  "freezeDate":"2026-09-23",
+  "historicalGate":"PASS",
+  "realIPhoneSafariFinalDeviceQC":"PASS",
+  "frozenMainHotspots":5,
+  "frozenRegions":6,
+  "frozenPeerCultures":5,
+  "futureRule":"Any Xia change requires an explicit post-Freeze Revision branch"
+}</script>
+<div id="xia-m81-final-freeze-machine-meta" hidden data-stage="Xia-M8.1" data-version="v0.6" data-status="FINAL CANON / FREEZE" data-freeze-date="2026-09-23"></div>
+
+
+<!-- Shang Pre-M1 Historical Baseline v0.1
+Branch source: Xia-M8.1 Final Canon / Freeze v0.6.
+Status: PASS / WORKING / NOT FREEZE.
+Purpose: establish Shang evidence model, periodization, geography guardrails and candidate time nodes before any Shang map geometry is authored.
+Protection: Xia-M8.1 Final Canon, UI-D1.1 and all Tang Final Canon blocks remain read-only protected.
+-->
+<style id="shang-prem1-style">
+#nav-shanghub:checked ~ .screens .shangHub{display:block}
+.dynastyCard.shangNext{border:2px solid #b38747;background:#fff6e5}
+.dynastyCard.shangNext .dynastyBadge{background:#b38747;color:#fff}
+.shangHub .xiaEvidenceGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:600px){.shangHub .xiaEvidenceGrid{grid-template-columns:1fr}}
+</style>
+<script id="shang-prem1-runtime-js">
+(function(){
+'use strict';
+function boot(){
+  document.documentElement.setAttribute('data-shang-stage','Pre-M1');
+  document.documentElement.setAttribute('data-shang-status','working-not-freeze');
+  document.title='中國歷史 × 世界歷史｜商朝 Pre-M1｜史實基準 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Pre-M1｜史實基準 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var lead=document.querySelector('.home .systemHero .lead');if(lead)lead.textContent='唐朝母模組與夏朝正式模組均已完成並凍結；正式內容依年代順序繼續施工，目前進入商朝 Pre-M1 史實基準。';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>Pre-M1 進行中</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){
+    n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 均維持受保護；下一個正式內容工程依年代順序進入商朝 Pre-M1 史實基準。商朝先區分考古、同時代出土文字、後世文獻與考古—文獻對應，再進入 M1。';
+  }});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){
+    var h=card.querySelector('h4');if(!h)return;var name=h.textContent.trim();
+    if(name==='夏'){
+      card.classList.remove('isNext');card.classList.add('xiaFinal');
+      var b=card.querySelector('.dynastyBadge');if(b)b.textContent='正式基準';
+      var sm=card.querySelector('small');if(sm)sm.textContent='M1–M8.1｜v0.6';
+    }
+    if(name==='唐'){var bt=card.querySelector('.dynastyBadge');if(bt)bt.textContent='正式基準';}
+    if(name==='商'){
+      card.classList.add('shangNext');
+      var b2=card.querySelector('.dynastyBadge');if(b2)b2.textContent='PRE-M1｜進行中';
+      var sm2=card.querySelector('small');if(sm2)sm2.textContent='史實基準 v0.1';
+      if(!card.querySelector('label[for="nav-shanghub"]')){
+        var lab=document.createElement('label');lab.setAttribute('for','nav-shanghub');lab.setAttribute('aria-label','進入商朝 Pre-M1 史實基準');lab.innerHTML='<span>進入 →</span>';card.appendChild(lab);
+      }
+    }
+  });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="shang-prem1-baseline-meta" type="application/json">{
+  "module":"Shang",
+  "stage":"Pre-M1 Historical Baseline v0.1",
+  "visibleName":"商朝 Pre-M1｜史實基準 v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "branchSource":"Xia-M8.1 Final Canon / Freeze v0.6",
+  "evidenceClasses":{
+    "A1":"archaeological observation",
+    "A2":"contemporary excavated inscription / oracle-bone evidence",
+    "B":"later transmitted textual tradition",
+    "C":"archaeology-text/capital correlation hypothesis",
+    "D":"contested / unresolved"
+  },
+  "periodization":[
+    {"name":"Early Shang / Erligang-Zhengzhou","range":"c.1600-1400 BCE"},
+    {"name":"Middle Shang / Huanbei-Xiaoshuangqiao","range":"c.1400-1250 BCE"},
+    {"name":"Late Shang / Anyang-Yinxu","range":"c.1250-1050 BCE"}
+  ],
+  "hardRules":[
+    "Do not equate Erligang material-culture distribution with a hard Shang sovereignty frontier.",
+    "Do not back-project late-Shang oracle-bone geography into Early or Middle Shang.",
+    "Keep archaeological site names separate from transmitted capital names unless explicitly marked as correlation hypotheses.",
+    "Use approximate chronology and expose competing absolute-date schemes where material."
+  ],
+  "candidateNodes":["c.1600 BCE","c.1500 BCE","c.1300 BCE","c.1200 BCE","c.1050 BCE"],
+  "recommendedM1Snapshot":"c.1200 BCE late Shang / Yinxu / oracle-bone evidence-rich reading node",
+  "hardSovereigntyBorder":false,
+  "deviceQc":"not required at Pre-M1; first required after interactive Shang M1 candidate",
+  "next":"Shang-M1 Political / Archaeological / Epigraphic Reading Layers after baseline gate"
+}</script>
+<div id="shang-prem1-machine-meta" hidden data-module="Shang" data-stage="Pre-M1" data-status="PASS / WORKING / NOT FREEZE" data-next="Shang-M1"></div>
+
+
+<!-- Shang-M1 政治／考古／出土文字閱讀層 v0.1
+Source: Shang Pre-M1 史實基準 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Formal snapshot: c.1200 BCE, a Late Shang / Yinxu / oracle-bone evidence-rich reading node, NOT a precise reign year.
+Scope: Main/Global evidence ownership + first interactive Shang map only.
+Deferred: primary clickable nodes (M2), regions (M3), peer-culture toggles/sheets (M4), region sheets (M5), hotspots/global canon (M6), fullscreen/true focus (M7), historical-geography final gate (M8), iPhone final QC (M8.1).
+Protection: Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain read-only protected.
+-->
+<style id="shang-m1-style">
+#nav-shangmap:checked ~ .screens .shangMap{display:block}
+.backToShangHub{display:none}
+#nav-shanghub:checked ~ .header .hierBack{display:flex}
+#nav-shanghub:checked ~ .header .backToDynasty{display:flex}
+#nav-shangmap:checked ~ .header .hierBack{display:flex}
+#nav-shangmap:checked ~ .header .backToShangHub{display:flex}
+#nav-shangmap:checked ~ .bottom label[for="nav-shangmap"]{background:#ead8b8;color:#33291f;font-weight:900}
+.shangM1Entry{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;margin:12px 0 6px}
+.shangM1Launch,.shangM1Snapshot{background:#fffaf1;border:1px solid #d5bd93;border-radius:16px;padding:13px}
+.shangM1Launch{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;border-width:2px;border-color:#b38747}
+.shangM1Launch b,.shangM1Snapshot b{display:block;font-size:15px}.shangM1Launch small,.shangM1Snapshot small{display:block;color:var(--muted);font-size:10px;line-height:1.45;margin-top:4px}.shangM1Launch .go{font-size:22px;font-weight:900;color:#8e6c40}
+.shangMap .pageInner{max-width:900px}.shangMapHead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:10px}.shangMapHead h2{margin-bottom:3px}.shangM1Badge{display:inline-flex;background:#4a3c2d;color:#fffaf1;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;white-space:nowrap}
+.shangM1Panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:12px;overflow:hidden}
+.shangM1Controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:2px 0 10px;border-bottom:1px solid #d4b987}.shangM1Controls .title{font-size:10px;color:var(--muted);width:100%}.shangM1Controls label{border:1px solid #c9aa77;border-radius:999px;background:#fffaf1;padding:8px 13px;font-size:12px;font-weight:850;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}.shangM1Controls .node{font-size:11px;padding:7px 10px;min-height:36px;display:inline-flex;align-items:center}.shangM1Controls .future{opacity:.55}.shangM1Controls .current{border:2px solid #4a3c2d;background:#fffaf1}
+#shang-m1-main:checked ~ .shangM1Controls label[for="shang-m1-main"],#shang-m1-global:checked ~ .shangM1Controls label[for="shang-m1-global"]{background:#4a3c2d;color:#fffaf1;border-color:#4a3c2d}
+.shangM1MapStage{position:relative;margin-top:10px;border-radius:16px;overflow:hidden;background:#cbbd9d;border:1px solid #c2a97a;aspect-ratio:4/3}.shangM1MapStage svg{width:100%;height:100%;display:block;background:#cbbd9d}.shangM1MapStage text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:2.4px;stroke-linejoin:round}.shangM1MapStage .subtleText{stroke-width:1.4px}.shangGlobalOnly{display:none}#shang-m1-global:checked ~ .shangM1MapStage .shangGlobalOnly{display:inline}
+.shangM1ModeNote{display:none;margin:9px 0 0;border-radius:13px;padding:9px 10px;font-size:10px;line-height:1.55;background:#fffaf1;border:1px solid #d5bd93;color:#5e5245}#shang-m1-main:checked ~ .shangM1ModeNotes .mainNote,#shang-m1-global:checked ~ .shangM1ModeNotes .globalNote{display:block}
+.shangM1Legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}.shangM1Legend div{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:9px;font-size:10px;line-height:1.45}.shangM1Legend b{font-size:11px}.shangM1Legend i{display:inline-block;width:22px;height:0;margin-right:6px;vertical-align:middle}.shangM1Legend .a1 i{border-top:4px solid #986b2d}.shangM1Legend .a2 i{border-top:4px dashed #376f7a}.shangM1Legend .b i{border-top:4px dashed #62594f}.shangM1Legend .c i{border-top:4px dotted #a67835}.shangM1Legend .d i{border-top:3px dotted #8d8174}
+.shangM1Guard{margin-top:10px;padding:10px 11px;background:#fff6e5;border-left:4px solid #b38747;border-radius:12px;font-size:10px;line-height:1.6;color:#574838}.shangM1Sources{margin-top:9px;font-size:9px;line-height:1.5;color:#74685a}
+@media(max-width:430px){.shangM1Entry{grid-template-columns:1fr}.shangM1Legend{grid-template-columns:1fr 1fr}.shangMapHead{align-items:flex-start;flex-direction:column}.shangM1Controls{gap:6px}.shangM1Controls label{padding:7px 10px;font-size:11px}.shangM1Controls .node{padding:6px 8px;font-size:10px}.shangM1MapStage text{stroke-width:2px}}
+</style>
+<script id="shang-m1-runtime-js">
+(function(){
+'use strict';
+function boot(){
+  document.documentElement.setAttribute('data-shang-stage','M1');
+  document.documentElement.setAttribute('data-shang-m1-version','v0.1');
+  document.title='中國歷史 × 世界歷史｜商朝 M1｜政治／考古／出土文字閱讀層 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M1｜政治／考古／出土文字閱讀層 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M1 進行中</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝 Pre-M1 史實基準已通過，現進入 M1「政治／考古／出土文字閱讀層」。第一工作截面為約前1200，主域只顯示考古＋同時代出土文字，全域才加入後世文獻與對應閱讀。';}});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){var h=card.querySelector('h4');if(!h)return;var name=h.textContent.trim();if(name==='商'){card.classList.add('shangNext');var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M1｜進行中';var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜閱讀層 v0.1';}});
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 施工中／尚未凍結';
+  var heroTitle=document.querySelector('.shangHub h2');if(heroTitle)heroTitle.textContent='商朝｜史實基準＋M1 v0.1';
+  var base=document.querySelector('#xia-m1-map-svg image');var slot=document.getElementById('shang-m1-base');if(base&&slot&&!slot.firstChild){slot.appendChild(base.cloneNode(true));}
+  var bottomMap=[].slice.call(document.querySelectorAll('.bottom label')).find(function(l){return (l.querySelector('span')||{}).textContent==='地圖';});
+  var shHub=document.getElementById('nav-shanghub'), shMap=document.getElementById('nav-shangmap'), xHub=document.getElementById('nav-xiahub'), xMap=document.getElementById('nav-xiamap');
+  function routeBottom(){if(!bottomMap)return;var inSh=(shHub&&shHub.checked)||(shMap&&shMap.checked);var inX=(xHub&&xHub.checked)||(xMap&&xMap.checked);bottomMap.setAttribute('for',inSh?'nav-shangmap':(inX?'nav-xiamap':'nav-map'));bottomMap.setAttribute('aria-label',inSh?'進入商朝地圖':(inX?'進入夏朝地圖':'進入唐朝地圖'));}
+  [].slice.call(document.querySelectorAll('input[name="page"]')).forEach(function(el){el.addEventListener('change',routeBottom);});routeBottom();
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="shang-m1-reading-layers-meta" type="application/json">{
+  "module":"Shang",
+  "stage":"M1 Political / Archaeological / Excavated-Text Reading Layers v0.1",
+  "visibleName":"商朝 M1｜政治／考古／出土文字閱讀層 v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "branchSource":"Shang Pre-M1 Historical Baseline v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu / oracle-bone evidence-rich reading node; not a precise royal reign year",
+  "mainEvidence":["A1 archaeological observation","A2 contemporary excavated text / oracle-bone evidence"],
+  "globalAdds":["B later transmitted tradition","C archaeology-text/capital correlation reading"],
+  "hardSovereigntyBorder":false,
+  "deferred":["M2 primary nodes","M3 regions","M4 peer cultures + sheets","M5 region sheets","M6 hotspots + global canon","M7 fullscreen + true focus","M8 historical geography final gate","M8.1 iPhone Safari final device QC"],
+  "next":"Shang-M1 real iPhone Safari Device QC; PASS then Shang-M2"
+}</script>
+<div id="shang-m1-machine-meta" hidden data-stage="Shang-M1" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-snapshot="c.1200 BCE"></div>
+
+
+
+<!-- Shang-M2 主域正式文字＋主要考古／甲骨節點 v0.1
+Source: Shang-M1 政治／考古／出土文字閱讀層 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Yinxu evidence-rich reading node; not a precise reign year.
+Scope: add Main-mode canonical wording + primary archaeological/oracle-bone nodes only.
+Primary nodes: Xiaotun palace/ancestral-temple + oracle-bone core; Xibeigang royal cemetery; Miaopu North bronze foundry. Huanbei is shown only as earlier urban context, not a c.1200 political center.
+Protection: Shang-M1 evidence ownership and geometry, Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain read-only protected.
+Device policy: M1-M7 internal QC; concentrated real iPhone Safari QC at M8.1 unless a blocking device-only defect appears.
+-->
+<style id="shang-m2-style">
+.shangM2Overlay{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none;z-index:6;background:transparent!important}
+.shangM2Overlay text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:1.5px;stroke-linejoin:round}
+.shangM2Overlay .nodeDot{stroke:#fffaf0;stroke-width:1.25px}.shangM2Overlay .contextDot{fill:#fffaf0;stroke:#7c6f61;stroke-width:1.25px;opacity:.9}
+#shang-m1-global:checked ~ .shangM1MapStage .shangM2Overlay{display:none}
+/* M2 mobile/readability guard: M1 geometry stays visible, but its long Main labels yield to numbered M2 nodes. Global keeps the M1 A/B/C labels because Global Canon is deferred to M6. */
+#shang-m1-main:checked ~ .shangM1MapStage #shang-m1-map-svg > text{display:none}
+.shangM2Canon{margin-top:9px;padding:9px 10px;border:1px solid #d5bd93;border-radius:13px;background:#fffaf1;color:#5e5245;font-size:10px;line-height:1.55}.shangM2Canon b{color:#3f342b}
+.shangM2NodeList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:9px}.shangM2Node{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:9px;font-size:9px;line-height:1.48;color:#62564a}.shangM2Node b{display:block;font-size:10px;color:#352b22;margin-bottom:2px}.shangM2Node .tag{display:inline-block;border-radius:999px;padding:2px 6px;background:#ead8b8;color:#62492e;font-size:8px;font-weight:900;margin-bottom:4px}.shangM2Node.context{border-style:dashed;background:#f8f4eb}
+@media(max-width:430px){.shangM2NodeList{grid-template-columns:1fr}.shangM2Canon{font-size:10px}.shangM2Node{font-size:9.5px}}
+</style>
+<script id="shang-m2-main-text-nodes-script">
+(function(){
+'use strict';
+function svgEl(tag,attrs,text){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});if(text!=null)e.textContent=text;return e;}
+function install(){
+  var stage=document.querySelector('.shangM1MapStage');
+  if(!stage||document.getElementById('shang-m2-main-text-nodes'))return;
+  var svg=svgEl('svg',{id:'shang-m2-main-text-nodes',class:'shangM2Overlay',viewBox:'665 270 125 94',preserveAspectRatio:'xMidYMid slice','aria-label':'商朝 M2 主域主要考古與甲骨節點'});
+  function marker(cx,cy,n,fill,cls){svg.appendChild(svgEl('circle',{cx:String(cx),cy:String(cy),r:'3.15',fill:fill,class:cls||'nodeDot'}));svg.appendChild(svgEl('text',{x:String(cx),y:String(cy+1.7),'text-anchor':'middle','font-size':'4.7','font-weight':'900',fill:cls==='contextDot'?'#5f554b':'#fffaf0',stroke:'none'},String(n)));}
+  marker(751,299,1,'#7b4f24');
+  marker(739,291,2,'#5f4939');
+  marker(754,313,3,'#8a672d');
+  marker(752,278,4,'#fffaf0','contextDot');
+  stage.appendChild(svg);
+
+  var notes=document.querySelector('.shangM1ModeNotes');
+  if(notes&&!document.getElementById('shang-m2-canon')){
+    var d=document.createElement('div');d.id='shang-m2-canon';d.className='shangM2Canon';
+    d.innerHTML='<b>M2｜主域正式閱讀：</b>約前1200以殷墟晚商王室中心為主。①小屯將宮殿宗廟考古與王室甲骨文放在同一個「證據核心」閱讀；②西北岡表示王陵區；③苗圃北地表示已知鑄銅作坊之一。④洹北商城只保留為較早期城市背景，不能視為本截面的並列王都。';
+    notes.insertAdjacentElement('afterend',d);
+    var list=document.createElement('div');list.id='shang-m2-node-list';list.className='shangM2NodeList';
+    list.innerHTML='<div class="shangM2Node"><span class="tag">① A1＋A2</span><b>小屯｜宮殿宗廟＋甲骨核心</b>宮殿宗廟建築、祭祀遺存與大量甲骨文共同構成晚商王室活動的高密度證據核心。</div><div class="shangM2Node"><span class="tag">② A1｜考古</span><b>西北岡｜王陵區</b>大型王陵與祭祀遺存是晚商王室墓葬制度的重要考古節點；不以墓區外推整個王朝疆界。</div><div class="shangM2Node"><span class="tag">③ A1｜考古</span><b>苗圃北地｜鑄銅作坊</b>殷墟已知青銅生產作坊之一，用來表示王都手工業與資源組織；不是「唯一」鑄銅中心。</div><div class="shangM2Node context"><span class="tag">④ 前期脈絡</span><b>洹北商城｜較早期城市背景</b>作為中商至晚商轉折研究的重要城市背景；M2 不把它畫成本約前1200截面的政治中心。</div>';
+    d.insertAdjacentElement('afterend',list);
+  }
+
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 3 層｜商朝地圖｜M2';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M2';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M2｜主域正式文字＋主要考古／甲骨節點 v0.1。M2 只在 M1 證據分層上補入可核對的主域節點；不新增區域、同期文化、資訊卡、熱點、全螢幕或真實聚焦。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M2｜施工中';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M2 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜主域正式文字＋小屯／西北岡／苗圃北地節點';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M2 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 PASS｜M2 施工中／尚未凍結';
+
+  document.documentElement.setAttribute('data-shang-stage','M2');
+  document.documentElement.setAttribute('data-shang-m2-version','v0.1');
+  document.title='中國歷史 × 世界歷史｜商朝 M2｜主域正式文字＋主要考古／甲骨節點 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M2｜主域正式文字＋主要考古／甲骨節點 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M2 進行中</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝 Pre-M1 與 M1 已通過內部 QC，現進入 M2「主域正式文字＋主要考古／甲骨節點」。M1～M7 採內部 QC，真實 iPhone Safari 集中於 M8.1 最終裝置驗證。';}});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M2｜進行中';var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜主域節點 v0.1';});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m2-main-text-nodes-meta" type="application/json">{
+  "module":"Shang",
+  "stage":"M2 Main Canon Text + Primary Archaeological / Oracle-Bone Nodes v0.1",
+  "visibleName":"商朝 M2｜主域正式文字＋主要考古／甲骨節點 v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "branchSource":"Shang-M1 Political / Archaeological / Excavated-Text Reading Layers v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu evidence-rich reading node; not a precise royal reign year",
+  "mainOnlyOverlay":true,
+  "primaryNodes":[
+    {"name":"小屯","role":"palace/ancestral-temple + oracle-bone evidence core","evidence":"A1+A2"},
+    {"name":"西北岡","role":"royal cemetery archaeological node","evidence":"A1"},
+    {"name":"苗圃北地","role":"bronze foundry / craft-production node","evidence":"A1"},
+    {"name":"洹北商城","role":"earlier urban context; not c.1200 political center","evidence":"A1/context"}
+  ],
+  "hardRules":[
+    "Primary nodes are evidence nodes, not a complete list of Late Shang political centers.",
+    "Miaopu North is one known foundry node, not the only bronze-production center.",
+    "Huanbei is earlier context and must not be shown as a c.1200 co-capital.",
+    "No hard Shang sovereignty border is introduced."
+  ],
+  "devicePolicy":"M1-M7 internal QC; real iPhone Safari concentrated at M8.1 unless a blocking device-only defect appears",
+  "deferred":["M3 archaeological reading regions","M4 contemporaneous cultures + sheets","M5 region sheets","M6 hotspots + Global Canon","M7 fullscreen + true focus","M8 historical geography final gate","M8.1 iPhone Safari final device QC"],
+  "next":"Shang-M3 Archaeological Reading Regions"
+}</script>
+<div id="shang-m2-machine-meta" hidden data-stage="Shang-M2" data-version="v0.1" data-status="PASS / WORKING / NOT FREEZE" data-next="Shang-M3" data-device-policy="M8.1 final device QC"></div>
+
+
+
+<!-- Shang-M3 考古閱讀區 v0.1
+Source: Shang-M2 主域正式文字＋主要考古／甲骨節點 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Yinxu evidence-rich reading node; not a precise reign year.
+Scope: add six mutually exclusive archaeological reading regions. Selection is a research focus only; not political borders, administrative districts, fang territories, or sovereignty polygons.
+Regions: Yinxu/Huan River; Southern Hebei/Taihang eastern foothills; Southern Shanxi/Fen River; Western Shandong/Tai-Yi; Guanzhong/Zhouyuan; Eastern Henan/Northern Huai.
+Protection: Shang-M1 evidence ownership + geometry and Shang-M2 canonical text/nodes stay read-only. Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain protected.
+Device policy: M1-M7 internal QC; concentrated real iPhone Safari QC at M8.1 unless a blocking device-only defect appears.
+-->
+<style id="shang-m3-style">
+.shangM3RegionWrap{margin-top:9px;border-top:1px solid #d4b987;padding-top:9px}
+.shangM3RegionTitle{font-size:10px;color:#74685a;margin:0 0 6px}
+.shangM3RegionRail{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 5px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
+.shangM3RegionRail::-webkit-scrollbar{display:none}
+.shangM3RegionBtn{flex:0 0 auto;min-height:44px;border:1px solid #c9aa77;border-radius:999px;background:#fffaf1;color:#3f342b;padding:8px 12px;font:inherit;font-size:10px;font-weight:850;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:rgba(74,60,45,.08)}
+.shangM3RegionBtn[aria-pressed="true"]{background:#4a3c2d;color:#fffaf1;border-color:#4a3c2d}
+.shangM3RegionOverlay{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none;background:transparent!important}
+.shangM3RegionOverlay .r{display:none}
+.shangM3RegionOverlay .r.active{display:inline}
+.shangM3RegionOverlay .zone{fill:#3d7680;fill-opacity:.11;stroke:#2f6973;stroke-width:1.7;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
+.shangM3RegionOverlay .core{fill:#b7792d;fill-opacity:.12;stroke:#8e6129}
+.shangM3RegionOverlay text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:1.8px;stroke-linejoin:round;fill:#2f5960;font-size:4.6px;font-weight:900;letter-spacing:.02em}
+.shangM3RegionOverlay .coreText{fill:#7b5326}
+.shangM3RegionNote{margin-top:8px;background:#fff6e5;border-left:4px solid #b38747;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#574838}
+@media(max-width:430px){.shangM3RegionBtn{min-height:44px;padding:8px 11px;font-size:10px}.shangM3RegionTitle{font-size:10px}.shangM3RegionNote{font-size:9.5px}}
+</style>
+<script id="shang-m3-regions-script">
+(function(){
+'use strict';
+var REGION_DATA=[
+  {key:'yinxu',label:'殷墟／洹河'},
+  {key:'hebei',label:'冀南／太行東麓'},
+  {key:'jinnan',label:'晉南／汾河'},
+  {key:'luxi',label:'魯西／泰沂'},
+  {key:'guanzhong',label:'關中／周原'},
+  {key:'huaibei',label:'豫東／淮北'}
+];
+function svgEl(tag,attrs,text){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});if(text!=null)e.textContent=text;return e;}
+function addGroup(svg,key,label,shape){var g=svgEl('g',{class:'r','data-region':key,'aria-label':label});
+  var s=svgEl(shape.tag,shape.attrs);s.setAttribute('class','zone'+(key==='yinxu'?' core':''));g.appendChild(s);
+  var t=svgEl('text',{x:String(shape.tx),y:String(shape.ty),'text-anchor':'middle',class:key==='yinxu'?'coreText':''},label);g.appendChild(t);svg.appendChild(g);}
+function install(){
+  var controls=document.querySelector('.shangM1Controls');
+  var stage=document.querySelector('.shangM1MapStage');
+  if(!controls||!stage||document.getElementById('shang-m3-region-wrap'))return;
+  var wrap=document.createElement('div');wrap.id='shang-m3-region-wrap';wrap.className='shangM3RegionWrap';
+  wrap.innerHTML='<div class="shangM3RegionTitle">M3｜考古閱讀區（互斥；再次點擊可取消）</div><div class="shangM3RegionRail" role="group" aria-label="商朝約前1200考古閱讀區"></div><div class="shangM3RegionNote"><b>閱讀規則：</b>六區只是考古研究視窗，用來聚焦遺址、資源與跨區互動；不是行政區、方國疆界或商王朝主權邊界。切換主域／全域不會改變區域選取。</div>';
+  controls.insertAdjacentElement('afterend',wrap);
+  var rail=wrap.querySelector('.shangM3RegionRail');
+  REGION_DATA.forEach(function(r){var b=document.createElement('button');b.type='button';b.className='shangM3RegionBtn';b.dataset.region=r.key;b.setAttribute('aria-pressed','false');b.textContent=r.label;rail.appendChild(b);});
+
+  var svg=svgEl('svg',{id:'shang-m3-region-overlay',class:'shangM3RegionOverlay',viewBox:'665 270 125 94',preserveAspectRatio:'xMidYMid slice','aria-label':'商朝 M3 六個考古閱讀區'});
+  addGroup(svg,'yinxu','殷墟／洹河',{tag:'ellipse',attrs:{cx:'752',cy:'300',rx:'17',ry:'12'},tx:752,ty:288});
+  addGroup(svg,'hebei','冀南／太行東麓',{tag:'path',attrs:{d:'M738 271 L781 271 L787 287 L771 294 L742 289 Z'},tx:762,ty:280});
+  addGroup(svg,'jinnan','晉南／汾河',{tag:'path',attrs:{d:'M690 278 L728 279 L735 296 L724 312 L691 307 L680 293 Z'},tx:707,ty:293});
+  addGroup(svg,'luxi','魯西／泰沂',{tag:'path',attrs:{d:'M770 284 L790 283 L790 317 L774 321 L762 305 Z'},tx:779,ty:300});
+  addGroup(svg,'guanzhong','關中／周原',{tag:'path',attrs:{d:'M665 294 L697 289 L714 303 L707 325 L665 330 Z'},tx:685,ty:313});
+  addGroup(svg,'huaibei','豫東／淮北',{tag:'path',attrs:{d:'M735 318 L777 317 L790 335 L781 357 L746 358 L730 340 Z'},tx:759,ty:340});
+  stage.insertBefore(svg,stage.firstChild);
+
+  function setRegion(key){
+    rail.querySelectorAll('.shangM3RegionBtn').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.region===key));});
+    svg.querySelectorAll('.r').forEach(function(g){g.classList.toggle('active',g.getAttribute('data-region')===key);});
+    document.documentElement.setAttribute('data-shang-m3-region',key||'none');
+  }
+  rail.addEventListener('click',function(ev){var b=ev.target.closest('.shangM3RegionBtn');if(!b)return;var active=b.getAttribute('aria-pressed')==='true';setRegion(active?'':b.dataset.region);});
+  setRegion('');
+
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 3 層｜商朝地圖｜M3';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M3';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M3｜考古閱讀區 v0.1。沿用 M1 證據分層與 M2 主域節點，新增六個互斥研究視窗；它們只用於空間閱讀，不建立行政區、方國疆界或商朝硬式主權範圍。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M3｜施工中';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M3 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜六考古閱讀區＋M1/M2 證據分層';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M3 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 PASS｜M2 PASS｜M3 施工中／尚未凍結';
+  document.documentElement.setAttribute('data-shang-stage','M3');
+  document.documentElement.setAttribute('data-shang-m3-version','v0.1');
+  document.title='中國歷史 × 世界歷史｜商朝 M3｜考古閱讀區 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M3｜考古閱讀區 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m3-regions-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M3 Archaeological Reading Regions v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "source":"Shang-M2 Main Canon Text + Primary Archaeological/Oracle-Bone Nodes v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu evidence-rich reading node, not a precise reign year",
+  "selectionModel":"single-select with second-tap cancel; persists across Main/Global mode switching",
+  "semantics":"research reading windows only; not administrative districts, fang polities, sovereignty borders, or direct-control polygons",
+  "regions":[
+    {"key":"yinxu","label":"殷墟／洹河","reading":"王室中心、聚落、墓葬、作坊與甲骨高密度核心"},
+    {"key":"hebei","label":"冀南／太行東麓","reading":"安陽以北的聚落與交通／互動帶；不等於固定北界"},
+    {"key":"jinnan","label":"晉南／汾河","reading":"殷墟時期多類地方遺存與中原、北方高地互動"},
+    {"key":"luxi","label":"魯西／泰沂","reading":"晚商東方考古脈絡與地方中心；不預設同質統治"},
+    {"key":"guanzhong","label":"關中／周原","reading":"先周—晚商互動背景；不得直接視為商王直接行政區"},
+    {"key":"huaibei","label":"豫東／淮北","reading":"中原東南向交流、器物與地方考古脈絡閱讀"}
+  ],
+  "protected":["Shang-M1 evidence ownership and geometry","Shang-M2 canonical wording and nodes","Xia-M8.1 Final Canon / Freeze v0.6","UI-D1.1","Tang Final Canon"],
+  "deferred":["M4 contemporary cultures/peer regional centers","M5 region Bottom Sheets","M6 hotspots/global canon","M7 fullscreen/true focus","M8 final gate","M8.1 real iPhone Safari device QC"],
+  "next":"Shang-M4 Contemporary Archaeological Cultures / Regional Centers Toggle + Bottom Sheets"
+}</script>
+<div id="shang-m3-machine-meta" hidden data-stage="Shang-M3" data-version="v0.1" data-status="PASS / WORKING / NOT FREEZE" data-region="none"></div>
+
+
+<!-- Shang-M4 同期考古文化／區域中心切換＋資訊面板 v0.1
+Source: Shang-M3 考古閱讀區 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Yinxu evidence-rich reading node; not a precise reign year.
+Scope: add five multi-select contemporaneous archaeological cultures / regional centers + bottom sheets. These are comparative systems, not states, fixed ethnic territories, Shang provinces, or hard political borders.
+Peers: Daxinzhuang (Shandong); Pre-Zhou Jing River background; Lijiaya Loess Highland; Sanxingdui Chengdu Plain; Wucheng Gan River middle reaches.
+Protection: Shang-M1 evidence ownership + geometry, Shang-M2 canonical text/nodes, Shang-M3 regions remain read-only. Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain protected.
+Device policy: M1-M7 internal QC; concentrated real iPhone Safari QC at M8.1 unless a blocking device-only defect appears.
+-->
+<style id="shang-m4-style">
+.shangM4Wrap{margin-top:8px;border-top:1px solid #d4b987;padding-top:9px}
+.shangM4Title{font-size:10px;color:#74685a;margin:0 0 6px}
+.shangM4Rail{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 5px;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
+.shangM4Rail::-webkit-scrollbar{display:none}
+.shangM4Btn{flex:0 0 auto;min-height:44px;border:1px solid #c9aa77;border-radius:999px;background:#fffaf1;color:#3f342b;padding:8px 12px;font:inherit;font-size:10px;font-weight:850;white-space:nowrap;touch-action:manipulation;-webkit-tap-highlight-color:rgba(53,91,98,.08)}
+.shangM4Btn[aria-pressed="true"]{background:#355b62;color:#fffaf1;border-color:#355b62;box-shadow:0 0 0 2px rgba(53,91,98,.12)}
+.shangM4Overlay{position:absolute;inset:0;width:100%;height:100%;z-index:7;pointer-events:none;background:transparent!important}
+.shangM4Overlay .p{display:none}.shangM4Overlay .p.active{display:inline}
+.shangM4Overlay .zone{fill:#3d7680;fill-opacity:.08;stroke:#355b62;stroke-width:1.4;stroke-dasharray:4 3;vector-effect:non-scaling-stroke}
+.shangM4Overlay .far{fill:none;stroke:#7f6043;stroke-width:1.45;stroke-dasharray:3.2 3.2;vector-effect:non-scaling-stroke}
+.shangM4Overlay .pin{fill:#fffaf1;stroke:#355b62;stroke-width:1.4;vector-effect:non-scaling-stroke}
+.shangM4Overlay text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:1.8px;stroke-linejoin:round;fill:#2f5960;font-size:4.3px;font-weight:900;letter-spacing:.01em}
+.shangM4Note{margin-top:8px;background:#eef5f3;border-left:4px solid #527b80;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#465b5c}
+.shangM4SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:186;display:none;padding:0 8px;pointer-events:none}
+.shangM4SheetShell.open{display:block}
+.shangM4Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.18);padding:14px 16px 16px;max-height:54vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.shangM4Grip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.shangM4Head{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.shangM4Eyebrow{font-size:9px;color:#786a5b;margin-bottom:3px}.shangM4SheetTitle{font-size:20px;font-weight:950;line-height:1.15}
+.shangM4Close{flex:0 0 auto;width:44px;height:44px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:22px;font-weight:900;display:inline-flex;align-items:center;justify-content:center}
+.shangM4Body{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}
+.shangM4Grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.shangM4Card{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}
+.shangM4Card b{display:block;color:#705538;margin-bottom:2px}
+@media(max-width:430px){.shangM4Btn{min-height:44px;padding:8px 11px;font-size:10px}.shangM4Title{font-size:10px}.shangM4Note{font-size:9.5px}.shangM4Sheet{padding:13px 14px 15px}.shangM4Grid{grid-template-columns:1fr 1fr}}
+</style>
+<script id="shang-m4-runtime-js">
+(function(){
+'use strict';
+var DEF={
+  daxinzhuang:{label:'大辛莊',button:'大辛莊｜山東',eyebrow:'山東｜晚商區域中心＋甲骨材料',body:'大辛莊是山東晚商的重要聚落與區域中心，出土商代遺存與刻辭甲骨，適合用來比較安陽核心與東方地方社會之間的交流、技術與文字實踐。本系統不把它自動等同於一個由安陽直接行政控制的「東方據點」。',cards:[['類型','晚商城址／區域中心'],['證據','聚落、手工業與刻辭甲骨'],['方法防護','商文化因素 ≠ 直接行政隸屬']]},
+  prezhou:{label:'先周文化脈絡',button:'先周｜涇河',eyebrow:'關中北部｜涇河流域先周背景',body:'約前1200前後，涇河流域的先周文化脈絡可作為晚商西部互動的重要比較材料。其聚落與年代序列反映先周社會的形成與轉折，但不能把後來周王朝的疆域、制度或身份直接回投到此一時段。',cards:[['區域','涇河流域與關中北部'],['閱讀重點','聚落序列、遷移與晚商互動'],['方法防護','先周文化 ≠ 後來周王朝疆界']]},
+  lijiaya:{label:'李家崖文化',button:'李家崖｜晉陝高原',eyebrow:'晉陝黃土高原｜殷墟時期地方社會',body:'殷墟時期的李家崖文化集中於晉陝黃土高原黃河兩岸，可見地方青銅傳統、安陽式器物因素與北方風格並存。M4 把它作為獨立地方社會閱讀層，不直接等同於甲骨文中的某一個「方」，也不預設對商王室的固定臣屬關係。',cards:[['年代窗口','約前1300～前1050'],['閱讀重點','地方青銅、北方因素與安陽互動'],['方法防護','考古文化 ≠ 固定「方」疆域']]},
+  sanxingdui:{label:'三星堆',button:'三星堆｜成都平原',eyebrow:'成都平原｜晚商同期青銅文明中心',body:'三星堆晚期祭祀坑的年代可進入晚商約前1200～前1050的比較窗口。其青銅、金器、玉器與象牙等形成高度獨特的區域體系；與中原之間存在交流，但交流不能被解讀成商王朝對成都平原的直接統治。',cards:[['區域','成都平原／四川盆地'],['閱讀重點','祭祀、青銅與跨區交流'],['方法防護','交流網絡 ≠ 商朝疆域']]},
+  wucheng:{label:'吳城文化',button:'吳城｜贛江中游',eyebrow:'江西｜贛江中游地方青銅文化',body:'吳城文化在約前1200前後達到重要發展階段，贛江中游可見大型聚落、地方青銅傳統及與中原之間的交流。此處將其作為南方地方權力與文化系統比較層，不把器物相似或金屬流通直接推論為商朝南方行政區。',cards:[['區域','贛江中游／江西'],['閱讀重點','地方權力、青銅與遠距交換'],['方法防護','文化與金屬交流 ≠ 行政統治']]}
+};
+var ORDER=['daxinzhuang','prezhou','lijiaya','sanxingdui','wucheng'];
+function svgEl(tag,attrs,text){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});if(text!=null)e.textContent=text;return e;}
+function group(svg,key,label,shape){var g=svgEl('g',{class:'p','data-peer':key,'aria-label':label});if(shape.kind==='ellipse'){g.appendChild(svgEl('ellipse',{class:'zone',cx:shape.cx,cy:shape.cy,rx:shape.rx,ry:shape.ry}));}else{g.appendChild(svgEl('path',{class:'far',d:shape.d}));g.appendChild(svgEl('circle',{class:'pin',cx:shape.px,cy:shape.py,r:'2.2'}));}g.appendChild(svgEl('text',{x:shape.tx,y:shape.ty,'text-anchor':shape.anchor||'middle'},shape.short));svg.appendChild(g);}
+function install(){
+  var rwrap=document.getElementById('shang-m3-region-wrap'), stage=document.querySelector('.shangM1MapStage');
+  if(!rwrap||!stage||document.getElementById('shang-m4-wrap'))return;
+  var wrap=document.createElement('div');wrap.id='shang-m4-wrap';wrap.className='shangM4Wrap';
+  wrap.innerHTML='<div class="shangM4Title">M4｜同期考古文化／區域中心（可複選；再次點擊可取消）</div><div class="shangM4Rail" role="group" aria-label="商朝約前1200同期考古文化與區域中心"></div><div class="shangM4Note"><b>M4 規則：</b>這些是約前1200前後可比較的考古文化、地方社會或區域中心，不是「商朝屬國清單」。可多選並與 M3 區域同時存在；包絡與連線只表達比較閱讀，不表示主權疆界。</div>';
+  rwrap.insertAdjacentElement('afterend',wrap);
+  var rail=wrap.querySelector('.shangM4Rail');
+  ORDER.forEach(function(k){var b=document.createElement('button');b.type='button';b.className='shangM4Btn';b.dataset.peer=k;b.setAttribute('aria-pressed','false');b.setAttribute('aria-controls','shang-m4-sheet');b.setAttribute('aria-expanded','false');b.textContent=DEF[k].button;rail.appendChild(b);});
+  var svg=svgEl('svg',{id:'shang-m4-overlay',class:'shangM4Overlay',viewBox:'665 270 125 94',preserveAspectRatio:'xMidYMid slice','aria-label':'商朝 M4 同期考古文化與區域中心疊加層'});
+  group(svg,'daxinzhuang','大辛莊｜山東',{kind:'ellipse',cx:'782',cy:'303',rx:'7',ry:'8',tx:'781',ty:'291',anchor:'end',short:'大辛莊'});
+  group(svg,'prezhou','先周｜涇河',{kind:'ellipse',cx:'680',cy:'312',rx:'9',ry:'7',tx:'681',ty:'303',anchor:'middle',short:'先周／涇河'});
+  group(svg,'lijiaya','李家崖｜晉陝高原',{kind:'ellipse',cx:'695',cy:'280',rx:'11',ry:'6',tx:'696',ty:'274',anchor:'middle',short:'李家崖'});
+  group(svg,'sanxingdui','三星堆｜成都平原',{kind:'path',d:'M676 338 Q668 345 666 355',px:'668',py:'353',tx:'670',ty:'349',anchor:'start',short:'三星堆 ↙'});
+  group(svg,'wucheng','吳城｜贛江中游',{kind:'path',d:'M766 340 Q779 348 789 358',px:'787',py:'356',tx:'786',ty:'348',anchor:'end',short:'吳城 ↘'});
+  stage.appendChild(svg);
+  var shell=document.createElement('div');shell.id='shang-m4-sheet';shell.className='shangM4SheetShell';shell.setAttribute('aria-live','polite');shell.setAttribute('aria-hidden','true');
+  shell.innerHTML='<section class="shangM4Sheet" role="dialog" aria-modal="false" aria-labelledby="shang-m4-title"><div class="shangM4Grip"></div><div class="shangM4Head"><div><div id="shang-m4-eyebrow" class="shangM4Eyebrow"></div><div id="shang-m4-title" class="shangM4SheetTitle"></div></div><button id="shang-m4-close" class="shangM4Close" type="button" aria-label="關閉同期比較資訊卡">×</button></div><div id="shang-m4-body" class="shangM4Body"></div><div id="shang-m4-grid" class="shangM4Grid"></div></section>';
+  document.body.appendChild(shell);
+  function activeKeys(){return [].slice.call(rail.querySelectorAll('.shangM4Btn[aria-pressed="true"]')).map(function(b){return b.dataset.peer;});}
+  function syncRoot(){document.documentElement.setAttribute('data-shang-m4-peers',activeKeys().join(',')||'none');}
+  function setPeer(k,on){var b=rail.querySelector('[data-peer="'+k+'"]');var g=svg.querySelector('[data-peer="'+k+'"]');if(b)b.setAttribute('aria-pressed',on?'true':'false');if(g)g.classList.toggle('active',on);syncRoot();}
+  function clearExpanded(){rail.querySelectorAll('.shangM4Btn').forEach(function(b){b.setAttribute('aria-expanded','false');});}
+  function close(){shell.classList.remove('open');shell.setAttribute('aria-hidden','true');shell.removeAttribute('data-peer');clearExpanded();document.documentElement.setAttribute('data-shang-m4-sheet','closed');}
+  function show(k){var d=DEF[k];if(!d)return;clearExpanded();document.getElementById('shang-m4-eyebrow').textContent=d.eyebrow+'｜約前1200';document.getElementById('shang-m4-title').textContent=d.label;document.getElementById('shang-m4-body').textContent=d.body;document.getElementById('shang-m4-grid').innerHTML=d.cards.map(function(c){return '<div class="shangM4Card"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.peer=k;shell.classList.add('open');shell.setAttribute('aria-hidden','false');var b=rail.querySelector('[data-peer="'+k+'"]');if(b)b.setAttribute('aria-expanded','true');document.documentElement.setAttribute('data-shang-m4-sheet',k);}
+  rail.addEventListener('click',function(ev){var b=ev.target.closest('.shangM4Btn');if(!b)return;var k=b.dataset.peer;var on=b.getAttribute('aria-pressed')!=='true';setPeer(k,on);if(on)show(k);else if(shell.dataset.peer===k)close();});
+  document.getElementById('shang-m4-close').addEventListener('click',close);
+  window.shangM4ClearPeers=function(){ORDER.forEach(function(k){setPeer(k,false);});close();};
+  document.documentElement.setAttribute('data-shang-m4-peers','none');document.documentElement.setAttribute('data-shang-m4-sheet','closed');
+
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 4 層｜商朝地圖｜M4';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M4';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M4｜同期考古文化／區域中心 v0.1。新增五個可複選的比較層與資訊面板；它們可與 M3 區域共存，但不等於商朝屬國、行政區或固定主權邊界。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M4｜施工中';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M4 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜六閱讀區＋五同期比較層';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M4 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 PASS｜M2 PASS｜M3 PASS｜M4 施工中／尚未凍結';
+  document.documentElement.setAttribute('data-shang-stage','M4');document.documentElement.setAttribute('data-shang-m4-version','v0.1');
+  document.title='中國歷史 × 世界歷史｜商朝 M4｜同期考古文化／區域中心 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M4｜同期考古文化／區域中心 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m4-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M4 Contemporary Archaeological Cultures / Regional Centers Toggle + Bottom Sheets v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "source":"Shang-M3 Archaeological Reading Regions v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu evidence-rich reading node, not a precise reign year",
+  "selectionModel":"multi-select; second tap cancels selected peer; sheets do not cancel selections",
+  "semantics":"comparative archaeological cultures, local societies, or regional centers; not a list of Shang vassal states, fixed ethnic territories, administrative districts, or sovereignty polygons",
+  "peers":[
+    {"key":"daxinzhuang","label":"大辛莊｜山東","class":"Late Shang regional center with oracle-bone evidence"},
+    {"key":"prezhou","label":"先周｜涇河","class":"pre-Zhou cultural background in Jing River valley"},
+    {"key":"lijiaya","label":"李家崖｜晉陝高原","class":"Loess Highland local society during Yinxu period"},
+    {"key":"sanxingdui","label":"三星堆｜成都平原","class":"Late Shang-contemporary Bronze Age regional center"},
+    {"key":"wucheng","label":"吳城｜贛江中游","class":"southern local bronze culture / regional power"}
+  ],
+  "hardRules":[
+    "Do not equate archaeological culture or regional-center extent with Shang sovereignty.",
+    "Do not map oracle-bone fang labels directly onto these archaeological peer layers.",
+    "Do not back-project later Zhou political territory onto the c.1200 pre-Zhou comparison layer.",
+    "Sanxingdui/Wucheng exchange with Central Plains does not imply Shang direct rule.",
+    "M3 region selection and M4 peer selection may coexist without changing each other's semantics."
+  ],
+  "protected":["Shang-M1 evidence ownership and geometry","Shang-M2 canonical wording and nodes","Shang-M3 regions","Xia-M8.1 Final Canon / Freeze v0.6","UI-D1.1","Tang Final Canon"],
+  "devicePolicy":"M1-M7 internal QC; real iPhone Safari concentrated at M8.1 unless a blocking device-only defect appears",
+  "deferred":["M5 region Bottom Sheets","M6 hotspots + Global Canon","M7 fullscreen + true focus","M8 historical geography final gate","M8.1 real iPhone Safari final device QC"],
+  "next":"Shang-M5 Region Bottom Sheets + click-again toggle"
+}</script>
+<div id="shang-m4-machine-meta" hidden data-stage="Shang-M4" data-version="v0.1" data-status="PASS / WORKING / NOT FREEZE" data-peers="none" data-device-policy="M8.1 final device QC"></div>
+
+<!-- Shang-M5 區域資訊面板＋同區再次點擊取消 v0.1
+Source: Shang-M4 同期考古文化／區域中心切換＋資訊面板 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Yinxu evidence-rich reading node; not a precise reign year.
+Scope: add Bottom Sheets to the six existing M3 archaeological reading regions. No new region geometry is introduced.
+Behavior: first tap selects region + opens sheet; manual close keeps selection; tapping the same selected region again cancels selection + closes sheet; selecting another region replaces M3 selection and opens that region sheet. M3 single-select may coexist with M4 multi-select.
+Protection: Shang-M1 evidence ownership/geometry, Shang-M2 text/nodes, Shang-M3 region geometry, Shang-M4 peers/sheets remain read-only. Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain protected.
+Device policy: M1-M7 internal QC; real iPhone Safari concentrated at M8.1 unless a blocking device-only defect appears.
+-->
+<style id="shang-m5-style">
+.shangM5SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:188;display:none;padding:0 8px;pointer-events:none}
+.shangM5SheetShell.open{display:block}
+.shangM5Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.18);padding:14px 16px 16px;max-height:54vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.shangM5Grip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.shangM5Head{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.shangM5Eyebrow{font-size:9px;color:#786a5b;margin-bottom:3px}.shangM5Title{font-size:20px;font-weight:950;line-height:1.15}
+.shangM5Close{flex:0 0 auto;width:44px;height:44px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:22px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
+.shangM5Body{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}
+.shangM5Grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.shangM5Card{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}
+.shangM5Card b{display:block;color:#705538;margin-bottom:2px}
+.shangM5Status{margin-top:8px;background:#fff6e5;border-left:4px solid #b38747;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#574838}
+@media(max-width:430px){.shangM5Sheet{padding:13px 14px 15px}.shangM5Grid{grid-template-columns:1fr 1fr}.shangM5Status{font-size:9.5px}}
+</style>
+<script id="shang-m5-script">
+(function(){
+'use strict';
+var DATA={
+  yinxu:{label:'殷墟／洹河',eyebrow:'核心閱讀區｜王室中心與洹河聚落群',body:'以殷墟晚商王室中心及洹河兩岸聚落群為主要閱讀範圍，綜合小屯宮殿宗廟、甲骨、西北岡王陵與手工業節點。這個區域是研究聚焦視窗，不等於城牆範圍，也不能外推成商王朝疆界。',cards:[['閱讀核心','王室活動、聚落、墓葬、作坊與甲骨高密度證據'],['空間語義','洹河兩岸與殷墟聚落群的研究閱讀包絡'],['方法防護','核心區 ≠ 王朝全部直接控制區']]},
+  hebei:{label:'冀南／太行東麓',eyebrow:'北向閱讀區｜交通與地方互動',body:'聚焦安陽以北、太行山東麓至冀南一帶的晚商聚落與跨區互動。此區用來追蹤北向交通、地方遺存與文化接觸，不把它處理成一條固定的「商朝北界」。',cards:[['閱讀重點','北向聚落、交通路徑與地方文化互動'],['空間語義','冀南與太行東麓的研究視窗'],['方法防護','研究區 ≠ 固定北界／方國疆界']]},
+  jinnan:{label:'晉南／汾河',eyebrow:'西北向閱讀區｜汾河與資源網絡',body:'聚焦晉南、汾河谷地及其與中原和北方高地之間的晚商互動。可用來閱讀資源流動、地方類型與交通網絡，但不能由器物相似或交流證據直接推定商王朝的行政隸屬。',cards:[['閱讀重點','汾河谷地、資源交換與地方遺存'],['互動方向','中原—晉南—北方高地之間的多向聯繫'],['方法防護','交流存在 ≠ 直接行政統治']]},
+  luxi:{label:'魯西／泰沂',eyebrow:'東方閱讀區｜地方中心與文化差異',body:'聚焦魯西與泰沂周邊的晚商東方考古脈絡，閱讀地方中心、器物系統與中原因素的並存。即使出現商文化材料，也不能自動把整個區域解讀為同質的商王朝直接控制區。',cards:[['閱讀重點','地方中心、器物組合與東方互動'],['空間語義','魯西／泰沂研究包絡'],['方法防護','商文化因素 ≠ 全域直接控制']]},
+  guanzhong:{label:'關中／周原',eyebrow:'西方閱讀區｜先周—晚商互動背景',body:'聚焦關中與周原一帶約前1200前後的先周—晚商互動背景，用來閱讀地方社會、交流與後來周人崛起前的空間脈絡。不可把西周建立後的王畿或封建政治疆域回投到本截面。',cards:[['閱讀重點','先周地方社會與晚商互動'],['時間防護','本截面早於西周王朝形成'],['方法防護','不得回投後來周王朝疆域']]},
+  huaibei:{label:'豫東／淮北',eyebrow:'東南向閱讀區｜交流與地方考古脈絡',body:'聚焦豫東至淮北一帶的晚商東南向交流、器物傳播與地方考古脈絡。此區是用來比較中原與東南地方社會的研究視窗，不把交流網絡直接畫成商王朝行政邊界。',cards:[['閱讀重點','中原東南向交流與地方遺存'],['空間語義','豫東／淮北比較閱讀包絡'],['方法防護','交流網絡 ≠ 行政／主權邊界']]}
+};
+function install(){
+  var wrap=document.getElementById('shang-m3-region-wrap');
+  if(!wrap||document.getElementById('shang-m5-sheet'))return;
+  var rail=wrap.querySelector('.shangM3RegionRail');
+  if(!rail)return;
+  rail.querySelectorAll('.shangM3RegionBtn').forEach(function(b){b.setAttribute('aria-controls','shang-m5-sheet');b.setAttribute('aria-expanded','false');});
+  var status=document.createElement('div');status.id='shang-m5-status';status.className='shangM5Status';status.innerHTML='<b>M5｜區域資訊面板：</b>點選任一 M3 區域會開啟該區閱讀說明；手動關閉資訊卡不取消區域選取；再次點擊同一已選區域才會取消。M3 單選可與 M4 多選同時存在。';
+  wrap.appendChild(status);
+  var shell=document.createElement('div');shell.id='shang-m5-sheet';shell.className='shangM5SheetShell';shell.setAttribute('aria-live','polite');shell.setAttribute('aria-hidden','true');
+  shell.innerHTML='<section class="shangM5Sheet" role="dialog" aria-modal="false" aria-labelledby="shang-m5-title"><div class="shangM5Grip"></div><div class="shangM5Head"><div><div id="shang-m5-eyebrow" class="shangM5Eyebrow"></div><div id="shang-m5-title" class="shangM5Title"></div></div><button id="shang-m5-close" class="shangM5Close" type="button" aria-label="關閉區域資訊卡">×</button></div><div id="shang-m5-body" class="shangM5Body"></div><div id="shang-m5-grid" class="shangM5Grid"></div></section>';
+  document.body.appendChild(shell);
+  function allButtons(){return rail.querySelectorAll('.shangM3RegionBtn');}
+  function selected(){return rail.querySelector('.shangM3RegionBtn[aria-pressed="true"]');}
+  function clearExpanded(){allButtons().forEach(function(b){b.setAttribute('aria-expanded','false');});}
+  function close(){shell.classList.remove('open');shell.setAttribute('aria-hidden','true');shell.removeAttribute('data-region');clearExpanded();document.documentElement.setAttribute('data-shang-m5-sheet','closed');}
+  function closeM4SheetOnly(){var m4=document.getElementById('shang-m4-sheet');if(m4&&m4.classList.contains('open')){var x=document.getElementById('shang-m4-close');if(x)x.click();}}
+  function show(key){var d=DATA[key];if(!d)return;closeM4SheetOnly();clearExpanded();document.getElementById('shang-m5-eyebrow').textContent=d.eyebrow+'｜約前1200';document.getElementById('shang-m5-title').textContent=d.label;document.getElementById('shang-m5-body').textContent=d.body;document.getElementById('shang-m5-grid').innerHTML=d.cards.map(function(c){return '<div class="shangM5Card"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.region=key;shell.classList.add('open');shell.setAttribute('aria-hidden','false');var b=rail.querySelector('[data-region="'+key+'"]');if(b)b.setAttribute('aria-expanded','true');document.documentElement.setAttribute('data-shang-m5-sheet',key);}
+  /* M3 listener was registered earlier on the same rail. This listener therefore reads the post-M3 aria-pressed state and only owns the M5 sheet. */
+  rail.addEventListener('click',function(ev){var b=ev.target.closest('.shangM3RegionBtn');if(!b)return;var key=b.dataset.region;var on=b.getAttribute('aria-pressed')==='true';if(on)show(key);else if(shell.dataset.region===key)close();else close();});
+  document.getElementById('shang-m5-close').addEventListener('click',close);
+  var m4rail=document.querySelector('.shangM4Rail');if(m4rail)m4rail.addEventListener('click',function(ev){if(ev.target.closest('.shangM4Btn'))close();});
+  document.documentElement.setAttribute('data-shang-m5-sheet','closed');
+
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 5 層｜商朝地圖｜M5';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M5';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M5｜區域資訊面板 v0.1。六個 M3 考古閱讀區現在都有正式資訊卡；關閉資訊卡保留區域選取，再次點擊同一區域才取消。M3 可與 M4 同期比較層共存。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M5｜施工中';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M5 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜六區域資訊卡＋五同期比較層';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M5 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 PASS｜M2 PASS｜M3 PASS｜M4 PASS｜M5 施工中／尚未凍結';
+  document.documentElement.setAttribute('data-shang-stage','M5');document.documentElement.setAttribute('data-shang-m5-version','v0.1');
+  document.title='中國歷史 × 世界歷史｜商朝 M5｜區域資訊面板 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M5｜區域資訊面板 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M5 進行中</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝已完成 Pre-M1～M4 內部 QC，現進入 M5「區域資訊面板」。M1～M7 採內部 QC，真實 iPhone Safari 集中於 M8.1 最終裝置驗證。';}});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M5｜進行中';var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜區域資訊卡 v0.1';});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m5-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M5 Region Bottom Sheets + Same-Region Second-Tap Cancel v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "source":"Shang-M4 Contemporary Archaeological Cultures / Regional Centers v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu evidence-rich reading node, not a precise reign year",
+  "regionCount":6,
+  "selectionModel":"M3 single-select; first tap selects + opens region sheet; manual close keeps selection; same selected region second tap cancels selection + closes sheet",
+  "coexistence":"M3 region selection may coexist with M4 multi-select peers; opening one sheet closes the other visible sheet without clearing its selection",
+  "semantics":"region sheets explain research reading windows only; not administrative districts, fang boundaries, direct-control polygons, or Shang sovereignty borders",
+  "regions":["殷墟／洹河","冀南／太行東麓","晉南／汾河","魯西／泰沂","關中／周原","豫東／淮北"],
+  "hardRules":[
+    "Closing a region sheet must not clear the M3 region selection.",
+    "Tapping the same selected M3 region again must clear that region and close its sheet.",
+    "Selecting a different M3 region replaces the previous region selection and opens the new sheet.",
+    "M4 peer selections remain intact when an M5 region sheet opens or closes.",
+    "No new region geometry or political-border semantics are introduced in M5."
+  ],
+  "protected":["Shang-M1 evidence ownership and geometry","Shang-M2 canonical text and nodes","Shang-M3 region geometry","Shang-M4 peers and sheets","Xia-M8.1 Final Canon / Freeze v0.6","UI-D1.1","Tang Final Canon"],
+  "devicePolicy":"M1-M7 internal QC; real iPhone Safari concentrated at M8.1 unless a blocking device-only defect appears",
+  "deferred":["M6 hotspots + Global Canon","M7 fullscreen + true focus","M8 historical geography final gate","M8.1 real iPhone Safari final device QC"],
+  "next":"Shang-M6 Hotspots + Global Canon"
+}</script>
+<div id="shang-m5-machine-meta" hidden data-stage="Shang-M5" data-version="v0.1" data-status="PASS / WORKING / NOT FREEZE" data-sheet="closed" data-next="Shang-M6" data-device-policy="M8.1 final device QC"></div>
+
+
+
+<!-- Shang-M6 熱點＋全域正式文字 v0.1
+Source: Shang-M5 區域資訊面板＋同區再次點擊取消 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Yinxu evidence-rich reading node; not a precise reign year.
+Scope: add explicit Main hotspots, compact Global Canon owners, and a neutral hotspot information sheet. M3/M4 selections are preserved. Fullscreen + true focus remain deferred to M7.
+Protection: Shang-M1 evidence ownership/geometry, Shang-M2 canonical text/nodes, Shang-M3 regions, Shang-M4 peers, Shang-M5 region-sheet behavior remain read-only. Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain protected.
+Device policy: M1-M7 internal QC; concentrated real iPhone Safari QC at M8.1 unless a blocking device-only defect appears.
+-->
+<style id="shang-m6-style">
+.shangM6Spot{position:absolute;z-index:32;display:none;align-items:center;justify-content:center;min-width:44px;min-height:44px;max-width:35%;padding:6px 9px;border:1px solid #a98b61;border-radius:999px;background:rgba(255,250,241,.96);color:#3b3128;font:inherit;font-size:9px;font-weight:900;line-height:1.08;text-align:center;box-shadow:0 2px 9px rgba(45,38,31,.12);transform:translate(-50%,-50%);touch-action:manipulation;-webkit-tap-highlight-color:rgba(53,91,98,.12);white-space:normal}
+.shangM6Spot:focus-visible{outline:3px solid rgba(53,91,98,.38);outline-offset:2px}
+#shang-m1-main:checked ~ .shangM1MapStage .shangM6MainSpot{display:flex}
+#shang-m1-global:checked ~ .shangM1MapStage .shangM6GlobalSpot{display:flex}
+/* M6 Global Canon owns compact B/C + peer labels. Keep older geometry, but suppress duplicate long labels. */
+#shang-m1-global:checked ~ .shangM1MapStage #shang-m1-map-svg > text{display:none}
+#shang-m1-global:checked ~ .shangM1MapStage #shang-m1-map-svg .shangGlobalOnly text{display:none}
+#shang-m1-global:checked ~ .shangM1MapStage .shangM4Overlay text{display:none}
+#shang-m1-global:checked ~ .shangM1MapStage .shangM3RegionOverlay text{display:none}
+.shangM6GlobalSpot{border-color:#8a755a;background:rgba(255,250,241,.97)}
+.shangM6GlobalSpot[data-m6="transmitted"]{border-color:#66584b}
+.shangM6GlobalSpot[data-m6="correlation"]{border-color:#b18343}
+.shangM6CanonNote{margin-top:8px;background:#eef5f3;border-left:4px solid #527b80;border-radius:11px;padding:8px 9px;font-size:9px;line-height:1.55;color:#465b5c}
+.shangM6SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:192;display:none;padding:0 8px;pointer-events:none}
+.shangM6SheetShell.open{display:block}
+.shangM6Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.18);padding:14px 16px 16px;max-height:54vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.shangM6Grip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.shangM6Head{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}.shangM6Eyebrow{font-size:9px;color:#786a5b;margin-bottom:3px}.shangM6Title{font-size:20px;font-weight:950;line-height:1.15}
+.shangM6Close{flex:0 0 auto;width:44px;height:44px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:22px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
+.shangM6Body{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}.shangM6Grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}.shangM6Card{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}.shangM6Card b{display:block;color:#705538;margin-bottom:2px}
+@media(max-width:430px){.shangM6Spot{min-width:44px;min-height:44px;font-size:9px;padding:6px 8px;max-width:34%}.shangM6Sheet{padding:13px 14px 15px}.shangM6Grid{grid-template-columns:1fr 1fr}.shangM6CanonNote{font-size:9.5px}}
+</style>
+<script id="shang-m6-script">
+(function(){
+'use strict';
+var DATA={
+  xiaotun:{title:'小屯｜宮殿宗廟＋甲骨核心',eyebrow:'A1＋A2｜王室證據核心',body:'小屯宮殿宗廟區與大量王室卜辭共同構成晚商最密集的考古—出土文字核心之一。M6 把它作為可點擊證據節點，但不以核心密度直接推導整個商王朝的固定疆界。',cards:[['證據','宮殿宗廟考古＋王室甲骨'],['閱讀層級','晚商王室核心節點'],['方法防護','核心密度 ≠ 王朝全部領土']]},
+  xibeigang:{title:'西北岡｜王陵區',eyebrow:'A1｜王室墓葬考古',body:'西北岡大型王陵與祭祀遺存是理解晚商王室墓葬制度的重要考古節點。它能支持王室活動與社會組織的閱讀，但墓區位置本身不能用來外推商朝邊界。',cards:[['證據','大型王陵／祭祀遺存'],['用途','王室墓葬制度閱讀'],['方法防護','墓區 ≠ 主權邊界']]},
+  miaopu:{title:'苗圃北地｜鑄銅作坊',eyebrow:'A1｜手工業生產節點',body:'苗圃北地是殷墟已知青銅生產作坊節點之一，可用來閱讀王都手工業、原料與勞動組織。M6 不把單一作坊當成唯一生產中心，也不由作坊網絡直接推定行政疆界。',cards:[['證據','鑄銅作坊與生產遺存'],['用途','王都手工業／資源組織'],['方法防護','一處作坊 ≠ 唯一生產中心']]},
+  huanbei:{title:'洹北商城｜較早期城市背景',eyebrow:'A1｜前期城市脈絡',body:'洹北商城主要服務於中商至晚商轉折與安陽城市序列的閱讀。約前1200截面把它保留為較早期背景，不把它畫成和小屯殷墟同時並列的王都。',cards:[['時間位置','早於本工作截面的核心階段'],['用途','城市序列與轉折背景'],['方法防護','不作約前1200並列王都']]},
+  oracle:{title:'甲骨文方向網絡｜王室活動／對外互動',eyebrow:'A2｜同時代出土文字',body:'晚商甲骨文記錄祭祀、軍事、來往、田獵與王室事務，可用來重建關係與方向網絡。M6 僅把這些資料作互動關係閱讀；未經獨立定位支持，不把「方」、征伐或貢納名稱畫成固定領土。',cards:[['證據','晚商甲骨文'],['用途','王室活動與關係網絡'],['方法防護','「方」／征伐對象 ≠ 固定疆界']]},
+  transmitted:{title:'後世文獻中的「商／殷」',eyebrow:'B｜後世傳世文獻',body:'後世傳世文獻保存商王世、遷都與事件敘事。M6 將這些文字傳統與殷墟考古、甲骨文分層顯示：它們可供對讀，但不能取代同時代出土材料，也不能單獨生成一條已證實的商朝疆界。',cards:[['證據層級','後世傳世文獻'],['用途','王世／遷都／事件傳統'],['方法防護','文獻敘事 ≠ 直接考古證明']]},
+  correlation:{title:'「盤庚遷殷」↔ 安陽晚商城址序列',eyebrow:'C｜考古—文獻對讀',body:'把傳世文獻中的「盤庚遷殷」與安陽一帶的晚商城址、殷墟王都序列相互對讀，是重要研究框架。系統承認殷墟作為晚商王都的強證據，但不把每一條傳世遷都敘事與考古階段自動作一對一、無爭議對應。',cards:[['證據層級','考古—文獻對讀'],['用途','比較城市序列與遷都傳統'],['方法防護','對讀框架 ≠ 每項敘事皆已逐一證實']]},
+  daxinzhuang:{title:'大辛莊｜山東',eyebrow:'同期比較｜東方區域中心',body:'大辛莊提供晚商東方聚落、商文化因素與刻辭甲骨等材料，可用來比較安陽王室核心與山東地方社會的互動。M6 不把這些材料自動等同於安陽對山東的直接行政控制。',cards:[['類型','晚商區域中心／考古聚落'],['比較重點','東方交流＋文字實踐'],['方法防護','商文化因素 ≠ 直接行政隸屬']]},
+  prezhou:{title:'先周｜涇河',eyebrow:'同期比較｜關中北部',body:'涇河流域的先周文化脈絡可用來閱讀晚商西部互動與先周社會形成。此層不把西周建立後的王畿、封建制度或政治疆域回投到約前1200。',cards:[['類型','先周考古文化脈絡'],['比較重點','聚落序列與晚商互動'],['方法防護','先周文化 ≠ 後來周王朝疆域']]},
+  lijiaya:{title:'李家崖｜晉陝高原',eyebrow:'同期比較｜黃土高原地方社會',body:'李家崖文化用來比較殷墟時期晉陝高原地方青銅、北方因素與安陽式器物之間的互動。M6 不把考古文化自動對應為甲骨文中的某一個「方」。',cards:[['類型','殷墟時期地方考古文化'],['比較重點','地方青銅＋北方／安陽因素'],['方法防護','考古文化 ≠ 固定「方」疆域']]},
+  sanxingdui:{title:'三星堆｜成都平原',eyebrow:'同期比較｜西南青銅文明中心',body:'三星堆晚期材料可進入晚商同期比較窗口，顯示高度獨特的區域祭祀與青銅文明。中原與成都平原之間的交流線索不能被直接解讀成商王朝對西南的主權統治。',cards:[['類型','區域青銅文明中心'],['比較重點','祭祀／青銅／跨區交流'],['方法防護','交流 ≠ 商朝疆域']]},
+  wucheng:{title:'吳城｜贛江中游',eyebrow:'同期比較｜南方地方青銅文化',body:'吳城文化在約前1200前後提供南方大型聚落、地方青銅傳統與遠距交換的比較材料。M6 不由器物相似、金屬或技術流動直接推論為商王朝南方行政區。',cards:[['類型','南方地方文化／區域權力'],['比較重點','聚落／青銅／遠距交換'],['方法防護','交流與相似性 ≠ 行政統治']]}
+};
+function addSpot(stage,cls,key,label,x,y){var b=document.createElement('button');b.type='button';b.className='shangM6Spot '+cls;b.dataset.m6=key;b.textContent=label;b.style.left=x+'%';b.style.top=y+'%';b.setAttribute('aria-label',label+'：開啟熱點資訊卡');b.setAttribute('aria-controls','shang-m6-sheet');b.setAttribute('aria-expanded','false');stage.appendChild(b);return b;}
+function closeVisibleSheet(id,closeId){var s=document.getElementById(id);if(s&&s.classList.contains('open')){var c=document.getElementById(closeId);if(c)c.click();else s.classList.remove('open');}}
+function install(){
+  var stage=document.querySelector('.shangM1MapStage');if(!stage||document.getElementById('shang-m6-sheet'))return;
+  /* Main explicit owners: match M2 evidence nodes + A2 relation network. */
+  addSpot(stage,'shangM6MainSpot','huanbei','④ 洹北',49,9);
+  addSpot(stage,'shangM6MainSpot','xibeigang','② 西北岡',17,24);
+  addSpot(stage,'shangM6MainSpot','xiaotun','① 小屯',59,35);
+  addSpot(stage,'shangM6MainSpot','miaopu','③ 苗圃',73,57);
+  addSpot(stage,'shangM6MainSpot','oracle','A2｜甲骨網絡',22,78);
+  /* Global Canon: compact B/C method owners + five M4 comparison owners. */
+  addSpot(stage,'shangM6GlobalSpot','transmitted','B｜傳世文獻',18,9);
+  addSpot(stage,'shangM6GlobalSpot','lijiaya','李家崖｜晉陝',47,13);
+  addSpot(stage,'shangM6GlobalSpot','daxinzhuang','大辛莊｜山東',82,27);
+  addSpot(stage,'shangM6GlobalSpot','prezhou','先周｜涇河',16,50);
+  addSpot(stage,'shangM6GlobalSpot','sanxingdui','三星堆｜西南',16,73);
+  addSpot(stage,'shangM6GlobalSpot','wucheng','吳城｜贛江',80,72);
+  addSpot(stage,'shangM6GlobalSpot','correlation','C｜遷殷對讀',54,89);
+
+  var anchor=document.getElementById('shang-m5-status')||document.getElementById('shang-m4-wrap')||document.querySelector('.shangM1ModeNotes');
+  if(anchor&&!document.getElementById('shang-m6-note')){var n=document.createElement('div');n.id='shang-m6-note';n.className='shangM6CanonNote';n.innerHTML='<b>M6｜熱點＋全域正式文字：</b>主域熱點對應 A1/A2 證據節點；全域改由 B、C 與五個同期比較層的精簡可見標籤接管。熱點資訊卡只提供解釋，不改變 M3 區域或 M4 多選狀態。';anchor.insertAdjacentElement('afterend',n);}
+
+  var shell=document.createElement('div');shell.id='shang-m6-sheet';shell.className='shangM6SheetShell';shell.setAttribute('aria-live','polite');shell.setAttribute('aria-hidden','true');
+  shell.innerHTML='<section class="shangM6Sheet" role="dialog" aria-modal="false" aria-labelledby="shang-m6-title"><div class="shangM6Grip"></div><div class="shangM6Head"><div><div id="shang-m6-eyebrow" class="shangM6Eyebrow"></div><div id="shang-m6-title" class="shangM6Title"></div></div><button id="shang-m6-close" class="shangM6Close" type="button" aria-label="關閉熱點資訊卡">×</button></div><div id="shang-m6-body" class="shangM6Body"></div><div id="shang-m6-grid" class="shangM6Grid"></div></section>';
+  document.body.appendChild(shell);
+  function buttons(){return stage.querySelectorAll('.shangM6Spot');}
+  function clearExpanded(){buttons().forEach(function(b){b.setAttribute('aria-expanded','false');});}
+  function close(){shell.classList.remove('open');shell.setAttribute('aria-hidden','true');shell.removeAttribute('data-target');clearExpanded();document.documentElement.setAttribute('data-shang-m6-sheet','closed');}
+  function closeOtherSheets(){closeVisibleSheet('shang-m4-sheet','shang-m4-close');closeVisibleSheet('shang-m5-sheet','shang-m5-close');}
+  function show(key){var d=DATA[key];if(!d)return;closeOtherSheets();clearExpanded();document.getElementById('shang-m6-eyebrow').textContent=d.eyebrow+'｜約前1200';document.getElementById('shang-m6-title').textContent=d.title;document.getElementById('shang-m6-body').textContent=d.body;document.getElementById('shang-m6-grid').innerHTML=d.cards.map(function(c){return '<div class="shangM6Card"><b>'+c[0]+'</b>'+c[1]+'</div>';}).join('');shell.dataset.target=key;shell.classList.add('open');shell.setAttribute('aria-hidden','false');stage.querySelectorAll('.shangM6Spot[data-m6="'+key+'"]').forEach(function(b){b.setAttribute('aria-expanded','true');});document.documentElement.setAttribute('data-shang-m6-sheet',key);}
+  stage.addEventListener('click',function(ev){var b=ev.target.closest('.shangM6Spot');if(!b)return;ev.preventDefault();ev.stopPropagation();show(b.dataset.m6);});
+  document.getElementById('shang-m6-close').addEventListener('click',close);
+  var main=document.getElementById('shang-m1-main'),global=document.getElementById('shang-m1-global');[main,global].forEach(function(r){if(r)r.addEventListener('change',close);});
+  document.documentElement.setAttribute('data-shang-m6-sheet','closed');
+  window.shangM6ShowSheet=show;window.shangM6CloseSheet=close;window.shangM6Audit=function(){var visible=function(sel){return [].slice.call(document.querySelectorAll(sel)).filter(function(e){var s=getComputedStyle(e);return s.display!=='none'&&s.visibility!=='hidden'&&parseFloat(s.opacity||'1')>0;}).length;};return {mode:global&&global.checked?'global':'main',mainSpots:visible('.shangM6MainSpot'),globalSpots:visible('.shangM6GlobalSpot'),sheet:shell.dataset.target||'closed',region:document.documentElement.getAttribute('data-shang-m3-region')||'none',peers:document.documentElement.getAttribute('data-shang-m4-peers')||'none'};};
+
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 6 層｜商朝地圖｜M6';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M6';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M6｜熱點＋全域正式文字 v0.1。主域提供五個 A1/A2 證據熱點；全域提供 B／C 方法層與五個同期比較熱點。資訊卡為中性說明，不改變 M3 區域或 M4 多選狀態。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M6｜施工中';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M6 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜主域 5 熱點＋全域 7 熱點';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M6 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 PASS｜M2 PASS｜M3 PASS｜M4 PASS｜M5 PASS｜M6 施工中／尚未凍結';
+  document.documentElement.setAttribute('data-shang-stage','M6');document.documentElement.setAttribute('data-shang-m6-version','v0.1');
+  document.title='中國歷史 × 世界歷史｜商朝 M6｜熱點＋全域正式文字 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M6｜熱點＋全域正式文字 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M6 進行中</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝 Pre-M1～M5 已通過內部 QC，現進入 M6「熱點＋全域正式文字」。M1～M7 採內部 QC，真實 iPhone Safari 集中於 M8.1 最終裝置驗證。';}});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M6｜進行中';var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜熱點＋全域正式文字 v0.1';});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m6-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M6 Hotspots + Global Canon v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "source":"Shang-M5 Region Bottom Sheets v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu evidence-rich reading node, not a precise reign year",
+  "mainHotspots":["小屯｜宮殿宗廟＋甲骨核心","西北岡｜王陵區","苗圃北地｜鑄銅作坊","洹北商城｜較早期城市背景","甲骨文方向網絡"],
+  "globalHotspots":["B｜後世文獻中的商／殷","C｜盤庚遷殷↔安陽晚商城址序列","大辛莊｜山東","先周｜涇河","李家崖｜晉陝高原","三星堆｜成都平原","吳城｜贛江中游"],
+  "selectionNeutrality":"M6 sheets do not mutate M3 region selection or M4 peer selections; opening M6 only closes other visible sheets.",
+  "globalCanon":"Compact visible B/C + peer owners replace duplicate long labels in Global mode; M1/M3/M4 geometry remains intact.",
+  "hardRules":[
+    "Oracle-bone fang, campaign, tribute or travel relations are not converted into fixed territorial polygons.",
+    "Transmitted Shang/Yin narratives remain separate from A1/A2 archaeological and excavated-text evidence.",
+    "Yinxu as a Late Shang capital is strongly evidenced, while one-to-one matching of every transmitted relocation narrative to archaeological phases remains a correlation reading.",
+    "M4 peer cultures / regional centers remain comparative contexts, not Shang provinces or vassal-state borders."
+  ],
+  "protected":["Shang-M1 evidence ownership and geometry","Shang-M2 canonical text and nodes","Shang-M3 region geometry/state","Shang-M4 peer geometry/state/sheets","Shang-M5 region-sheet behavior","Xia-M8.1 Final Canon / Freeze v0.6","UI-D1.1","Tang Final Canon"],
+  "devicePolicy":"M1-M7 internal QC; real iPhone Safari concentrated at M8.1 unless a blocking device-only defect appears",
+  "deferred":["M7 fullscreen + true focus","M8 historical geography final gate","M8.1 real iPhone Safari final device QC"],
+  "next":"Shang-M7 Fullscreen Hotspots + True Focus"
+}</script>
+<div id="shang-m6-machine-meta" hidden data-stage="Shang-M6" data-version="v0.1" data-status="PASS / WORKING / NOT FREEZE" data-sheet="closed" data-main-hotspots="5" data-global-hotspots="7" data-next="Shang-M7" data-device-policy="M8.1 final device QC"></div>
+
+
+
+<!-- Shang-M7 全螢幕熱點＋真實聚焦 v0.1
+Source: Shang-M6 熱點＋全域正式文字 v0.1.
+Status: PASS / WORKING / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Yinxu evidence-rich reading node; not a precise reign year.
+Scope: lift the existing M1–M6 map into a fullscreen reading mode, preserve Main/Global, M3 Region, M4 peers and M6 hotspot ownership, and add canonical true-focus transforms for the six M3 reading regions. No new historical geography or sovereignty geometry is introduced.
+Protection: Shang-M1 evidence ownership/geometry, Shang-M2 canonical text/nodes, Shang-M3 region geometry/state, Shang-M4 peers, Shang-M5 sheets, Shang-M6 hotspot semantics/sheets remain read-only. Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain protected.
+Device policy: M1-M7 internal QC; concentrated real iPhone Safari QC at M8.1 unless a blocking device-only defect appears.
+-->
+<style id="shang-m7-style">
+.shangM7FullscreenBtn{border:1px solid #c7a86f;background:#fffaf1;color:#3f342b;border-radius:999px;padding:8px 11px;font-weight:900;font-size:10px;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
+.shangM7Toolbar{display:none}
+html.shangM7Fullscreen{overflow:hidden}
+html.shangM7Fullscreen body{overflow:hidden}
+html.shangM7Fullscreen .header,html.shangM7Fullscreen .hierBack,html.shangM7Fullscreen .bottom{display:none!important}
+html.shangM7Fullscreen .shangMap .pageInner{max-width:none!important;margin:0!important;padding:0!important}
+html.shangM7Fullscreen .shangMapHead{display:none!important}
+html.shangM7Fullscreen .shangM1Panel{position:fixed!important;inset:0!important;z-index:1000!important;margin:0!important;border:0!important;border-radius:0!important;background:#d6c39d!important;padding:calc(8px + env(safe-area-inset-top,0px)) 8px calc(8px + env(safe-area-inset-bottom,0px))!important;overflow:auto!important;-webkit-overflow-scrolling:touch}
+html.shangM7Fullscreen .shangM7Toolbar{display:flex;position:sticky;top:0;z-index:1100;align-items:center;gap:7px;padding:4px 0 8px;background:linear-gradient(#d6c39d 80%,rgba(214,195,157,0))}
+.shangM7Toolbar button{min-width:44px;min-height:44px;border:1px solid #c2a06b;background:#fffaf1;color:#392f27;border-radius:999px;padding:8px 11px;font-weight:900;font-size:10px;white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
+.shangM7Toolbar .exit{background:#4b3b2c;color:#fffaf1;border-color:#4b3b2c}
+.shangM7FocusBadge{margin-left:auto;background:rgba(69,56,44,.86);color:#fffaf1;border-radius:999px;padding:7px 10px;min-height:36px;display:inline-flex;align-items:center;font-weight:900;font-size:9px;white-space:nowrap}
+html.shangM7Fullscreen .shangM1Controls{position:sticky;top:52px;z-index:1060;background:rgba(255,250,241,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:14px;padding:8px!important;margin-bottom:7px}
+html.shangM7Fullscreen .shangM3RegionWrap,html.shangM7Fullscreen .shangM4Wrap{position:relative;z-index:1050;background:rgba(255,250,241,.91);border-radius:13px;padding:6px!important;margin:0 0 7px!important}
+html.shangM7Fullscreen .shangM1MapStage{height:auto!important;min-height:0!important;aspect-ratio:4/3!important;margin-top:6px!important;border-radius:12px!important;touch-action:manipulation!important;background:#cbbd9d!important;overflow:hidden!important}
+.shangM7ZoomPlane{position:absolute;inset:0;width:100%;height:100%;transform-origin:0 0;will-change:transform;touch-action:manipulation}
+.shangM7ZoomPlane>svg{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.shangM7ZoomPlane>#shang-m1-map-svg{position:absolute!important;inset:0!important}
+html.shangM7Fullscreen .shangM1ModeNotes,html.shangM7Fullscreen .shangM2Canon,html.shangM7Fullscreen .shangM2NodeList,html.shangM7Fullscreen .shangM3RegionNote,html.shangM7Fullscreen .shangM4Note,html.shangM7Fullscreen .shangM1Legend,html.shangM7Fullscreen .shangM1Guard,html.shangM7Fullscreen .shangM1Sources,html.shangM7Fullscreen .shangM5Status,html.shangM7Fullscreen .shangM6CanonNote{display:none!important}
+html.shangM7Fullscreen .shangM4SheetShell,html.shangM7Fullscreen .shangM5SheetShell,html.shangM7Fullscreen .shangM6SheetShell{bottom:calc(4px + env(safe-area-inset-bottom,0px))!important;z-index:1300!important}
+html.shangM7Fullscreen .shangM4Sheet,html.shangM7Fullscreen .shangM5Sheet,html.shangM7Fullscreen .shangM6Sheet{max-height:52dvh!important}
+@media(max-width:430px){html.shangM7Fullscreen .shangM1MapStage{height:auto!important;min-height:0!important;aspect-ratio:4/3!important}.shangM7Toolbar button{padding:7px 9px;font-size:11px}.shangM7FocusBadge{font-size:8.5px}.shangM7FullscreenBtn{font-size:10px;padding:7px 10px}}
+</style>
+<script id="shang-m7-script">
+(function(){
+'use strict';
+function closeSheet(id,closeId){var s=document.getElementById(id);if(s&&s.classList.contains('open')){var c=document.getElementById(closeId);if(c)c.click();else s.classList.remove('open');}}
+function install(){
+  var panel=document.querySelector('.shangM1Panel'),stage=document.querySelector('.shangM1MapStage'),controls=document.querySelector('.shangM1Controls');
+  if(!panel||!stage||!controls||document.getElementById('shang-m7-toolbar'))return;
+  var main=document.getElementById('shang-m1-main'),global=document.getElementById('shang-m1-global');
+  var rail=document.querySelector('.shangM3RegionRail');
+  var plane=document.createElement('div');plane.className='shangM7ZoomPlane';plane.id='shang-m7-zoom-plane';
+  while(stage.firstChild)plane.appendChild(stage.firstChild);stage.appendChild(plane);
+
+  var fsBtn=document.createElement('button');fsBtn.type='button';fsBtn.className='shangM7FullscreenBtn';fsBtn.id='shang-m7-enter';fsBtn.textContent='全螢幕地圖';fsBtn.setAttribute('aria-label','進入商朝全螢幕地圖');controls.appendChild(fsBtn);
+  var tb=document.createElement('div');tb.className='shangM7Toolbar';tb.id='shang-m7-toolbar';
+  tb.innerHTML='<button type="button" class="exit" id="shang-m7-exit" aria-label="退出商朝全螢幕地圖">退出地圖</button><button type="button" id="shang-m7-minus" aria-label="縮小地圖">−</button><button type="button" id="shang-m7-reset" aria-label="重置地圖聚焦">重置</button><button type="button" id="shang-m7-plus" aria-label="放大地圖">＋</button><span class="shangM7FocusBadge" id="shang-m7-badge">主域 100%</span>';
+  panel.insertBefore(tb,panel.firstChild);
+
+  /* Normalized centers are derived from the frozen M3 reading envelopes in the 665 270 125 94 viewBox. */
+  var regions={
+    yinxu:{label:'殷墟／洹河',cx:.696,cy:.319,scale:1.65},
+    hebei:{label:'冀南／太行東麓',cx:.776,cy:.128,scale:1.50},
+    jinnan:{label:'晉南／汾河',cx:.336,cy:.245,scale:1.45},
+    luxi:{label:'魯西／泰沂',cx:.912,cy:.319,scale:1.55},
+    guanzhong:{label:'關中／周原',cx:.160,cy:.457,scale:1.45},
+    huaibei:{label:'豫東／淮北',cx:.752,cy:.745,scale:1.45}
+  };
+  var state={scale:1,cx:.5,cy:.5,manual:false};
+  function activeRegion(){var v=document.documentElement.getAttribute('data-shang-m3-region')||'';return regions[v]?v:'';}
+  function canonical(){
+    var r=activeRegion();
+    if(r){var d=regions[r];return {scale:d.scale,cx:d.cx,cy:d.cy,label:'區域閱讀 '+Math.round(d.scale*100)+'%｜'+d.label};}
+    if(global&&global.checked)return {scale:1,cx:.5,cy:.5,label:'全域 100%'};
+    return {scale:1,cx:.5,cy:.5,label:'主域 100%'};
+  }
+  function render(custom){
+    if(!document.documentElement.classList.contains('shangM7Fullscreen'))return;
+    var d=custom||canonical();state.scale=d.scale;state.cx=d.cx;state.cy=d.cy;
+    var w=stage.clientWidth||1,h=stage.clientHeight||1;
+    var tx=w*.5-d.scale*d.cx*w,ty=h*.5-d.scale*d.cy*h;
+    plane.style.transform='translate('+tx+'px,'+ty+'px) scale('+d.scale+')';
+    document.getElementById('shang-m7-badge').textContent=d.label||('縮放 '+Math.round(d.scale*100)+'%');
+    document.documentElement.setAttribute('data-shang-m7-focus',d.label||'manual');
+  }
+  function closeAllSheets(){closeSheet('shang-m4-sheet','shang-m4-close');closeSheet('shang-m5-sheet','shang-m5-close');if(window.shangM6CloseSheet)window.shangM6CloseSheet();else closeSheet('shang-m6-sheet','shang-m6-close');}
+  function open(){closeAllSheets();document.documentElement.classList.add('shangM7Fullscreen');state.manual=false;requestAnimationFrame(function(){render();});}
+  function close(){closeAllSheets();document.documentElement.classList.remove('shangM7Fullscreen');plane.style.transform='';state.manual=false;state.scale=1;state.cx=.5;state.cy=.5;document.getElementById('shang-m7-badge').textContent='內嵌 100%';document.documentElement.setAttribute('data-shang-m7-focus','embedded');}
+  fsBtn.addEventListener('click',open);document.getElementById('shang-m7-exit').addEventListener('click',close);
+  document.getElementById('shang-m7-reset').addEventListener('click',function(){state.manual=false;render();});
+  document.getElementById('shang-m7-plus').addEventListener('click',function(){var c=canonical();var s=Math.min(3.2,(state.scale||c.scale)+.15);state.manual=true;render({scale:s,cx:state.cx||c.cx,cy:state.cy||c.cy,label:'手動 '+Math.round(s*100)+'%'});});
+  document.getElementById('shang-m7-minus').addEventListener('click',function(){var c=canonical();var s=Math.max(1,(state.scale||c.scale)-.15);state.manual=true;render({scale:s,cx:state.cx||c.cx,cy:state.cy||c.cy,label:'手動 '+Math.round(s*100)+'%'});});
+  [main,global].forEach(function(el){if(el)el.addEventListener('change',function(){state.manual=false;requestAnimationFrame(function(){render();});});});
+  if(rail)rail.addEventListener('click',function(){state.manual=false;requestAnimationFrame(function(){requestAnimationFrame(function(){render();});});});
+  var mo=new MutationObserver(function(ms){if(!document.documentElement.classList.contains('shangM7Fullscreen'))return;for(var i=0;i<ms.length;i++){if(ms[i].attributeName==='data-shang-m3-region'){state.manual=false;render();break;}}});
+  mo.observe(document.documentElement,{attributes:true,attributeFilter:['data-shang-m3-region']});
+  window.addEventListener('resize',function(){if(document.documentElement.classList.contains('shangM7Fullscreen'))render(state.manual?{scale:state.scale,cx:state.cx,cy:state.cy,label:'手動 '+Math.round(state.scale*100)+'%'}:null);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.documentElement.classList.contains('shangM7Fullscreen'))close();});
+
+  /* Fullscreen ownership guard: resolve taps against transformed explicit M6 button rectangles. */
+  var fsTap=null;
+  stage.addEventListener('pointerdown',function(e){if(!document.documentElement.classList.contains('shangM7Fullscreen'))return;fsTap={id:e.pointerId,x:e.clientX,y:e.clientY,t:Date.now()};},true);
+  stage.addEventListener('pointerup',function(e){
+    if(!document.documentElement.classList.contains('shangM7Fullscreen')||!fsTap||fsTap.id!==e.pointerId)return;
+    var d=fsTap;fsTap=null;if(Math.hypot(e.clientX-d.x,e.clientY-d.y)>14||Date.now()-d.t>900)return;
+    var selector=(global&&global.checked)?'.shangM6GlobalSpot':'.shangM6MainSpot';
+    var hits=Array.from(stage.querySelectorAll(selector)).filter(function(b){var cs=getComputedStyle(b);if(cs.display==='none'||cs.visibility==='hidden'||parseFloat(cs.opacity||'1')<=0)return false;var r=b.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom;});
+    if(!hits.length||!window.shangM6ShowSheet)return;
+    hits.sort(function(a,b){var ar=a.getBoundingClientRect(),br=b.getBoundingClientRect();return ar.width*ar.height-br.width*br.height;});
+    var key=hits[0].dataset.m6;if(!key)return;e.preventDefault();e.stopImmediatePropagation();window.shangM6ShowSheet(key);
+  },true);
+  stage.addEventListener('pointercancel',function(){fsTap=null;},true);
+  window.shangM7Audit=function(){return {fullscreen:document.documentElement.classList.contains('shangM7Fullscreen'),mode:(global&&global.checked?'global':'main'),region:activeRegion()||'none',scale:state.scale,badge:document.getElementById('shang-m7-badge').textContent,m6Sheet:document.documentElement.getAttribute('data-shang-m6-sheet')||'closed',peers:document.documentElement.getAttribute('data-shang-m4-peers')||'none'};};
+
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 7 層｜商朝地圖｜M7';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M7';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M7｜全螢幕熱點＋真實聚焦 v0.1。沿用 M1～M6 的主域／全域、六考古閱讀區、五同期比較層與熱點資訊卡；全螢幕模式只改變閱讀視角，不新增任何硬式疆界。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M7｜施工中';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M7 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜全螢幕熱點＋六區域真實聚焦';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M7 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1 PASS｜M2 PASS｜M3 PASS｜M4 PASS｜M5 PASS｜M6 PASS｜M7 施工中／尚未凍結';
+  document.documentElement.setAttribute('data-shang-stage','M7');document.documentElement.setAttribute('data-shang-m7-version','v0.1');document.documentElement.setAttribute('data-shang-m7-focus','embedded');
+  document.title='中國歷史 × 世界歷史｜商朝 M7｜全螢幕熱點＋真實聚焦 v0.1｜施工中／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M7｜全螢幕熱點＋真實聚焦 v0.1｜施工中／尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M7 進行中</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝 Pre-M1～M6 已通過內部 QC，現進入 M7「全螢幕熱點＋真實聚焦」。M1～M7 採內部 QC，真實 iPhone Safari 集中於 M8.1 最終裝置驗證。';}});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M7｜進行中';var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜全螢幕熱點＋真實聚焦 v0.1';});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m7-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M7 Fullscreen Hotspots + True Focus v0.1",
+  "status":"PASS / WORKING / NOT FREEZE",
+  "source":"Shang-M6 Hotspots + Global Canon v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Yinxu evidence-rich reading node, not a precise reign year",
+  "fullscreen":{"defaultMain":1.0,"defaultGlobal":1.0,"manualMin":1.0,"manualMax":3.2,"step":0.15},
+  "trueFocus":{"yinxu":1.65,"hebei":1.50,"jinnan":1.45,"luxi":1.55,"guanzhong":1.45,"huaibei":1.45},
+  "semantics":"True Focus changes only viewport transform around frozen M3 archaeological reading envelopes; it does not create political borders, direct-control zones, or fang territories.",
+  "statePreservation":"Main/Global mode, M3 Region and M4 multi-select states persist through fullscreen enter/exit; visible sheets are closed without clearing selections.",
+  "hotspotOwnership":"M6 explicit visible buttons remain the only M7 hotspot owners; fullscreen adds a transformed-rectangle pointer guard without changing M6 semantics.",
+  "protected":["Shang-M1 evidence ownership and geometry","Shang-M2 canonical text and nodes","Shang-M3 region geometry/state","Shang-M4 peer geometry/state/sheets","Shang-M5 region-sheet behavior","Shang-M6 hotspot semantics/sheets","Xia-M8.1 Final Canon / Freeze v0.6","UI-D1.1","Tang Final Canon"],
+  "devicePolicy":"M1-M7 internal QC; real iPhone Safari concentrated at M8.1 unless a blocking device-only defect appears",
+  "deferred":["M8 historical geography final gate","M8.1 real iPhone Safari final device QC"],
+  "next":"Shang-M8 Historical Geography Final Gate"
+}</script>
+<div id="shang-m7-machine-meta" hidden data-stage="Shang-M7" data-version="v0.1" data-status="PASS / WORKING / NOT FREEZE" data-focus="embedded" data-regions="6" data-hotspots="M6-preserved" data-next="Shang-M8" data-device-policy="M8.1 final device QC"></div>
+
+
+
+<!-- Shang-M8｜歷史地理最終閘門 v0.1
+Source: Shang-M7 全螢幕熱點＋真實聚焦 v0.1.
+Status: PASS / FINAL CANDIDATE / NOT FREEZE.
+Snapshot: c.1200 BCE Late Shang / Anyang-Yinxu / oracle-bone evidence-rich reading node; not a precise reign year and not a proxy for all Shang periods.
+Scope: historical-geography final gate only: lock time-slice semantics, evidence-layer ownership, region/peer interpretation, methodological safeguards, state/accessibility metadata, and M1-M7 regression. No new visible interaction feature, archaeological/political geometry, M3 region, M4 peer layer, M6 hotspot, or M7 focus value is introduced.
+Protection: Shang-M1-M7 authored geometry and interaction semantics, Xia-M8.1 Final Canon / Freeze v0.6, UI-D1.1 and Tang Final Canon remain protected.
+Next: Shang-M8.1 real iPhone Safari Final Device QC. Freeze only after M8.1 device evidence passes and the user explicitly orders Freeze.
+-->
+<style id="shang-m8-style">
+.shangM8FinalGuard{margin-top:8px;padding:10px 11px;border:1px solid #c7aa79;border-left:4px solid #5b7471;border-radius:11px;background:rgba(255,250,241,.96);color:#493d32;font-size:9.6px;line-height:1.55}
+.shangM8FinalGuard b{color:#2f2924}
+html.shangM7Fullscreen .shangM8FinalGuard{display:none!important}
+@media(max-width:430px){.shangM8FinalGuard{font-size:9.4px;padding:9px 10px}}
+</style>
+<script id="shang-m8-finalgate-js">
+(function(){
+'use strict';
+function install(){
+  if(document.getElementById('shang-m8-final-guard')) return;
+  var anchor=document.getElementById('shang-m6-note')||document.querySelector('.shangM1Sources')||document.querySelector('.shangM1ModeNotes');
+  if(anchor){
+    var g=document.createElement('div');
+    g.id='shang-m8-final-guard';g.className='shangM8FinalGuard';
+    g.innerHTML='<b>M8｜歷史地理最終閘門：</b>約前1200只是一個晚商安陽／殷墟與甲骨文證據密集的閱讀截面，不等於某位商王精確王年，也不代表早商、中商與晚商同時狀態。A1 考古、A2 同時代出土文字、B 後世文獻、C 考古—文獻對讀必須分層；六個 M3 區域只是研究視窗，五個 M4 同期層只是比較文化／地方社會／區域中心。甲骨文中的「方」、征伐、貢納與往來關係不得轉譯為固定領土；文化因素、器物交流、甲骨材料或安陽式器物也不得自動等同直接行政隸屬或商王朝主權。晚商起訖年代採約數，不同編年方案的細部差異不得被介面偽裝成單一精確年代。';
+    anchor.insertAdjacentElement('afterend',g);
+  }
+  var eyebrow=document.querySelector('.shangMapHead .eyebrow');if(eyebrow)eyebrow.textContent='第 8 層｜商朝地圖｜M8';
+  var head=document.querySelector('.shangMapHead h2');if(head)head.textContent='商朝｜約前1200｜M8';
+  var lead=document.querySelector('.shangMapHead .lead');if(lead)lead.textContent='M8｜歷史地理最終閘門 v0.1。M1～M7 的地理、節點、區域、同期比較層、資訊卡、熱點與真實聚焦均保持不變；本關只收斂史實語義、證據所有權、方法防護與最終回歸。';
+  var badge=document.querySelector('.shangM1Badge');if(badge)badge.textContent='M8｜最終候選';
+  var launch=document.querySelector('.shangM1Launch b');if(launch)launch.textContent='進入 M8 地圖';
+  var launchSmall=document.querySelector('.shangM1Launch small');if(launchSmall)launchSmall.textContent='約前1200｜歷史地理最終閘門／M1～M7 全回歸';
+  var hero=document.querySelector('.shangHub h2');if(hero)hero.textContent='商朝｜史實基準 → M8 v0.1';
+  var sh=document.querySelector('.shangHub .xiaStatus');if(sh)sh.textContent='Pre-M1 PASS｜M1～M7 PASS｜M8 最終閘門 PASS／等待 M8.1 實機複驗｜尚未凍結';
+  document.documentElement.setAttribute('data-shang-stage','M8');
+  document.documentElement.setAttribute('data-shang-m8-version','v0.1');
+  document.documentElement.setAttribute('data-shang-m8-gate','final-candidate');
+  document.title='中國歷史 × 世界歷史｜商朝 M8｜歷史地理最終閘門 v0.1｜最終候選／尚未凍結';
+  var meta=document.querySelector('.header .meta');if(meta)meta.textContent='商朝 Shang-M8｜歷史地理最終閘門 v0.1｜內部 QC PASS｜等待 M8.1 iPhone Safari 最終裝置複驗｜尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M8 最終候選</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝已完成 Pre-M1～M7 施工與內部 QC，M8 歷史地理最終閘門已通過，下一步集中進行 M8.1 iPhone Safari 最終裝置複驗。商朝仍採證據分層與柔性閱讀包絡，不建立未經證實的硬式疆界。';}});
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M8｜最終候選';var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜歷史地理最終閘門 v0.1';});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install);else install();
+})();
+</script>
+<script id="shang-m8-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M8 Historical Geography Final Gate v0.1",
+  "status":"PASS / FINAL CANDIDATE / NOT FREEZE",
+  "source":"Shang-M7 Fullscreen Hotspots + True Focus v0.1",
+  "snapshot":"c.1200 BCE",
+  "snapshotType":"Late Shang / Anyang-Yinxu / oracle-bone evidence-rich reading node; not a precise reign year and not representative of all Shang periods",
+  "chronologyGuard":"Late Shang endpoints are approximate and scheme-dependent; c.1200 BCE is retained as a stable reading slice rather than a claim of exact royal chronology.",
+  "evidenceOwnership":{"A1":"archaeological observation","A2":"contemporary excavated writing / oracle-bone and securely dated inscriptions","B":"later transmitted textual tradition","C":"archaeology-text / capital-sequence correlation","D":"contested or unresolved"},
+  "geographySemantics":{"M3":"six archaeological research-reading windows, not administrative or sovereignty borders","M4":"five contemporaneous comparison cultures/local societies/regional centers, not Shang vassal-state polygons","M6":"hotspots are interpretive owners only; no fixed fang territories","M7":"true focus is viewport transformation only"},
+  "hardRules":[
+    "Do not convert oracle-bone fang, campaign, tribute, travel or relationship records into fixed territorial polygons.",
+    "Do not back-project Late Shang oracle-bone evidence into Early or Middle Shang as if contemporaneous.",
+    "Do not equate archaeological culture, Anyang-style material, inscribed bones, exchange, or stylistic influence with direct Shang administrative control.",
+    "Keep archaeological site names distinct from transmitted capital names unless a C-layer correlation is explicitly identified.",
+    "Do not back-project later Zhou royal territory or institutions into the c.1200 BCE pre-Zhou comparison layer.",
+    "Treat precise Late Shang start/end dates as chronology-model dependent; preserve approximate labels."
+  ],
+  "peerAudit":{"daxinzhuang":"regional center/contact and oracle-bone evidence; direct administrative status left open","prezhou":"Jing River pre-Zhou background; no later Zhou border back-projection","lijiaya":"late-Shang Loess Highland local society; not auto-mapped to a specific fang","sanxingdui":"Late-Shang-contemporary regional Bronze Age center; interaction is not sovereignty","wucheng":"southern regional bronze-culture comparison; not Shang direct-control polygon"},
+  "protected":["Shang-M1 evidence ownership and geometry","Shang-M2 canonical text and nodes","Shang-M3 six region geometry and state","Shang-M4 five peer layers and sheets","Shang-M5 region-sheet behavior","Shang-M6 hotspot ownership and Global Canon","Shang-M7 fullscreen and true-focus values","Xia-M8.1 Final Canon / Freeze v0.6","UI-D1.1","Tang Final Canon"],
+  "visibleFeatureDelta":"none; M8 adds no new interactive feature or historical geometry",
+  "devicePolicy":"real iPhone Safari final device QC is concentrated at M8.1",
+  "next":"Shang-M8.1 iPhone Safari Final Device QC"
+}</script>
+<div id="shang-m8-machine-meta" hidden data-stage="Shang-M8" data-version="v0.1" data-status="PASS / FINAL CANDIDATE / NOT FREEZE" data-gate="final-candidate" data-snapshot="c.1200 BCE" data-regions="6" data-peers="5" data-main-hotspots="5" data-global-hotspots="7" data-focus-regions="6" data-next="Shang-M8.1" data-device-policy="real iPhone Safari final device QC"></div>
 </body>
 </html>
