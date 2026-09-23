@@ -17225,5 +17225,59 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
   "freeze":false
 }</script>
 <div id="shang-m8-1-v02-machine-meta" hidden data-stage="Shang-M8.1" data-version="v0.2" data-status="DEVICE FIX / REAL iPHONE SAFARI RECHECK PENDING / NOT FREEZE" data-fix="homepage-status-sync" data-freeze="false"></div>
+
+
+<!-- Shang-M8.1｜iPhone Safari Final Status Sync v0.3
+Source: Shang-M8.1 Device QC Candidate v0.2 + completed real iPhone Safari evidence.
+Status: FINAL DEVICE QC PASS / FINAL STATUS-SYNC RECHECK PENDING / NOT FREEZE.
+Scope: status text only. All historical content, geometry, hotspot ownership, M3/M4/M5/M6/M7 interaction, fullscreen logic, True Focus values and previously passed real-device evidence are unchanged.
+Real-device evidence completed before this patch: first-screen visibility; Main 5/5; Global 7/7; Main↔Global isolation; M3 select/close-preserve/cancel; M4 multi-select + M3 coexistence; fullscreen enter/exit; manual zoom/reset; True Focus 6/6.
+Freeze rule remains: user must verify the synchronized visible status once after deployment, then explicitly order Freeze.
+-->
+<script id="shang-m8-1-v03-final-status-sync-js">
+(function(){
+'use strict';
+function one(s){return document.querySelector(s)}
+function boot(){
+  document.documentElement.setAttribute('data-shang-stage','M8.1');
+  document.documentElement.setAttribute('data-shang-m8-1-version','v0.3');
+  document.documentElement.setAttribute('data-shang-device-qc','final-device-qc-pass-status-sync-recheck-pending');
+  document.title='中國歷史 × 世界歷史｜商朝 M8.1｜Final Device QC PASS｜狀態同步複驗｜尚未凍結';
+  var meta=one('.header .meta');
+  if(meta)meta.textContent='商朝 Shang-M8.1｜iPhone Safari 最終裝置 QC PASS｜首頁狀態最終同步複驗｜尚未凍結｜夏朝 M8.1＋UI-D1.1＋唐朝正式基準受保護';
+  var badge=one('.shangM1Badge');if(badge)badge.textContent='M8.1｜QC PASS';
+  var mapLead=one('.shangMapHead .lead');if(mapLead)mapLead.textContent='M8.1｜iPhone Safari 最終裝置 QC 已通過。主域／全域、M3、M4、資訊卡、全螢幕、手動縮放與六區 True Focus 均完成真機複驗；目前只做最終狀態文字同步確認，尚未凍結。';
+  var homeLead=one('.home .systemHero .lead');
+  if(homeLead)homeLead.textContent='唐朝母模組與夏朝正式模組均已完成並凍結；商朝 M1～M8 歷史地理工程及 M8.1 iPhone Safari 最終裝置 QC 已完成，目前等待 Freeze Gate 最終狀態確認。';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>商</b><span>M8.1 QC PASS</span>';
+  [].slice.call(document.querySelectorAll('.home .note')).forEach(function(n){
+    if((n.textContent||'').indexOf('架構更新：')!==-1){
+      n.innerHTML='<b>架構更新：</b>唐朝母模組與夏朝 M8.1 Final Canon / Freeze 維持受保護；商朝 M1～M8 歷史地理工程與 M8.1 iPhone Safari 最終裝置 QC 已完成，目前等待 Freeze Gate。商朝仍採 A1/A2/B/C/D 證據分層、六區域研究視窗與柔性同期比較層，不建立未經證實的硬式疆界。';
+    }
+  });
+  [].slice.call(document.querySelectorAll('.dynastyCard')).forEach(function(card){
+    var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='商')return;
+    var b=card.querySelector('.dynastyBadge');if(b)b.textContent='M8.1｜QC PASS';
+    var sm=card.querySelector('small');if(sm)sm.textContent='約前1200｜Final Device QC PASS｜等待 Freeze';
+  });
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="shang-m8-1-v03-final-status-sync-json" type="application/json">{
+  "module":"Shang",
+  "stage":"M8.1 iPhone Safari Final Device QC v0.3",
+  "status":"FINAL DEVICE QC PASS / FINAL STATUS-SYNC RECHECK PENDING / NOT FREEZE",
+  "source":"Shang-M8.1 Candidate v0.2",
+  "fix":"final visible status synchronization after all real-device functional checks passed",
+  "historicalDelta":"none",
+  "geometryDelta":"none",
+  "interactionDelta":"none",
+  "realDevicePass":["first-screen map visibility","Main hotspots 5/5","Global hotspots 7/7","Main-Global-Main ownership isolation","M3 select/open/close-preserve/re-tap cancel","M4 multi-select + M3 coexistence","fullscreen enter/exit","manual zoom/reset","True Focus 6/6"],
+  "remainingDeviceQC":["single post-deploy visible status-text confirmation"],
+  "freeze":false
+}</script>
+<div id="shang-m8-1-v03-machine-meta" hidden data-stage="Shang-M8.1" data-version="v0.3" data-status="FINAL DEVICE QC PASS / FINAL STATUS-SYNC RECHECK PENDING / NOT FREEZE" data-fix="final-status-sync" data-freeze="false"></div>
+
 </body>
 </html>
