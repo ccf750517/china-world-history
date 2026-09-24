@@ -17713,5 +17713,115 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <div id="wz-r3-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R3" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-periods="5" data-gonghe="political-phase" data-new-polygons="0" data-new-hotspots="0"></div>
 <!-- /Western Zhou Rebuild R3 -->
 
+
+<!-- Western Zhou Rebuild R2 + R3 Device Freeze Records
+R2 evidence: user-provided real iPhone Safari screenshots verified Western Zhou Hub → R2 Map, six minimum nodes, no hard border, Back → Western Zhou Hub, correct bottom-nav active state, and Xia/Shang/Tang map regression.
+R3 evidence: user-provided real iPhone Safari screenshots verified P1–P5 switching, period/status synchronization, Gonghe as political phase (not king), P5 transition reservation, stable R2 geography, and Xia/Shang/Tang map regression.
+These records supersede the earlier WORKING markers for R2/R3 without rewriting their source blocks.
+-->
+<script id="wz-r2-device-freeze-meta" type="application/json">{
+  "module":"Western Zhou Rebuild",
+  "stage":"R2 First Formal Map Layer",
+  "version":"v0.1",
+  "status":"PASS / FINAL CANON / FREEZE",
+  "device":"real iPhone Safari",
+  "deviceEvidence":["Western Zhou Hub → R2 Map","six minimum nodes visible","no hard political border","Back → Western Zhou Hub","bottom Map active state","Xia regression","Shang regression","Tang regression"],
+  "historicalDelta":"none after device pass"
+}</script>
+<div id="wz-r2-freeze-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R2" data-version="v0.1" data-status="PASS / FINAL CANON / FREEZE" data-device-qc="real-iPhone-Safari-PASS"></div>
+<script id="wz-r3-device-freeze-meta" type="application/json">{
+  "module":"Western Zhou Rebuild",
+  "stage":"R3 Period / Time Structure",
+  "version":"v0.1",
+  "status":"PASS / FINAL CANON / FREEZE",
+  "device":"real iPhone Safari",
+  "deviceEvidence":["P1 周初","P2 中期前段","P3 中期後段","P4 中晚期","P5 晚期","共和＝政治階段","P5 transition reserved","R2 six geography anchors stable","Xia regression","Shang regression","Tang regression"],
+  "historicalDelta":"none after device pass"
+}</script>
+<div id="wz-r3-freeze-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R3" data-version="v0.1" data-status="PASS / FINAL CANON / FREEZE" data-device-qc="real-iPhone-Safari-PASS"></div>
+
+<!-- Western Zhou Rebuild R4｜Node Information Cards + Map Interaction v0.1
+Source: Western Zhou Rebuild R3 Final Canon / Freeze v0.1 + Western Zhou Pre-M1 Historical Baseline v0.1.
+Status: WORKING / NOT FREEZE.
+Scope: make the six R2/R3 map anchors interactive and open one Western Zhou node information sheet. The sheet projects the already-authorized minimum claim into the currently selected P1–P5 context. No Evidence deep dive, Research mode, fullscreen, True Focus, new political polygon, new route, new capital inference, or disputed Zongzhou geometry is introduced.
+Interaction guard: map hit-targets and the six existing node-list cards resolve to the same canonical R4 node record. Changing period updates an open sheet without creating a new historical entity. Closing the sheet does not alter the R3 period.
+Protection: Tang, UI-D1.1, Xia, Shang and Western Zhou R1–R3 source blocks remain append-only protected.
+-->
+<style id="wz-r4-style">
+.wzR4Hotspot{position:absolute;z-index:24;width:46px;height:46px;min-width:46px;min-height:46px;border:0;border-radius:999px;background:rgba(255,250,241,.001);transform:translate(-50%,-50%);padding:0;touch-action:manipulation;-webkit-tap-highlight-color:rgba(122,101,71,.16);cursor:pointer}
+.wzR4Hotspot::after{content:"";position:absolute;inset:8px;border:2px solid transparent;border-radius:999px;transition:border-color .12s ease,background .12s ease}
+.wzR4Hotspot[aria-expanded="true"]::after,.wzR4Hotspot:focus-visible::after{border-color:#4a3c2d;background:rgba(255,250,241,.16)}
+.wzR4Hotspot:focus-visible{outline:3px solid rgba(74,60,45,.30);outline-offset:2px}
+.wzR4NodeClickable{cursor:pointer;position:relative;touch-action:manipulation;-webkit-tap-highlight-color:rgba(122,101,71,.12)}
+.wzR4NodeClickable::after{content:"點擊查看";display:inline-flex;margin-top:6px;padding:3px 7px;border-radius:999px;background:#eee0c5;color:#574838;font-size:8px;font-weight:900}
+.wzR4NodeClickable[aria-expanded="true"]{box-shadow:inset 0 0 0 2px #7a6547}
+.wzR4SheetShell{position:fixed;left:0;right:0;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:196;display:none;padding:0 8px;pointer-events:none}
+.wzR4SheetShell.open{display:block}
+.wzR4Sheet{pointer-events:auto;max-width:760px;margin:0 auto;background:#fffaf1;border:1px solid #d1b481;border-radius:22px 22px 8px 8px;box-shadow:0 -10px 35px rgba(45,38,31,.20);padding:13px 14px 15px;max-height:56vh;overflow:auto;-webkit-overflow-scrolling:touch}
+.wzR4Grip{width:42px;height:4px;border-radius:4px;background:#c8ad80;margin:0 auto 10px}
+.wzR4Head{display:flex;align-items:flex-start;gap:10px;justify-content:space-between}
+.wzR4Eyebrow{font-size:9px;color:#786a5b;margin-bottom:3px;font-weight:800}
+.wzR4Title{font-size:20px;font-weight:950;line-height:1.15;color:#33291f}
+.wzR4Close{flex:0 0 auto;width:44px;height:44px;border:0;border-radius:50%;background:#ead9ba;color:#3f342b;font-size:22px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;touch-action:manipulation}
+.wzR4Body{font-size:11px;line-height:1.62;color:#443a31;margin-top:10px}
+.wzR4Period{margin-top:10px;padding:9px 10px;border-left:4px solid #8b704d;border-radius:10px;background:#fff6e5;font-size:10px;line-height:1.55;color:#574838}
+.wzR4Grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.wzR4Card{border:1px solid #d9c197;border-radius:12px;padding:8px;background:#fffdf8;font-size:9px;line-height:1.45;color:#56493b}
+.wzR4Card b{display:block;color:#705538;margin-bottom:2px}
+.wzR4Guard{margin-top:10px;padding:8px 9px;background:#f2eadb;border-radius:10px;font-size:9px;line-height:1.5;color:#62564a}
+.wzR4Status{display:inline-flex;align-items:center;border-radius:999px;background:#4a3c2d;color:#fffaf1;padding:6px 9px;font-size:10px;font-weight:900;margin-left:6px}
+@media(max-width:430px){.wzR4Grid{grid-template-columns:1fr 1fr}.wzR4Sheet{padding:12px 13px 14px}.wzR4Hotspot{width:48px;height:48px}}
+</style>
+<script id="wz-r4-runtime-js">
+(function(){
+'use strict';
+function one(s){return document.querySelector(s)}
+function all(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function make(tag,attrs,html){var el=document.createElement(tag);Object.keys(attrs||{}).forEach(function(k){if(k==='class')el.className=attrs[k];else el.setAttribute(k,attrs[k]);});if(html!=null)el.innerHTML=html;return el;}
+var PERIOD_LABELS={P1:'周初｜武—成—康',P2:'中期前段｜昭—穆',P3:'中期後段｜共—懿',P4:'中晚期｜孝—夷—厲—共和',P5:'晚期｜宣—幽／兩周轉換'};
+var DATA={
+ zhouyuan:{title:'周原／岐周',type:'王室核心',confidence:'核心位置可讀；政治外緣不畫',body:'周原／岐周作為西周王室重要核心之一。R4 允許讀取其王室核心意義，但不把周原考古城垣或聚落範圍直接等同於一條西周政治疆界。',cannot:'考古城垣 ≠ 王畿邊界；王室活動 ≠ 連續控制 polygon。',period:{P1:'周初可作王室早期核心閱讀錨點。',P2:'本期仍保留王室核心錨點；R4 不用節點明暗推論政治強弱。',P3:'本期資料投影可較安靜；節點保留不等於新增事件。',P4:'政治危機不會把此節點自動轉畫成「疆域收縮」。',P5:'晚期仍保留歷史核心脈絡；兩周轉換另由後續層處理。'}},
+ fenghao:{title:'豐—鎬',type:'王室核心複合體',confidence:'Feng–Hao Royal Core Complex',body:'豐與鎬以王室核心複合體處理。R4 不把「豐—鎬」合併成一個有硬外框的單一城市，也不補造未授權城牆。',cannot:'核心複合體 ≠ 一座已證實連續城牆城市；不得自動生成王畿邊界。',period:{P1:'周初王室核心網絡的重要閱讀節點。',P2:'保留核心脈絡；本輪不新增昭—穆軍事路線。',P3:'保留核心脈絡，不為畫面熱鬧而新增事件。',P4:'政治階段變化不改寫此節點的地理類型。',P5:'晚期仍可作關中王室核心閱讀；東遷另屬兩周轉換。'}},
+ chengzhou:{title:'成周／洛邑',type:'王室東方核心',confidence:'區域定位較強；精確城市 polygon OPEN',body:'成周／洛邑作為西周王室東方重要核心呈現。R4 只在洛陽區域層級提供節點閱讀；精確城市範圍仍保持 OPEN。',cannot:'「王在成周」或相關活動 ≠ 已知精確城牆；區域定位 ≠ 自動畫城市 polygon。',period:{P1:'周初已進入王室東方經營的閱讀脈絡。',P2:'本期保留東方核心節點；不因跨區活動增加而外推控制區。',P3:'節點仍可閱讀，但本期不要求新增事件卡。',P4:'政治變化不改變「精確城市 polygon 仍 OPEN」的限制。',P5:'兩周轉換時成周的重要性上升，但 R4 尚不建立東周內容。'}},
+ yan:{title:'燕／琉璃河',type:'封國核心錨點',confidence:'強核心；完整領土不畫',body:'燕以琉璃河考古核心作為可定位錨點。R4 允許把它讀成封國核心，但不由核心、墓地或城址外推完整燕國疆界。',cannot:'琉璃河核心 ≠ 完整燕國領土；考古範圍 ≠ 政治疆界。',period:{P1:'周初封國網絡閱讀中可保留燕／琉璃河核心。',P2:'節點延續不代表其政治範圍在本期已有可畫邊界。',P3:'本期仍只保留核心錨點，不新增假定領土。',P4:'危機期不以透明度或縮小符號暗示燕的興衰。',P5:'晚期仍作政治實體核心閱讀，不自動畫成戰國燕疆域。'}},
+ lu:{title:'魯',type:'政治節點',confidence:'晚西周曲阜綁定較強；早期都城 OPEN',body:'魯作為西周重要政治實體保留一個閱讀節點。曲阜與晚西周的地理綁定較強；早期都城位置仍不在 R4 硬定。',cannot:'晚期曲阜資料不得回填成「整個西周時期已確定同一都城」。',period:{P1:'周初可讀作魯相關政治實體；早期都城仍 OPEN。',P2:'仍不以後期曲阜城址倒推本期精確都城。',P3:'節點保留；缺少資料不由 UI 自動補空白。',P4:'本期仍維持早期／晚期地理證據分層。',P5:'晚西周曲阜地理綁定較強，但 R4 仍不畫完整魯疆界。'}},
+ tangjin:{title:'唐／晉',type:'歷時政治實體',confidence:'唐→晉採歷時關係',body:'唐／晉以同一歷時政治脈絡閱讀，並以天馬—曲村區域作考古錨點。R4 不把「唐」與「晉」當成所有時期完全同義，也不推定已證實都城牆。',cannot:'唐 ≠ timeless 晉；考古核心 ≠ 已知都城城牆；不得自動畫完整領土。',period:{P1:'早期以唐的歷史脈絡為主，系統不把後來「晉」名稱倒灌。',P2:'可進入唐→晉的歷時轉換閱讀，但 R4 不指定一個未證實的轉換年份。',P3:'以晉的後續政治脈絡閱讀；地理仍採考古區域錨點。',P4:'節點繼續存在，不以存在本身代表政治強弱。',P5:'晚期可作晉政治實體閱讀；本輪仍不建立完整封國疆界。'}}
+};
+var order=['zhouyuan','fenghao','chengzhou','yan','lu','tangjin'];
+var coords={zhouyuan:[15.5,46],fenghao:[29,60],chengzhou:[52,60],yan:[92,14],lu:[88,49],tangjin:[35,32]};
+var currentNode=null,lastTrigger=null;
+function currentPeriod(){return document.documentElement.getAttribute('data-western-zhou-period')||'P1';}
+function installHotspots(){var stage=one('.wzR2MapStage');if(!stage||one('#wz-r4-hotspot-zhouyuan'))return;order.forEach(function(key){var c=coords[key],d=DATA[key];var b=make('button',{type:'button',class:'wzR4Hotspot',id:'wz-r4-hotspot-'+key,'data-wz-r4-node':key,'aria-label':d.title+'：開啟節點資訊卡','aria-controls':'wz-r4-sheet','aria-expanded':'false'});b.style.left=c[0]+'%';b.style.top=c[1]+'%';stage.appendChild(b);});}
+function installListOwners(){var cards=all('.westernZhouMap .wzR2Node');cards.slice(0,6).forEach(function(card,i){var key=order[i];card.classList.add('wzR4NodeClickable');card.setAttribute('role','button');card.setAttribute('tabindex','0');card.setAttribute('data-wz-r4-node',key);card.setAttribute('aria-controls','wz-r4-sheet');card.setAttribute('aria-expanded','false');card.setAttribute('aria-label',DATA[key].title+'：開啟節點資訊卡');card.addEventListener('keydown',function(ev){if(ev.key==='Enter'||ev.key===' '){ev.preventDefault();show(key,card);}});});}
+function installSheet(){if(one('#wz-r4-sheet'))return;var shell=make('div',{id:'wz-r4-sheet',class:'wzR4SheetShell','aria-hidden':'true'},'<section class="wzR4Sheet" role="dialog" aria-modal="false" aria-labelledby="wz-r4-title"><div class="wzR4Grip"></div><div class="wzR4Head"><div><div id="wz-r4-eyebrow" class="wzR4Eyebrow"></div><div id="wz-r4-title" class="wzR4Title"></div></div><button id="wz-r4-close" class="wzR4Close" type="button" aria-label="關閉節點資訊卡">×</button></div><div id="wz-r4-body" class="wzR4Body"></div><div id="wz-r4-period" class="wzR4Period"></div><div id="wz-r4-grid" class="wzR4Grid"></div><div class="wzR4Guard">R4 只做節點資訊卡：不新增 Evidence 深挖、不推導首都、不生成邊界。若欄位仍 OPEN，卡片必須保留 OPEN。</div></section>');document.body.appendChild(shell);one('#wz-r4-close').addEventListener('click',close);}
+function clearExpanded(){all('[data-wz-r4-node]').forEach(function(x){x.setAttribute('aria-expanded','false');});}
+function renderSheet(){if(!currentNode)return;var d=DATA[currentNode],p=currentPeriod();one('#wz-r4-eyebrow').textContent=d.type+'｜'+(PERIOD_LABELS[p]||p);one('#wz-r4-title').textContent=d.title;one('#wz-r4-body').textContent=d.body;one('#wz-r4-period').innerHTML='<b>本期投影｜'+(PERIOD_LABELS[p]||p)+'</b><br>'+d.period[p];one('#wz-r4-grid').innerHTML='<div class="wzR4Card"><b>資料狀態</b>'+d.confidence+'</div><div class="wzR4Card"><b>不能推出</b>'+d.cannot+'</div>';}
+function show(key,trigger){if(!DATA[key])return;currentNode=key;lastTrigger=trigger||null;clearExpanded();all('[data-wz-r4-node="'+key+'"]').forEach(function(x){x.setAttribute('aria-expanded','true');});renderSheet();var sh=one('#wz-r4-sheet');sh.classList.add('open');sh.setAttribute('aria-hidden','false');document.documentElement.setAttribute('data-western-zhou-r4-sheet',key);}
+function close(){var sh=one('#wz-r4-sheet');if(!sh)return;sh.classList.remove('open');sh.setAttribute('aria-hidden','true');clearExpanded();currentNode=null;document.documentElement.setAttribute('data-western-zhou-r4-sheet','closed');if(lastTrigger&&document.contains(lastTrigger))lastTrigger.focus();lastTrigger=null;}
+function wire(){var stage=one('.wzR2MapStage');if(stage)stage.addEventListener('click',function(ev){var t=ev.target.closest('[data-wz-r4-node]');if(!t)return;ev.preventDefault();ev.stopPropagation();show(t.getAttribute('data-wz-r4-node'),t);});all('.westernZhouMap .wzR4NodeClickable').forEach(function(card){card.addEventListener('click',function(){show(card.getAttribute('data-wz-r4-node'),card);});});all('input[name="page"]').forEach(function(r){r.addEventListener('change',function(){if(r.checked&&r.id!=='nav-westernzhoumap')close();});});var rail=one('#wz-r3-period-rail');if(rail)rail.addEventListener('click',function(){setTimeout(function(){if(currentNode)renderSheet();},90);});var mo=new MutationObserver(function(muts){muts.forEach(function(m){if(m.attributeName==='data-western-zhou-period'&&currentNode)renderSheet();});});mo.observe(document.documentElement,{attributes:true,attributeFilter:['data-western-zhou-period']});}
+function statusProjection(){document.title='中國歷史 × 世界歷史｜西周 Rebuild R4｜節點資訊卡＋地圖互動｜WORKING / NOT FREEZE';var meta=one('.header .meta');if(meta)meta.textContent='西周 Western Zhou Rebuild R4｜節點資訊卡＋地圖互動｜WORKING / NOT FREEZE｜R3 已通過真實 iPhone Safari｜唐朝＋UI-D1.1＋夏朝＋商朝＋R1–R3 受保護';var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>西周</b><span>Rebuild R4 節點互動</span>';all('.home .note').forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1)n.innerHTML='<b>架構更新：</b>西周 R1–R3 已通過真實 iPhone Safari 並 Freeze；R4 只讓既有 6 個地理錨點可點擊並開資訊卡，資訊卡依目前 P1–P5 投影合法說法，不新增疆界、Evidence、Research、Fullscreen 或 True Focus。';});var badge=one('.wzR2MapHead .wzR2Badge');if(badge)badge.insertAdjacentHTML('afterend','<span class="wzR4Status">R4｜NODE CARDS</span>');var lead=one('.wzR2MapHead .lead');if(lead)lead.textContent='R4 沿用 R3 五期與 R2 六個地理錨點，新增節點點擊與單一資訊卡。卡片只顯示已授權 minimum claim、OPEN 限制與本期投影；本輪不建立 Evidence／Research／Fullscreen。';var eyebrow=one('.wzR2MapHead .eyebrow');if(eyebrow)eyebrow.textContent='Layer 5｜Western Zhou Map｜R4';var title=one('.wzR2MapHead h2');if(title)title.textContent='西周｜P1–P5｜節點互動';var guard=one('.wzR2Guard');if(guard)guard.innerHTML='<b>R4 硬規則：</b>點擊節點只開資訊卡，不改變地圖幾何。核心位置 ≠ 首都自動認定；考古錨點 ≠ 完整疆界；早期／晚期資料不可互相回填；共和仍是政治階段。';var hub=one('.westernZhouHub .wzR1Status');if(hub)hub.textContent='R4｜WORKING / NOT FREEZE';var hero=one('.westernZhouHub .hero');if(hero){var ht=hero.querySelector('h2');if(ht)ht.textContent='西周｜Historical Baseline → R4';var hl=hero.querySelector('.lead');if(hl)hl.textContent='R1–R3 已通過真實 iPhone Safari。R4 在既有 P1–P5 與六個地理錨點上增加節點點擊與資訊卡；不新增疆界或研究模式。';var st=hero.querySelectorAll('.stat');if(st[0])st[0].innerHTML='<b>R4</b><span>目前 Gate</span>';if(st[1])st[1].innerHTML='<b>6</b><span>可點節點</span>';if(st[2])st[2].innerHTML='<b>0</b><span>新增硬邊界</span>';}var launch=one('.westernZhouHub .wzR2Launch');if(launch){launch.setAttribute('aria-label','進入西周 R4 節點互動地圖');var lb=launch.querySelector('b');if(lb)lb.textContent='進入 R4 地圖';var ls=launch.querySelector('small');if(ls)ls.textContent='P1–P5｜6 個節點可點｜資訊卡互動';}var snap=one('.westernZhouHub .wzR2Snapshot');if(snap){var sb=snap.querySelector('b');if(sb)sb.textContent='閱讀模式｜五期＋節點卡';var ss=snap.querySelector('small');if(ss)ss.textContent='節點資訊卡會依目前 P1–P5 投影合法說法；OPEN 項目保持 OPEN。';}var hg=one('.westernZhouHub .wzR1Guard');if(hg)hg.innerHTML='<b>R4 Gate：</b>驗證地圖 6 節點與下方 6 張節點卡都能開同一資訊 Sheet；切換 P1–P5 時，開啟中的資訊卡應同步更新而不改變節點身份。';}
+function boot(){statusProjection();installHotspots();installListOwners();installSheet();wire();document.documentElement.setAttribute('data-western-zhou-rebuild','R4');document.documentElement.setAttribute('data-western-zhou-status','working-not-freeze');document.documentElement.setAttribute('data-western-zhou-r4-sheet','closed');window.wzR4Show=show;window.wzR4Close=close;}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="wz-r4-meta" type="application/json">{
+  "module":"Western Zhou Rebuild",
+  "stage":"R4 Node Information Cards + Map Interaction",
+  "version":"v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "parent":"R3 Final Canon / Freeze v0.1",
+  "interactiveNodes":["周原／岐周","豐—鎬","成周／洛邑","燕／琉璃河","魯","唐／晉"],
+  "periodAware":true,
+  "singleCanonicalNodeRecord":true,
+  "newPoliticalPolygons":0,
+  "newRoutes":0,
+  "newEvidenceMode":false,
+  "newResearchMode":false,
+  "newFullscreen":false,
+  "protected":["Tang Final Canon","UI-D1.1 Final Canon","Xia M8.1 Final Canon","Shang M8.1 Final Canon","Western Zhou R1 Final Canon","Western Zhou R2 Final Canon","Western Zhou R3 Final Canon"]
+}</script>
+<div id="wz-r4-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R4" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-interactive-nodes="6" data-new-polygons="0" data-new-routes="0" data-sheet="single-node-info"></div>
+<!-- /Western Zhou Rebuild R4 -->
+
 </body>
 </html>
