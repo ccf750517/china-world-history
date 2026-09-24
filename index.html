@@ -17584,5 +17584,134 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 <div id="wz-r2-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R2" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-map="cross-period-overview" data-nodes="6" data-political-polygons="0" data-hotspots="0"></div>
 <!-- /Western Zhou Rebuild R2 -->
 
+
+<!-- Western Zhou Rebuild R3｜Period / Time Structure v0.1
+Source: Western Zhou Rebuild R2 Final Canon / Freeze v0.1 + Western Zhou Pre-M1 Historical Baseline v0.1.
+Status: WORKING / NOT FREEZE.
+Scope: add five Western Zhou period controls (P1-P5) to the existing R2 map without introducing new evidence mode, research mode, hotspot sheet, fullscreen, True Focus, political boundary polygon, or disputed-location geometry. R3 changes temporal reading state and explanatory copy only; existing R2 geographic anchors remain protected.
+Chronology guard: General display uses the conventional Western Zhou frame c.1046-771 BCE, but R3 does not assign unsupported exact BCE cut-points to P1-P5. Gonghe is a political phase, not a king. P5 reserves the Western-Zhou-to-Eastern-Zhou transition without creating Eastern Zhou content.
+Protection: Tang, UI-D1.1, Xia, Shang, Western Zhou R1 and R2 source blocks remain append-only protected.
+-->
+<style id="wz-r3-style">
+.wzR3RailWrap{width:100%;overflow:hidden}
+.wzR3Rail{display:flex;gap:7px;overflow-x:auto;padding:1px 1px 7px;scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.wzR3Rail::-webkit-scrollbar{display:none}
+.wzR3PeriodBtn{appearance:none;min-width:92px;min-height:48px;border:1px solid #b99a67;border-radius:14px;background:#fffaf1;color:#4d4034;padding:7px 9px;font:inherit;text-align:left;scroll-snap-align:start;cursor:pointer}
+.wzR3PeriodBtn b{display:block;font-size:12px;line-height:1.15}.wzR3PeriodBtn small{display:block;font-size:9px;line-height:1.25;color:#76695b;margin-top:3px;white-space:normal}
+.wzR3PeriodBtn[aria-pressed="true"]{background:#4a3c2d;color:#fffaf1;border-color:#4a3c2d}.wzR3PeriodBtn[aria-pressed="true"] small{color:#f1e7d7}
+.wzR3Context{display:grid;grid-template-columns:1.15fr .85fr;gap:8px;width:100%;margin-top:2px}
+.wzR3ContextCard,.wzR3Sequence{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:9px 10px;font-size:10px;line-height:1.5;color:#5e5245}
+.wzR3ContextCard b,.wzR3Sequence b{display:block;font-size:12px;color:#352b22;margin-bottom:2px}
+.wzR3Sequence .phase{display:inline-block;margin-top:3px;border-radius:999px;background:#eee0c5;padding:2px 6px;font-size:9px;font-weight:850;color:#59493d}
+html[data-western-zhou-rebuild="R3"] #wz-r2-geometry{display:none}
+#wz-r3-geometry text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:2.4px;stroke-linejoin:round}
+.wzR3PeriodNote{margin-top:8px;padding:9px 10px;background:#fff6e5;border-left:4px solid #8b704d;border-radius:10px;font-size:10px;line-height:1.55;color:#574838}
+.wzR3PhaseTag{display:inline-flex;border-radius:999px;padding:5px 8px;background:#eee0c5;color:#4d4034;font-size:9px;font-weight:900;margin-left:5px;vertical-align:middle}
+.wzR3MapOnly{font-size:9px;color:#7a6c5d;margin-left:auto}
+@media(max-width:430px){.wzR3Context{grid-template-columns:1fr}.wzR3PeriodBtn{min-width:98px}.wzR3MapOnly{width:100%;margin-left:0}}
+</style>
+<script id="wz-r3-runtime-js">
+(function(){
+'use strict';
+function one(s){return document.querySelector(s)}
+function all(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function make(tag,attrs,html){var el=document.createElement(tag);Object.keys(attrs||{}).forEach(function(k){if(k==='class')el.className=attrs[k];else el.setAttribute(k,attrs[k]);});if(html!=null)el.innerHTML=html;return el;}
+function svgEl(tag,attrs,text){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});if(text!=null)e.textContent=text;return e;}
+var PERIODS={
+ P1:{label:'P1｜周初',short:'武—成—康',title:'周初｜武—成—康',focus:'建國與早期王室核心／封國網絡閱讀。R3 只建立時間狀態，不把封國核心外推成完整疆界。',sequence:'武 → 成 → 康',phase:'早期'},
+ P2:{label:'P2｜中期前段',short:'昭—穆',title:'中期前段｜昭—穆',focus:'王室跨區域活動增加；R3 尚未加入軍事路線，因此不以移動方向製造新的控制區。',sequence:'昭 → 穆',phase:'中期前段'},
+ P3:{label:'P3｜中期後段',short:'共—懿',title:'中期後段｜共—懿',focus:'本期允許資料投影較安靜；不因畫面需要而補造戰爭、邊界或不存在的熱點。',sequence:'共 → 懿',phase:'中期後段'},
+ P4:{label:'P4｜中晚期',short:'孝—夷／厲—共和',title:'中晚期｜孝—夷—厲—共和',focus:'共和以政治階段呈現，不列為一位王；本輪仍不把政治危機轉畫成疆域收縮。',sequence:'孝 → 夷 → 厲 → 〔共和〕',phase:'共和＝政治階段'},
+ P5:{label:'P5｜晚期',short:'宣—幽／兩周轉換',title:'晚期｜宣—幽／兩周轉換',focus:'重點轉向晚期政治危機與兩周轉換；R3 只保留時間入口，不提前建立東周內容或轉換路線。',sequence:'宣 → 幽 → 兩周轉換',phase:'Transition reserved'}
+};
+var current='P1';
+function boot(){
+  document.title='中國歷史 × 世界歷史｜西周 Rebuild R3｜分期／時間結構｜WORKING / NOT FREEZE';
+  var meta=one('.header .meta');if(meta)meta.textContent='西周 Western Zhou Rebuild R3｜分期／時間結構｜WORKING / NOT FREEZE｜R2 已通過真實 iPhone Safari｜唐朝＋UI-D1.1＋夏朝＋商朝＋R1/R2 受保護';
+  var homeLead=one('.home .systemHero .lead');if(homeLead)homeLead.textContent='唐朝、夏朝與商朝正式模組維持受保護；西周 R1 入口與 R2 第一地圖層均已通過真實 iPhone Safari，現在進入 R3 五期時間結構。';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>西周</b><span>Rebuild R3 分期施工</span>';
+  all('.home .note').forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>西周 R1、R2 已通過真實 iPhone Safari 並 Freeze；R3 只在既有西周地圖加入 P1–P5 分期與王序／政治階段閱讀，不新增封國硬邊界、資訊卡、Evidence、Fullscreen 或研究層。';}});
+
+  all('.dynastyCard').forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='西周')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='R3｜五期分期';var sm=card.querySelector('small');if(sm)sm.textContent='約前1046—前771｜P1–P5 時間結構施工';});
+
+  var hub=one('.westernZhouHub .pageInner');
+  if(hub){
+    var hero=hub.querySelector('.hero');
+    if(hero){var status=hero.querySelector('.wzR1Status');if(status)status.textContent='R3｜WORKING / NOT FREEZE';var title=hero.querySelector('h2');if(title)title.textContent='西周｜Historical Baseline → R3';var lead=hero.querySelector('.lead');if(lead)lead.textContent='R1 朝代入口與 R2 第一張地圖均已完成實機驗證。R3 只建立 P1–P5 時間閱讀結構；地圖節點仍沿用 R2 已授權的位置語義。';var stats=hero.querySelectorAll('.stat');if(stats[0])stats[0].innerHTML='<b>R3</b><span>目前 Gate</span>';if(stats[1])stats[1].innerHTML='<b>5</b><span>正式分期</span>';if(stats[2])stats[2].innerHTML='<b>0</b><span>新增硬邊界</span>';}
+    var launch=hub.querySelector('.wzR2Launch');if(launch){launch.setAttribute('aria-label','進入西周 R3 分期地圖');var b=launch.querySelector('b');if(b)b.textContent='進入 R3 地圖';var sm=launch.querySelector('small');if(sm)sm.textContent='P1–P5｜五期切換｜沿用 R2 地理節點';}
+    var snap=hub.querySelector('.wzR2Snapshot');if(snap){var sb=snap.querySelector('b');if(sb)sb.textContent='閱讀模式｜五期時間結構';var ss=snap.querySelector('small');if(ss)ss.textContent='P1–P5 不配置未證實的精確分界年份；共和維持政治階段。';}
+    var guard=hub.querySelector('.wzR1Guard');if(guard)guard.innerHTML='<b>R3 Gate：</b>驗證 P1–P5 可依序切換、王序與共和語義正確、地圖不因分期而自動長出硬疆界；資訊卡、Evidence、Fullscreen 仍禁止提前加入。';
+  }
+
+  var map=one('.westernZhouMap');
+  if(map){
+    var eyebrow=map.querySelector('.wzR2MapHead .eyebrow');if(eyebrow)eyebrow.textContent='Layer 4｜Western Zhou Map｜R3';
+    var title=map.querySelector('.wzR2MapHead h2');if(title){title.id='wz-r3-map-title';title.textContent='西周｜P1–P5｜分期閱讀';map.setAttribute('aria-labelledby','wz-r3-map-title');}
+    var lead=map.querySelector('.wzR2MapHead .lead');if(lead)lead.textContent='R3 在 R2 跨期總覽之上加入五個時間狀態。每一期只改變時間脈絡與閱讀重點；本輪不新增疆界 polygon、事件路線、Evidence 或節點資訊卡。';
+    var badge=map.querySelector('.wzR2Badge');if(badge)badge.textContent='R3｜PERIOD WORKING';
+    var controls=map.querySelector('.wzR2Controls');
+    if(controls && !one('#wz-r3-period-rail')){
+      controls.innerHTML='<div class="title">時間分期</div><div class="wzR3RailWrap"><div class="wzR3Rail" id="wz-r3-period-rail" role="group" aria-label="西周 P1 至 P5 分期"></div></div><div class="wzR3Context"><div class="wzR3ContextCard" id="wz-r3-context"></div><div class="wzR3Sequence" id="wz-r3-sequence"></div></div><span class="wzR3MapOnly">R3｜時間狀態；地理節點沿用 R2</span>';
+      var rail=one('#wz-r3-period-rail');
+      Object.keys(PERIODS).forEach(function(id){var p=PERIODS[id];var btn=make('button',{type:'button',class:'wzR3PeriodBtn','data-period':id,'aria-pressed':'false'},'<b>'+p.label+'</b><small>'+p.short+'</small>');btn.addEventListener('click',function(){setPeriod(id,true)});rail.appendChild(btn);});
+    }
+    var oldGuard=map.querySelector('.wzR2Guard');if(oldGuard)oldGuard.innerHTML='<b>R3 硬規則：</b>P1–P5 是閱讀分期，不是自動疆域模型；未授權的邊界不會因切期出現。共和是政治階段，不是王。P5 的「兩周轉換」只保留入口語義，本輪不建立東周資料。';
+    var oldSources=map.querySelector('.wzR2Sources');if(oldSources)oldSources.textContent='歷史基準沿用 Western Zhou Pre-M1 Final Canon；R2 地理節點保持不變。R3 僅新增時間投影，不新增史實判定。';
+  }
+
+  var svg=one('#wz-r2-map-svg');
+  if(svg && !one('#wz-r3-geometry')){var g=svgEl('g',{id:'wz-r3-geometry'});svg.appendChild(g);}
+  setPeriod('P1',false);
+
+  document.documentElement.setAttribute('data-western-zhou-rebuild','R3');
+  document.documentElement.setAttribute('data-western-zhou-status','working-not-freeze');
+}
+function draw(){
+  var g=one('#wz-r3-geometry');if(!g)return;while(g.firstChild)g.removeChild(g.firstChild);
+  function royal(x,y,label,dx,dy){g.appendChild(svgEl('circle',{cx:x,cy:y,r:'8.5',class:'wzR2RoyalHalo'}));g.appendChild(svgEl('circle',{cx:x,cy:y,r:'3.0',class:'wzR2RoyalCore'}));g.appendChild(svgEl('text',{x:x+dx,y:y+dy,'font-size':'5.3','font-weight':'900',fill:'#352b22'},label));}
+  function polity(x,y,label,dx,dy){g.appendChild(svgEl('circle',{cx:x,cy:y,r:'3.3',class:'wzR2Anchor'}));g.appendChild(svgEl('text',{x:x+dx,y:y+dy,'font-size':'5.1','font-weight':'850',fill:'#59493d'},label));}
+  /* R3 deliberately keeps the six R2 geographic anchors stable across P1-P5.
+     The period meaning comes from the temporal context panel; opacity is never used to imply decline. */
+  royal(684,313,'周原／岐周',-12,-8);
+  royal(701,326,'豐—鎬',-5,12);
+  royal(730,326,'成周／洛邑',4,2);
+  polity(784,281,'燕／琉璃河',-31,-6);
+  polity(775,316,'魯',5,2);
+  polity(709,300,'唐／晉',-5,-8);
+  var p=PERIODS[current];
+  g.appendChild(svgEl('text',{x:'669',y:'357','font-size':'4.3','font-weight':'850',fill:'#6b5c4c'},p.label+'｜'+p.short));
+  g.appendChild(svgEl('text',{x:'669',y:'362','font-size':'3.9','font-weight':'750',fill:'#6b5c4c'},'R3｜分期只改時間脈絡；本輪不新增疆界幾何。'));
+  var svg=one('#wz-r2-map-svg');if(svg)svg.setAttribute('aria-label','西周 '+p.title+' 地圖閱讀。顯示沿用 R2 的六個地理節點；分期只改變時間脈絡，不表示新的硬式政治疆界。');
+}
+function setPeriod(id,announce){
+  if(!PERIODS[id])return;current=id;var p=PERIODS[id];
+  all('.wzR3PeriodBtn').forEach(function(b){var active=b.getAttribute('data-period')===id;b.setAttribute('aria-pressed',active?'true':'false');if(active && announce)b.scrollIntoView({block:'nearest',inline:'nearest'});});
+  var c=one('#wz-r3-context');if(c)c.innerHTML='<b>'+p.title+'</b>'+p.focus;
+  var s=one('#wz-r3-sequence');if(s)s.innerHTML='<b>王序／政治階段</b>'+p.sequence+'<br><span class="phase">'+p.phase+'</span>';
+  var badge=one('.wzR2MapHead .wzR2Badge');if(badge)badge.innerHTML='R3｜'+id+'<span class="wzR3PhaseTag">'+p.short+'</span>';
+  draw();
+  document.documentElement.setAttribute('data-western-zhou-period',id);
+  if(announce){var live=one('#wz-r3-live');if(!live){live=make('div',{id:'wz-r3-live','aria-live':'polite',style:'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap'},'');document.body.appendChild(live);}live.textContent='已切換至'+p.title;}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="wz-r3-meta" type="application/json">{
+  "module":"Western Zhou Rebuild",
+  "stage":"R3 Period / Time Structure",
+  "version":"v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "parent":"R2 Final Canon / Freeze v0.1",
+  "periods":{"P1":"周初｜武—成—康","P2":"中期前段｜昭—穆","P3":"中期後段｜共—懿","P4":"中晚期｜孝—夷—厲—共和","P5":"晚期｜宣—幽／兩周轉換"},
+  "exactBceCutpoints":"not asserted",
+  "gonghe":"political phase; not a king",
+  "newPoliticalPolygons":0,
+  "newHotspots":0,
+  "newEvidenceMode":false,
+  "protected":["Tang Final Canon","UI-D1.1 Final Canon","Xia M8.1 Final Canon","Shang M8.1 Final Canon","Western Zhou R1 Final Canon","Western Zhou R2 Final Canon"]
+}</script>
+<div id="wz-r3-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R3" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-periods="5" data-gonghe="political-phase" data-new-polygons="0" data-new-hotspots="0"></div>
+<!-- /Western Zhou Rebuild R3 -->
+
 </body>
 </html>
