@@ -17411,5 +17411,178 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 }</script>
 <div id="wz-r1-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R1" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-parent-lock="R0" data-historical-delta="none" data-map-delta="none"></div>
 <!-- /Western Zhou Rebuild R1 -->
+
+
+<!-- Western Zhou Rebuild R1｜Device Freeze Record
+Status: PASS / FINAL CANON / FREEZE.
+Basis: user-supplied real iPhone Safari screenshots on 2026-09-24 verified Home → Dynasty Index → Western Zhou Hub → Back → Dynasty Index, and regression access to Xia, Shang and Tang modules.
+No R1 authored route or Hub semantics are changed by this record.
+-->
+<script id="wz-r1-device-freeze-meta" type="application/json">{
+  "module":"Western Zhou Rebuild",
+  "stage":"R1 Dynasty Layer Integration",
+  "version":"v0.1",
+  "status":"PASS / FINAL CANON / FREEZE",
+  "freezeDate":"2026-09-24",
+  "device":"real iPhone Safari",
+  "deviceEvidence":["Home → Dynasty Index","Dynasty Index → Western Zhou Hub","Western Zhou Hub → Back → Dynasty Index","Xia regression","Shang regression","Tang regression"],
+  "historicalDelta":"none",
+  "mapGeometryDelta":"none"
+}</script>
+<div id="wz-r1-freeze-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R1" data-version="v0.1" data-status="PASS / FINAL CANON / FREEZE" data-device-qc="real-iPhone-Safari-PASS"></div>
+
+<!-- Western Zhou Rebuild R2｜First Formal Map Layer v0.1
+Source: Western Zhou Rebuild R1 Final Canon / Freeze v0.1 + Western Zhou Pre-M1 Historical Baseline v0.1.
+Status: WORKING / NOT FREEZE.
+Scope: add a Western Zhou map route, a Hub map-entry control, and one non-interactive cross-period overview map. R2 shows only authorized point/soft-halo semantics for Zhouyuan, Feng–Hao, Chengzhou/Luoyi, Yan/Liulihe, Lu and Tang/Jin. No P1–P5 period system, hotspot sheet, evidence mode, research mode, fullscreen, True Focus, political boundary polygon or disputed Zongzhou location is introduced.
+Temporal guard: this is a cross-period overview; the six nodes are not asserted to share the same status at one instant.
+Protection: Tang, UI-D1.1, Xia, Shang and R1 source blocks remain append-only protected.
+-->
+<style id="wz-r2-style">
+#nav-westernzhoumap:checked ~ .screens .westernZhouMap{display:block}
+.backToWesternZhouHub{display:none}
+#nav-westernzhoumap:checked ~ .header .hierBack{display:flex}
+#nav-westernzhoumap:checked ~ .header .backToWesternZhouHub{display:flex}
+#nav-westernzhoumap:checked ~ .bottom label[for="nav-westernzhoumap"]{background:#ead8b8;color:#33291f;font-weight:900}
+.westernZhouHub .wzR2Entry{display:grid;grid-template-columns:1.15fr .85fr;gap:10px;margin:12px 0 6px}
+.westernZhouHub .wzR2Launch,.westernZhouHub .wzR2Snapshot{background:#fffaf1;border:1px solid #d5bd93;border-radius:16px;padding:13px}
+.westernZhouHub .wzR2Launch{cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;border-width:2px;border-color:#8b704d}
+.westernZhouHub .wzR2Launch b,.westernZhouHub .wzR2Snapshot b{display:block;font-size:15px}
+.westernZhouHub .wzR2Launch small,.westernZhouHub .wzR2Snapshot small{display:block;color:var(--muted);font-size:10px;line-height:1.45;margin-top:4px}
+.westernZhouHub .wzR2Launch .go{font-size:22px;font-weight:900;color:#7a6547}
+.westernZhouMap .pageInner{max-width:900px}
+.wzR2MapHead{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin-bottom:10px}
+.wzR2MapHead h2{margin-bottom:3px}.wzR2Badge{display:inline-flex;background:#4a3c2d;color:#fffaf1;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;white-space:nowrap}
+.wzR2Panel{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:12px;overflow:hidden}
+.wzR2Controls{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:2px 0 10px;border-bottom:1px solid #d4b987}
+.wzR2Controls .title{font-size:10px;color:var(--muted);width:100%}
+.wzR2Controls .mode{border:1px solid #4a3c2d;border-radius:999px;background:#4a3c2d;color:#fffaf1;padding:8px 13px;font-size:12px;font-weight:850}
+.wzR2Controls .future{font-size:11px;padding:7px 10px;opacity:.55}
+.wzR2MapStage{position:relative;margin-top:10px;border-radius:16px;overflow:hidden;background:#cbbd9d;border:1px solid #c2a97a;aspect-ratio:4/3}
+.wzR2MapStage svg{width:100%;height:100%;display:block;background:#cbbd9d}
+.wzR2MapStage text{font-family:"PingFang TC","Microsoft JhengHei",system-ui,sans-serif;paint-order:stroke;stroke:#fffaf0;stroke-width:2.4px;stroke-linejoin:round}
+.wzR2MapStage .small{stroke-width:1.5px}
+.wzR2RoyalHalo{fill:#9d794d;fill-opacity:.10;stroke:#765a39;stroke-width:1.2;stroke-dasharray:4 3}
+.wzR2RoyalCore{fill:#4a3c2d;stroke:#fffaf0;stroke-width:1.5}
+.wzR2Polity{fill:#fffaf0;stroke:#765a39;stroke-width:1.8}
+.wzR2Anchor{fill:#fffaf0;stroke:#765a39;stroke-width:1.4;stroke-dasharray:3 2}
+.wzR2Legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.wzR2Legend div{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:9px;font-size:10px;line-height:1.45}
+.wzR2Legend b{font-size:11px}.wzR2Legend i{display:inline-block;width:20px;height:12px;margin-right:6px;vertical-align:middle;border-radius:999px}
+.wzR2Legend .royal i{background:#4a3c2d;box-shadow:0 0 0 4px rgba(157,121,77,.18)}
+.wzR2Legend .polity i{background:#fffaf0;border:2px solid #765a39}
+.wzR2NodeList{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.wzR2Node{background:#fffaf1;border:1px solid #d5bd93;border-radius:13px;padding:9px;font-size:10px;line-height:1.5;color:#5e5245}
+.wzR2Node b{display:block;font-size:12px;color:#352b22;margin-bottom:2px}
+.wzR2Node .qual{display:inline-block;border-radius:999px;background:#eee0c5;padding:2px 6px;font-size:9px;font-weight:800;margin-bottom:3px}
+.wzR2Guard{margin-top:10px;padding:10px 11px;background:#fff6e5;border-left:4px solid #8b704d;border-radius:12px;font-size:10px;line-height:1.6;color:#574838}
+.wzR2Sources{margin-top:9px;font-size:9px;line-height:1.5;color:#74685a}
+@media(max-width:430px){.westernZhouHub .wzR2Entry{grid-template-columns:1fr}.wzR2MapHead{align-items:flex-start;flex-direction:column}.wzR2Legend,.wzR2NodeList{grid-template-columns:1fr 1fr}}
+</style>
+<script id="wz-r2-runtime-js">
+(function(){
+'use strict';
+function one(s){return document.querySelector(s)}
+function all(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
+function make(tag,attrs,html){var el=document.createElement(tag);Object.keys(attrs||{}).forEach(function(k){if(k==='class')el.className=attrs[k];else el.setAttribute(k,attrs[k]);});if(html!=null)el.innerHTML=html;return el;}
+function svgEl(tag,attrs,text){var e=document.createElementNS('http://www.w3.org/2000/svg',tag);Object.keys(attrs||{}).forEach(function(k){e.setAttribute(k,attrs[k]);});if(text!=null)e.textContent=text;return e;}
+function boot(){
+  /* R2 becomes the current status projection; R1 remains preserved and frozen. */
+  document.title='中國歷史 × 世界歷史｜西周 Rebuild R2｜第一個正式地圖層｜WORKING / NOT FREEZE';
+  var meta=one('.header .meta');if(meta)meta.textContent='西周 Western Zhou Rebuild R2｜第一個正式地圖層｜WORKING / NOT FREEZE｜R1 已通過真實 iPhone Safari｜唐朝＋UI-D1.1＋夏朝＋商朝受保護';
+  var homeLead=one('.home .systemHero .lead');if(homeLead)homeLead.textContent='唐朝、夏朝與商朝正式模組維持受保護；西周 R1 朝代入口已完成真實 iPhone Safari 驗證，現在進入 R2 第一個正式地圖層。';
+  var hs=document.querySelectorAll('.home .stat');if(hs[3])hs[3].innerHTML='<b>西周</b><span>Rebuild R2 地圖施工</span>';
+  all('.home .note').forEach(function(n){if((n.textContent||'').indexOf('架構更新：')!==-1){n.innerHTML='<b>架構更新：</b>西周 R1 朝代入口已通過真實 iPhone Safari 並 Freeze；R2 只增加西周第一個跨期總覽地圖與 6 個最低限度節點，不建立封國硬邊界、不加入 P1–P5、資訊卡或全螢幕。';}});
+
+  var header=one('body > .header');
+  if(header && !one('#nav-westernzhoumap')){var input=make('input',{class:'ctrl',id:'nav-westernzhoumap',name:'page',type:'radio'});header.parentNode.insertBefore(input,header);}
+  var back=one('.header .hierBack');
+  if(back && !one('.backToWesternZhouHub')){back.appendChild(make('label',{class:'backToWesternZhouHub',for:'nav-westernzhouhub','aria-label':'上一頁，返回西周 Hub'},'<span class="backArrow">←</span><span>上一頁</span><span class="backTarget">西周 Hub</span>'));}
+
+  /* Update the already-authorized Western Zhou dynasty card without changing its route. */
+  all('.dynastyCard').forEach(function(card){var h=card.querySelector('h4');if(!h||h.textContent.trim()!=='西周')return;var b=card.querySelector('.dynastyBadge');if(b)b.textContent='R2｜第一地圖層';var sm=card.querySelector('small');if(sm)sm.textContent='約前1046—前771｜跨期總覽地圖施工';});
+
+  /* Hub entry: add one map launch, using the same cumulative-site pattern as Xia/Shang. */
+  var hub=one('.westernZhouHub .pageInner');
+  if(hub && !one('.wzR2Entry')){
+    var hero=hub.querySelector('.hero');
+    if(hero){var status=hero.querySelector('.wzR1Status');if(status){status.className='wzR1Status';status.textContent='R2｜WORKING / NOT FREEZE';}var title=hero.querySelector('h2');if(title)title.textContent='西周｜Historical Baseline → R2';var lead=hero.querySelector('.lead');if(lead)lead.textContent='R1 朝代入口已通過實機驗證。R2 先建立西周跨期總覽地圖，只呈現王室核心與代表性政治／考古節點；分期、資訊卡與研究層全部延後。';var stats=hero.querySelectorAll('.stat');if(stats[0])stats[0].innerHTML='<b>R2</b><span>目前 Gate</span>';if(stats[1])stats[1].innerHTML='<b>6</b><span>最低限度節點</span>';if(stats[2])stats[2].innerHTML='<b>0</b><span>硬式疆界</span>';}
+    var entry=make('div',{class:'wzR2Entry'},'<label class="wzR2Launch" for="nav-westernzhoumap" aria-label="進入西周 R2 地圖"><span><b>進入 R2 地圖</b><small>約前1046—前771｜跨期總覽｜王室核心＋代表性政治節點</small></span><span class="go">→</span></label><div class="wzR2Snapshot"><b>閱讀模式｜跨期總覽</b><small>六個節點跨越西周不同時段，不代表同一瞬間的完整政治格局。</small></div>');
+    var grid=hub.querySelector('.wzR1Grid');if(grid)hub.insertBefore(entry,grid);else hub.appendChild(entry);
+    var guard=hub.querySelector('.wzR1Guard');if(guard)guard.innerHTML='<b>R2 Gate：</b>只驗證「西周 Hub → 西周地圖 → 上一頁 → 西周 Hub」與六個節點的手機可讀性。P1–P5、節點點擊、Evidence、Fullscreen 全部禁止提前加入。';
+  }
+
+  var screens=one('.screens');
+  if(screens && !one('.westernZhouMap')){
+    var sec=make('section',{class:'page westernZhouMap',id:'western-zhou-map','aria-labelledby':'wz-r2-map-title'},
+      '<div class="pageInner">'+
+       '<div class="wzR2MapHead"><div><div class="eyebrow">Layer 3｜Western Zhou Map｜R2</div><h2 id="wz-r2-map-title">西周｜約前1046—前771｜跨期總覽</h2><p class="lead">R2 第一個正式地圖層。此圖只標示西周期間的重要王室核心與代表性政治／考古節點，不畫王畿或封國硬式疆界；六個節點跨越不同時段，不能被讀成同一年的完整政治版圖。</p></div><span class="wzR2Badge">R2｜MAP WORKING</span></div>'+
+       '<div class="wzR2Panel">'+
+        '<div class="wzR2Controls"><div class="title">操作</div><span class="mode">總覽｜核心與節點</span><span class="future">P1–P5｜後續 R3</span><span class="future">資訊卡｜後續 R4</span></div>'+
+        '<div class="wzR2MapStage"><svg id="wz-r2-map-svg" viewBox="665 270 125 94" preserveAspectRatio="xMidYMid slice" role="img" aria-label="西周跨期總覽地圖。顯示周原、豐鎬、成周、燕琉璃河、魯與唐晉等節點；不表示硬式政治疆界。"><g id="wz-r2-base"></g><g id="wz-r2-geometry"></g></svg></div>'+
+        '<div class="wzR2Legend"><div class="royal"><b><i></i>王室核心</b><br>實心節點＋柔性光暈，只表示核心位置，不形成王畿邊界。</div><div class="polity"><b><i></i>封國／地方政治節點</b><br>空心節點，只表示可合理定位的核心／考古錨點，不形成完整封國疆界。</div></div>'+
+        '<div class="wzR2NodeList">'+
+          '<div class="wzR2Node"><span class="qual">王室核心</span><b>周原／岐周</b>西周王室重要核心之一；R2 不把周原考古城垣外推為政治領土。</div>'+
+          '<div class="wzR2Node"><span class="qual">王室核心複合體</span><b>豐—鎬</b>作為 Feng–Hao Royal Core Complex 呈現；不補造未授權的城牆或王畿邊界。</div>'+
+          '<div class="wzR2Node"><span class="qual">王室東方核心</span><b>成周／洛邑</b>定位到洛陽區域層級；精確城市 polygon 仍保持 OPEN。</div>'+
+          '<div class="wzR2Node"><span class="qual">封國核心錨點</span><b>燕／琉璃河</b>以琉璃河強核心為錨點；不畫完整燕國領土。</div>'+
+          '<div class="wzR2Node"><span class="qual">政治節點</span><b>魯</b>曲阜對晚西周的地理綁定較強；早期都城仍不在 R2 硬定。</div>'+
+          '<div class="wzR2Node"><span class="qual">歷時政治實體</span><b>唐／晉</b>以天馬—曲村區域作考古錨點；唐→晉採歷時關係，不建立已證實都城牆。</div>'+
+        '</div>'+
+        '<div class="wzR2Guard"><b>R2 硬規則：</b>王室核心 ≠ 連續王畿 polygon；封國核心 ≠ 封國疆界；考古錨點 ≠ 都城自動認定；跨期總覽 ≠ 同一時刻。宗周位置、宜、魯早期都城、王畿外緣等 OPEN 項目本輪不畫成確定幾何。</div>'+
+        '<div class="wzR2Sources">歷史基準沿用 Western Zhou Pre-M1 Final Canon。R2 不新增史實判定，只把已授權的最低限度地理語義投影到原主站地圖框架。</div>'+
+       '</div>'+
+      '</div>');
+    var wzHub=one('.westernZhouHub');if(wzHub && wzHub.nextSibling)screens.insertBefore(sec,wzHub.nextSibling);else screens.appendChild(sec);
+  }
+
+  /* Reuse the existing main-site basemap instead of duplicating its embedded image bytes. */
+  var base=one('#xia-m1-map-svg image') || one('#shang-m1-map-svg image');
+  var slot=one('#wz-r2-base');if(base&&slot&&!slot.firstChild)slot.appendChild(base.cloneNode(true));
+
+  /* R2 map geometry: points/halos only. No closed political territory. */
+  var g=one('#wz-r2-geometry');
+  if(g && !g.firstChild){
+    function royal(x,y,label,dx,dy){g.appendChild(svgEl('circle',{cx:x,cy:y,r:'8.5',class:'wzR2RoyalHalo'}));g.appendChild(svgEl('circle',{cx:x,cy:y,r:'3.0',class:'wzR2RoyalCore'}));g.appendChild(svgEl('text',{x:x+dx,y:y+dy,'font-size':'5.3','font-weight':'900',fill:'#352b22'},label));}
+    function polity(x,y,label,dx,dy,anchor){g.appendChild(svgEl('circle',{cx:x,cy:y,r:'3.3',class:anchor?'wzR2Anchor':'wzR2Polity'}));g.appendChild(svgEl('text',{x:x+dx,y:y+dy,'font-size':'5.1','font-weight':'850',fill:'#59493d'},label));}
+    royal(684,313,'周原／岐周',-12,-8);
+    royal(701,326,'豐—鎬',-5,12);
+    royal(730,326,'成周／洛邑',4,2);
+    polity(784,281,'燕／琉璃河',-31,-6,true);
+    polity(775,316,'魯',5,2,true);
+    polity(709,300,'唐／晉',-5,-8,true);
+    g.appendChild(svgEl('text',{x:'669',y:'358','font-size':'4.4','font-weight':'800',fill:'#6b5c4c',class:'small'},'R2｜跨期節點總覽；位置為閱讀錨點，不形成疆界。'));
+  }
+
+  /* Bottom-map ownership: Western Zhou Hub/Map must route to its own map, after legacy Xia/Shang listeners run. */
+  var bottomMap=all('.bottom label').find(function(l){return (l.querySelector('span')||{}).textContent==='地圖';});
+  var wzHubCtrl=one('#nav-westernzhouhub'),wzMapCtrl=one('#nav-westernzhoumap');
+  function routeBottom(){if(!bottomMap)return;var inWZ=(wzHubCtrl&&wzHubCtrl.checked)||(wzMapCtrl&&wzMapCtrl.checked);if(inWZ){bottomMap.setAttribute('for','nav-westernzhoumap');bottomMap.setAttribute('aria-label','進入西周地圖');}}
+  all('input[name="page"]').forEach(function(el){el.addEventListener('change',routeBottom);});routeBottom();
+
+  document.documentElement.setAttribute('data-western-zhou-rebuild','R2');
+  document.documentElement.setAttribute('data-western-zhou-status','working-not-freeze');
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot);else boot();
+})();
+</script>
+<script id="wz-r2-meta" type="application/json">{
+  "module":"Western Zhou Rebuild",
+  "stage":"R2 First Formal Map Layer",
+  "version":"v0.1",
+  "status":"WORKING / NOT FREEZE",
+  "parent":"R1 Final Canon / Freeze v0.1",
+  "temporalMode":"cross-period overview; not a single-year snapshot",
+  "route":"nav-westernzhoumap",
+  "newPage":"westernZhouMap",
+  "nodes":["Zhouyuan/Qizhou","Feng-Hao","Chengzhou/Luoyi","Yan/Liulihe","Lu","Tang/Jin"],
+  "politicalPolygonCount":0,
+  "interactiveHotspotCount":0,
+  "deferred":["P1-P5","node sheets","Evidence","Research","Fullscreen","True Focus","Zongzhou candidates"],
+  "protected":["Tang Final Canon","UI-D1.1 Final Canon","Xia M8.1 Final Canon","Shang M8.1 Final Canon","Western Zhou R1 Final Canon"]
+}</script>
+<div id="wz-r2-machine-meta" hidden data-stage="Western-Zhou-Rebuild-R2" data-version="v0.1" data-status="WORKING / NOT FREEZE" data-map="cross-period-overview" data-nodes="6" data-political-polygons="0" data-hotspots="0"></div>
+<!-- /Western Zhou Rebuild R2 -->
+
 </body>
 </html>
